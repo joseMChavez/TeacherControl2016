@@ -33,7 +33,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Usuarios (nombre,clase,tipoUsuario) Values('{0}','{1}','{2}')", this.nombre, this.pass, this.tipoUsuario));
+                retorno = conexion.Ejecutar(string.Format("insert into Usuario (nombre,clase,tipoUsuario) Values('{0}','{1}','{2}')", this.nombre, this.pass, this.tipoUsuario));
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Usuarios set nombre= '{0}', clave='{1}', tipoUsuario='{2}' where usuarioId= {3}",this.nombre, this.pass, this.tipoUsuario, this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("update Usuario set nombre= '{0}', clave='{1}', tipoUsuario='{2}' where usuarioId= {3}",this.nombre, this.pass, this.tipoUsuario, this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where  usuarioId=" + IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where  usuarioId=" + IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
                     this.usuarioId = (int)dt.Rows[0]["usuarioId"];
@@ -88,7 +88,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where  usuarioId= '"+nombre+"'" ));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where  usuarioId= '"+nombre+"'" ));
                 if (dt.Rows.Count > 0)
                 {
                     this.usuarioId = (int)dt.Rows[0]["usuarioId"];
@@ -110,7 +110,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Usuarios where usuarioId=", this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("delete from Usuario where usuarioId=", this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -125,7 +125,7 @@ namespace BLL
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " orden by  " + Orden;
-            return conexion.ObtenerDatos(string.Format("select " + Campos + " from Usuarios where " + Condicion + Orden));
+            return conexion.ObtenerDatos(string.Format("select " + Campos + " from Usuario where " + Condicion + Orden));
         }
     }
 }

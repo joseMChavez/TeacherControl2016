@@ -16,5 +16,17 @@ namespace TeacherControl2016
         {
             InitializeComponent();
         }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.UsuariosForm usuarios = new Registros.UsuariosForm();
+            usuarios.Show();
+
+        }
+
+        private void Portada_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

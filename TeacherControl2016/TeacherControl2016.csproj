@@ -60,6 +60,9 @@
     <Compile Include="Registros\UsuariosForm.Designer.cs">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Portada.resx">
+      <DependentUpon>Portada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -68,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registros\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
@@ -90,6 +94,19 @@
   <ItemGroup>
     <Folder Include="Consultas\" />
     <Folder Include="DataBase\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{f7bd6c3b-6364-490f-b271-d7b6d85ceb4e}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1452825521_Add.png" />
+    <Content Include="Resources\1452899178_trash.png" />
+    <Content Include="Resources\1453541179_ok-sign.png" />
+    <Content Include="Resources\1453541193_save.png" />
+    <Content Include="Resources\1453541260_search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

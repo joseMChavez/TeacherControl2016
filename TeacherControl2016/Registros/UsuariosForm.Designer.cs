@@ -1,4 +1,4 @@
-﻿namespace TeacherControl.Registros
+﻿namespace TeacherControl2016.Registros
 {
     partial class UsuariosForm
     {
@@ -98,7 +98,7 @@
             this.NuevoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.NuevoButton.Image = global::TeacherControl.Properties.Resources._1452825521_Add;
+            this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
             this.NuevoButton.Location = new System.Drawing.Point(29, 193);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
@@ -116,7 +116,7 @@
             this.EliminarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.EliminarButton.Image = global::TeacherControl.Properties.Resources._1452899178_trash;
+            this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
             this.EliminarButton.Location = new System.Drawing.Point(290, 193);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
@@ -133,7 +133,7 @@
             this.GuardarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.GuardarButton.Image = global::TeacherControl.Properties.Resources._1453541193_save;
+            this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.Location = new System.Drawing.Point(161, 191);
             this.GuardarButton.Name = "GuardarButton";
@@ -191,7 +191,7 @@
             this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BuscarButton.Image = global::TeacherControl.Properties.Resources._1453541260_search;
+            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BuscarButton.Location = new System.Drawing.Point(245, -5);
             this.BuscarButton.Name = "BuscarButton";
@@ -226,6 +226,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UsuariosForm";
             this.Text = "Registro de Usuarios";
+            this.Load += new System.EventHandler(this.UsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

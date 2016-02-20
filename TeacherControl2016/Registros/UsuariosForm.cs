@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 
-namespace TeacherControl.Registros
+namespace TeacherControl2016.Registros
 {
     public partial class UsuariosForm : Form
     {
@@ -182,6 +182,11 @@ namespace TeacherControl.Registros
 
                 throw ex;
             }
+        }
+
+        private void UsuariosForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
