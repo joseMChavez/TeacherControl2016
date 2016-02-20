@@ -1,0 +1,8 @@
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\TeacherControl2016.exe.config
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\TeacherControl2016.exe
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\TeacherControl2016.pdb
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.csprojResolveAssemblyReference.cache
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Properties.Resources.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.csproj.GenerateResource.Cache
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.exe
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.pdb
