@@ -90,6 +90,19 @@ namespace TeacherControl2016.Registros
             usuario.pass = PassTextBox.Text;
             usuario.tipoUsuario = TipoUsuariocomboBox.Text;
         }
+        private bool Compara() {
+            if (!NombreTextBox.Text.Equals("") && !PassTextBox.Text.Equals("") && !TipoUsuariocomboBox.Text.Equals(""))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
         //1 Informacion...2 Error....3 Cuidado.
         private void Mensajes(int selec, string mensaje)
         {
@@ -188,13 +201,14 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            bool compara = Compara();
             try
             {
                 
                 ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
                 if (UsuIdtextBox.Text.Equals(""))
                 {
-                    if (!NombreTextBox.Text.Equals("") && !PassTextBox.Text.Equals("") && !TipoUsuariocomboBox.Text.Equals(""))
+                    if (compara)
                     {
                         if (usuario.BuscarNombre(NombreTextBox.Text))
                         {
@@ -235,7 +249,7 @@ namespace TeacherControl2016.Registros
                 else
                 {
                     ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
-                    if (!NombreTextBox.Text.Equals("") && !PassTextBox.Text.Equals("") && !TipoUsuariocomboBox.Text.Equals(""))
+                    if (compara)
                     {
                         if (usuario.BuscarNombre(NombreTextBox.Text) && PassTextBox.Text.Length >= 6)
                         {
