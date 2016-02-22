@@ -33,7 +33,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Usuario (nombre,clase,tipoUsuario) Values('{0}','{1}','{2}')", this.nombre, this.pass, this.tipoUsuario));
+                retorno = conexion.Ejecutar(string.Format("insert into Usuario (nombre,clave,tipoUsuario) Values('{0}','{1}','{2}')", this.nombre, this.pass, this.tipoUsuario));
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where  usuarioId= '"+nombre+"'" ));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where nombre= '"+nombre+"'" ));
                 if (dt.Rows.Count > 0)
                 {
                     this.usuarioId = (int)dt.Rows[0]["usuarioId"];
@@ -110,7 +110,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Usuario where usuarioId=", this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("delete from Usuario where usuarioId= {0} ", this.usuarioId));
             }
             catch (Exception ex)
             {
