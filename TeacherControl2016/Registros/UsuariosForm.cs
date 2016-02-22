@@ -43,13 +43,33 @@ namespace TeacherControl2016.Registros
             }
         }
         //Este metodo es para Validar los Textbox
-        private void ValidarComboBox(ComboBox cbb, string mensaje)
+        private void ValidarTodo(string mensaje, string mensaje1, string mensaje2)
         {
-
-            if (cbb.Text.Equals(""))
+            //Textbox Nombre
+            if (NombreTextBox.Text.Equals(""))
             {
-                UsuariosErrorProvider.SetError(cbb, mensaje);
-                cbb.Focus();
+                UsuariosErrorProvider.SetError(NombreTextBox, mensaje);
+                NombreTextBox.Focus();
+            }
+            else
+            {
+                UsuariosErrorProvider.Clear();
+            }
+            //textBox Clave
+            if (PassTextBox.Text.Equals(""))
+            {
+                UsuariosErrorProvider.SetError(PassTextBox, mensaje1);
+                PassTextBox.Focus();
+            }
+            else
+            {
+                UsuariosErrorProvider.Clear();
+            }
+            //ComboBox tipoUsuario
+            if (TipoUsuariocomboBox.Text.Equals(""))
+            {
+                UsuariosErrorProvider.SetError(TipoUsuariocomboBox, mensaje2);
+                TipoUsuariocomboBox.Focus();
             }
             else
             {
@@ -170,9 +190,8 @@ namespace TeacherControl2016.Registros
         {
             try
             {
-                Validar(NombreTextBox, "Falta El Nombre de Usuario!");
-                Validar(PassTextBox, "Falta la contraseña!");
-                ValidarComboBox(TipoUsuariocomboBox, "Seleccione un tipo de usuario!");
+                
+                ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
                 if (UsuIdtextBox.Text.Equals(""))
                 {
                     if (!NombreTextBox.Text.Equals("") && !PassTextBox.Text.Equals("") && !TipoUsuariocomboBox.Text.Equals(""))
@@ -202,21 +221,20 @@ namespace TeacherControl2016.Registros
                             else
                             {
                                 Mensajes(2, "La Contraseña debe de contener mas de 5 digitos");
+                                PassTextBox.Focus();
                             }
 
                         }
                     }
                     else
                     {
-                        Mensajes(2, "Debe de LLenar Todos los Campos!");
+                        NombreTextBox.Focus();
                     }
+                    
                 }
                 else
                 {
-                    Validar(UsuIdtextBox, "Coloque un Id!");
-                    Validar(NombreTextBox, "Falta El Nombre de Usuario!");
-                    Validar(PassTextBox, "Falta la contraseña!");
-                    ValidarComboBox(TipoUsuariocomboBox, "Seleccione un tipo de Usuario!");
+                    ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
                     if (!NombreTextBox.Text.Equals("") && !PassTextBox.Text.Equals("") && !TipoUsuariocomboBox.Text.Equals(""))
                     {
                         if (usuario.BuscarNombre(NombreTextBox.Text) && PassTextBox.Text.Length >= 6)
@@ -234,6 +252,7 @@ namespace TeacherControl2016.Registros
                         else
                         {
                             Mensajes(3, "La Contraseña debe de contener mas de 5 digitos \no\n " + NombreTextBox.Text + " Ya existe!");
+                            PassTextBox.Focus();
                         }
                     }
                 }
@@ -262,7 +281,8 @@ namespace TeacherControl2016.Registros
             
                 int id = 0;
                 int.TryParse(UsuIdtextBox.Text, out id);
-            
+            try
+            {
                 if (usuario.Buscar(id))
                 {
                     resut = MessageBox.Show("¿Esta seguro que desea eliminar al Usuario " + NombreTextBox.Text + "?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -271,7 +291,7 @@ namespace TeacherControl2016.Registros
                     {
                         if (usuario.Eliminar())
                         {
-                            Mensajes(1, NombreTextBox.Text + " \nEliminado Correctamente!");
+                            Mensajes(1, "Usuario "+NombreTextBox.Text + " \nEliminado Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
@@ -290,7 +310,13 @@ namespace TeacherControl2016.Registros
                     ActivarBotones(false);
                 }
             }
-          
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+                
+            
+        }
 
        
     }

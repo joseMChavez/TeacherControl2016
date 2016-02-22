@@ -49,6 +49,7 @@
             // NombreLabel
             // 
             this.NombreLabel.AutoSize = true;
+            this.NombreLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NombreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreLabel.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NombreLabel.Location = new System.Drawing.Point(26, 65);
@@ -60,6 +61,7 @@
             // TipoDeUsuLabel
             // 
             this.TipoDeUsuLabel.AutoSize = true;
+            this.TipoDeUsuLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.TipoDeUsuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TipoDeUsuLabel.ForeColor = System.Drawing.SystemColors.Highlight;
             this.TipoDeUsuLabel.Location = new System.Drawing.Point(26, 154);
@@ -71,6 +73,7 @@
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
+            this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLabel.ForeColor = System.Drawing.SystemColors.Highlight;
             this.IdLabel.Location = new System.Drawing.Point(26, 20);
@@ -82,6 +85,7 @@
             // ContrasenaLabel
             // 
             this.ContrasenaLabel.AutoSize = true;
+            this.ContrasenaLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ContrasenaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContrasenaLabel.ForeColor = System.Drawing.SystemColors.Highlight;
             this.ContrasenaLabel.Location = new System.Drawing.Point(26, 110);
@@ -196,7 +200,7 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(245, -5);
+            this.BuscarButton.Location = new System.Drawing.Point(213, -6);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 11;
