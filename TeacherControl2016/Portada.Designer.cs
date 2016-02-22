@@ -133,6 +133,7 @@
             this.MainMenuStrip = this.TeacherControlmenuStrip;
             this.Name = "Portada";
             this.Text = "Portada";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Portada_Load);
             this.TeacherControlmenuStrip.ResumeLayout(false);
             this.TeacherControlmenuStrip.PerformLayout();
