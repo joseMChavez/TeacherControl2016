@@ -46,30 +46,13 @@ namespace TeacherControl2016.Registros
         private void ValidarTodo(string mensaje, string mensaje1, string mensaje2)
         {
             //Textbox Nombre
-            if (NombreTextBox.Text.Equals(""))
+            if (NombreTextBox.Text.Equals("") && PassTextBox.Text.Equals("") && TipoUsuariocomboBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(NombreTextBox, mensaje);
-                NombreTextBox.Focus();
-            }
-            else
-            {
-                UsuariosErrorProvider.Clear();
-            }
-            //textBox Clave
-            if (PassTextBox.Text.Equals(""))
-            {
                 UsuariosErrorProvider.SetError(PassTextBox, mensaje1);
-              
-            }
-            else
-            {
-                UsuariosErrorProvider.Clear();
-            }
-            //ComboBox tipoUsuario
-            if (TipoUsuariocomboBox.Text.Equals(""))
-            {
                 UsuariosErrorProvider.SetError(TipoUsuariocomboBox, mensaje2);
-              
+
+                NombreTextBox.Focus();
             }
             else
             {
