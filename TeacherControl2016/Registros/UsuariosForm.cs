@@ -59,7 +59,7 @@ namespace TeacherControl2016.Registros
             if (PassTextBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(PassTextBox, mensaje1);
-                PassTextBox.Focus();
+              
             }
             else
             {
@@ -69,7 +69,7 @@ namespace TeacherControl2016.Registros
             if (TipoUsuariocomboBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(TipoUsuariocomboBox, mensaje2);
-                TipoUsuariocomboBox.Focus();
+              
             }
             else
             {
