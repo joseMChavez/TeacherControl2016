@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asistencia.cs" />
     <Compile Include="ClaseMaestra.cs" />
+    <Compile Include="Estudiantes.cs" />
+    <Compile Include="Materias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tutores.cs" />
     <Compile Include="Usuarios.cs" />
   </ItemGroup>
   <ItemGroup>
