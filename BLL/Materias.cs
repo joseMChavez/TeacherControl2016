@@ -11,41 +11,98 @@ namespace BLL
     public class Materias : ClaseMaestra
     {
         ConexionDb conexion = new ConexionDb();
-        public int MatediaId { get; set; }
+        public int MateriaId { get; set; }
         public string Descripcion { get; set; }
         public Materias()
         {
-            this.MatediaId = 0;
+            this.MateriaId = 0;
             this.Descripcion = "";
         }
         public Materias(int MateriaId, string Descripcion)
         {
-            this.MatediaId = MatediaId;
+            this.MateriaId = this.MateriaId;
             this.Descripcion = Descripcion;
         }
-        public override bool Buscar(int IdBuscado)
+        public override bool Insertar()
         {
-            throw new NotImplementedException();
-        }
+            bool retorno = false;
+            try
+            {
+                if (conexion.Ejecutar(string.Format("Insert Into Materias(Descripcion) values('{0}')", this.Descripcion)))
+                {
+                    retorno = true;
+                }
 
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return retorno;
+        }
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+
+                retorno = conexion.Ejecutar(String.Format(" Update Materias set Descripcion = '{0}' where MateriaId = {1} ", this.Descripcion, this.MateriaId));
+
+            }
+            catch (Exception exc)
+            {
+                throw exc;
+            }
+            return retorno;
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
-        }
+            bool retorno = false;
+            try
+            {
 
-        public override bool Insertar()
+                retorno = conexion.Ejecutar(String.Format(" delete from Materias where MateriaId = {0}  ", this.MateriaId));
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
+        }
+        
+        public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
-        }
+            DataTable datatable = new DataTable();
+            try
+            {
+                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where MateriaId=" + IdBuscado));
+                if (datatable.Rows.Count > 0)
+                {
+                    this.MateriaId = (int)datatable.Rows[0]["MateriaId"];
+                    this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
+                }
 
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+            return datatable.Rows.Count > 0;
+        }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
+
+            return conexion.ObtenerDatos("Select " + Campos + " From Materias Where " + Condicion + Orden);
         }
     }
 }
