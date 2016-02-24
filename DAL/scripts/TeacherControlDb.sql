@@ -16,7 +16,39 @@ Create table Estudiantes(
 		Celular varchar(15),
 		Email Varchar(70),
 		Direccion varchar(100),
-		TutorId int,
+		TutorId int foreign key References Tutores(TutorId),
 		primary key(EstudianteId)
 )
 Go
+create table Tutores(
+		TutorId int identity(1,1) primary key,
+		Nombre varchar(50),
+		Apellido varchar(30),
+		Cedula varchar(20),
+		Genero VarChar(5),
+		Email Varchar(70),
+		Direccion varchar(100)
+)
+go
+create table TutoresTelefonos(
+	 id int identity(1,1) primary key,
+	 TutorId int foreign key References Tutores(TutorId),
+	 TipoId int,
+	 Telefono varchar(15)
+)
+
+go
+create table Materias(
+        MateriaId int identity(1,1),
+		Descripcion varchar(100),
+		primary key(MateriaId)
+)
+go
+create table Asistencia(
+       AsistenciaId int identity(1,1),
+	   CursoId  int,
+	   EstudianteId int foreign key References Estudiantes(EstudianteId),
+	   Accion varchar(12),
+	   primary key(AsistenciaId)
+) 
+go
