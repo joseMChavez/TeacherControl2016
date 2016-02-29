@@ -10,17 +10,16 @@ namespace BLL
     public class Tutores : ClaseMaestra
     {
         public int EstudianteId { get; set; }
-        public int Matricula { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
-        public string telefono { get; set; }
         public string Email { get; set; }
-        public override bool Buscar(int IdBuscado)
+
+        public override bool Insertar()
         {
             throw new NotImplementedException();
         }
-
+       
         public override bool Editar()
         {
             throw new NotImplementedException();
@@ -30,8 +29,7 @@ namespace BLL
         {
             throw new NotImplementedException();
         }
-
-        public override bool Insertar()
+        public override bool Buscar(int IdBuscado)
         {
             throw new NotImplementedException();
         }

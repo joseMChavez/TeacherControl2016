@@ -34,15 +34,15 @@
             this.TipoDeUsuLabel = new System.Windows.Forms.Label();
             this.IdLabel = new System.Windows.Forms.Label();
             this.ContrasenaLabel = new System.Windows.Forms.Label();
-            this.NuevoButton = new System.Windows.Forms.Button();
-            this.EliminarButton = new System.Windows.Forms.Button();
-            this.GuardarButton = new System.Windows.Forms.Button();
             this.TipoUsuariocomboBox = new System.Windows.Forms.ComboBox();
             this.PassTextBox = new System.Windows.Forms.TextBox();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
             this.UsuIdtextBox = new System.Windows.Forms.TextBox();
-            this.BuscarButton = new System.Windows.Forms.Button();
             this.UsuariosErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BuscarButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.EliminarButton = new System.Windows.Forms.Button();
+            this.NuevoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.NombreLabel.AutoSize = true;
             this.NombreLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NombreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.NombreLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.NombreLabel.Location = new System.Drawing.Point(26, 65);
             this.NombreLabel.Name = "NombreLabel";
             this.NombreLabel.Size = new System.Drawing.Size(67, 16);
@@ -63,7 +63,7 @@
             this.TipoDeUsuLabel.AutoSize = true;
             this.TipoDeUsuLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.TipoDeUsuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TipoDeUsuLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.TipoDeUsuLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.TipoDeUsuLabel.Location = new System.Drawing.Point(26, 154);
             this.TipoDeUsuLabel.Name = "TipoDeUsuLabel";
             this.TipoDeUsuLabel.Size = new System.Drawing.Size(115, 16);
@@ -75,7 +75,7 @@
             this.IdLabel.AutoSize = true;
             this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.IdLabel.Location = new System.Drawing.Point(26, 20);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(25, 16);
@@ -87,69 +87,12 @@
             this.ContrasenaLabel.AutoSize = true;
             this.ContrasenaLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ContrasenaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContrasenaLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.ContrasenaLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ContrasenaLabel.Location = new System.Drawing.Point(26, 110);
             this.ContrasenaLabel.Name = "ContrasenaLabel";
             this.ContrasenaLabel.Size = new System.Drawing.Size(91, 16);
             this.ContrasenaLabel.TabIndex = 3;
             this.ContrasenaLabel.Text = "Contraseña:";
-            // 
-            // NuevoButton
-            // 
-            this.NuevoButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.NuevoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.NuevoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.NuevoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(29, 193);
-            this.NuevoButton.Name = "NuevoButton";
-            this.NuevoButton.Size = new System.Drawing.Size(64, 60);
-            this.NuevoButton.TabIndex = 4;
-            this.NuevoButton.Text = "Nuevo";
-            this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.NuevoButton.UseVisualStyleBackColor = true;
-            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
-            // 
-            // EliminarButton
-            // 
-            this.EliminarButton.Enabled = false;
-            this.EliminarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.EliminarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.EliminarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.EliminarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(290, 193);
-            this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(80, 60);
-            this.EliminarButton.TabIndex = 5;
-            this.EliminarButton.Text = "Eliminar";
-            this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.EliminarButton.UseVisualStyleBackColor = true;
-            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
-            // 
-            // GuardarButton
-            // 
-            this.GuardarButton.Enabled = false;
-            this.GuardarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.GuardarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.GuardarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GuardarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
-            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(161, 191);
-            this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(78, 64);
-            this.GuardarButton.TabIndex = 6;
-            this.GuardarButton.Text = "Guardar";
-            this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.GuardarButton.UseVisualStyleBackColor = true;
-            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // TipoUsuariocomboBox
             // 
@@ -168,9 +111,9 @@
             this.PassTextBox.Location = new System.Drawing.Point(179, 109);
             this.PassTextBox.MaxLength = 12;
             this.PassTextBox.Name = "PassTextBox";
-            this.PassTextBox.PasswordChar = '*';
             this.PassTextBox.Size = new System.Drawing.Size(191, 20);
             this.PassTextBox.TabIndex = 8;
+            this.PassTextBox.UseSystemPasswordChar = true;
             this.PassTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTextBox_KeyPress);
             // 
             // NombreTextBox
@@ -184,23 +127,29 @@
             // 
             // UsuIdtextBox
             // 
-            this.UsuIdtextBox.Location = new System.Drawing.Point(123, 16);
+            this.UsuIdtextBox.Location = new System.Drawing.Point(179, 20);
+            this.UsuIdtextBox.MaxLength = 5;
             this.UsuIdtextBox.Name = "UsuIdtextBox";
             this.UsuIdtextBox.Size = new System.Drawing.Size(84, 20);
             this.UsuIdtextBox.TabIndex = 10;
             this.UsuIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsuIdtextBox_KeyPress);
             // 
+            // UsuariosErrorProvider
+            // 
+            this.UsuariosErrorProvider.ContainerControl = this;
+            // 
             // BuscarButton
             // 
             this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.BuscarButton.FlatAppearance.BorderSize = 0;
             this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(213, -6);
+            this.BuscarButton.Location = new System.Drawing.Point(290, -4);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 11;
@@ -209,15 +158,72 @@
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
-            // UsuariosErrorProvider
+            // GuardarButton
             // 
-            this.UsuariosErrorProvider.ContainerControl = this;
+            this.GuardarButton.Enabled = false;
+            this.GuardarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.GuardarButton.FlatAppearance.BorderSize = 0;
+            this.GuardarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.GuardarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.GuardarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GuardarButton.Location = new System.Drawing.Point(156, 230);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(78, 64);
+            this.GuardarButton.TabIndex = 6;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
+            // 
+            // EliminarButton
+            // 
+            this.EliminarButton.Enabled = false;
+            this.EliminarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.EliminarButton.FlatAppearance.BorderSize = 0;
+            this.EliminarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.EliminarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.EliminarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
+            this.EliminarButton.Location = new System.Drawing.Point(290, 232);
+            this.EliminarButton.Name = "EliminarButton";
+            this.EliminarButton.Size = new System.Drawing.Size(80, 60);
+            this.EliminarButton.TabIndex = 5;
+            this.EliminarButton.Text = "Eliminar";
+            this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
+            // 
+            // NuevoButton
+            // 
+            this.NuevoButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.NuevoButton.FlatAppearance.BorderSize = 0;
+            this.NuevoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NuevoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.NuevoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
+            this.NuevoButton.Location = new System.Drawing.Point(29, 232);
+            this.NuevoButton.Name = "NuevoButton";
+            this.NuevoButton.Size = new System.Drawing.Size(64, 60);
+            this.NuevoButton.TabIndex = 4;
+            this.NuevoButton.Text = "Nuevo";
+            this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // UsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 271);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(398, 303);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.UsuIdtextBox);
             this.Controls.Add(this.NombreTextBox);
@@ -234,6 +240,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UsuariosForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Usuarios";
             this.Load += new System.EventHandler(this.UsuariosForm_Load);

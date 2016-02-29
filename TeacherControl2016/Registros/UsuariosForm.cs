@@ -23,10 +23,10 @@ namespace TeacherControl2016.Registros
             UsuIdtextBox.Clear();
             NombreTextBox.Clear();
             PassTextBox.Clear();
-            TipoUsuariocomboBox.ResetText();
+            TipoUsuariocomboBox.SelectedIndex =0;
             UsuariosErrorProvider.Clear();
-            
-           
+            NombreTextBox.Focus();
+
         }
         //Este metodo es para Validar los Textbox
         private void Validar(TextBox tb, string mensaje)
@@ -43,7 +43,7 @@ namespace TeacherControl2016.Registros
             }
         }
         //Este metodo es para Validar los Textbox
-        private void ValidarTodo(string mensaje, string mensaje1, string mensaje2)
+        private bool ValidarTodo(string mensaje, string mensaje1, string mensaje2)
         {
             //Textbox Nombre
             if (NombreTextBox.Text.Equals("") && PassTextBox.Text.Equals("") && TipoUsuariocomboBox.Text.Equals(""))
@@ -53,10 +53,12 @@ namespace TeacherControl2016.Registros
                 UsuariosErrorProvider.SetError(TipoUsuariocomboBox, mensaje2);
 
                 NombreTextBox.Focus();
+                return false;
             }
             else
             {
                 UsuariosErrorProvider.Clear();
+                return true;
             }
         }
         public void ActivarBotones( bool btn)
@@ -73,18 +75,7 @@ namespace TeacherControl2016.Registros
             usuario.pass = PassTextBox.Text;
             usuario.tipoUsuario = TipoUsuariocomboBox.Text;
         }
-        private bool Compara() {
-            if (!NombreTextBox.Text.Equals("") && !PassTextBox.Text.Equals("") && !TipoUsuariocomboBox.Text.Equals(""))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-
-        }
+       
 
         //1 Informacion...2 Error....3 Cuidado.
         private void Mensajes(int selec, string mensaje)
@@ -184,14 +175,14 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            bool compara = Compara();
+            bool Validacion = ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
             try
             {
                 
-                ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
+               
                 if (UsuIdtextBox.Text.Equals(""))
                 {
-                    if (compara)
+                    if (Validacion)
                     {
                         if (usuario.BuscarNombre(NombreTextBox.Text))
                         {
@@ -231,8 +222,8 @@ namespace TeacherControl2016.Registros
                 }
                 else
                 {
-                    ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
-                    if (compara)
+                   
+                    if (Validacion)
                     {
                         if (usuario.BuscarNombre(NombreTextBox.Text) && PassTextBox.Text.Length >= 6)
                         {
