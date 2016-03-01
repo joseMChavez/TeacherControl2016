@@ -28,5 +28,17 @@ namespace TeacherControl2016
         {
 
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Registros.EstudiantesForm estudiantes = new Registros.EstudiantesForm();
+            estudiantes.Show();
+        }
+
+        private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.EstudiantesForm estudiantes = new Registros.EstudiantesForm();
+            estudiantes.Show();
+        }
     }
 }

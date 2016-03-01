@@ -39,8 +39,12 @@
             this.TControlstatusStrip = new System.Windows.Forms.StatusStrip();
             this.TControltoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.TeacherControltoolStrip = new System.Windows.Forms.ToolStrip();
+            this.EstudiantesRtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TeacherControlmenuStrip.SuspendLayout();
             this.TControlstatusStrip.SuspendLayout();
+            this.TeacherControltoolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TeacherControlmenuStrip
@@ -66,7 +70,8 @@
             // registrosToolStripMenuItem
             // 
             this.registrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuarioToolStripMenuItem});
+            this.usuarioToolStripMenuItem,
+            this.estudiantesToolStripMenuItem});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
@@ -74,7 +79,7 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuarioToolStripMenuItem.Text = "&Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
@@ -115,16 +120,45 @@
             // 
             // TeacherControltoolStrip
             // 
+            this.TeacherControltoolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TeacherControltoolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EstudiantesRtoolStripButton,
+            this.toolStripSeparator1});
             this.TeacherControltoolStrip.Location = new System.Drawing.Point(0, 24);
             this.TeacherControltoolStrip.Name = "TeacherControltoolStrip";
             this.TeacherControltoolStrip.Size = new System.Drawing.Size(1013, 25);
             this.TeacherControltoolStrip.TabIndex = 2;
             this.TeacherControltoolStrip.Text = "toolStrip1";
             // 
+            // EstudiantesRtoolStripButton
+            // 
+            this.EstudiantesRtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EstudiantesRtoolStripButton.Image = global::TeacherControl2016.Properties.Resources._1455916129_Student_id_24;
+            this.EstudiantesRtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EstudiantesRtoolStripButton.Margin = new System.Windows.Forms.Padding(2);
+            this.EstudiantesRtoolStripButton.Name = "EstudiantesRtoolStripButton";
+            this.EstudiantesRtoolStripButton.Size = new System.Drawing.Size(23, 21);
+            this.EstudiantesRtoolStripButton.Text = "Registro de Estudiantes";
+            this.EstudiantesRtoolStripButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EstudiantesRtoolStripButton.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // estudiantesToolStripMenuItem
+            // 
+            this.estudiantesToolStripMenuItem.Name = "estudiantesToolStripMenuItem";
+            this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.estudiantesToolStripMenuItem.Text = "&Estudiantes";
+            this.estudiantesToolStripMenuItem.Click += new System.EventHandler(this.estudiantesToolStripMenuItem_Click);
+            // 
             // Portada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1013, 524);
             this.Controls.Add(this.TeacherControltoolStrip);
             this.Controls.Add(this.TControlstatusStrip);
@@ -139,6 +173,8 @@
             this.TeacherControlmenuStrip.PerformLayout();
             this.TControlstatusStrip.ResumeLayout(false);
             this.TControlstatusStrip.PerformLayout();
+            this.TeacherControltoolStrip.ResumeLayout(false);
+            this.TeacherControltoolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +192,8 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel TControltoolStripStatusLabel;
         private System.Windows.Forms.ToolStrip TeacherControltoolStrip;
+        private System.Windows.Forms.ToolStripButton EstudiantesRtoolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem estudiantesToolStripMenuItem;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstudiantesForm));
             this.EstudianteIdtextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
             this.BuscarButton = new System.Windows.Forms.Button();
@@ -405,6 +406,13 @@
             // GrupocomboBox
             // 
             this.GrupocomboBox.FormattingEnabled = true;
+            this.GrupocomboBox.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"});
             this.GrupocomboBox.Location = new System.Drawing.Point(525, 150);
             this.GrupocomboBox.Name = "GrupocomboBox";
             this.GrupocomboBox.Size = new System.Drawing.Size(75, 21);
@@ -460,7 +468,10 @@
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.IdLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "EstudiantesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registro de Estudiantes";
             this.ResumeLayout(false);
             this.PerformLayout();
