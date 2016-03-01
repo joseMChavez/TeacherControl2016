@@ -53,18 +53,20 @@
             this.EmailtextBox = new System.Windows.Forms.TextBox();
             this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.PadrescomboBox = new System.Windows.Forms.ComboBox();
             this.MasculinoRadioButton = new System.Windows.Forms.RadioButton();
             this.FemeninoradioButton = new System.Windows.Forms.RadioButton();
             this.Cursolabel = new System.Windows.Forms.Label();
             this.CursocomboBox = new System.Windows.Forms.ComboBox();
             this.GrupocomboBox = new System.Windows.Forms.ComboBox();
             this.Grupolabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EstudianteIdtextBox
             // 
-            this.EstudianteIdtextBox.Location = new System.Drawing.Point(176, 45);
+            this.EstudianteIdtextBox.Location = new System.Drawing.Point(175, 68);
             this.EstudianteIdtextBox.Name = "EstudianteIdtextBox";
             this.EstudianteIdtextBox.Size = new System.Drawing.Size(84, 20);
             this.EstudianteIdtextBox.TabIndex = 16;
@@ -76,7 +78,7 @@
             this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.IdLabel.Location = new System.Drawing.Point(58, 45);
+            this.IdLabel.Location = new System.Drawing.Point(58, 69);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(25, 16);
             this.IdLabel.TabIndex = 12;
@@ -93,7 +95,7 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(282, 21);
+            this.BuscarButton.Location = new System.Drawing.Point(282, 44);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 17;
@@ -113,7 +115,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(353, 329);
+            this.GuardarButton.Location = new System.Drawing.Point(353, 358);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 15;
@@ -132,7 +134,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(525, 333);
+            this.EliminarButton.Location = new System.Drawing.Point(534, 360);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 14;
@@ -150,7 +152,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(175, 329);
+            this.NuevoButton.Location = new System.Drawing.Point(176, 362);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 13;
@@ -241,7 +243,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(404, 250);
+            this.label1.Location = new System.Drawing.Point(380, 147);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 24;
@@ -254,7 +256,7 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Default;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(401, 184);
+            this.label6.Location = new System.Drawing.Point(58, 287);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 25;
@@ -267,7 +269,7 @@
             this.label7.Cursor = System.Windows.Forms.Cursors.Default;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(404, 217);
+            this.label7.Location = new System.Drawing.Point(384, 109);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 16);
             this.label7.TabIndex = 26;
@@ -280,11 +282,11 @@
             this.label8.Cursor = System.Windows.Forms.Cursors.Default;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(401, 289);
+            this.label8.Location = new System.Drawing.Point(380, 254);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 16);
+            this.label8.Size = new System.Drawing.Size(138, 16);
             this.label8.TabIndex = 27;
-            this.label8.Text = "Padre:";
+            this.label8.Text = "Nombre del padre:";
             // 
             // label9
             // 
@@ -313,7 +315,7 @@
             // 
             // DirecciontextBox
             // 
-            this.DirecciontextBox.Location = new System.Drawing.Point(525, 249);
+            this.DirecciontextBox.Location = new System.Drawing.Point(534, 149);
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(228, 20);
             this.DirecciontextBox.TabIndex = 31;
@@ -327,14 +329,14 @@
             // 
             // EmailtextBox
             // 
-            this.EmailtextBox.Location = new System.Drawing.Point(525, 216);
+            this.EmailtextBox.Location = new System.Drawing.Point(534, 109);
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(228, 20);
             this.EmailtextBox.TabIndex = 33;
             // 
             // TelefonoMaskedTextBox
             // 
-            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(525, 183);
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(175, 287);
             this.TelefonoMaskedTextBox.Mask = "000-000-0000";
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
             this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(75, 20);
@@ -347,14 +349,6 @@
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
             this.FechaDateTimePicker.Size = new System.Drawing.Size(133, 20);
             this.FechaDateTimePicker.TabIndex = 35;
-            // 
-            // PadrescomboBox
-            // 
-            this.PadrescomboBox.FormattingEnabled = true;
-            this.PadrescomboBox.Location = new System.Drawing.Point(525, 288);
-            this.PadrescomboBox.Name = "PadrescomboBox";
-            this.PadrescomboBox.Size = new System.Drawing.Size(157, 21);
-            this.PadrescomboBox.TabIndex = 36;
             // 
             // MasculinoRadioButton
             // 
@@ -389,7 +383,7 @@
             this.Cursolabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cursolabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Cursolabel.Location = new System.Drawing.Point(403, 113);
+            this.Cursolabel.Location = new System.Drawing.Point(380, 187);
             this.Cursolabel.Name = "Cursolabel";
             this.Cursolabel.Size = new System.Drawing.Size(52, 16);
             this.Cursolabel.TabIndex = 39;
@@ -397,14 +391,16 @@
             // 
             // CursocomboBox
             // 
+            this.CursocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CursocomboBox.FormattingEnabled = true;
-            this.CursocomboBox.Location = new System.Drawing.Point(520, 113);
+            this.CursocomboBox.Location = new System.Drawing.Point(534, 186);
             this.CursocomboBox.Name = "CursocomboBox";
-            this.CursocomboBox.Size = new System.Drawing.Size(80, 21);
+            this.CursocomboBox.Size = new System.Drawing.Size(127, 21);
             this.CursocomboBox.TabIndex = 40;
             // 
             // GrupocomboBox
             // 
+            this.GrupocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GrupocomboBox.FormattingEnabled = true;
             this.GrupocomboBox.Items.AddRange(new object[] {
             "A",
@@ -413,7 +409,7 @@
             "D",
             "E",
             "F"});
-            this.GrupocomboBox.Location = new System.Drawing.Point(525, 150);
+            this.GrupocomboBox.Location = new System.Drawing.Point(534, 219);
             this.GrupocomboBox.Name = "GrupocomboBox";
             this.GrupocomboBox.Size = new System.Drawing.Size(75, 21);
             this.GrupocomboBox.TabIndex = 41;
@@ -425,25 +421,55 @@
             this.Grupolabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Grupolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupolabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Grupolabel.Location = new System.Drawing.Point(404, 151);
+            this.Grupolabel.Location = new System.Drawing.Point(380, 220);
             this.Grupolabel.Name = "Grupolabel";
             this.Grupolabel.Size = new System.Drawing.Size(54, 16);
             this.Grupolabel.TabIndex = 42;
             this.Grupolabel.Text = "Grupo:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(534, 257);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(228, 20);
+            this.textBox1.TabIndex = 43;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(534, 288);
+            this.maskedTextBox1.Mask = "000-000-0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
+            this.maskedTextBox1.TabIndex = 45;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label10.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(380, 292);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(146, 16);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Telefono del Padre:";
             // 
             // EstudiantesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(814, 418);
+            this.ClientSize = new System.Drawing.Size(814, 443);
+            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Grupolabel);
             this.Controls.Add(this.GrupocomboBox);
             this.Controls.Add(this.CursocomboBox);
             this.Controls.Add(this.Cursolabel);
             this.Controls.Add(this.FemeninoradioButton);
             this.Controls.Add(this.MasculinoRadioButton);
-            this.Controls.Add(this.PadrescomboBox);
             this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.TelefonoMaskedTextBox);
             this.Controls.Add(this.EmailtextBox);
@@ -504,12 +530,14 @@
         private System.Windows.Forms.TextBox EmailtextBox;
         private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
-        private System.Windows.Forms.ComboBox PadrescomboBox;
         private System.Windows.Forms.RadioButton MasculinoRadioButton;
         private System.Windows.Forms.RadioButton FemeninoradioButton;
         private System.Windows.Forms.Label Cursolabel;
         private System.Windows.Forms.ComboBox CursocomboBox;
         private System.Windows.Forms.ComboBox GrupocomboBox;
         private System.Windows.Forms.Label Grupolabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label10;
     }
 }

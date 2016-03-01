@@ -22,8 +22,14 @@ namespace TeacherControl2016.Registros
         {
             UsuIdtextBox.Clear();
             NombreTextBox.Clear();
+            ApellidotextBox.Clear();
+            EmailtextBox.Clear();
+            DirecciontextBox.Clear();
+            TellMaskedTextBox.Clear();
+            TellMaskedTextBox.Mask = "###-###-####";
             PassTextBox.Clear();
-            TipoUsuariocomboBox.SelectedIndex =0;
+            ConfirPasstextBox.Clear();
+            
             UsuariosErrorProvider.Clear();
             NombreTextBox.Focus();
 
@@ -43,14 +49,29 @@ namespace TeacherControl2016.Registros
             }
         }
         //Este metodo es para Validar los Textbox
-        private bool ValidarTodo(string mensaje, string mensaje1, string mensaje2)
+        private bool ValidarTodo()
         {
-            //Textbox Nombre
-            if (NombreTextBox.Text.Equals("") && PassTextBox.Text.Equals("") && TipoUsuariocomboBox.Text.Equals(""))
+            if (PassTextBox.Text.Length < 6)
+
             {
-                UsuariosErrorProvider.SetError(NombreTextBox, mensaje);
-                UsuariosErrorProvider.SetError(PassTextBox, mensaje1);
-                UsuariosErrorProvider.SetError(TipoUsuariocomboBox, mensaje2);
+                UsuariosErrorProvider.SetError(PassTextBox, "La Contarseña debe de ser de mas de 6 Caracteres!");
+                PassTextBox.Focus();
+            }
+            else
+            {
+                UsuariosErrorProvider.Clear();
+            }
+            //Textbox Nombre
+            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && EmailtextBox.Text.Equals("")&& DirecciontextBox.Text.Equals("") && TellMaskedTextBox.MaskCompleted && PassTextBox.Text.Equals("") && ConfirPasstextBox.Text.Equals(""))
+            {
+                UsuariosErrorProvider.SetError(NombreTextBox, "Digite el nombre de Usuario!");
+                UsuariosErrorProvider.SetError(ApellidotextBox, "Digite el apellido de Usuario!");
+                UsuariosErrorProvider.SetError(EmailtextBox, "Digite El Email del Usuario!");
+                UsuariosErrorProvider.SetError(TellMaskedTextBox, "Digite un Numero de Telefono!");
+                UsuariosErrorProvider.SetError(DirecciontextBox, "Digite un Direccion!");
+                UsuariosErrorProvider.SetError(PassTextBox, "Digite Una Contarseña!");
+                UsuariosErrorProvider.SetError(ConfirPasstextBox, "Confirme la Contraseña!");
+               
 
                 NombreTextBox.Focus();
                 return false;
@@ -72,8 +93,13 @@ namespace TeacherControl2016.Registros
             int.TryParse(UsuIdtextBox.Text, out id);
             usuario.usuarioId = id;
             usuario.nombre = NombreTextBox.Text;
+            usuario.apellido = ApellidotextBox.Text;
+            usuario.email = EmailtextBox.Text;
+            usuario.direccion = DirecciontextBox.Text;
+            usuario.telefono = TellMaskedTextBox.Text;
             usuario.pass = PassTextBox.Text;
-            usuario.tipoUsuario = TipoUsuariocomboBox.Text;
+            usuario.passConfir = ConfirPasstextBox.Text;
+            
         }
        
 
@@ -109,7 +135,7 @@ namespace TeacherControl2016.Registros
 
         private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar>= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar>= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
             {
                 e.Handled = false;
             }
@@ -118,10 +144,69 @@ namespace TeacherControl2016.Registros
 
 
             if (e.KeyChar == 13)
-                PassTextBox.Focus();
+                ApellidotextBox.Focus();
+        }
+        private void ApellidotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57)|| (e.KeyChar == 32) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+
+
+            if (e.KeyChar == 13)
+                EmailtextBox.Focus();
+        }
+        private void EmailtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 46 && e.KeyChar <= 57) || (e.KeyChar == 32) || (e.KeyChar == 8) || (e.KeyChar >= 64 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+
+
+            if (e.KeyChar == 13)
+                DirecciontextBox.Focus();
+        }
+    
+        private void DirecciontextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 44 && e.KeyChar <= 57) || (e.KeyChar == 32) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+
+
+            if (e.KeyChar == 13)
+                TellMaskedTextBox.Focus();
         }
 
+        private void TellMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                PassTextBox.Focus();
+        }
         private void PassTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 64 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar == 63) || (e.KeyChar == 33) || (e.KeyChar == 168))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+
+
+            if (e.KeyChar == 13)
+                ConfirPasstextBox.Focus();
+        }
+
+        private void ConfirPasstextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 64 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar == 63) || (e.KeyChar == 33) || (e.KeyChar == 168))
             {
@@ -144,8 +229,12 @@ namespace TeacherControl2016.Registros
                 if (!UsuIdtextBox.Text.Equals("") && usuario.Buscar(id))
                 {
                     NombreTextBox.Text = usuario.nombre;
+                    ApellidotextBox.Text = usuario.apellido;
+                    EmailtextBox.Text = usuario.email;
+                    DirecciontextBox.Text = usuario.direccion;
+                    TellMaskedTextBox.Text = usuario.telefono;
                     PassTextBox.Text = usuario.pass;
-                    TipoUsuariocomboBox.Text = usuario.tipoUsuario;
+                    ConfirPasstextBox.Text = usuario.passConfir;
 
                     NombreTextBox.Focus();
                     ActivarBotones(true);
@@ -175,7 +264,7 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            bool Validacion = ValidarTodo("Falta El Nombre de Usuario!", "Falta la contraseña!", "Seleccione un tipo de usuario!");
+            bool Validacion = ValidarTodo();
             try
             {
                 
@@ -184,7 +273,7 @@ namespace TeacherControl2016.Registros
                 {
                     if (Validacion)
                     {
-                        if (usuario.BuscarNombre(NombreTextBox.Text))
+                        if (usuario.BuscarNombre(NombreTextBox.Text) )
                         {
                             MessageBox.Show(NombreTextBox.Text + "Es Un Usuario \n Intenete Nuevamene!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -194,7 +283,7 @@ namespace TeacherControl2016.Registros
                         else
                         {
                             LlenarDatos();
-                            if (PassTextBox.Text.Length >= 6)
+                            if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
                             {
                                 if (usuario.Insertar())
                                 {
@@ -208,7 +297,7 @@ namespace TeacherControl2016.Registros
                             }
                             else
                             {
-                                Mensajes(2, "La Contraseña debe de contener mas de 5 digitos");
+                                Mensajes(3, "La Contraseñas No Coinsiden!");
                                 PassTextBox.Focus();
                             }
 

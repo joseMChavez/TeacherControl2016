@@ -1,8 +1,12 @@
 ﻿create table Usuario(
  usuarioId int identity(1,1),
  nombre varchar(30),
+ apellido varchar(50),
+ email varchar(50),
+ direccion varchar(100),
+ telefono varchar(15),
  clave varchar(15),
- tipoUsuario varchar(20),
+ confirmarClave Varchar(15),
  primary key(usuarioId)
 ) 
 Go
