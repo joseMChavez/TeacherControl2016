@@ -27,15 +27,17 @@ namespace TeacherControl2016.Registros
             ApellidostextBox.Clear();
             MasculinoRadioButton.Checked = false;
             FemeninoradioButton.Checked = false;
-            FechaDateTimePicker.Value = new DateTime(000, 00, 00);
+            TelefonoMaskedTextBox.Clear();
             TelefonoMaskedTextBox.Mask = "###-###-####";
             EmailtextBox.Clear();
             DirecciontextBox.Clear();
             //CursocomboBox.SelectedIndex = 0;
             GrupocomboBox.SelectedIndex = 0;
             NombrePadretextBox.Clear();
+            TelefonoPmaskedTextBox.Clear();
             TelefonoPmaskedTextBox.Mask = "###-###-####";
             EstudianteErrorProvider.Clear();
+            MatriculatextBox.Focus();
         }
         public void ActivarBotones(bool btn)
         {
@@ -215,12 +217,24 @@ namespace TeacherControl2016.Registros
                 MatriculatextBox.Focus();
             }
         }
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
 
+        }
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
             GuardarButton.Enabled = true;
         }
 
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

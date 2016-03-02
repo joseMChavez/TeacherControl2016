@@ -20,7 +20,10 @@ namespace BLL
         public string Celular { get; set; }
         public string Email { get; set; }
         public string Direccion { get; set; }
-        public int TutorId { get; set; }
+        public int CursoId { get; set; }
+        public string Grupo { get; set; }
+        public string NombrePadre { get; set; }
+        public string TelefonoPadre { get; set; }
         public Estudiantes()
         {
             this.EstudianteId = 0;
@@ -32,10 +35,14 @@ namespace BLL
             this.Celular = "";
             this.Email = "";
             this.Direccion = "";
-            this.TutorId = 0;
+            this.CursoId = 0;
+            this.Grupo = "";
+            this.NombrePadre = "";
+            this.TelefonoPadre = "";
+            
            
         }
-        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, string Genero, string FechaNacimiento, string Email, string Celular,  string Direcion,int TutorId)
+        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, string Genero, string FechaNacimiento, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
         {
             this.EstudianteId = Id;
             this.Matricula = Matricula;
@@ -46,14 +53,18 @@ namespace BLL
             this.Celular = Celular;
             this.Email = Email;
             this.Direccion = Direcion;
-            this.TutorId = TutorId;
+            this.CursoId = CursoId;
+            this.Grupo = Grupo;
+            this.NombrePadre = Padre;
+            this.TelefonoPadre = TellPadre;
+            
         }
         public override bool Insertar()
         {
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Estudiantes(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Celular,Email, Direccin,ToturId) values({0},'{1}','{2}','{3}',{4},'{5}','{6}','{7}',{})",this.Matricula,this.Nombre,this.Apellidos,this.Genero,this.FechaNacimiento,this.Celular,this.Email, this.Direccion, this.TutorId));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Estudiantes(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Celular,Email, Direccin,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}','{3}',{4},'{5}','{6}','{7}',{8},'{9}','{10}','{11}')",this.Matricula,this.Nombre,this.Apellidos,this.Genero,this.FechaNacimiento,this.Celular,this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
             }
             catch (Exception ex)
             {
@@ -67,7 +78,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero='{3}', FechaNacimiento='{4}', Celular='{5}',Email='{6}',Direccion='{7}',TutorId={8} where EstudianteId= {9}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.TutorId, this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero='{3}', FechaNacimiento='{4}', Celular='{5}',Email='{6}',Direccion='{7}', CursoId={8}, Grupo='{9}', NombrePadre='{10}', TelefonoPadre='{11}' where EstudianteId= {12}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
             }
             catch (Exception ex)
             {
@@ -108,7 +119,10 @@ namespace BLL
                     this.Celular = dt.Rows[0]["Celular"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();
                     this.Direccion = dt.Rows[0]["Direccion"].ToString();
-                    this.TutorId = (int)dt.Rows[0]["TutorId"];
+                    this.CursoId = (int)dt.Rows[0]["CursoId"];
+                    this.Grupo = dt.Rows[0]["Grupo"].ToString();
+                    this.NombrePadre = dt.Rows[0]["NombrePadre"].ToString();
+                    this.TelefonoPadre = dt.Rows[0]["TelefonoPadre"].ToString();
 
                 }
             }

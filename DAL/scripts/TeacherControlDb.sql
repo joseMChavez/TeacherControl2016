@@ -1,9 +1,9 @@
 ﻿use TeacherControlDb
 create table Usuario(
  usuarioId int identity(1,1),
- nombre varchar(30),
+ nombre varchar(50),
  apellido varchar(50),
- email varchar(50),
+ email varchar(100),
  direccion varchar(100),
  telefono varchar(15),
  clave varchar(15),
@@ -23,27 +23,14 @@ Create table Estudiantes(
 		Grupo varchar(5),
 		Email Varchar(70),
 		Direccion varchar(100),
-		--TutorId int foreign key References Tutores(TutorId),
+		CursoId int foreign key References Cursos(CursoId),
+		Grupo varchar(5),
+		NombrePadre varchar(50),
+		TelefonoPadre varchar(50),
 		primary key(EstudianteId)
 )
-Go
-create table Tutores(
-		TutorId int identity(1,1) primary key,
-		Nombre varchar(50),
-		Apellido varchar(30),
-		Cedula varchar(20),
-		Genero VarChar(5),
-		Email Varchar(70),
-		Direccion varchar(100)
-)
 go
-create table TutoresTelefonos(
-	 id int identity(1,1) primary key,
-	 TutorId int foreign key References Tutores(TutorId),
-	 TipoId int,
-	 Telefono varchar(15)
-)
-go
+
 create table Cursos(
 	CursoId int identity(1,1),
 	DesCripcion varchar(50),
@@ -74,7 +61,8 @@ create table Calificaciones(
 )
 go
 create table CalificaionesDetalle(
-		CalificaionDetalleId int identity(1,1) primary key
+		CalificaionDetalleId int identity(1,1) primary key,
+
 
 )
 go
