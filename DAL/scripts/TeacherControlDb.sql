@@ -1,4 +1,5 @@
-﻿create table Usuario(
+﻿use TeacherControlDb
+create table Usuario(
  usuarioId int identity(1,1),
  nombre varchar(30),
  apellido varchar(50),
@@ -18,11 +19,11 @@ Create table Estudiantes(
 		Genero VarChar(5),
 		FechaNacimiento varchar(20),
 		Celular varchar(15),
-		CursoId int foreign key References Cursos(CursoId),
+		CursoId int,
 		Grupo varchar(5),
 		Email Varchar(70),
 		Direccion varchar(100),
-		TutorId int foreign key References Tutores(TutorId),
+		--TutorId int foreign key References Tutores(TutorId),
 		primary key(EstudianteId)
 )
 Go
@@ -44,8 +45,9 @@ create table TutoresTelefonos(
 )
 go
 create table Cursos(
-	CursoId int identity(1,1) primary key,
-	DesCripcion varchar(50)
+	CursoId int identity(1,1),
+	DesCripcion varchar(50),
+	 primary key(CursoId)
 )
 
 go
@@ -58,15 +60,15 @@ go
 create table Asistencias(
        AsistenciaId int identity(1,1),
 	   CursoId  int,
-	   EstudianteId int foreign key References Estudiantes(EstudianteId),
+	   EstudianteId int, 
 	   Accion varchar(12),
 	   primary key(AsistenciaId)
 ) 
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
-		EstudianteId int foreign key references Estudiantes(EstudianteId),
-		MateriaId int foreign key references Materia(MateriaId),
+		EstudianteId int,
+		MateriaId int, 
 		Descripcion varchar(70),
 		Puntuacion int
 )
@@ -78,8 +80,12 @@ create table CalificaionesDetalle(
 go
 create table Evaluaciones(
 	EvaluacionId int identity(1,1) primary key,
-	AsitenciaId int foreign key references Asistencias(AsistenciaId),
-	CalificacionId int foreign key references Calificaciones(CalificacionId),
+	AsitenciaId int,
+	CalificacionId int, 
 
 )
 go
+
+
+
+SELECT * from Usuario

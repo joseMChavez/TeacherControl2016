@@ -42,7 +42,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Usuario (nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", this.nombre,this.apellido,this.email,this.direccion,this.telefono, this.pass,this.passConfir));
+                retorno = conexion.Ejecutar(String.Format("insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", nombre, this.apellido,this.email,this.direccion,this.telefono, this.pass,this.passConfir));
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Usuario set nombre= '{0}',apellido = '{1}' ,email='{2}',direccion='{3}',telefono = '{4}',clave='{5}', confirmarClave='{6}' where usuarioId= {7}",this.nombre, this.apellido, this.email, this.direccion, this.telefono,this.pass, this.passConfir, this.usuarioId));
+                retorno = conexion.Ejecutar(String.Format("update Usuario set nombre= '{0}',apellido = '{1}' ,email='{2}',direccion='{3}',telefono = '{4}',clave='{5}', confirmarClave='{6}' where usuarioId= {7}",this.nombre, this.apellido, this.email, this.direccion, this.telefono,this.pass, this.passConfir, this.usuarioId));
             }
             catch (Exception ex)
             {

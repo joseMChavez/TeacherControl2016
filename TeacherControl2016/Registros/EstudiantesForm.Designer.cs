@@ -59,8 +59,8 @@
             this.CursocomboBox = new System.Windows.Forms.ComboBox();
             this.GrupocomboBox = new System.Windows.Forms.ComboBox();
             this.Grupolabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.NombrePadretextBox = new System.Windows.Forms.TextBox();
+            this.TelefonoPmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -427,20 +427,20 @@
             this.Grupolabel.TabIndex = 42;
             this.Grupolabel.Text = "Grupo:";
             // 
-            // textBox1
+            // NombrePadretextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(534, 257);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 43;
+            this.NombrePadretextBox.Location = new System.Drawing.Point(534, 257);
+            this.NombrePadretextBox.Name = "NombrePadretextBox";
+            this.NombrePadretextBox.Size = new System.Drawing.Size(228, 20);
+            this.NombrePadretextBox.TabIndex = 43;
             // 
-            // maskedTextBox1
+            // TelefonoPmaskedTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(534, 288);
-            this.maskedTextBox1.Mask = "000-000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox1.TabIndex = 45;
+            this.TelefonoPmaskedTextBox.Location = new System.Drawing.Point(534, 288);
+            this.TelefonoPmaskedTextBox.Mask = "000-000-0000";
+            this.TelefonoPmaskedTextBox.Name = "TelefonoPmaskedTextBox";
+            this.TelefonoPmaskedTextBox.Size = new System.Drawing.Size(75, 20);
+            this.TelefonoPmaskedTextBox.TabIndex = 45;
             // 
             // label10
             // 
@@ -461,9 +461,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(814, 443);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.TelefonoPmaskedTextBox);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NombrePadretextBox);
             this.Controls.Add(this.Grupolabel);
             this.Controls.Add(this.GrupocomboBox);
             this.Controls.Add(this.CursocomboBox);
@@ -536,8 +536,8 @@
         private System.Windows.Forms.ComboBox CursocomboBox;
         private System.Windows.Forms.ComboBox GrupocomboBox;
         private System.Windows.Forms.Label Grupolabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox NombrePadretextBox;
+        private System.Windows.Forms.MaskedTextBox TelefonoPmaskedTextBox;
         private System.Windows.Forms.Label label10;
     }
 }
