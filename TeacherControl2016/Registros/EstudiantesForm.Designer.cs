@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstudiantesForm));
             this.EstudianteIdtextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             this.Nombrelabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Generolabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.MatriculaLavel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +63,8 @@
             this.NombrePadretextBox = new System.Windows.Forms.TextBox();
             this.TelefonoPmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.EstudianteErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.EstudianteErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // EstudianteIdtextBox
@@ -70,6 +73,7 @@
             this.EstudianteIdtextBox.Name = "EstudianteIdtextBox";
             this.EstudianteIdtextBox.Size = new System.Drawing.Size(84, 20);
             this.EstudianteIdtextBox.TabIndex = 16;
+            this.EstudianteIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EstudianteIdtextBox_KeyPress);
             // 
             // IdLabel
             // 
@@ -159,6 +163,7 @@
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // Nombrelabel
             // 
@@ -197,18 +202,18 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Fecha de Nacimiento: ";
             // 
-            // label4
+            // Generolabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(58, 217);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 16);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Genero:";
+            this.Generolabel.AutoSize = true;
+            this.Generolabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Generolabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Generolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Generolabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Generolabel.Location = new System.Drawing.Point(58, 217);
+            this.Generolabel.Name = "Generolabel";
+            this.Generolabel.Size = new System.Drawing.Size(63, 16);
+            this.Generolabel.TabIndex = 21;
+            this.Generolabel.Text = "Genero:";
             // 
             // label5
             // 
@@ -305,6 +310,7 @@
             this.MatriculatextBox.Name = "MatriculatextBox";
             this.MatriculatextBox.Size = new System.Drawing.Size(84, 20);
             this.MatriculatextBox.TabIndex = 29;
+            this.MatriculatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatriculatextBox_KeyPress);
             // 
             // NombretextBox
             // 
@@ -312,6 +318,7 @@
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(184, 20);
             this.NombretextBox.TabIndex = 30;
+            this.NombretextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombretextBox_KeyPress);
             // 
             // DirecciontextBox
             // 
@@ -319,6 +326,7 @@
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(228, 20);
             this.DirecciontextBox.TabIndex = 31;
+            this.DirecciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DirecciontextBox_KeyPress);
             // 
             // ApellidostextBox
             // 
@@ -326,6 +334,7 @@
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(185, 20);
             this.ApellidostextBox.TabIndex = 32;
+            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // EmailtextBox
             // 
@@ -333,6 +342,7 @@
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(228, 20);
             this.EmailtextBox.TabIndex = 33;
+            this.EmailtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailtextBox_KeyPress);
             // 
             // TelefonoMaskedTextBox
             // 
@@ -341,6 +351,7 @@
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
             this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(75, 20);
             this.TelefonoMaskedTextBox.TabIndex = 34;
+            this.TelefonoMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoMaskedTextBox_KeyPress);
             // 
             // FechaDateTimePicker
             // 
@@ -349,6 +360,7 @@
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
             this.FechaDateTimePicker.Size = new System.Drawing.Size(133, 20);
             this.FechaDateTimePicker.TabIndex = 35;
+            this.FechaDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FechaDateTimePicker_KeyPress);
             // 
             // MasculinoRadioButton
             // 
@@ -403,6 +415,7 @@
             this.GrupocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GrupocomboBox.FormattingEnabled = true;
             this.GrupocomboBox.Items.AddRange(new object[] {
+            "---",
             "A",
             "B",
             "C",
@@ -433,6 +446,7 @@
             this.NombrePadretextBox.Name = "NombrePadretextBox";
             this.NombrePadretextBox.Size = new System.Drawing.Size(228, 20);
             this.NombrePadretextBox.TabIndex = 43;
+            this.NombrePadretextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombrePadretextBox_KeyPress);
             // 
             // TelefonoPmaskedTextBox
             // 
@@ -441,6 +455,7 @@
             this.TelefonoPmaskedTextBox.Name = "TelefonoPmaskedTextBox";
             this.TelefonoPmaskedTextBox.Size = new System.Drawing.Size(75, 20);
             this.TelefonoPmaskedTextBox.TabIndex = 45;
+            this.TelefonoPmaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoPmaskedTextBox_KeyPress);
             // 
             // label10
             // 
@@ -454,6 +469,10 @@
             this.label10.Size = new System.Drawing.Size(146, 16);
             this.label10.TabIndex = 44;
             this.label10.Text = "Telefono del Padre:";
+            // 
+            // EstudianteErrorProvider
+            // 
+            this.EstudianteErrorProvider.ContainerControl = this;
             // 
             // EstudiantesForm
             // 
@@ -484,7 +503,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MatriculaLavel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Generolabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Nombrelabel);
@@ -499,6 +518,7 @@
             this.Name = "EstudiantesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registro de Estudiantes";
+            ((System.ComponentModel.ISupportInitialize)(this.EstudianteErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,7 +535,7 @@
         private System.Windows.Forms.Label Nombrelabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Generolabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label MatriculaLavel;
         private System.Windows.Forms.Label label1;
@@ -539,5 +559,6 @@
         private System.Windows.Forms.TextBox NombrePadretextBox;
         private System.Windows.Forms.MaskedTextBox TelefonoPmaskedTextBox;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ErrorProvider EstudianteErrorProvider;
     }
 }

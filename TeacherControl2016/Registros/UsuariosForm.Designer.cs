@@ -119,6 +119,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(191, 20);
             this.NombreTextBox.TabIndex = 9;
+            this.NombreTextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // UsuIdtextBox
@@ -128,6 +129,7 @@
             this.UsuIdtextBox.Name = "UsuIdtextBox";
             this.UsuIdtextBox.Size = new System.Drawing.Size(84, 20);
             this.UsuIdtextBox.TabIndex = 10;
+            this.UsuIdtextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.UsuIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsuIdtextBox_KeyPress);
             // 
             // UsuariosErrorProvider
@@ -221,6 +223,7 @@
             this.ApellidotextBox.Name = "ApellidotextBox";
             this.ApellidotextBox.Size = new System.Drawing.Size(191, 20);
             this.ApellidotextBox.TabIndex = 13;
+            this.ApellidotextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.ApellidotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidotextBox_KeyPress);
             // 
             // Apellidolabel
@@ -242,6 +245,7 @@
             this.ConfirPasstextBox.Name = "ConfirPasstextBox";
             this.ConfirPasstextBox.Size = new System.Drawing.Size(145, 20);
             this.ConfirPasstextBox.TabIndex = 14;
+            this.ConfirPasstextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.ConfirPasstextBox.UseSystemPasswordChar = true;
             this.ConfirPasstextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ConfirPasstextBox_KeyPress);
             // 
@@ -252,6 +256,7 @@
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(191, 20);
             this.EmailtextBox.TabIndex = 16;
+            this.EmailtextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.EmailtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailtextBox_KeyPress);
             // 
             // Emaillabel
@@ -273,6 +278,7 @@
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(191, 20);
             this.DirecciontextBox.TabIndex = 18;
+            this.DirecciontextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.DirecciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DirecciontextBox_KeyPress);
             // 
             // Direccionlabel
@@ -306,6 +312,7 @@
             this.TellMaskedTextBox.Name = "TellMaskedTextBox";
             this.TellMaskedTextBox.Size = new System.Drawing.Size(83, 20);
             this.TellMaskedTextBox.TabIndex = 20;
+            this.TellMaskedTextBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             this.TellMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TellMaskedTextBox_KeyPress);
             // 
             // UsuariosForm

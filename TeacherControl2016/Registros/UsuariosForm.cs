@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using BLL;
 
 namespace TeacherControl2016.Registros
@@ -34,6 +35,27 @@ namespace TeacherControl2016.Registros
             NombreTextBox.Focus();
 
         }
+        // Regex esta función permite mediante un patrón verificar si una cadena cumple con ese patrón 
+        public static bool ComprobarFormatoEmail(string sEmailAComprobar)
+        {
+            String sFormato;
+            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(sEmailAComprobar, sFormato))
+            {
+                if (Regex.Replace(sEmailAComprobar, sFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         //Este metodo es para Validar los Textbox
         private void Validar(TextBox tb, string mensaje)
         {
@@ -51,25 +73,16 @@ namespace TeacherControl2016.Registros
         //Este metodo es para Validar los Textbox
         private bool ValidarTodo()
         {
-            if (PassTextBox.Text.Length < 6)
-
-            {
-                UsuariosErrorProvider.SetError(PassTextBox, "La Contarseña debe de ser de mas de 6 Caracteres!");
-                PassTextBox.Focus();
-            }
-            else
-            {
-                UsuariosErrorProvider.Clear();
-            }
+          
             //Textbox Nombre
-            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && EmailtextBox.Text.Equals("")&& DirecciontextBox.Text.Equals("") && TellMaskedTextBox.MaskCompleted && PassTextBox.Text.Equals("") && ConfirPasstextBox.Text.Equals(""))
+            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text) )&& DirecciontextBox.Text.Equals("") && TellMaskedTextBox.MaskCompleted && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(NombreTextBox, "Digite el nombre de Usuario!");
                 UsuariosErrorProvider.SetError(ApellidotextBox, "Digite el apellido de Usuario!");
-                UsuariosErrorProvider.SetError(EmailtextBox, "Digite El Email del Usuario!");
+                UsuariosErrorProvider.SetError(EmailtextBox, "Digite un Email del Usuario que sea del Formato ejemplo@ejemail.eje!");
                 UsuariosErrorProvider.SetError(TellMaskedTextBox, "Digite un Numero de Telefono!");
                 UsuariosErrorProvider.SetError(DirecciontextBox, "Digite un Direccion!");
-                UsuariosErrorProvider.SetError(PassTextBox, "Digite Una Contarseña!");
+                UsuariosErrorProvider.SetError(PassTextBox, "Digite Una Contarseña con mas de 6 Caracteres!");
                 UsuariosErrorProvider.SetError(ConfirPasstextBox, "Confirme la Contraseña!");
                
 
@@ -82,6 +95,7 @@ namespace TeacherControl2016.Registros
                 return true;
             }
         }
+     
         public void ActivarBotones( bool btn)
         {
             GuardarButton.Enabled = btn;
@@ -121,53 +135,64 @@ namespace TeacherControl2016.Registros
                     break;
             }
         }
-        private void UsuIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        // Estos metodos reciven un evento cuando se presiona una tecla en el textbox para Validarlos
+        private void TextBoxNuemericos(KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) )
             {
                 e.Handled = false;
             }
             else
                 e.Handled = true;
-         
+
+           
+
+        }
+        private void TextboxAlfaNumerico(KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+        }
+        private void TextBoxEspecial(KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 44 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar == 33) || (e.KeyChar == 95) || (e.KeyChar >= 63 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+        }
+        //=============================================FinMEtodos=================================================////
+        private void UsuIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBoxNuemericos(e);
+            if (e.KeyChar == 13)
+                NombreTextBox.Focus();
+
             
         }
 
         private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar>= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
 
-
+            TextboxAlfaNumerico(e);
             if (e.KeyChar == 13)
                 ApellidotextBox.Focus();
+
         }
         private void ApellidotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57)|| (e.KeyChar == 32) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
-
-
+            TextboxAlfaNumerico(e);
             if (e.KeyChar == 13)
                 EmailtextBox.Focus();
         }
         private void EmailtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 46 && e.KeyChar <= 57) || (e.KeyChar == 32) || (e.KeyChar == 8) || (e.KeyChar >= 64 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
-
+            TextBoxEspecial(e);
 
             if (e.KeyChar == 13)
                 DirecciontextBox.Focus();
@@ -175,12 +200,7 @@ namespace TeacherControl2016.Registros
     
         private void DirecciontextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 44 && e.KeyChar <= 57) || (e.KeyChar == 32) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
+            TextboxAlfaNumerico(e);
 
 
             if (e.KeyChar == 13)
@@ -194,13 +214,7 @@ namespace TeacherControl2016.Registros
         }
         private void PassTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 64 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar == 63) || (e.KeyChar == 33) || (e.KeyChar == 168))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
-
+            TextBoxEspecial(e);
 
             if (e.KeyChar == 13)
                 ConfirPasstextBox.Focus();
@@ -208,13 +222,7 @@ namespace TeacherControl2016.Registros
 
         private void ConfirPasstextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 64 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar == 63) || (e.KeyChar == 33) || (e.KeyChar == 168))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
-
+            TextBoxEspecial(e);
 
             if (e.KeyChar == 13)
                 NombreTextBox.Focus();
