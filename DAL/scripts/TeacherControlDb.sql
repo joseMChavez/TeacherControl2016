@@ -16,7 +16,7 @@ Create table Estudiantes(
 		Matricula int,
 		Nombre varchar(50),
 		Apellido varchar(30),
-		Genero VarChar(5),
+		Genero bit,
 		FechaNacimiento varchar(20),
 		Celular varchar(15),
 		CursoId int,

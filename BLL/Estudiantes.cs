@@ -15,7 +15,7 @@ namespace BLL
         public int Matricula { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
-        public string Genero { get; set; }
+        public bool Genero { get; set; }
         public string FechaNacimiento { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
@@ -30,7 +30,7 @@ namespace BLL
             this.Matricula = 0;
             this.Nombre = "";
             this.Apellidos = "";
-            this.Genero = "";
+            this.Genero = false;
             this.FechaNacimiento = "";
             this.Celular = "";
             this.Email = "";
@@ -42,7 +42,7 @@ namespace BLL
             
            
         }
-        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, string Genero, string FechaNacimiento, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
+        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, bool Genero, string FechaNacimiento, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
         {
             this.EstudianteId = Id;
             this.Matricula = Matricula;
@@ -114,7 +114,7 @@ namespace BLL
                     this.Matricula = (int)dt.Rows[0]["Matricula"];
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Apellidos = dt.Rows[0]["Apellido"].ToString();
-                    this.Genero = dt.Rows[0]["Genero"].ToString();
+                    this.Genero = (bool)dt.Rows[0]["Genero"];
                     this.FechaNacimiento = dt.Rows[0]["FechaNacimiento"].ToString();
                     this.Celular = dt.Rows[0]["Celular"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();

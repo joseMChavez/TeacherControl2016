@@ -75,7 +75,7 @@ namespace TeacherControl2016.Registros
         {
           
             //Textbox Nombre
-            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text) )&& DirecciontextBox.Text.Equals("") && TellMaskedTextBox.MaskCompleted && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
+            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text)==false )&& DirecciontextBox.Text.Equals("") && TellMaskedTextBox.MaskCompleted && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(NombreTextBox, "Digite el nombre de Usuario!");
                 UsuariosErrorProvider.SetError(ApellidotextBox, "Digite el apellido de Usuario!");
@@ -266,7 +266,6 @@ namespace TeacherControl2016.Registros
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            EliminarButton.Enabled = false;
             GuardarButton.Enabled = true;
         }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -13,14 +14,30 @@ namespace TeacherControl2016.Registros
 {
     public partial class EstudiantesForm : Form
     {
+        Estudiantes estudiante = new Estudiantes();
         public EstudiantesForm()
         {
             InitializeComponent();
         }
+         private void LlenarDatos()
+            {
+            int id = 0;
+            int.TryParse(EstudianteIdtextBox.Text, out id);
+            estudiante.EstudianteId = id;
+            int matricula = 0;
+            int.TryParse(MatriculatextBox.Text, out matricula);
+            estudiante.Matricula = matricula;
+            estudiante.Nombre = NombretextBox.Text;
+            estudiante.Apellidos = ApellidostextBox.Text;
+            if (MasculinoRadioButton.Checked || FemeninoradioButton.Checked)
+            {
+                estudiante.Genero =true;
+            }
+            
+        }
 
-
-      private void Limpiar()
-        {
+         private void Limpiar()
+            {
             EstudianteIdtextBox.Clear();
             MatriculatextBox.Clear();
             NombretextBox.Clear();
@@ -44,6 +61,27 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
+        // Regex esta función permite mediante un patrón verificar si una cadena cumple con ese patrón 
+        public static bool ComprobarFormatoEmail(string sEmailAComprobar)
+        {
+            String sFormato;
+            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(sEmailAComprobar, sFormato))
+            {
+                if (Regex.Replace(sEmailAComprobar, sFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         //Este metodo es para Validar los Textbox
         private void Validar(TextBox tb, string mensaje)
         {
@@ -60,14 +98,14 @@ namespace TeacherControl2016.Registros
         }
         private bool ValidarTodo()
         {
-            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && EmailtextBox.Text.Equals("") && DirecciontextBox.Text.Equals("") && CursocomboBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
+            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text)==false ) && DirecciontextBox.Text.Equals("") && CursocomboBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
             {
                 EstudianteErrorProvider.SetError(MatriculatextBox, "Digite La Matricula del Estudiante!");
                 EstudianteErrorProvider.SetError(NombretextBox, "Digite el Nombre del Estudiante!");
                 EstudianteErrorProvider.SetError(ApellidostextBox, "Digite el Apellido del Estudiante!");
                 EstudianteErrorProvider.SetError(Generolabel, "Seleccione un Sexo!");
                 EstudianteErrorProvider.SetError(FechaDateTimePicker, "Seleccione Una Fecha de Nacimiento!");
-                EstudianteErrorProvider.SetError(TelefonoMaskedTextBox, "Digite un Email!");
+                EstudianteErrorProvider.SetError(TelefonoMaskedTextBox, "Digite un Email del Usuario que sea del Formato ejemplo@ejemail.eje!");
                 EstudianteErrorProvider.SetError(EmailtextBox, "Digite un Email!");
                 EstudianteErrorProvider.SetError(DirecciontextBox, "Digite una Direccion!");
                 EstudianteErrorProvider.SetError(CursocomboBox, "Seleccione un Curso!");
@@ -219,7 +257,15 @@ namespace TeacherControl2016.Registros
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception Ex)
+            {
+
+                MessageBox.Show(Ex.Message);
+            }
         }
         private void NuevoButton_Click(object sender, EventArgs e)
         {
@@ -229,12 +275,59 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            Estudiantes estudiante = new Estudiantes();
+           
+            try
+            {
+                if (EstudianteIdtextBox.Equals("") && !ValidarTodo())
+                {
+                    if (estudiante.Insertar())
+                    {
+                        Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Guardado Correctamete.");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                    else
+                    {
+                        Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Guardado.");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                }
+                else
+                {
+                    if (estudiante.Editar())
+                    {
+                        Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Modificado Correctamete.");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                    else
+                    {
+                        Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Modificado.");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
 
+                MessageBox.Show(Ex.Message);
+            }
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception Ex)
+            {
+
+                MessageBox.Show(Ex.Message);
+            }
         }
     }
 }
