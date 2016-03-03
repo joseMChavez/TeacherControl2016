@@ -29,10 +29,27 @@ namespace TeacherControl2016.Registros
             estudiante.Matricula = matricula;
             estudiante.Nombre = NombretextBox.Text;
             estudiante.Apellidos = ApellidostextBox.Text;
-            if (MasculinoRadioButton.Checked || FemeninoradioButton.Checked)
+            if (MasculinoRadioButton.Checked)
             {
-                estudiante.Genero =true;
+                estudiante.Genero = true;
             }
+            else
+            {
+                estudiante.Genero = false;
+            }
+            
+            estudiante.FechaNacimiento = FechaDateTimePicker.Text;
+            estudiante.Celular = TelefonoMaskedTextBox.Text;
+            estudiante.Email = EmailtextBox.Text;
+            estudiante.Direccion = DirecciontextBox.Text;
+
+            int cursoId = 0;
+            int.TryParse(CursocomboBox.SelectedValue.ToString(), out cursoId);
+            estudiante.CursoId = cursoId;
+            estudiante.Grupo = GrupocomboBox.Text;
+            estudiante.NombrePadre = NombrePadretextBox.Text;
+            estudiante.TelefonoPadre = TelefonoPmaskedTextBox.Text;
+
             
         }
 
@@ -83,17 +100,19 @@ namespace TeacherControl2016.Registros
             }
         }
         //Este metodo es para Validar los Textbox
-        private void Validar(TextBox tb, string mensaje)
+        private bool Validar(TextBox tb, string mensaje)
         {
 
             if (tb.Text.Equals(""))
             {
                 EstudianteErrorProvider.SetError(tb, mensaje);
                 tb.Focus();
+                return true;
             }
             else
             {
                 EstudianteErrorProvider.Clear();
+                return false;
             }
         }
         private bool ValidarTodo()
@@ -275,8 +294,8 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            Estudiantes estudiante = new Estudiantes();
-           
+            
+            LlenarDatos();
             try
             {
                 if (EstudianteIdtextBox.Equals("") && !ValidarTodo())
@@ -319,8 +338,39 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            int id = 0;
+            DialogResult resut;
+            int.TryParse(EstudianteIdtextBox.Text, out id);
             try
             {
+                LlenarDatos();
+                if ( estudiante.Buscar(id))
+                {
+                    //Dialogo para confirmar que se desea Eliminar...
+                    resut = MessageBox.Show("¿Esta seguro que desea eliminar a "+NombretextBox.Text+"?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (resut == DialogResult.Yes)
+                    {
+                        if (estudiante.Eliminar())
+                        {
+                            Mensajes(1, NombretextBox.Text + " a sido Eliminado Corectamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Mensajes(2, NombretextBox.Text + "No a sido Eliminado!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                    }
+                    else {
+                        Mensajes(3, " NO Existe el Usuario " + NombretextBox.Text);
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+
+                }
 
             }
             catch (Exception Ex)
