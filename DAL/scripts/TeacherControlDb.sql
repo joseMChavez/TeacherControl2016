@@ -4,7 +4,6 @@
  apellido varchar(50),
  email varchar(100),
  direccion varchar(100),
- telefono varchar(15),
  clave varchar(15),
  confirmarClave Varchar(15),
  primary key(usuarioId)
@@ -71,6 +70,6 @@ create table Evaluaciones(
 
 )
 go
+Drop table Usuario;
 Select * From Usuario
-delete From Usuario where usuarioId=1
 insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('Jose','Carlos','Gimenez','hj','809-844-2216','123345','123345')

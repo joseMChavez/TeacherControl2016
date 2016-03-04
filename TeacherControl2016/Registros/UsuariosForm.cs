@@ -26,8 +26,7 @@ namespace TeacherControl2016.Registros
             ApellidotextBox.Clear();
             EmailtextBox.Clear();
             DirecciontextBox.Clear();
-            TellMaskedTextBox.Clear();
-            TellMaskedTextBox.Mask = "###-###-####";
+       
             PassTextBox.Clear();
             ConfirPasstextBox.Clear();
             
@@ -75,12 +74,12 @@ namespace TeacherControl2016.Registros
         {
           
             //Textbox Nombre
-            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text)==false )&& DirecciontextBox.Text.Equals("") && TellMaskedTextBox.MaskCompleted && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
+            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text)==false )&& DirecciontextBox.Text.Equals("") && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(NombreTextBox, "Digite el nombre de Usuario!");
                 UsuariosErrorProvider.SetError(ApellidotextBox, "Digite el apellido de Usuario!");
                 UsuariosErrorProvider.SetError(EmailtextBox, "Digite un Email del Usuario que sea del Formato ejemplo@ejemail.eje!");
-                UsuariosErrorProvider.SetError(TellMaskedTextBox, "Digite un Numero de Telefono!");
+               
                 UsuariosErrorProvider.SetError(DirecciontextBox, "Digite un Direccion!");
                 UsuariosErrorProvider.SetError(PassTextBox, "Digite Una Contarseña con mas de 6 Caracteres!");
                 UsuariosErrorProvider.SetError(ConfirPasstextBox, "Confirme la Contraseña!");
@@ -110,7 +109,7 @@ namespace TeacherControl2016.Registros
             usuario.apellido = ApellidotextBox.Text;
             usuario.email = EmailtextBox.Text;
             usuario.direccion = DirecciontextBox.Text;
-            usuario.telefono = TellMaskedTextBox.Text;
+            
             usuario.pass = PassTextBox.Text;
             usuario.passConfir = ConfirPasstextBox.Text;
             
@@ -204,14 +203,10 @@ namespace TeacherControl2016.Registros
 
 
             if (e.KeyChar == 13)
-                TellMaskedTextBox.Focus();
-        }
-
-        private void TellMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
                 PassTextBox.Focus();
         }
+
+        
         private void PassTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxEspecial(e);
@@ -240,7 +235,7 @@ namespace TeacherControl2016.Registros
                     ApellidotextBox.Text = usuario.apellido;
                     EmailtextBox.Text = usuario.email;
                     DirecciontextBox.Text = usuario.direccion;
-                    TellMaskedTextBox.Text = usuario.telefono;
+                 
                     PassTextBox.Text = usuario.pass;
                     ConfirPasstextBox.Text = usuario.passConfir;
 
