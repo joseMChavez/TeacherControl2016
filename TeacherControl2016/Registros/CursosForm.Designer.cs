@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
             this.DescripcionLabel = new System.Windows.Forms.Label();
+            this.CursosErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.CursosErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // NuevoButton
@@ -154,6 +157,11 @@
             this.DescripcionLabel.TabIndex = 13;
             this.DescripcionLabel.Text = "Descripcion:";
             // 
+            // CursosErrorProvider
+            // 
+            this.CursosErrorProvider.ContainerControl = this;
+            this.CursosErrorProvider.RightToLeft = true;
+            // 
             // CursosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +179,7 @@
             this.Name = "CursosForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Registro de Cursos";
+            ((System.ComponentModel.ISupportInitialize)(this.CursosErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +195,6 @@
         private System.Windows.Forms.TextBox DescripcionTextBox;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.Label DescripcionLabel;
+        private System.Windows.Forms.ErrorProvider CursosErrorProvider;
     }
 }

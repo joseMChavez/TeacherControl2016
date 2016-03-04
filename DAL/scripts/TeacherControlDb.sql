@@ -1,5 +1,4 @@
-﻿use TeacherControlDb
-create table Usuario(
+﻿create table Usuario(
  usuarioId int identity(1,1),
  nombre varchar(50),
  apellido varchar(50),
@@ -18,6 +17,7 @@ Create table Estudiantes(
 		Apellido varchar(30),
 		Genero bit,
 		FechaNacimiento varchar(20),
+		Edad int,
 		Celular varchar(15),
 		CursoId int,
 		Grupo varchar(5),

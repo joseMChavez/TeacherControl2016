@@ -64,6 +64,8 @@
             this.TelefonoPmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.EstudianteErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Edadlabel = new System.Windows.Forms.Label();
+            this.EdadtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.EstudianteErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,7 +266,7 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Default;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(58, 287);
+            this.label6.Location = new System.Drawing.Point(384, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 25;
@@ -349,7 +351,7 @@
             // 
             // TelefonoMaskedTextBox
             // 
-            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(175, 287);
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(534, 68);
             this.TelefonoMaskedTextBox.Mask = "000-000-0000";
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
             this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(75, 20);
@@ -363,6 +365,7 @@
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
             this.FechaDateTimePicker.Size = new System.Drawing.Size(133, 20);
             this.FechaDateTimePicker.TabIndex = 35;
+            this.FechaDateTimePicker.ValueChanged += new System.EventHandler(this.FechaDateTimePicker_ValueChanged);
             this.FechaDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FechaDateTimePicker_KeyPress);
             // 
             // MasculinoRadioButton
@@ -477,12 +480,35 @@
             // 
             this.EstudianteErrorProvider.ContainerControl = this;
             // 
+            // Edadlabel
+            // 
+            this.Edadlabel.AutoSize = true;
+            this.Edadlabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Edadlabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Edadlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edadlabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Edadlabel.Location = new System.Drawing.Point(62, 292);
+            this.Edadlabel.Name = "Edadlabel";
+            this.Edadlabel.Size = new System.Drawing.Size(49, 16);
+            this.Edadlabel.TabIndex = 46;
+            this.Edadlabel.Text = "Edad:";
+            // 
+            // EdadtextBox
+            // 
+            this.EdadtextBox.Location = new System.Drawing.Point(175, 288);
+            this.EdadtextBox.Name = "EdadtextBox";
+            this.EdadtextBox.ReadOnly = true;
+            this.EdadtextBox.Size = new System.Drawing.Size(46, 20);
+            this.EdadtextBox.TabIndex = 47;
+            // 
             // EstudiantesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(814, 443);
+            this.Controls.Add(this.EdadtextBox);
+            this.Controls.Add(this.Edadlabel);
             this.Controls.Add(this.TelefonoPmaskedTextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.NombrePadretextBox);
@@ -564,5 +590,7 @@
         private System.Windows.Forms.MaskedTextBox TelefonoPmaskedTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ErrorProvider EstudianteErrorProvider;
+        private System.Windows.Forms.TextBox EdadtextBox;
+        private System.Windows.Forms.Label Edadlabel;
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Asistencia.cs" />
     <Compile Include="ClaseMaestra.cs" />
+    <Compile Include="Cursos.cs" />
     <Compile Include="Estudiantes.cs" />
     <Compile Include="Materias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

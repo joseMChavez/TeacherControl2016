@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using BLL;
 
 namespace TeacherControl2016.Registros
@@ -44,7 +45,7 @@ namespace TeacherControl2016.Registros
             estudiante.Direccion = DirecciontextBox.Text;
 
             int cursoId = 0;
-            int.TryParse(CursocomboBox.SelectedValue.ToString(), out cursoId);
+            //int.TryParse(CursocomboBox.SelectedValue.ToString(), out cursoId);
             estudiante.CursoId = cursoId;
             estudiante.Grupo = GrupocomboBox.Text;
             estudiante.NombrePadre = NombrePadretextBox.Text;
@@ -61,6 +62,7 @@ namespace TeacherControl2016.Registros
             ApellidostextBox.Clear();
             MasculinoRadioButton.Checked = false;
             FemeninoradioButton.Checked = false;
+          
             TelefonoMaskedTextBox.Clear();
             TelefonoMaskedTextBox.Mask = "###-###-####";
             EmailtextBox.Clear();
@@ -117,7 +119,7 @@ namespace TeacherControl2016.Registros
         }
         private bool ValidarTodo()
         {
-            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text)==false ) && DirecciontextBox.Text.Equals("") && CursocomboBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
+            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && (EmailtextBox.Text.Equals("") || ComprobarFormatoEmail(EmailtextBox.Text)==false ) && DirecciontextBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
             {
                 EstudianteErrorProvider.SetError(MatriculatextBox, "Digite La Matricula del Estudiante!");
                 EstudianteErrorProvider.SetError(NombretextBox, "Digite el Nombre del Estudiante!");
@@ -232,6 +234,12 @@ namespace TeacherControl2016.Registros
                 TelefonoMaskedTextBox.Focus();
             }
         }
+        //Esto me permite Calcular la Edad de Una Persona;
+        private void FechaDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            EdadtextBox.Text = (DateTime.Today.AddTicks(-FechaDateTimePicker.Value.Ticks).Year - 1).ToString();
+        }
+
         private void TelefonoMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -274,11 +282,47 @@ namespace TeacherControl2016.Registros
                 MatriculatextBox.Focus();
             }
         }
+        /// 
+        /// Boton Buscar
+        /// 
+       
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            int id = 0;
+            int.TryParse(EstudianteIdtextBox.Text, out id);
             try
             {
-
+                if (Validar(EstudianteIdtextBox,"Digite un Id!")==false && estudiante.Buscar(id))
+                {
+                    EstudianteIdtextBox.Text = estudiante.EstudianteId.ToString();
+                    MatriculatextBox.Text = estudiante.Matricula.ToString();
+                    NombretextBox.Text = estudiante.Nombre;
+                    ApellidostextBox.Text = estudiante.Apellidos;
+                    if (estudiante.Genero == true)
+                    {
+                        MasculinoRadioButton.Checked = true;
+                    }
+                    else
+                    {
+                        FemeninoradioButton.Checked = true;
+                    }
+                    FechaDateTimePicker.Text = estudiante.FechaNacimiento;
+                    TelefonoMaskedTextBox.Text = estudiante.Celular;
+                    EmailtextBox.Text = estudiante.Email;
+                    DirecciontextBox.Text = estudiante.Direccion;
+                    CursocomboBox.Text = estudiante.CursoId.ToString();
+                    GrupocomboBox.Text = estudiante.Grupo;
+                    NombrePadretextBox.Text = estudiante.NombrePadre;
+                    TelefonoPmaskedTextBox.Text = estudiante.TelefonoPadre;
+                    ActivarBotones(true);
+                    MatriculatextBox.Focus();
+                }
+                else
+                {
+                    EstudianteIdtextBox.Focus();
+                    ActivarBotones(false);
+                    Limpiar();
+                }
             }
             catch (Exception Ex)
             {
@@ -286,12 +330,17 @@ namespace TeacherControl2016.Registros
                 MessageBox.Show(Ex.Message);
             }
         }
+        /// 
+        /// Boton Nuevo
+        /// 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
             GuardarButton.Enabled = true;
         }
-
+        /// 
+        /// Boton Guardar
+        /// 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             
@@ -331,11 +380,13 @@ namespace TeacherControl2016.Registros
             }
             catch (Exception Ex)
             {
-
-                MessageBox.Show(Ex.Message);
+                throw Ex;
             }
+               
         }
-
+        /// 
+        /// Boton Eliminar
+        /// 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             int id = 0;
@@ -379,5 +430,7 @@ namespace TeacherControl2016.Registros
                 MessageBox.Show(Ex.Message);
             }
         }
+
+       
     }
 }

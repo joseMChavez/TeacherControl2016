@@ -17,6 +17,7 @@ namespace BLL
         public string Apellidos { get; set; }
         public bool Genero { get; set; }
         public string FechaNacimiento { get; set; }
+        public int Edad { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
         public string Direccion { get; set; }
@@ -32,6 +33,7 @@ namespace BLL
             this.Apellidos = "";
             this.Genero = false;
             this.FechaNacimiento = "";
+            this.Edad = 0;
             this.Celular = "";
             this.Email = "";
             this.Direccion = "";
@@ -42,7 +44,7 @@ namespace BLL
             
            
         }
-        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, bool Genero, string FechaNacimiento, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
+        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, bool Genero, string FechaNacimiento,int Edad, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
         {
             this.EstudianteId = Id;
             this.Matricula = Matricula;
@@ -50,6 +52,7 @@ namespace BLL
             this.Apellidos = Apellido;
             this.Genero = Genero;
             this.FechaNacimiento = FechaNacimiento;
+            this.Edad = Edad;
             this.Celular = Celular;
             this.Email = Email;
             this.Direccion = Direcion;
@@ -64,7 +67,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Estudiantes(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Celular,Email, Direccin,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}','{3}',{4},'{5}','{6}','{7}',{8},'{9}','{10}','{11}')",this.Matricula,this.Nombre,this.Apellidos,this.Genero,this.FechaNacimiento,this.Celular,this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Estudiantes(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Celular,Email, Direccin,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}','{3}',{4},'{5}',{6},'{7}',{8},'{9}','{10}','{11}','{12}')",this.Matricula,this.Nombre,this.Apellidos,this.Genero,this.FechaNacimiento,this.Edad,this.Celular,this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
             }
             catch (Exception ex)
             {
@@ -78,7 +81,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero='{3}', FechaNacimiento='{4}', Celular='{5}',Email='{6}',Direccion='{7}', CursoId={8}, Grupo='{9}', NombrePadre='{10}', TelefonoPadre='{11}' where EstudianteId= {12}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero='{3}', FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId={9}, Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
             }
             catch (Exception ex)
             {
@@ -116,6 +119,7 @@ namespace BLL
                     this.Apellidos = dt.Rows[0]["Apellido"].ToString();
                     this.Genero = (bool)dt.Rows[0]["Genero"];
                     this.FechaNacimiento = dt.Rows[0]["FechaNacimiento"].ToString();
+                    this.Edad = (int)dt.Rows[0]["Edad"];
                     this.Celular = dt.Rows[0]["Celular"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();
                     this.Direccion = dt.Rows[0]["Direccion"].ToString();
@@ -136,11 +140,11 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            string ordenFinal = "1=1";
+            string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Estudiantes Where " + Condicion + Orden);
+            return conexion.ObtenerDatos("Select " + Campos + " From Estudiantes Where " + Condicion + ordenFinal);
         }
     }
 }
