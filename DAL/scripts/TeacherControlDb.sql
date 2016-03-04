@@ -10,31 +10,29 @@
  primary key(usuarioId)
 ) 
 Go
+create table Cursos(
+	CursoId int identity(1,1),
+	Descripcion varchar(50),
+	 primary key(CursoId)
+)
+go
+
 Create table Estudiantes( 
 		EstudianteId int identity(1,1),
 		Matricula int,
 		Nombre varchar(50),
-		Apellido varchar(30),
-		Genero bit,
+		Apellido varchar(50),
+		Genero int,
 		FechaNacimiento varchar(20),
 		Edad int,
 		Celular varchar(15),
-		CursoId int,
-		Grupo varchar(5),
 		Email Varchar(70),
 		Direccion varchar(100),
 		CursoId int foreign key References Cursos(CursoId),
-		Grupo varchar(5),
+		Grupo varchar(10),
 		NombrePadre varchar(50),
-		TelefonoPadre varchar(50),
+		TelefonoPadre varchar(15),
 		primary key(EstudianteId)
-)
-go
-
-create table Cursos(
-	CursoId int identity(1,1),
-	DesCripcion varchar(50),
-	 primary key(CursoId)
 )
 
 go
@@ -73,7 +71,6 @@ create table Evaluaciones(
 
 )
 go
-
-
-
-SELECT * from Usuario
+Select * From Usuario
+delete From Usuario where usuarioId=1
+insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('Jose','Carlos','Gimenez','hj','809-844-2216','123345','123345')

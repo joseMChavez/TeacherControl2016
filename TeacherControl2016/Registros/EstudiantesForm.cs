@@ -32,11 +32,11 @@ namespace TeacherControl2016.Registros
             estudiante.Apellidos = ApellidostextBox.Text;
             if (MasculinoRadioButton.Checked)
             {
-                estudiante.Genero = true;
+                estudiante.Genero = 1;
             }
             else
             {
-                estudiante.Genero = false;
+                estudiante.Genero = 0;
             }
             
             estudiante.FechaNacimiento = FechaDateTimePicker.Text;
@@ -298,7 +298,7 @@ namespace TeacherControl2016.Registros
                     MatriculatextBox.Text = estudiante.Matricula.ToString();
                     NombretextBox.Text = estudiante.Nombre;
                     ApellidostextBox.Text = estudiante.Apellidos;
-                    if (estudiante.Genero == true)
+                    if (estudiante.Genero == 1)
                     {
                         MasculinoRadioButton.Checked = true;
                     }
@@ -319,6 +319,7 @@ namespace TeacherControl2016.Registros
                 }
                 else
                 {
+                    Mensajes(3, "Id No encontrado!");
                     EstudianteIdtextBox.Focus();
                     ActivarBotones(false);
                     Limpiar();
@@ -344,10 +345,11 @@ namespace TeacherControl2016.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             
-            LlenarDatos();
+            
             try
             {
-                if (EstudianteIdtextBox.Equals("") && !ValidarTodo())
+                LlenarDatos();
+                if (EstudianteIdtextBox.Text.Equals("") && ValidarTodo()==false)
                 {
                     if (estudiante.Insertar())
                     {

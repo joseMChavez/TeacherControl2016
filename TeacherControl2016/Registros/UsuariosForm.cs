@@ -272,8 +272,7 @@ namespace TeacherControl2016.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             bool Validacion = ValidarTodo();
-            try
-            {
+            
                 
                
                 if (UsuIdtextBox.Text.Equals(""))
@@ -296,10 +295,12 @@ namespace TeacherControl2016.Registros
                                 {
                                     Mensajes(1, "El Usuarios " + NombreTextBox.Text + " A sido Guardado Correctamente!");
                                     Limpiar();
+                                    ActivarBotones(false);
                                 }
                                 else
                                 {
                                     Mensajes(2, "Error en Guardar Usuario!");
+                                    ActivarBotones(false);
                                 }
                             }
                             else
@@ -323,15 +324,23 @@ namespace TeacherControl2016.Registros
                     {
                         if (usuario.BuscarNombre(NombreTextBox.Text) && PassTextBox.Text.Length >= 6)
                         {
-                            if (usuario.Editar())
+                            if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
                             {
-                                Mensajes(1, "Usuarios Modificado Correctamente");
-                                Limpiar();
-                            }
-                            else
+                                if (usuario.Editar())
+                                {
+                                    Mensajes(1, "Usuarios Modificado Correctamente");
+                                    Limpiar();
+                                }
+                                else
+                                {
+                                    Mensajes(2, "Error en Modifica Usuario!");
+                                }
+                            }else
                             {
-                                Mensajes(2, "Error en Modifica Usuario!");
+                                Mensajes(3, "La Contraseña no coincide!");
+                                PassTextBox.Focus();
                             }
+                           
                         }
                         else
                         {
@@ -341,14 +350,8 @@ namespace TeacherControl2016.Registros
                     }
                 }
 
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-                
-                
+            
+                  
                
             
         }
