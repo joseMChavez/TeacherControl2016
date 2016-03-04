@@ -73,7 +73,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where  usuarioId=" + IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where  usuarioId= {0}", IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
                     this.usuarioId = (int)dt.Rows[0]["usuarioId"];
@@ -82,7 +82,7 @@ namespace BLL
                     this.email = dt.Rows[0]["email"].ToString();
                     this.direccion = dt.Rows[0]["direccion"].ToString();
                     this.pass = dt.Rows[0]["clave"].ToString();
-                    this.passConfir = dt.Rows[0]["ConfirClave"].ToString();
+                    this.passConfir = dt.Rows[0]["confirmarClave"].ToString();
 
                 }
             }

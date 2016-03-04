@@ -96,13 +96,33 @@ namespace BLL
             }
             return datatable.Rows.Count > 0;
         }
+        public bool BuscarDescripcion(string DescripcionBuscada)
+        {
+            DataTable datatable = new DataTable();
+            try
+            {
+                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where Descripcion= '" + DescripcionBuscada + "'"));
+                if (datatable.Rows.Count > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+            return datatable.Rows.Count > 0;
+
+        }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Materias Where " + Condicion + Orden);
+            return conexion.ObtenerDatos("Select " + Campos + " From Materias Where " + Condicion + ordenFinal);
         }
     }
 }
