@@ -172,16 +172,7 @@ namespace TeacherControl2016.Registros
                 
                 if (CursosIdtextBox.Text.Equals("") && Validacion == false)
                 {
-                    if (curso.BuscarDescripcion(DescripcionTextBox.Text))
-                    {
-
-                        Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
-                        Limpiar();
-                        ActivarBotones(false);
-                       
-                        }
-                        else
-                        {
+                    
                                 LlenarDatos();
 
                                 if (curso.Insertar())
@@ -196,7 +187,7 @@ namespace TeacherControl2016.Registros
                                     Limpiar();
                                     ActivarBotones(false);
                                 }
-                    }
+                    
 
                     }
                     else

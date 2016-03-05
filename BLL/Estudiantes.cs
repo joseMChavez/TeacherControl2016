@@ -67,7 +67,9 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Estudiantes(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}','{3}','{4}','{5}',{6},'{7}',{8},'{9}','{10}','{11}','{12}')",this.Matricula,this.Nombre,this.Apellidos,this.Genero,this.FechaNacimiento,this.Edad,this.Celular,this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+
+               retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}',{3},'{4}',{5},'{6}','{7}','{8}',{9},'{10}','{11}','{12}')", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+                   
             }
             catch (Exception ex)
             {
@@ -81,7 +83,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero='{3}', FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId={9}, Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= {3} , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId={9}, Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
             }
             catch (Exception ex)
             {
@@ -96,7 +98,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Estudiantes where EstudianteId= {0}", this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("delete from Estudiante where EstudianteId= {0}", this.EstudianteId));
             }
             catch (Exception ex)
             {
@@ -110,7 +112,7 @@ namespace BLL
             DataTable dt = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where EstudianteId="+ IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * From Estudiante where EstudianteId="+ IdBuscado));
                 if (dt.Rows.Count>0)
                 {
                     this.EstudianteId = (int)dt.Rows[0]["EstudianteId"];
@@ -142,9 +144,9 @@ namespace BLL
         {
             string ordenFinal = "";
             if (!Orden.Equals(""))
-                ordenFinal = " Orden by  " + Orden;
+                ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Estudiantes Where " + Condicion + ordenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " From Estudiante Where " + Condicion + ordenFinal);
         }
     }
 }

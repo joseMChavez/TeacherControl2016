@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 
 using BLL;
@@ -74,18 +75,29 @@ namespace TeacherControl2016.Registros
             ApellidostextBox.Clear();
             MasculinoRadioButton.Checked = false;
             FemeninoradioButton.Checked = false;
-          
+            EdadtextBox.Clear();
             TelefonoMaskedTextBox.Clear();
             TelefonoMaskedTextBox.Mask = "###-###-####";
             EmailtextBox.Clear();
             DirecciontextBox.Clear();
-            //CursocomboBox.SelectedIndex = 0;
+            if (!CursocomboBox.Text.Equals(""))
+            {
+                CursocomboBox.SelectedIndex = 0;
+                MatriculatextBox.Focus();
+                GuardarButton.Enabled = true;
+            }
+            else
+            {
+                Mensajes(3, "Agregue Los Cursos en el registro de Cursos!");
+                ActivarBotones(false);
+
+            }
             GrupocomboBox.SelectedIndex = 0;
             NombrePadretextBox.Clear();
             TelefonoPmaskedTextBox.Clear();
             TelefonoPmaskedTextBox.Mask = "###-###-####";
             EstudianteErrorProvider.Clear();
-            MatriculatextBox.Focus();
+           
         }
         public void ActivarBotones(bool btn)
         {
@@ -236,6 +248,7 @@ namespace TeacherControl2016.Registros
             if (e.KeyChar == 13)
             {
                 FechaDateTimePicker.Focus();
+                MasculinoRadioButton.Checked = true;
             }
 
         }
@@ -249,7 +262,15 @@ namespace TeacherControl2016.Registros
         //Esto me permite Calcular la Edad de Una Persona;
         private void FechaDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            EdadtextBox.Text = (DateTime.Today.AddTicks(-FechaDateTimePicker.Value.Ticks).Year - 1).ToString();
+            try
+            {
+                EdadtextBox.Text = (DateTime.Today.AddTicks(-FechaDateTimePicker.Value.Ticks).Year - 1).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TelefonoMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -349,7 +370,7 @@ namespace TeacherControl2016.Registros
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            GuardarButton.Enabled = true;
+            EliminarButton.Enabled = false;
         }
         /// 
         /// Boton Guardar
@@ -363,7 +384,7 @@ namespace TeacherControl2016.Registros
                 LlenarDatos();
                 if (EstudianteIdtextBox.Text.Equals("") && ValidarTodo()==false)
                 {
-                    if (estudiante.Insertar())
+                    if (estudiante.Insertar()== true)
                     {
                         Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Guardado Correctamete.");
                         Limpiar();
@@ -394,7 +415,7 @@ namespace TeacherControl2016.Registros
             }
             catch (Exception Ex)
             {
-                throw Ex;
+                MessageBox.Show(Ex.Message);
             }
                
         }

@@ -19,11 +19,12 @@ Create table CursosDetalle(
 	Id  int identity(1,1),
 	Descripcion varchar(50),
 	CursoId int Foreign key references Cursos(CursoId),
-	EsdianteId int Foreign key references Estudiantes(EstudianteId),
+	EsdianteId int Foreign key references Estudiante(EstudianteId),
+	Matricula int,
     primary key (Id)
 )
 go
-Create table Estudiantes( 
+Create table Estudiante( 
 		EstudianteId int identity(1,1),
 		Matricula int,
 		Nombre varchar(50),
@@ -34,7 +35,7 @@ Create table Estudiantes(
 		Celular varchar(15),
 		Email Varchar(70),
 		Direccion varchar(100),
-		CursoId int foreign key References Cursos(CursoId),
+		CursoId int,
 		Grupo varchar(10),
 		NombrePadre varchar(50),
 		TelefonoPadre varchar(15),
@@ -77,6 +78,6 @@ create table Evaluaciones(
 
 )
 go
-Drop table CursosDetalle;
-Select * From Cursos
+Drop table  Estudiantes;
+Select * From Estudiantes
 insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('Jose','Carlos','Gimenez','hj','809-844-2216','123345','123345')

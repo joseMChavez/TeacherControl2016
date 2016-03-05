@@ -52,6 +52,8 @@
             // 
             // TeacherControlmenuStrip
             // 
+            this.TeacherControlmenuStrip.BackColor = System.Drawing.SystemColors.Window;
+            this.TeacherControlmenuStrip.BackgroundImage = global::TeacherControl2016.Properties.Resources.cuadro_transparente_png_by_chocolateespuma_d6ygq45;
             this.TeacherControlmenuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.TeacherControlmenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
@@ -139,6 +141,7 @@
             // 
             // TeacherControltoolStrip
             // 
+            this.TeacherControltoolStrip.BackColor = System.Drawing.SystemColors.Window;
             this.TeacherControltoolStrip.BackgroundImage = global::TeacherControl2016.Properties.Resources.cuadro_transparente_png_by_chocolateespuma_d6ygq45;
             this.TeacherControltoolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TeacherControltoolStrip.Dock = System.Windows.Forms.DockStyle.Left;
