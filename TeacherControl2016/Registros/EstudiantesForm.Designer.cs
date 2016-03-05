@@ -415,6 +415,7 @@
             this.CursocomboBox.Name = "CursocomboBox";
             this.CursocomboBox.Size = new System.Drawing.Size(127, 21);
             this.CursocomboBox.TabIndex = 40;
+            this.CursocomboBox.SelectedIndexChanged += new System.EventHandler(this.CursocomboBox_SelectedIndexChanged);
             // 
             // GrupocomboBox
             // 
@@ -478,6 +479,7 @@
             // 
             // EstudianteErrorProvider
             // 
+            this.EstudianteErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.EstudianteErrorProvider.ContainerControl = this;
             // 
             // Edadlabel

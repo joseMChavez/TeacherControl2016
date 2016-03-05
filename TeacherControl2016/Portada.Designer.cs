@@ -43,6 +43,8 @@
             this.TeacherControltoolStrip = new System.Windows.Forms.ToolStrip();
             this.EstudiantesRtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.TeacherControlmenuStrip.SuspendLayout();
             this.TControlstatusStrip.SuspendLayout();
             this.TeacherControltoolStrip.SuspendLayout();
@@ -137,13 +139,16 @@
             // 
             // TeacherControltoolStrip
             // 
+            this.TeacherControltoolStrip.BackgroundImage = global::TeacherControl2016.Properties.Resources.cuadro_transparente_png_by_chocolateespuma_d6ygq45;
             this.TeacherControltoolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TeacherControltoolStrip.Dock = System.Windows.Forms.DockStyle.Left;
             this.TeacherControltoolStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.TeacherControltoolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.TeacherControltoolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EstudiantesRtoolStripButton,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.toolStripButton1,
+            this.toolStripSeparator2});
             this.TeacherControltoolStrip.Location = new System.Drawing.Point(0, 24);
             this.TeacherControltoolStrip.Name = "TeacherControltoolStrip";
             this.TeacherControltoolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -169,6 +174,23 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(38, 6);
             this.toolStripSeparator1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::TeacherControl2016.Properties.Resources._1457150845_education_course_training;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(38, 36);
+            this.toolStripButton1.Text = "Registro de Cursos";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(38, 6);
+            this.toolStripSeparator2.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
             // 
             // Portada
             // 
@@ -215,5 +237,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem estudiantesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

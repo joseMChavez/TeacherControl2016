@@ -124,9 +124,9 @@ namespace BLL
 
             string ordenFinal = "";
             if (!Orden.Equals(""))
-                    ordenFinal = " Orden by  " + Orden;
+                    ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Cursos Where " + Condicion + ordenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " From Cursos Where " + Condicion + Orden);
         }
     }
 }

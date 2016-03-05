@@ -71,19 +71,19 @@ namespace TeacherControl2016.Registros
                 return false;
             }
         }
-        private bool Validar(TextBox tb, string mensaje)
+        private void Validar(TextBox tb, string mensaje)
         {
 
             if (tb.Text.Equals(""))
             {
                 CursosErrorProvider.SetError(tb, mensaje);
                 tb.Focus();
-                return true;
+                
             }
             else
             {
                 CursosErrorProvider.Clear();
-                return false;
+                
             }
         }
         public static int ConvertirAEntero(string s)
@@ -136,7 +136,8 @@ namespace TeacherControl2016.Registros
             int id = ConvertirAEntero(CursosIdtextBox.Text);
             try
             {
-                if (!Validar(CursosIdtextBox,"Digite un Id!") && curso.Buscar(id))
+                Validar(CursosIdtextBox, "Digite un Id!");
+                if (!CursosIdtextBox.Text.Equals("") && curso.Buscar(id))
                 {
                     DescripcionTextBox.Text = curso.Descripcion;
                     DescripcionTextBox.Focus();
@@ -144,8 +145,8 @@ namespace TeacherControl2016.Registros
                 }
                 else
                 {
-                    Limpiar();
-                    ActivarBotones(true);
+                    Mensajes(3, "Id no Econtrado!");
+                    ActivarBotones(false);
                     CursosIdtextBox.Focus();
 
                 }
@@ -168,61 +169,62 @@ namespace TeacherControl2016.Registros
             bool Validacion= ValidarTodo();
             try
             {
-                LlenarDatos();
-                if (CursosIdtextBox.Text.Equals(""))
+                
+                if (CursosIdtextBox.Text.Equals("") && Validacion == false)
                 {
-                    if (!Validacion)
+                    if (curso.BuscarDescripcion(DescripcionTextBox.Text))
                     {
-                        if (!curso.BuscarDescripcion(DescripcionTextBox.Text))
-                        {
-                            if (curso.Insertar())
-                            {
-                                Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Guardado Correctamente!");
-                                Limpiar();
-                                ActivarBotones(false);
-                            }
-                            else
-                            {
-                                Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Guardado Correctamente!");
-                                Limpiar();
-                                ActivarBotones(false);
-                            }
+
+                        Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Limpiar();
+                        ActivarBotones(false);
+                       
                         }
                         else
                         {
-                            Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
-                            Limpiar();
-                            ActivarBotones(false);
-                            
-                        }
+                                LlenarDatos();
+
+                                if (curso.Insertar())
+                                {
+                                    Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Guardado Correctamente!");
+                                    Limpiar();
+                                    ActivarBotones(false);
+                                }
+                                else
+                                {
+                                    Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Guardado Correctamente!");
+                                    Limpiar();
+                                    ActivarBotones(false);
+                                }
+                    }
 
                     }
                     else
                     {
-                        if (curso.BuscarDescripcion(DescripcionTextBox.Text))
+                    if (Validacion == false && curso.BuscarDescripcion(DescripcionTextBox.Text)==false)
+                    {
+                        if (curso.Editar())
                         {
-                            if (curso.Editar())
-                            {
-                                Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Modificado Correctamente!");
-                                Limpiar();
-                                ActivarBotones(false);
-                            }
-                            else
-                            {
-                                Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Modificado Correctamente!");
-                                Limpiar();
-                                ActivarBotones(false);
-                            }
+                            Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Modificado Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
                         }
                         else
                         {
-                            Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                            Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Modificado Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
-
                         }
                     }
-                }
+                    else
+                    {
+                        Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Limpiar();
+                        ActivarBotones(false);
+
+                    }
+                    }
+                
             }
             catch (Exception ex)
             {

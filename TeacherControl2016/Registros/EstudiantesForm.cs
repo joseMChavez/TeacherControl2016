@@ -19,6 +19,18 @@ namespace TeacherControl2016.Registros
         public EstudiantesForm()
         {
             InitializeComponent();
+            CargarComboBox();
+          
+        }
+        private void CargarComboBox()
+        {
+            DataTable data = new DataTable();
+            Cursos curso = new Cursos();
+
+            data = curso.Listado("CursoId,Descripcion", "0=0", "ORDER BY CursoId");
+            CursocomboBox.DataSource = data;
+            CursocomboBox.ValueMember = "CursoId";
+            CursocomboBox.DisplayMember = "Descripcion";
         }
          private void LlenarDatos()
             {
@@ -433,6 +445,9 @@ namespace TeacherControl2016.Registros
             }
         }
 
-       
+        private void CursocomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
