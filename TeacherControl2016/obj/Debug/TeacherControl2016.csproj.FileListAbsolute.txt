@@ -16,3 +16,4 @@ C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\DataB
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\DataBase\TeacherControlDb_log.ldf
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.EstudiantesForm.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.CursosForm.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Consultas.ConsultaEstudianteCursos.resources

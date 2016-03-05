@@ -52,5 +52,11 @@ namespace TeacherControl2016
             Registros.CursosForm cursos = new Registros.CursosForm();
             cursos.Show();
         }
+
+        private void cursosPorEstudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaEstudianteCursos cEstudiante = new Consultas.ConsultaEstudianteCursos();
+            cEstudiante.Show();
+        }
     }
 }

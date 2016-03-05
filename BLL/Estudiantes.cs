@@ -25,6 +25,8 @@ namespace BLL
         public string Grupo { get; set; }
         public string NombrePadre { get; set; }
         public string TelefonoPadre { get; set; }
+
+        public List<CursosDetalle> cursosDetalle { get; set; }
         public Estudiantes()
         {
             this.EstudianteId = 0;
@@ -41,7 +43,7 @@ namespace BLL
             this.Grupo = "";
             this.NombrePadre = "";
             this.TelefonoPadre = "";
-            
+            this.cursosDetalle = new List<CursosDetalle>();
            
         }
         public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, int Genero, string FechaNacimiento,int Edad, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
@@ -62,13 +64,25 @@ namespace BLL
             this.TelefonoPadre = TellPadre;
             
         }
+
+        public void AgregarEstudiante(string Curso,int EstudianteId,int Matricula)
+        {
+            cursosDetalle.Add(new CursosDetalle(Curso, EstudianteId, Matricula));
+        }
         public override bool Insertar()
         {
             bool retorno = false;
+            Cursos curso = new Cursos();
+            
             try
             {
 
-               retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}',{3},'{4}',{5},'{6}','{7}','{8}',{9},'{10}','{11}','{12}')", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}',{3},'{4}',{5},'{6}','{7}','{8}',{9},'{10}','{11}','{12}')select @@Identity", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("insert into CursosDetalle(Descripcion,CursoId,EstudianteId,Matricula) values('{0}',{1},{2},{3})", curso.Descripcion, this.CursoId, this.EstudianteId, this.Matricula));
+                }
                    
             }
             catch (Exception ex)

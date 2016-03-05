@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
+using DAL;
 namespace BLL
 {
      public class CursosDetalle
     {
         public int CursosDetalleId { get; set; }
-
+     
         public int CursoId { get; set; }
         public string Descripcion{ get; set; }
         public int EstudianteId { get; set; }
@@ -29,7 +30,15 @@ namespace BLL
             this.EstudianteId = EstudianteId;
             this.Matricula = Matricula;
         }
+        public DataTable Listado(string Campos, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Order by  " + Orden;
 
+            return conexion.ObtenerDatos("Select " + Campos + " From CursosDestalle Where " + Condicion + ordenFinal);
+        }
 
 
     }

@@ -71,6 +71,7 @@
             // 
             // EstudianteIdtextBox
             // 
+            this.EstudianteIdtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EstudianteIdtextBox.Location = new System.Drawing.Point(175, 68);
             this.EstudianteIdtextBox.Name = "EstudianteIdtextBox";
             this.EstudianteIdtextBox.Size = new System.Drawing.Size(84, 20);
@@ -311,6 +312,7 @@
             // 
             // MatriculatextBox
             // 
+            this.MatriculatextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MatriculatextBox.Location = new System.Drawing.Point(176, 109);
             this.MatriculatextBox.Name = "MatriculatextBox";
             this.MatriculatextBox.Size = new System.Drawing.Size(84, 20);
@@ -319,6 +321,7 @@
             // 
             // NombretextBox
             // 
+            this.NombretextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NombretextBox.Location = new System.Drawing.Point(176, 150);
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(184, 20);
@@ -327,6 +330,7 @@
             // 
             // DirecciontextBox
             // 
+            this.DirecciontextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DirecciontextBox.Location = new System.Drawing.Point(534, 149);
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(228, 20);
@@ -335,6 +339,7 @@
             // 
             // ApellidostextBox
             // 
+            this.ApellidostextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ApellidostextBox.Location = new System.Drawing.Point(175, 184);
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(185, 20);
@@ -343,6 +348,7 @@
             // 
             // EmailtextBox
             // 
+            this.EmailtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EmailtextBox.Location = new System.Drawing.Point(534, 109);
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(228, 20);
@@ -351,6 +357,7 @@
             // 
             // TelefonoMaskedTextBox
             // 
+            this.TelefonoMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(534, 68);
             this.TelefonoMaskedTextBox.Mask = "000-000-0000";
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
@@ -410,6 +417,7 @@
             // CursocomboBox
             // 
             this.CursocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CursocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CursocomboBox.FormattingEnabled = true;
             this.CursocomboBox.Location = new System.Drawing.Point(534, 186);
             this.CursocomboBox.Name = "CursocomboBox";
@@ -420,6 +428,7 @@
             // GrupocomboBox
             // 
             this.GrupocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GrupocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GrupocomboBox.FormattingEnabled = true;
             this.GrupocomboBox.Items.AddRange(new object[] {
             "---",
@@ -449,6 +458,7 @@
             // 
             // NombrePadretextBox
             // 
+            this.NombrePadretextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NombrePadretextBox.Location = new System.Drawing.Point(534, 257);
             this.NombrePadretextBox.Name = "NombrePadretextBox";
             this.NombrePadretextBox.Size = new System.Drawing.Size(228, 20);
@@ -497,6 +507,7 @@
             // 
             // EdadtextBox
             // 
+            this.EdadtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EdadtextBox.Location = new System.Drawing.Point(175, 288);
             this.EdadtextBox.Name = "EdadtextBox";
             this.EdadtextBox.ReadOnly = true;
