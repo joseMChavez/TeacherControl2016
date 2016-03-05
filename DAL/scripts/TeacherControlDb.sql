@@ -78,5 +78,5 @@ create table Evaluaciones(
 )
 go
 Drop table CursosDetalle;
-Select * From CursosDetalle
+Select * From Cursos
 insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('Jose','Carlos','Gimenez','hj','809-844-2216','123345','123345')

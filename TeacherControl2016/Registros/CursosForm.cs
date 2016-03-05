@@ -86,7 +86,12 @@ namespace TeacherControl2016.Registros
                 return false;
             }
         }
-
+        public static int ConvertirAEntero(string s)
+        {
+            int id = 0;
+            int.TryParse(s, out id);
+            return id;
+        }
         private void TextBoxNuemericos(KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
@@ -128,9 +133,22 @@ namespace TeacherControl2016.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            int id = ConvertirAEntero(CursosIdtextBox.Text);
             try
             {
+                if (!Validar(CursosIdtextBox,"Digite un Id!") && curso.Buscar(id))
+                {
+                    DescripcionTextBox.Text = curso.Descripcion;
+                    DescripcionTextBox.Focus();
+                    ActivarBotones(true);
+                }
+                else
+                {
+                    Limpiar();
+                    ActivarBotones(true);
+                    CursosIdtextBox.Focus();
 
+                }
             }
             catch (Exception ex)
             {
@@ -142,6 +160,7 @@ namespace TeacherControl2016.Registros
         {
             Limpiar();
             GuardarButton.Enabled = true;
+            EliminarButton.Enabled = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -154,7 +173,7 @@ namespace TeacherControl2016.Registros
                 {
                     if (!Validacion)
                     {
-                        if (curso.BuscarDescripcion(DescripcionTextBox.Text))
+                        if (!curso.BuscarDescripcion(DescripcionTextBox.Text))
                         {
                             if (curso.Insertar())
                             {
@@ -213,8 +232,7 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            int id = 0;
-            int.TryParse(CursosIdtextBox.Text, out id);
+            int id = ConvertirAEntero(CursosIdtextBox.Text);
             try
             {
                 if (curso.Buscar(id))

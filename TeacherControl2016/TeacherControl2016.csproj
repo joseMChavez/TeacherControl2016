@@ -147,6 +147,8 @@
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\733510_e191_2.jpg" />
+    <None Include="Resources\Teacher tips.jpg" />
     <None Include="Resources\1455916129_Student-id-24.png" />
   </ItemGroup>
   <ItemGroup>
