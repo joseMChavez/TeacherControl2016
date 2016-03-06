@@ -15,6 +15,7 @@ namespace TeacherControl2016.Consultas
         public ConsultaEstudianteCursos()
         {
             InitializeComponent();
+            CargarComboBox();
         }
         private void CargarComboBox()
         {
