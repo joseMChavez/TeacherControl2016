@@ -51,8 +51,11 @@
     <ApplicationIcon>1455915694_Courses.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -148,6 +151,14 @@
     <EmbeddedResource Include="Registros\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReportUsuarios.rdlc" />
+    <None Include="Properties\DataSources\BLL.Asistencia.datasource" />
+    <None Include="Properties\DataSources\BLL.ClaseMaestra.datasource" />
+    <None Include="Properties\DataSources\BLL.Cursos.datasource" />
+    <None Include="Properties\DataSources\BLL.CursosDetalle.datasource" />
+    <None Include="Properties\DataSources\BLL.Estudiantes.datasource" />
+    <None Include="Properties\DataSources\BLL.Materias.datasource" />
+    <None Include="Properties\DataSources\BLL.Usuarios.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,9 +174,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{f7bd6c3b-6364-490f-b271-d7b6d85ceb4e}</Project>

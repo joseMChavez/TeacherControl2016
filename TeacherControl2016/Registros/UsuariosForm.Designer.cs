@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuariosForm));
             this.NombreLabel = new System.Windows.Forms.Label();
             this.ConfirPassLabel = new System.Windows.Forms.Label();
@@ -49,7 +50,10 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.UsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreLabel
@@ -286,6 +290,21 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
+            // reportViewer1
+            // 
+            reportDataSource1.Name = "DataSetUsuarios";
+            reportDataSource1.Value = this.UsuariosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TeacherControl2016.Reportes.ReportUsuarios.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(469, 39);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(429, 334);
+            this.reportViewer1.TabIndex = 19;
+            // 
+            // UsuariosBindingSource
+            // 
+            this.UsuariosBindingSource.DataSource = (new BLL.Usuarios().Listado("usuarioId,nombre,apellido,email,direccion","1=1","usuarioId"));
+            // 
             // UsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +312,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(941, 385);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.DirecciontextBox);
             this.Controls.Add(this.Direccionlabel);
             this.Controls.Add(this.EmailtextBox);
@@ -321,6 +341,7 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Load += new System.EventHandler(this.UsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,5 +368,7 @@
         private System.Windows.Forms.TextBox EmailtextBox;
         private System.Windows.Forms.Label Emaillabel;
         private System.Windows.Forms.TextBox ConfirPasstextBox;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource UsuariosBindingSource;
     }
 }

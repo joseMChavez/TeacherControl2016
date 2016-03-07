@@ -354,6 +354,7 @@ namespace TeacherControl2016.Registros
         private void UsuariosForm_Load(object sender, EventArgs e)
         {
 
+            this.reportViewer1.RefreshReport();
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
