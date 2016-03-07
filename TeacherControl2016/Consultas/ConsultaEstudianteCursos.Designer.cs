@@ -44,12 +44,12 @@
             this.CursoEstDataGridView.AllowUserToAddRows = false;
             this.CursoEstDataGridView.AllowUserToDeleteRows = false;
             this.CursoEstDataGridView.AllowUserToOrderColumns = true;
-            this.CursoEstDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CursoEstDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.CursoEstDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CursoEstDataGridView.Location = new System.Drawing.Point(12, 83);
             this.CursoEstDataGridView.Name = "CursoEstDataGridView";
             this.CursoEstDataGridView.ReadOnly = true;
-            this.CursoEstDataGridView.Size = new System.Drawing.Size(683, 295);
+            this.CursoEstDataGridView.Size = new System.Drawing.Size(574, 295);
             this.CursoEstDataGridView.TabIndex = 0;
             // 
             // BuscarButton
@@ -63,7 +63,7 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(567, 12);
+            this.BuscarButton.Location = new System.Drawing.Point(482, 18);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 18;
@@ -74,9 +74,9 @@
             // 
             // BuscartextBox
             // 
-            this.BuscartextBox.Location = new System.Drawing.Point(356, 43);
+            this.BuscartextBox.Location = new System.Drawing.Point(343, 43);
             this.BuscartextBox.Name = "BuscartextBox";
-            this.BuscartextBox.Size = new System.Drawing.Size(205, 20);
+            this.BuscartextBox.Size = new System.Drawing.Size(133, 20);
             this.BuscartextBox.TabIndex = 19;
             this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
             // 
@@ -117,7 +117,7 @@
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Location = new System.Drawing.Point(111, 42);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
-            this.FiltrocomboBox.Size = new System.Drawing.Size(225, 21);
+            this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 23;
             // 
             // ConsultaEstudianteCursos
@@ -125,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(707, 407);
+            this.ClientSize = new System.Drawing.Size(615, 407);
             this.Controls.Add(this.FiltrocomboBox);
             this.Controls.Add(this.Filtrolabel);
             this.Controls.Add(this.Totallabel);

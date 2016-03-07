@@ -43,17 +43,24 @@ namespace TeacherControl2016.Consultas
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            CursosDetalle curso = new CursosDetalle(); 
-            string filtro = "1=1";
-
-            if (BuscartextBox.Text.Length > 0)
+            if (FiltrocomboBox.Text.Equals(""))
             {
-                filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                MessageBox.Show("Agregue Estudiantes, pero Antes Agregue los Cursos a los Cuales lo Agregara en el Registro de Cursos.", "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                CursosDetalle curso = new CursosDetalle();
+                string filtro = "1=1";
 
-            CursoEstDataGridView.DataSource = curso.Listado("CuentaId,Descripcion,Balance", filtro, "");
+                if (BuscartextBox.Text.Length > 0)
+                {
+                    filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
 
-            TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
+                CursoEstDataGridView.DataSource = curso.Listado("Curso,Descripcion,Nombre,Apellidos,Matricula", filtro, "");
+
+                TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
+            }
         }
     }
 }

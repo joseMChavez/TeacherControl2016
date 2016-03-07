@@ -81,7 +81,7 @@ namespace BLL
 
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("insert into CursosDetalle(Descripcion,CursoId,EstudianteId,Matricula) values('{0}',{1},{2},{3})", curso.Descripcion, this.CursoId, this.EstudianteId, this.Matricula));
+                    conexion.Ejecutar(string.Format("insert into CursosDetalle(Descripcion,Curso,Nombre,Apellidos,Matricula) values('{0}',{1},'{2}','{3}',{4})", curso.Descripcion, this.CursoId, this.Nombre,this.Apellidos, this.Matricula));
                 }
                    
             }
@@ -95,9 +95,15 @@ namespace BLL
         public override bool Editar()
         {
             bool retorno = false;
+            Cursos curso = new Cursos();
             try
             {
                 retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= {3} , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId={9}, Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
+
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("update CursosDetalle set Descripcion= '{0}', Curso={1},Nombre='{2}', Apellidos='{3}',Matricula={4} where Curso={5} where Id ={6}", curso.Descripcion, this.CursoId, this.Nombre, this.Apellidos, this.Matricula, this.EstudianteId));
+                }
             }
             catch (Exception ex)
             {
@@ -113,7 +119,12 @@ namespace BLL
             try
             {
                 retorno = conexion.Ejecutar(string.Format("delete from Estudiante where EstudianteId= {0}", this.EstudianteId));
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("delete from CursosDetalle where Id={0}", this.EstudianteId));
+                }
             }
+           
             catch (Exception ex)
             {
 

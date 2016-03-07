@@ -37,7 +37,7 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From CursosDestalle Where " + Condicion + ordenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " From CursosDetalle Where " + Condicion + ordenFinal);
         }
 
 
