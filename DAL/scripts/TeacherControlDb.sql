@@ -37,7 +37,7 @@ Create table Estudiante(
 		Celular varchar(15),
 		Email Varchar(70),
 		Direccion varchar(100),
-		CursoId int Foreign key References Cursos(CursoId),
+		CursoId int Foreign key References Curso(CursoId),
 		Grupo varchar(10),
 		NombrePadre varchar(50),
 		TelefonoPadre varchar(15),

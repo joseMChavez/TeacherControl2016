@@ -58,5 +58,23 @@ namespace TeacherControl2016
             Consultas.ConsultaEstudianteCursos cEstudiante = new Consultas.ConsultaEstudianteCursos();
             cEstudiante.Show();
         }
+
+        private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaEstudiantes estudiante = new Consultas.ConsultaEstudiantes();
+            estudiante.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaUsuarios usuarios = new Consultas.ConsultaUsuarios();
+            usuarios.Show();
+        }
+
+        private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaCursos cursos = new Consultas.ConsultaCursos();
+            cursos.Show();
+        }
     }
 }

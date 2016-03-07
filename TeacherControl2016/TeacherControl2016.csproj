@@ -64,11 +64,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\ConsultaCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCursos.Designer.cs">
+      <DependentUpon>ConsultaCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaEstudianteCursos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaEstudianteCursos.Designer.cs">
       <DependentUpon>ConsultaEstudianteCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaEstudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaEstudiantes.Designer.cs">
+      <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaUsuarios.Designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Portada.cs">
       <SubType>Form</SubType>
@@ -96,8 +114,17 @@
     <Compile Include="Registros\UsuariosForm.Designer.cs">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Consultas\ConsultaCursos.resx">
+      <DependentUpon>ConsultaCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaEstudianteCursos.resx">
       <DependentUpon>ConsultaEstudianteCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaEstudiantes.resx">
+      <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portada.resx">
       <DependentUpon>Portada.cs</DependentUpon>

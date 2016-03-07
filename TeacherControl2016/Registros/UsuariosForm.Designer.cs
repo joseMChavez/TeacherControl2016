@@ -292,7 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(414, 385);
+            this.ClientSize = new System.Drawing.Size(941, 385);
             this.Controls.Add(this.DirecciontextBox);
             this.Controls.Add(this.Direccionlabel);
             this.Controls.Add(this.EmailtextBox);
