@@ -38,7 +38,7 @@ namespace TeacherControl2016.Consultas
         }
         private void BuscartextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextboxAlfaNumerico(e);
+            Utility.TextboxAlfaNumerico(e);
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)

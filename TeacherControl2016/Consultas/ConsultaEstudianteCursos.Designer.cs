@@ -119,6 +119,7 @@
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 23;
+            this.FiltrocomboBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             // 
             // ConsultaEstudianteCursos
             // 

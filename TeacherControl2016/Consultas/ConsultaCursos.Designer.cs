@@ -44,6 +44,9 @@
             this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FiltrocomboBox.FormattingEnabled = true;
+            this.FiltrocomboBox.Items.AddRange(new object[] {
+            "Id",
+            "Descripcion"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(123, 21);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
@@ -85,6 +88,7 @@
             this.BuscartextBox.Name = "BuscartextBox";
             this.BuscartextBox.Size = new System.Drawing.Size(133, 20);
             this.BuscartextBox.TabIndex = 26;
+            this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
             // 
             // CursoEstDataGridView
             // 

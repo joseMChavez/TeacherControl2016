@@ -17,15 +17,23 @@ namespace TeacherControl2016.Registros
         public CursosForm()
         {
             InitializeComponent();
+            DesactivarMenuContextual();
         }
         private void LlenarDatos() {
-            int id = 0;
-            int.TryParse(CursosIdtextBox.Text, out id);
+            int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             curso.CursoId = id;
             curso.Descripcion = DescripcionTextBox.Text;
 
         }
+        private void DesactivarMenuContextual()
+        {
+            var blankContextMenu = new ContextMenu();
 
+            foreach (Control control in this.Controls)
+            {
+                control.ContextMenu = blankContextMenu;
+            }
+        }
         private void Limpiar()
         {
             CursosIdtextBox.Clear();
@@ -33,25 +41,8 @@ namespace TeacherControl2016.Registros
             CursosErrorProvider.Clear();
             DescripcionTextBox.Focus();
         }
-        //1 Informacion...2 Error....3 Cuidado.
-        private void Mensajes(int selec, string mensaje)
-        {
-            switch (selec)
-            {
-                case 1:
-                    MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                case 2:
-                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case 3:
-                    MessageBox.Show(mensaje, "Cuidado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
-                default:
-                    break;
-            }
-        }
-
+      
+      
         public void ActivarBotones(bool btn)
         {
             GuardarButton.Enabled = btn;
@@ -86,37 +77,10 @@ namespace TeacherControl2016.Registros
                 
             }
         }
-        public static int ConvertirAEntero(string s)
-        {
-            int id = 0;
-            int.TryParse(s, out id);
-            return id;
-        }
-        private void TextBoxNuemericos(KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
-
-
-        }
-
-        private void TextboxAlfaNumerico(KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
-            {
-                e.Handled = false;
-            }
-            else
-                e.Handled = true;
-        }
-
+        
         private void CursosIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBoxNuemericos(e);
+            Utility.TextBoxNuemericos(e);
 
             if (e.KeyChar == 13)
             {
@@ -126,14 +90,14 @@ namespace TeacherControl2016.Registros
 
         private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextboxAlfaNumerico(e);
+            Utility.TextboxAlfaNumerico(e);
             if(e.KeyChar==13)
                 CursosIdtextBox.Focus();
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            int id = ConvertirAEntero(CursosIdtextBox.Text);
+            int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             try
             {
                 Validar(CursosIdtextBox, "Digite un Id!");
@@ -145,7 +109,7 @@ namespace TeacherControl2016.Registros
                 }
                 else
                 {
-                    Mensajes(3, "Id no Econtrado!");
+                    Utility.Mensajes(3, "Id no Econtrado!");
                     ActivarBotones(false);
                     CursosIdtextBox.Focus();
 
@@ -177,13 +141,13 @@ namespace TeacherControl2016.Registros
 
                                 if (curso.Insertar())
                                 {
-                                    Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Guardado Correctamente!");
+                                     Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Guardado Correctamente!");
                                     Limpiar();
                                     ActivarBotones(false);
                                 }
                                 else
                                 {
-                                    Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Guardado Correctamente!");
+                                    Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Guardado Correctamente!");
                                     Limpiar();
                                     ActivarBotones(false);
                                 }
@@ -196,20 +160,20 @@ namespace TeacherControl2016.Registros
                     {
                         if (curso.Editar())
                         {
-                            Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Modificado Correctamente!");
+                            Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Modificado Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
                         else
                         {
-                            Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Modificado Correctamente!");
+                            Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Modificado Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
                     }
                     else
                     {
-                        Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
                         Limpiar();
                         ActivarBotones(false);
 
@@ -225,7 +189,7 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            int id = ConvertirAEntero(CursosIdtextBox.Text);
+            int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             try
             {
                 if (curso.Buscar(id))
@@ -233,20 +197,20 @@ namespace TeacherControl2016.Registros
                     
                         if (curso.Eliminar())
                         {
-                            Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Eliminado Correctamente!");
+                             Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Eliminado Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
                         else
                         {
-                            Mensajes(2, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Eliminado!");
+                             Utility.Mensajes(2, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Eliminado!");
                             Limpiar();
                             ActivarBotones(false);
                         }
                 }
                 else
                 {
-                    Mensajes(2, "Id No Existe!");
+                    Utility.Mensajes(2, "Id No Existe!");
                     Limpiar();
                     ActivarBotones(false);
                 }
