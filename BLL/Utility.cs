@@ -41,13 +41,13 @@ namespace BLL
             switch (selec)
             {
                 case 1:
-                    MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mensaje, "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 2:
-                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mensaje, "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 3:
-                    MessageBox.Show(mensaje, "Cuidado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(mensaje, "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 default:
                     break;

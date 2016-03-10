@@ -111,6 +111,12 @@
     <Compile Include="Registros\EstudiantesForm.Designer.cs">
       <DependentUpon>EstudiantesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\MateriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\MateriasForm.Designer.cs">
+      <DependentUpon>MateriasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\UsuariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\EstudiantesForm.resx">
       <DependentUpon>EstudiantesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\MateriasForm.resx">
+      <DependentUpon>MateriasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
