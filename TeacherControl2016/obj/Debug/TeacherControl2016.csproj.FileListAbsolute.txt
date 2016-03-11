@@ -23,3 +23,4 @@ C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\Teach
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\RdlCompile.cache
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\RdlCompile.compiled
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.MateriasForm.resources

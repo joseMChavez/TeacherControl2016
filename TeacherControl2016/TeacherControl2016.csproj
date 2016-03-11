@@ -223,6 +223,9 @@
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\1457333256_bookcase.png" />
+    <None Include="Resources\1455916129_Student-id-241.png" />
+    <None Include="Resources\1455915810_userconfig.png" />
     <None Include="Resources\cuadro_transparente_png_by_chocolateespuma-d6ygq45.png" />
     <None Include="Resources\descarga.jfif" />
     <None Include="Resources\1457150845_education_course_training.png" />

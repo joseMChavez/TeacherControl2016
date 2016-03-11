@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MateriasForm));
             this.DescripcionLabel = new System.Windows.Forms.Label();
-            this.GuardarButton = new System.Windows.Forms.Button();
-            this.EliminarButton = new System.Windows.Forms.Button();
-            this.NuevoButton = new System.Windows.Forms.Button();
             this.MateriaIdtextBox = new System.Windows.Forms.TextBox();
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
-            this.BuscarButton = new System.Windows.Forms.Button();
             this.MateriasErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BuscarButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.EliminarButton = new System.Windows.Forms.Button();
+            this.NuevoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MateriasErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,61 @@
             this.DescripcionLabel.Size = new System.Drawing.Size(95, 16);
             this.DescripcionLabel.TabIndex = 17;
             this.DescripcionLabel.Text = "Descripcion:";
+            // 
+            // MateriaIdtextBox
+            // 
+            this.MateriaIdtextBox.Location = new System.Drawing.Point(148, 50);
+            this.MateriaIdtextBox.MaxLength = 5;
+            this.MateriaIdtextBox.Name = "MateriaIdtextBox";
+            this.MateriaIdtextBox.Size = new System.Drawing.Size(84, 20);
+            this.MateriaIdtextBox.TabIndex = 21;
+            this.MateriaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MateriaIdtextBox_KeyPress);
+            // 
+            // DescripcionTextBox
+            // 
+            this.DescripcionTextBox.Location = new System.Drawing.Point(148, 108);
+            this.DescripcionTextBox.MaxLength = 30;
+            this.DescripcionTextBox.Name = "DescripcionTextBox";
+            this.DescripcionTextBox.Size = new System.Drawing.Size(177, 20);
+            this.DescripcionTextBox.TabIndex = 20;
+            this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
+            // 
+            // IdLabel
+            // 
+            this.IdLabel.AutoSize = true;
+            this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.IdLabel.Location = new System.Drawing.Point(34, 51);
+            this.IdLabel.Name = "IdLabel";
+            this.IdLabel.Size = new System.Drawing.Size(25, 16);
+            this.IdLabel.TabIndex = 19;
+            this.IdLabel.Text = "Id:";
+            // 
+            // MateriasErrorProvider
+            // 
+            this.MateriasErrorProvider.ContainerControl = this;
+            this.MateriasErrorProvider.RightToLeft = true;
+            // 
+            // BuscarButton
+            // 
+            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.BuscarButton.FlatAppearance.BorderSize = 0;
+            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BuscarButton.Location = new System.Drawing.Point(247, 26);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(78, 61);
+            this.BuscarButton.TabIndex = 18;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // GuardarButton
             // 
@@ -114,61 +169,6 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
-            // MateriaIdtextBox
-            // 
-            this.MateriaIdtextBox.Location = new System.Drawing.Point(148, 50);
-            this.MateriaIdtextBox.MaxLength = 5;
-            this.MateriaIdtextBox.Name = "MateriaIdtextBox";
-            this.MateriaIdtextBox.Size = new System.Drawing.Size(84, 20);
-            this.MateriaIdtextBox.TabIndex = 21;
-            this.MateriaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MateriaIdtextBox_KeyPress);
-            // 
-            // DescripcionTextBox
-            // 
-            this.DescripcionTextBox.Location = new System.Drawing.Point(148, 108);
-            this.DescripcionTextBox.MaxLength = 30;
-            this.DescripcionTextBox.Name = "DescripcionTextBox";
-            this.DescripcionTextBox.Size = new System.Drawing.Size(177, 20);
-            this.DescripcionTextBox.TabIndex = 20;
-            this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
-            // 
-            // IdLabel
-            // 
-            this.IdLabel.AutoSize = true;
-            this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.IdLabel.Location = new System.Drawing.Point(34, 51);
-            this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(25, 16);
-            this.IdLabel.TabIndex = 19;
-            this.IdLabel.Text = "Id:";
-            // 
-            // BuscarButton
-            // 
-            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.BuscarButton.FlatAppearance.BorderSize = 0;
-            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
-            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(247, 26);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(78, 61);
-            this.BuscarButton.TabIndex = 18;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // MateriasErrorProvider
-            // 
-            this.MateriasErrorProvider.ContainerControl = this;
-            this.MateriasErrorProvider.RightToLeft = true;
-            // 
             // MateriasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +185,9 @@
             this.Controls.Add(this.NuevoButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MateriasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Materias";
             ((System.ComponentModel.ISupportInitialize)(this.MateriasErrorProvider)).EndInit();
             this.ResumeLayout(false);

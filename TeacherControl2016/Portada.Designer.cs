@@ -35,6 +35,7 @@
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estudiantesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +50,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.MateriatoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.materiasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.TeacherControlmenuStrip.SuspendLayout();
             this.TControlstatusStrip.SuspendLayout();
             this.TeacherControltoolStrip.SuspendLayout();
@@ -82,44 +86,58 @@
             this.registrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.estudiantesToolStripMenuItem,
-            this.cursosToolStripMenuItem});
+            this.cursosToolStripMenuItem,
+            this.materiasToolStripMenuItem});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
             // 
             // usuarioToolStripMenuItem
             // 
+            this.usuarioToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1455915810_userconfig;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuarioToolStripMenuItem.Text = "&Usuarios";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // estudiantesToolStripMenuItem
             // 
+            this.estudiantesToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1455916129_Student_id_24;
             this.estudiantesToolStripMenuItem.Name = "estudiantesToolStripMenuItem";
-            this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.estudiantesToolStripMenuItem.Text = "&Estudiantes";
             this.estudiantesToolStripMenuItem.Click += new System.EventHandler(this.estudiantesToolStripMenuItem_Click);
             // 
             // cursosToolStripMenuItem
             // 
+            this.cursosToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1457150845_education_course_training;
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cursosToolStripMenuItem.Text = "&Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
+            // 
+            // materiasToolStripMenuItem
+            // 
+            this.materiasToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1457333256_bookcase;
+            this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.materiasToolStripMenuItem.Text = "&Materias";
+            this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem,
             this.estudiantesToolStripMenuItem1,
-            this.cursosToolStripMenuItem1});
+            this.cursosToolStripMenuItem1,
+            this.materiasToolStripMenuItem1});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "&Consultas";
             // 
             // usuariosToolStripMenuItem
             // 
+            this.usuariosToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1455915810_userconfig;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "&Usuarios";
@@ -127,6 +145,7 @@
             // 
             // estudiantesToolStripMenuItem1
             // 
+            this.estudiantesToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1455916129_Student_id_241;
             this.estudiantesToolStripMenuItem1.Name = "estudiantesToolStripMenuItem1";
             this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.estudiantesToolStripMenuItem1.Text = "&Estudiantes";
@@ -136,6 +155,7 @@
             // 
             this.cursosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cursosPorEstudiantesToolStripMenuItem});
+            this.cursosToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1457150845_education_course_training;
             this.cursosToolStripMenuItem1.Name = "cursosToolStripMenuItem1";
             this.cursosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.cursosToolStripMenuItem1.Text = "&Cursos";
@@ -143,9 +163,10 @@
             // 
             // cursosPorEstudiantesToolStripMenuItem
             // 
+            this.cursosPorEstudiantesToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1457150845_education_course_training;
             this.cursosPorEstudiantesToolStripMenuItem.Name = "cursosPorEstudiantesToolStripMenuItem";
             this.cursosPorEstudiantesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.cursosPorEstudiantesToolStripMenuItem.Text = "Cursos por Estudiantes";
+            this.cursosPorEstudiantesToolStripMenuItem.Text = "Estudiantes por Cursos";
             this.cursosPorEstudiantesToolStripMenuItem.Click += new System.EventHandler(this.cursosPorEstudiantesToolStripMenuItem_Click);
             // 
             // evaluacionToolStripMenuItem
@@ -189,7 +210,9 @@
             this.EstudiantesRtoolStripButton,
             this.toolStripSeparator1,
             this.toolStripButton1,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.MateriatoolStripButton,
+            this.toolStripSeparator3});
             this.TeacherControltoolStrip.Location = new System.Drawing.Point(0, 24);
             this.TeacherControltoolStrip.Name = "TeacherControltoolStrip";
             this.TeacherControltoolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -232,6 +255,29 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(38, 6);
             this.toolStripSeparator2.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            // 
+            // MateriatoolStripButton
+            // 
+            this.MateriatoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MateriatoolStripButton.Image = global::TeacherControl2016.Properties.Resources._1457333256_bookcase;
+            this.MateriatoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.MateriatoolStripButton.Name = "MateriatoolStripButton";
+            this.MateriatoolStripButton.Size = new System.Drawing.Size(38, 36);
+            this.MateriatoolStripButton.Text = "Registro de Materias";
+            this.MateriatoolStripButton.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(38, 6);
+            this.toolStripSeparator3.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            // 
+            // materiasToolStripMenuItem1
+            // 
+            this.materiasToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1457333256_bookcase;
+            this.materiasToolStripMenuItem1.Name = "materiasToolStripMenuItem1";
+            this.materiasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.materiasToolStripMenuItem1.Text = "&Materias";
             // 
             // Portada
             // 
@@ -284,5 +330,9 @@
         private System.Windows.Forms.ToolStripMenuItem estudiantesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cursosPorEstudiantesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton MateriatoolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem1;
     }
 }

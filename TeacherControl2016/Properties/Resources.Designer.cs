@@ -113,6 +113,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1455915810_userconfig {
+            get {
+                object obj = ResourceManager.GetObject("1455915810_userconfig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1455916129_Student_id_24 {
             get {
                 object obj = ResourceManager.GetObject("1455916129_Student-id-24", resourceCulture);
@@ -123,9 +133,29 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1455916129_Student_id_241 {
+            get {
+                object obj = ResourceManager.GetObject("1455916129_Student-id-241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1457150845_education_course_training {
             get {
                 object obj = ResourceManager.GetObject("1457150845_education_course_training", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1457333256_bookcase {
+            get {
+                object obj = ResourceManager.GetObject("1457333256_bookcase", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

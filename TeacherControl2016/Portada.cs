@@ -76,5 +76,17 @@ namespace TeacherControl2016
             Consultas.ConsultaCursos cursos = new Consultas.ConsultaCursos();
             cursos.Show();
         }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.MateriasForm materia = new Registros.MateriasForm();
+            materia.Show();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Registros.MateriasForm materia = new Registros.MateriasForm();
+            materia.Show();
+        }
     }
 }

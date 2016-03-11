@@ -56,26 +56,50 @@ namespace TeacherControl2016.Registros
             estudiante.Apellidos = ApellidostextBox.Text;
             if (MasculinoRadioButton.Checked)
             {
-                estudiante.Genero = 1;
+                estudiante.Genero = "M";
             }
             else
             {
-                estudiante.Genero = 0;
+                estudiante.Genero = "F";
             }
             
             estudiante.FechaNacimiento = FechaDateTimePicker.Text;
+            int edad = Utility.ConvierteEntero(EdadtextBox.Text);
+            estudiante.Edad = edad;
             estudiante.Celular = TelefonoMaskedTextBox.Text;
             estudiante.Email = EmailtextBox.Text;
             estudiante.Direccion = DirecciontextBox.Text;
 
-            int cursoId = 0;
-            //int.TryParse(CursocomboBox.SelectedValue.ToString(), out cursoId);
+            int cursoId = Utility.ConvierteEntero(CursocomboBox.SelectedValue.ToString());
             estudiante.CursoId = cursoId;
             estudiante.Grupo = GrupocomboBox.Text;
             estudiante.NombrePadre = NombrePadretextBox.Text;
             estudiante.TelefonoPadre = TelefonoPmaskedTextBox.Text;
 
             
+        }
+        private void ObtenerValor() {
+            EstudianteIdtextBox.Text = estudiante.EstudianteId.ToString();
+            MatriculatextBox.Text = estudiante.Matricula.ToString();
+            NombretextBox.Text = estudiante.Nombre;
+            ApellidostextBox.Text = estudiante.Apellidos;
+            if (estudiante.Genero == "M")
+            {
+                MasculinoRadioButton.Checked = true;
+            }
+            if (estudiante.Genero == "F")
+            {
+                FemeninoradioButton.Checked = true;
+            }
+           
+            FechaDateTimePicker.Text = estudiante.FechaNacimiento;
+            TelefonoMaskedTextBox.Text = estudiante.Celular;
+            EmailtextBox.Text = estudiante.Email;
+            DirecciontextBox.Text = estudiante.Direccion;
+            CursocomboBox.Text = estudiante.CursoId.ToString();
+            GrupocomboBox.Text = estudiante.Grupo;
+            NombrePadretextBox.Text = estudiante.NombrePadre;
+            TelefonoPmaskedTextBox.Text = estudiante.TelefonoPadre;
         }
 
          private void Limpiar()
@@ -269,26 +293,7 @@ namespace TeacherControl2016.Registros
             {
                 if (Validar(EstudianteIdtextBox,"Digite un Id!")==false && estudiante.Buscar(id))
                 {
-                    EstudianteIdtextBox.Text = estudiante.EstudianteId.ToString();
-                    MatriculatextBox.Text = estudiante.Matricula.ToString();
-                    NombretextBox.Text = estudiante.Nombre;
-                    ApellidostextBox.Text = estudiante.Apellidos;
-                    if (estudiante.Genero == 1)
-                    {
-                        MasculinoRadioButton.Checked = true;
-                    }
-                    else
-                    {
-                        FemeninoradioButton.Checked = true;
-                    }
-                    FechaDateTimePicker.Text = estudiante.FechaNacimiento;
-                    TelefonoMaskedTextBox.Text = estudiante.Celular;
-                    EmailtextBox.Text = estudiante.Email;
-                    DirecciontextBox.Text = estudiante.Direccion;
-                    CursocomboBox.Text = estudiante.CursoId.ToString();
-                    GrupocomboBox.Text = estudiante.Grupo;
-                    NombrePadretextBox.Text = estudiante.NombrePadre;
-                    TelefonoPmaskedTextBox.Text = estudiante.TelefonoPadre;
+                    ObtenerValor();
                     ActivarBotones(true);
                     MatriculatextBox.Focus();
                 }
@@ -319,8 +324,6 @@ namespace TeacherControl2016.Registros
         /// 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            
-            
             try
             {
                 LlenarDatos();

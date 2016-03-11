@@ -27,15 +27,16 @@ namespace TeacherControl2016.Consultas
             FiltrocomboBox.ValueMember = "CursoId";
             FiltrocomboBox.DisplayMember = "Descripcion";
         }
-        private void TextboxAlfaNumerico(KeyPressEventArgs e)
+        public void DesactivarMenuContextual()
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            var blankContextMenu = new ContextMenu();
+
+            foreach (Control control in this.Controls)
             {
-                e.Handled = false;
+                control.ContextMenu = blankContextMenu;
             }
-            else
-                e.Handled = true;
         }
+        
         private void BuscartextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
@@ -45,7 +46,7 @@ namespace TeacherControl2016.Consultas
         {
             if (FiltrocomboBox.Text.Equals(""))
             {
-                MessageBox.Show("Agregue Estudiantes, pero Antes Agregue los Cursos a los Cuales lo Agregara en el Registro de Cursos.", "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Utility.Mensajes(1, "Agregue Estudiantes, pero Antes Agregue los Cursos a los Cuales lo Agregara en el Registro de Cursos.");
             }
             else
             {

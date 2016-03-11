@@ -80,6 +80,13 @@ create table Evaluaciones(
 
 )
 go
-Drop table  Cursos;
-Select * From CursosDetalle
+CREATE TABLE CategoriaCalificaciones
+(
+	CategoriaCalificacionesId INT NOT NULL PRIMARY KEY, 
+    Descripcion VARCHAR(100) NOT NULL
+)
+
+go
+Drop table  CategoriaCalificaciones;
+Select * From CategoriaCalificaciones
 insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('Jose','Carlos','Gimenez','hj','809-844-2216','123345','123345')

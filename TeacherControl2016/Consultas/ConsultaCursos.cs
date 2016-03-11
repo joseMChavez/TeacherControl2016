@@ -32,5 +32,20 @@ namespace TeacherControl2016.Consultas
             Utility.TextboxAlfaNumerico(e);
             
         }
+
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Cursos curso = new Cursos();
+            string filtro = "1=1";
+
+            if (BuscartextBox.Text.Length > 0)
+            {
+                filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+            }
+
+            CursoEstDataGridView.DataSource = curso.Listado("CursoId,Descripcion", filtro, "");
+
+            TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
+        }
     }
 }

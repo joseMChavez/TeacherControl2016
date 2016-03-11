@@ -175,7 +175,7 @@ namespace TeacherControl2016.Registros
                     {
                         if (materia.Editar())
                         {
-                            Utility.Mensajes(1, "La Materia " + DescripcionTextBox.Text + "Fue Modificada Correctamente!");
+                            Utility.Mensajes(1, "La Materia " + DescripcionTextBox.Text + " Fue Modificada Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
@@ -196,25 +196,35 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            DialogResult resultado;
             int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
             try
             {
 
                 if (Validar(MateriaIdtextBox, "Digite un Id") == false && materia.Buscar(id))
                 {
-                    if (materia.Eliminar())
+                    resultado = MessageBox.Show("¿Estas seguro(a) de Eliminal La Materia" + DescripcionTextBox.Text + " ?", "Teacher Control", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
                     {
-                        Utility.Mensajes(1, "La Materia"+DescripcionTextBox.Text+" Fue Eliminada Correctamente!");
-                        Limpiar();
-                        ActivarBotones(false);
+                        if (materia.Eliminar())
+                        {
+                            Utility.Mensajes(1, "La Materia" + DescripcionTextBox.Text + " Fue Eliminada Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
 
+                        }
+                        else
+                        {
+                            Utility.Mensajes(2, "La Materia" + DescripcionTextBox.Text + "No Pudo Ser Eliminada!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
                     }
                     else
                     {
-                        Utility.Mensajes(2, "La Materia" + DescripcionTextBox.Text + "No Pudo Ser Eliminada!");
                         Limpiar();
-                        ActivarBotones(false);
                     }
+                   
                 }
                 else
                 {

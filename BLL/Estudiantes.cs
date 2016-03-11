@@ -15,7 +15,7 @@ namespace BLL
         public int Matricula { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
-        public int Genero { get; set; }
+        public string Genero { get; set; }
         public string FechaNacimiento { get; set; }
         public int Edad { get; set; }
         public string Celular { get; set; }
@@ -33,7 +33,7 @@ namespace BLL
             this.Matricula = 0;
             this.Nombre = "";
             this.Apellidos = "";
-            this.Genero = 0;
+            this.Genero = "";
             this.FechaNacimiento = "";
             this.Edad = 0;
             this.Celular = "";
@@ -46,7 +46,7 @@ namespace BLL
             this.cursosDetalle = new List<CursosDetalle>();
            
         }
-        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, int Genero, string FechaNacimiento,int Edad, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
+        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, string Genero, string FechaNacimiento,int Edad, string Email, string Celular,  string Direcion,int CursoId, string Grupo, string Padre,string TellPadre)
         {
             this.EstudianteId = Id;
             this.Matricula = Matricula;
@@ -77,7 +77,7 @@ namespace BLL
             try
             {
 
-                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}',{3},'{4}',{5},'{6}','{7}','{8}',{9},'{10}','{11}','{12}')select @@Identity", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}',{9},'{10}','{11}','{12}')select @@Identity", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
 
                 if (retorno)
                 {
@@ -98,7 +98,7 @@ namespace BLL
             Cursos curso = new Cursos();
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= {3} , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId={9}, Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= '{3}' , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId={9}, Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
 
                 if (retorno)
                 {
@@ -144,7 +144,7 @@ namespace BLL
                     this.Matricula = (int)dt.Rows[0]["Matricula"];
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Apellidos = dt.Rows[0]["Apellido"].ToString();
-                    this.Genero = (int)dt.Rows[0]["Genero"];
+                    this.Genero = dt.Rows[0]["Genero"].ToString();
                     this.FechaNacimiento = dt.Rows[0]["FechaNacimiento"].ToString();
                     this.Edad = (int)dt.Rows[0]["Edad"];
                     this.Celular = dt.Rows[0]["Celular"].ToString();
