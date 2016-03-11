@@ -113,6 +113,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1455099110_categories {
+            get {
+                object obj = ResourceManager.GetObject("1455099110_categories", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1455915810_userconfig {
             get {
                 object obj = ResourceManager.GetObject("1455915810_userconfig", resourceCulture);
@@ -186,6 +196,16 @@ namespace TeacherControl2016.Properties {
         internal static System.Drawing.Bitmap descarga {
             get {
                 object obj = ResourceManager.GetObject("descarga", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_producto2 {
+            get {
+                object obj = ResourceManager.GetObject("icono_producto2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

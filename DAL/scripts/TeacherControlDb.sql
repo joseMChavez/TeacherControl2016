@@ -82,7 +82,7 @@ create table Evaluaciones(
 go
 CREATE TABLE CategoriaCalificaciones
 (
-	CategoriaCalificacionesId INT NOT NULL PRIMARY KEY, 
+	CategoriaCalificacionesId INT identity(1,1) NOT NULL PRIMARY KEY, 
     Descripcion VARCHAR(100) NOT NULL
 )
 

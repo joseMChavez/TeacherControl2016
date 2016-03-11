@@ -133,27 +133,36 @@ namespace TeacherControl2016.Registros
             bool Validacion= ValidarTodo();
             try
             {
-                
+                LlenarDatos();
+
                 if (CursosIdtextBox.Text.Equals("") && Validacion == false)
                 {
-                    
-                                LlenarDatos();
 
-                                if (curso.Insertar())
-                                {
-                                     Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Guardado Correctamente!");
-                                    Limpiar();
-                                    ActivarBotones(false);
-                                }
-                                else
-                                {
-                                    Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Guardado Correctamente!");
-                                    Limpiar();
-                                    ActivarBotones(false);
-                                }
-                    
+
+                    if (Validacion == false && curso.BuscarDescripcion(DescripcionTextBox.Text) == false)
+                    {
+                        if (curso.Insertar())
+                        {
+                            Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + " Ah Sido Guardado Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(1, "El Curso: " + DescripcionTextBox.Text + "No Ah Sido Guardado Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
 
                     }
+                    else
+                    {
+                        Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Limpiar();
+                        ActivarBotones(false);
+
+                    }
+                }
                     else
                     {
                     if (Validacion == false && curso.BuscarDescripcion(DescripcionTextBox.Text)==false)

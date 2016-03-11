@@ -135,29 +135,40 @@ namespace TeacherControl2016.Registros
             try
             {
 
-                if (CCalificacionesIdtextBox.Text.Equals("") && Validacion == false)
+                if (CCalificacionesIdtextBox.Text.Equals("") && Validacion== false)
                 {
 
                     LlenarDatos();
-
-                    if (cCalificaciones.Insertar())
+                   
+                    if (cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text) == false)
                     {
-                        Utility.Mensajes(1, "La Categoria : " + DescripcionTextBox.Text + " Ah Sido Guardada Correctamente!");
-                        Limpiar();
-                        ActivarBotones(false);
+                        if (cCalificaciones.Insertar())
+                        {
+                            Utility.Mensajes(1, "La Categoria : " + DescripcionTextBox.Text + " Ah Sido Guardada Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(1, "La Categoria  " + DescripcionTextBox.Text + "No Ah Sido Guardada Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
                     }
                     else
                     {
-                        Utility.Mensajes(1, "La Categoria  " + DescripcionTextBox.Text + "No Ah Sido Guardada Correctamente!");
+                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
                         Limpiar();
                         ActivarBotones(false);
+
                     }
+
 
 
                 }
                 else
                 {
-                    if (Validacion == false && cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text) == false)
+                    if ( Validacion== false && cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text) == false)
                     {
                         if (cCalificaciones.Editar())
                         {

@@ -88,5 +88,17 @@ namespace TeacherControl2016
             Registros.MateriasForm materia = new Registros.MateriasForm();
             materia.Show();
         }
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        {
+            Registros.CategoriaCalificacionesForm cCalificaciones = new Registros.CategoriaCalificacionesForm();
+            cCalificaciones.Show();
+        }
+
+        private void categoriaDeCalificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.CategoriaCalificacionesForm cCalificaciones = new Registros.CategoriaCalificacionesForm();
+            cCalificaciones.Show();
+        }
     }
 }

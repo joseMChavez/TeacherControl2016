@@ -232,6 +232,8 @@
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\1455099110_categories.png" />
+    <None Include="Resources\icono_producto2.png" />
     <None Include="Resources\1457333256_bookcase.png" />
     <None Include="Resources\1455916129_Student-id-241.png" />
     <None Include="Resources\1455915810_userconfig.png" />
