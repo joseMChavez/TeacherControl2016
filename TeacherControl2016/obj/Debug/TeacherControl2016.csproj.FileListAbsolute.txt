@@ -24,3 +24,4 @@ C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\bin\Debug\Micro
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\RdlCompile.cache
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\RdlCompile.compiled
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.MateriasForm.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.CategoriaCalificacionesForm.resources
