@@ -51,18 +51,17 @@ namespace TeacherControl2016.Registros
         GuardarButton.Enabled = btn;
         EliminarButton.Enabled = btn;
     }
-    private bool ValidarTodo()
+    private void ValidarTodo()
     {
         if (DescripcionTextBox.Text.Equals(""))
         {
             MateriasErrorProvider.SetError(DescripcionTextBox, "Digite el Nombre \n o\n Descripcion de La Nueva Materia.");
             DescripcionTextBox.Focus();
-            return true;
+ 
         }
         else
         {
             MateriasErrorProvider.Clear();
-            return false;
         }
     }
     private bool Validar(TextBox tb, string mensaje)
@@ -136,12 +135,14 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
             try
             {
                 LlenarDatos();
-                if (MateriaIdtextBox.Text.Equals(""))
+                ValidarTodo();
+                if (MateriaIdtextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
-                    if (ValidarTodo() == false && materia.BuscarDescripcion(DescripcionTextBox.Text))
+                    if (materia.BuscarDescripcion(DescripcionTextBox.Text))
                     {
                         Utility.Mensajes(3, "La Materia " + DescripcionTextBox.Text + " Ya Existe!");
                         Limpiar();
@@ -165,27 +166,33 @@ namespace TeacherControl2016.Registros
                 }
                 else
                 {
-                    if(ValidarTodo() == false &&  materia.BuscarDescripcion(DescripcionTextBox.Text))
+                    if (!MateriaIdtextBox.Text.Equals("") && materia.Buscar(id) && !DescripcionTextBox.Text.Equals(""))
                     {
-                        Utility.Mensajes(3, "La Materia " + DescripcionTextBox.Text + " Ya Existe!");
-                        Limpiar();
-
-                    }
-                    else
-                    {
-                        if (materia.Editar())
+                        if (materia.BuscarDescripcion(DescripcionTextBox.Text))
                         {
-                            Utility.Mensajes(1, "La Materia " + DescripcionTextBox.Text + " Fue Modificada Correctamente!");
+                            Utility.Mensajes(3, "La Materia " + DescripcionTextBox.Text + " Ya Existe!");
                             Limpiar();
-                            ActivarBotones(false);
+                            DescripcionTextBox.Focus();
+
                         }
                         else
                         {
-                            Utility.Mensajes(3, "La Materia " + DescripcionTextBox.Text + " No Fue Modificada!");
-                            Limpiar();
-                            ActivarBotones(false);
+                            if (materia.Editar())
+                            {
+                                Utility.Mensajes(1, "La Materia " + DescripcionTextBox.Text + " Fue Modificada Correctamente!");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                            else
+                            {
+                                Utility.Mensajes(3, "La Materia " + DescripcionTextBox.Text + " No Fue Modificada!");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
                         }
                     }
+                    
+                    
                 }
             }
             catch (Exception ex)

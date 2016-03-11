@@ -101,11 +101,13 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where Descripcion= '" + DescripcionBuscada + "'"));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where Descripcion='{0}'", DescripcionBuscada));
                 if (datatable.Rows.Count > 0)
                 {
-                    return true;
+                    this.MateriaId = (int)datatable.Rows[0]["MateriaId"];
+                    this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
                 }
+                
 
             }
             catch (Exception exc)
