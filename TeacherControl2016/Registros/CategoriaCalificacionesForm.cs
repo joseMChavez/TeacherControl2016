@@ -48,19 +48,19 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
-        private bool ValidarTodo()
+        private void ValidarTodo()
         {
             if (DescripcionTextBox.Text.Equals(""))
             {
-                cCalificacioneserrorProvider.SetError(DescripcionTextBox, "Digite el Nombre o la Descripcion del Curso.");
+                cCalificacioneserrorProvider.SetError(DescripcionTextBox, " Digite el Nombre o la Descripcion de la Categoria.");
                 DescripcionTextBox.Focus();
-                return true;
+
             }
             else
             {
                 cCalificacioneserrorProvider.Clear();
-                return false;
             }
+                
         }
         private void Validar(TextBox tb, string mensaje)
         {
@@ -131,17 +131,23 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            bool Validacion = ValidarTodo();
+           
+            int id = Utility.ConvierteEntero(CCalificacionesIdtextBox.Text);
             try
             {
-
-                if (CCalificacionesIdtextBox.Text.Equals("") && Validacion== false)
+                LlenarDatos();
+                ValidarTodo();
+                if (CCalificacionesIdtextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
-
-                    LlenarDatos();
-                   
-                    if (cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text) == false)
+                    if (cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text))
                     {
+                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Limpiar();
+                        DescripcionTextBox.Focus();
+                    }
+                    else
+                    {
+                       
                         if (cCalificaciones.Insertar())
                         {
                             Utility.Mensajes(1, "La Categoria : " + DescripcionTextBox.Text + " Ah Sido Guardada Correctamente!");
@@ -154,41 +160,36 @@ namespace TeacherControl2016.Registros
                             Limpiar();
                             ActivarBotones(false);
                         }
-                    }
-                    else
-                    {
-                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
-                        Limpiar();
-                        ActivarBotones(false);
 
                     }
-
-
 
                 }
                 else
                 {
-                    if ( Validacion== false && cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text) == false)
+                    if (!CCalificacionesIdtextBox.Text.Equals("") && cCalificaciones.Buscar(id) && !DescripcionTextBox.Text.Equals(""))
                     {
-                        if (cCalificaciones.Editar())
-                        {
-                            Utility.Mensajes(1, "La Categoria: " + DescripcionTextBox.Text + " Ah Sido Modificada Correctamente!");
-                            Limpiar();
-                            ActivarBotones(false);
-                        }
-                        else
-                        {
-                            Utility.Mensajes(1, "La Categoria: " + DescripcionTextBox.Text + "No Ah Sido Modificada Correctamente!");
-                            Limpiar();
-                            ActivarBotones(false);
-                        }
+                     if (cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text))
+                        { 
+                       
+                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Limpiar();
+                        DescripcionTextBox.Focus();
                     }
                     else
                     {
-                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
-                        Limpiar();
-                        ActivarBotones(false);
-
+                            if (cCalificaciones.Editar())
+                            {
+                                Utility.Mensajes(1, "La Categoria: " + DescripcionTextBox.Text + " Ah Sido Modificada Correctamente!");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                            else
+                            {
+                                Utility.Mensajes(1, "La Categoria: " + DescripcionTextBox.Text + "No Ah Sido Modificada Correctamente!");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                        }
                     }
                 }
 

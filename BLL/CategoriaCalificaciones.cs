@@ -102,13 +102,7 @@ namespace BLL
             try
             {
                 datatable = conexion.ObtenerDatos(string.Format("select * from CategoriaCalificaciones where Descripcion= '" + DescripcionBuscada + "'"));
-                if (datatable.Rows.Count > 0)
-                {
-
-                    this.CategoriaCalificacionesId = (int)datatable.Rows[0]["CategoriaCalificacionesId"];
-                    this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
-                }
-
+              
             }
             catch (Exception exc)
             {
