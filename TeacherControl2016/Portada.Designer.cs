@@ -151,7 +151,7 @@
             // 
             this.usuariosToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1455915810_userconfig;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "&Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -159,7 +159,7 @@
             // 
             this.estudiantesToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1455916129_Student_id_241;
             this.estudiantesToolStripMenuItem1.Name = "estudiantesToolStripMenuItem1";
-            this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.estudiantesToolStripMenuItem1.Text = "&Estudiantes";
             this.estudiantesToolStripMenuItem1.Click += new System.EventHandler(this.estudiantesToolStripMenuItem1_Click);
             // 
@@ -169,7 +169,7 @@
             this.cursosPorEstudiantesToolStripMenuItem});
             this.cursosToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1457150845_education_course_training;
             this.cursosToolStripMenuItem1.Name = "cursosToolStripMenuItem1";
-            this.cursosToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.cursosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.cursosToolStripMenuItem1.Text = "&Cursos";
             this.cursosToolStripMenuItem1.Click += new System.EventHandler(this.cursosToolStripMenuItem1_Click);
             // 
@@ -185,8 +185,9 @@
             // 
             this.materiasToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1457333256_bookcase;
             this.materiasToolStripMenuItem1.Name = "materiasToolStripMenuItem1";
-            this.materiasToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.materiasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.materiasToolStripMenuItem1.Text = "&Materias";
+            this.materiasToolStripMenuItem1.Click += new System.EventHandler(this.materiasToolStripMenuItem1_Click);
             // 
             // evaluacionToolStripMenuItem
             // 

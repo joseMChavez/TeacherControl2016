@@ -100,5 +100,11 @@ namespace TeacherControl2016
             Registros.CategoriaCalificacionesForm cCalificaciones = new Registros.CategoriaCalificacionesForm();
             cCalificaciones.Show();
         }
+
+        private void materiasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaMaterias cMaterias = new Consultas.ConsultaMaterias();
+            cMaterias.Show();
+        }
     }
 }
