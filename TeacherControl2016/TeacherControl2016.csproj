@@ -85,6 +85,12 @@
     <Compile Include="Consultas\ConsultaEstudiantes.Designer.cs">
       <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaMaterias.Designer.cs">
+      <DependentUpon>ConsultaMaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaEstudiantes.resx">
       <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaMaterias.resx">
+      <DependentUpon>ConsultaMaterias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaUsuarios.resx">
       <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
