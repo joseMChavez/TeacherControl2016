@@ -106,5 +106,11 @@ namespace TeacherControl2016
             Consultas.ConsultaMaterias cMaterias = new Consultas.ConsultaMaterias();
             cMaterias.Show();
         }
+
+        private void categoriaDeCalificacionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaCategoriaCalificaiones cCCalificaciones = new Consultas.ConsultaCategoriaCalificaiones();
+            cCCalificaciones.Show();
+        }
     }
 }

@@ -26,3 +26,4 @@ C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\RdlCo
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.MateriasForm.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.CategoriaCalificacionesForm.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Consultas.ConsultaMaterias.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Consultas.ConsultaCategoriaCalificaiones.resources

@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\ConsultaCategoriaCalificaiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCategoriaCalificaiones.Designer.cs">
+      <DependentUpon>ConsultaCategoriaCalificaiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Consultas\ConsultaCategoriaCalificaiones.resx">
+      <DependentUpon>ConsultaCategoriaCalificaiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaCursos.resx">
       <DependentUpon>ConsultaCursos.cs</DependentUpon>
     </EmbeddedResource>
