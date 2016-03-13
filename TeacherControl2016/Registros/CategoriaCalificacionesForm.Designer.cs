@@ -82,7 +82,7 @@
             this.DescripcionLabel.Name = "DescripcionLabel";
             this.DescripcionLabel.Size = new System.Drawing.Size(95, 16);
             this.DescripcionLabel.TabIndex = 18;
-            this.DescripcionLabel.Text = "Descripcion:";
+            this.DescripcionLabel.Text = "Descripción:";
             // 
             // BuscarButton
             // 
@@ -166,8 +166,8 @@
             // 
             // cCalificacioneserrorProvider
             // 
+            this.cCalificacioneserrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.cCalificacioneserrorProvider.ContainerControl = this;
-            this.cCalificacioneserrorProvider.RightToLeft = true;
             // 
             // CategoriaCalificacionesForm
             // 

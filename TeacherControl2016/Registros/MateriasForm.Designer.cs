@@ -52,7 +52,7 @@
             this.DescripcionLabel.Name = "DescripcionLabel";
             this.DescripcionLabel.Size = new System.Drawing.Size(95, 16);
             this.DescripcionLabel.TabIndex = 17;
-            this.DescripcionLabel.Text = "Descripcion:";
+            this.DescripcionLabel.Text = "Descripción:";
             // 
             // MateriaIdtextBox
             // 
@@ -86,8 +86,8 @@
             // 
             // MateriasErrorProvider
             // 
+            this.MateriasErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.MateriasErrorProvider.ContainerControl = this;
-            this.MateriasErrorProvider.RightToLeft = true;
             // 
             // BuscarButton
             // 

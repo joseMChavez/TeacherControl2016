@@ -102,13 +102,6 @@ namespace BLL
             try
             {
                 datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where Descripcion= '" + DescripcionBuscada + "'"));
-                if (datatable.Rows.Count > 0)
-                {
-
-                    this.CursoId = (int)datatable.Rows[0]["CursoId"];
-                    this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
-                }
-
             }
             catch (Exception exc)
             {

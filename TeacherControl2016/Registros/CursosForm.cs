@@ -48,18 +48,18 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
-        private bool ValidarTodo()
+        private void ValidarTodo()
         {
             if (DescripcionTextBox.Text.Equals(""))
             {
-                CursosErrorProvider.SetError(DescripcionTextBox, "Digite el Nombre o la Descripcion del Curso.");
+                CursosErrorProvider.SetError(DescripcionTextBox, "Digite el Nombre o la Descripción del Curso.");
                 DescripcionTextBox.Focus();
-                return true;
+                
             }
             else
             {
                 CursosErrorProvider.Clear();
-                return false;
+                
             }
         }
         private void Validar(TextBox tb, string mensaje)
@@ -130,16 +130,21 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            bool Validacion= ValidarTodo();
+             ValidarTodo();
+            int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             try
             {
                 LlenarDatos();
 
-                if (CursosIdtextBox.Text.Equals("") && Validacion == false)
+                if (CursosIdtextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
-
-
-                    if (Validacion == false && curso.BuscarDescripcion(DescripcionTextBox.Text) == false)
+                    if (curso.BuscarDescripcion(DescripcionTextBox.Text))
+                    {
+                        Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Limpiar();
+                        DescripcionTextBox.Focus();
+                    }
+                    else
                     {
                         if (curso.Insertar())
                         {
@@ -155,17 +160,16 @@ namespace TeacherControl2016.Registros
                         }
 
                     }
-                    else
+                }
+                else if (!CursosIdtextBox.Text.Equals("") && curso.Buscar(id) && !DescripcionTextBox.Text.Equals(""))
+                {
+                    if (curso.BuscarDescripcion(DescripcionTextBox.Text))
                     {
                         Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
                         Limpiar();
-                        ActivarBotones(false);
-
+                        DescripcionTextBox.Focus();
                     }
-                }
                     else
-                    {
-                    if (Validacion == false && curso.BuscarDescripcion(DescripcionTextBox.Text)==false)
                     {
                         if (curso.Editar())
                         {
@@ -179,16 +183,10 @@ namespace TeacherControl2016.Registros
                             Limpiar();
                             ActivarBotones(false);
                         }
-                    }
-                    else
-                    {
-                        Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
-                        Limpiar();
-                        ActivarBotones(false);
 
                     }
-                    }
-                
+                }
+         
             }
             catch (Exception ex)
             {

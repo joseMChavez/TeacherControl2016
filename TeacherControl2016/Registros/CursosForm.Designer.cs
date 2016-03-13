@@ -82,7 +82,7 @@
             this.DescripcionLabel.Name = "DescripcionLabel";
             this.DescripcionLabel.Size = new System.Drawing.Size(95, 16);
             this.DescripcionLabel.TabIndex = 13;
-            this.DescripcionLabel.Text = "Descripcion:";
+            this.DescripcionLabel.Text = "Descripción:";
             // 
             // CursosErrorProvider
             // 
