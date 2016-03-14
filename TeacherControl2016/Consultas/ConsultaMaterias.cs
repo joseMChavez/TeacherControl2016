@@ -19,7 +19,7 @@ namespace TeacherControl2016.Consultas
             DesactivarMenuContextual();
         }
 
-        public void DesactivarMenuContextual()
+        private void DesactivarMenuContextual()
         {
             var blankContextMenu = new ContextMenu();
 
@@ -43,7 +43,7 @@ namespace TeacherControl2016.Consultas
                 filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
             }
 
-            CursoEstDataGridView.DataSource = materia.Listado("MateriaId,Descripcion", filtro, "");
+            CursoEstDataGridView.DataSource = materia.Listado("MateriaId as Id,Descripcion as Descripciòn", filtro, "");
 
             TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
         }

@@ -66,10 +66,6 @@ namespace BLL
             
         }
 
-        public void AgregarEstudiante(string Curso,int EstudianteId,int Matricula)
-        {
-            cursosDetalle.Add(new CursosDetalle(Curso, EstudianteId, Matricula));
-        }
         public override bool Insertar()
         {
             bool retorno = false;

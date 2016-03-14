@@ -34,9 +34,9 @@
             this.Totallabel = new System.Windows.Forms.Label();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.BuscartextBox = new System.Windows.Forms.TextBox();
-            this.CursoEstDataGridView = new System.Windows.Forms.DataGridView();
+            this.UsuariosDataGridView = new System.Windows.Forms.DataGridView();
             this.BuscarButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.CursoEstDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // FiltrocomboBox
@@ -44,6 +44,13 @@
             this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FiltrocomboBox.FormattingEnabled = true;
+            this.FiltrocomboBox.Items.AddRange(new object[] {
+            "Id",
+            "Nombre",
+            " Apellido",
+            " Email",
+            "Direcion",
+            " Clave"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(128, 27);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
@@ -85,19 +92,20 @@
             this.BuscartextBox.Name = "BuscartextBox";
             this.BuscartextBox.Size = new System.Drawing.Size(153, 20);
             this.BuscartextBox.TabIndex = 26;
+            this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
             // 
-            // CursoEstDataGridView
+            // UsuariosDataGridView
             // 
-            this.CursoEstDataGridView.AllowUserToAddRows = false;
-            this.CursoEstDataGridView.AllowUserToDeleteRows = false;
-            this.CursoEstDataGridView.AllowUserToOrderColumns = true;
-            this.CursoEstDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.CursoEstDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CursoEstDataGridView.Location = new System.Drawing.Point(32, 68);
-            this.CursoEstDataGridView.Name = "CursoEstDataGridView";
-            this.CursoEstDataGridView.ReadOnly = true;
-            this.CursoEstDataGridView.Size = new System.Drawing.Size(574, 295);
-            this.CursoEstDataGridView.TabIndex = 24;
+            this.UsuariosDataGridView.AllowUserToAddRows = false;
+            this.UsuariosDataGridView.AllowUserToDeleteRows = false;
+            this.UsuariosDataGridView.AllowUserToOrderColumns = true;
+            this.UsuariosDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UsuariosDataGridView.Location = new System.Drawing.Point(32, 68);
+            this.UsuariosDataGridView.Name = "UsuariosDataGridView";
+            this.UsuariosDataGridView.ReadOnly = true;
+            this.UsuariosDataGridView.Size = new System.Drawing.Size(574, 295);
+            this.UsuariosDataGridView.TabIndex = 24;
             // 
             // BuscarButton
             // 
@@ -117,6 +125,7 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // ConsultaUsuarios
             // 
@@ -130,14 +139,14 @@
             this.Controls.Add(this.TotaltextBox);
             this.Controls.Add(this.BuscartextBox);
             this.Controls.Add(this.BuscarButton);
-            this.Controls.Add(this.CursoEstDataGridView);
+            this.Controls.Add(this.UsuariosDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConsultaUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Usuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.CursoEstDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +160,6 @@
         private System.Windows.Forms.TextBox TotaltextBox;
         private System.Windows.Forms.TextBox BuscartextBox;
         private System.Windows.Forms.Button BuscarButton;
-        private System.Windows.Forms.DataGridView CursoEstDataGridView;
+        private System.Windows.Forms.DataGridView UsuariosDataGridView;
     }
 }

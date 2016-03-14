@@ -45,7 +45,7 @@ namespace TeacherControl2016.Consultas
                     filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
                 }
 
-                CursoEstDataGridView.DataSource = curso.Listado("Curso,Descripcion,Nombre,Apellidos,Matricula", filtro, "");
+                CursoEstDataGridView.DataSource = curso.Listado("Curso as Id ,Descripcion as Descripción ,Nombre as Nombres,Apellidos,Matricula", filtro, "");
 
                 TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
             

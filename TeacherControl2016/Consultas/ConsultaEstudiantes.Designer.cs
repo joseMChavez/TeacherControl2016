@@ -100,6 +100,7 @@
             this.BuscartextBox.Name = "BuscartextBox";
             this.BuscartextBox.Size = new System.Drawing.Size(204, 20);
             this.BuscartextBox.TabIndex = 26;
+            this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
             // 
             // EstudianteDataGridView
             // 

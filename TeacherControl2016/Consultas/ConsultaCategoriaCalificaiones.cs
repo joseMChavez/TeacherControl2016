@@ -42,7 +42,7 @@ namespace TeacherControl2016.Consultas
                 filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
             }
 
-            CursoEstDataGridView.DataSource = cCalificaciones.Listado("CategoriaCalificacionesId,Descripcion", filtro, "");
+            CursoEstDataGridView.DataSource = cCalificaciones.Listado("CategoriaCalificacionesId as Id ,Descripcion as Descripción", filtro, "");
 
             TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
         }
