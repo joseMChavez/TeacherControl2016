@@ -30,14 +30,14 @@ namespace BLL
             this.EstudianteId = EstudianteId;
             this.Matricula = Matricula;
         }
-        public DataTable Listado(string Campos, string Condicion, string Orden)
+        public DataTable Listado(string campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From CursosDetalle Where " + Condicion + ordenFinal);
+            return conexion.ObtenerDatos("Select "+campos+ ",C.Descripcion as Curso, CursosDetalle.Descripcion as Grupo From CursosDetalle Inner Join Curso as C on CursosDetalle.Curso = C.CursoId where " + Condicion+Orden);
         }
 
 

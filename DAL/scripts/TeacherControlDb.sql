@@ -18,12 +18,11 @@ create table Curso(
 go
 Create table CursosDetalle(
 	Id  int identity(1,1),
-	Descripcion varchar(50),
+	Grupo varchar(5),
 	Curso int Foreign key References Curso(CursoId) ,
 	Nombre varchar(50),
 	Apellidos varchar(50),
 	Matricula int,
-	
     primary key (Id)
 )
 go
@@ -88,4 +87,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table Estudiante;
+drop table CursosDetalle;
+select * From CursosDetalle

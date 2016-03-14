@@ -78,7 +78,7 @@ namespace BLL
 
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("insert into CursosDetalle(Descripcion,Curso,Nombre,Apellidos,Matricula) values('{0}',{1},'{2}','{3}',{4})", curso.Descripcion, this.CursoId, this.Nombre,this.Apellidos, this.Matricula));
+                    conexion.Ejecutar(string.Format("insert into CursosDetalle(Grupo,Curso,Nombre,Apellidos,Matricula) values('{0}',{1},'{2}','{3}',{4})", this.Grupo, this.CursoId, this.Nombre,this.Apellidos, this.Matricula));
                 }
                    
             }
@@ -99,7 +99,8 @@ namespace BLL
 
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("update CursosDetalle set Descripcion= '{0}', Curso={1},Nombre='{2}', Apellidos='{3}',Matricula={4} where Curso={5} where Id ={6}", curso.Descripcion, this.CursoId, this.Nombre, this.Apellidos, this.Matricula, this.EstudianteId));
+                    conexion.Ejecutar(string.Format("delete from CursosDetalle where Id={0}", this.EstudianteId));
+                    conexion.Ejecutar(string.Format("insert into CursosDetalle(Grupo,Curso,Nombre,Apellidos,Matricula) values('{0}',{1},'{2}','{3}',{4})", this.Grupo, this.CursoId, this.Nombre, this.Apellidos, this.Matricula));
                 }
             }
             catch (Exception ex)
