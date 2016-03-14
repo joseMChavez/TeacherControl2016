@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asistencia.cs" />
+    <Compile Include="AsistenciaDetalle.cs" />
     <Compile Include="CategoriaCalificaciones.cs" />
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Cursos.cs" />

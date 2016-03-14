@@ -30,7 +30,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Cursos(Descripcion) values('{0}')", this.Descripcion));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Curso(Descripcion) values('{0}')", this.Descripcion));
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where CursoId = {1} ", this.Descripcion, this.CursoId));
+                retorno = conexion.Ejecutar(String.Format(" Update Curso set Descripcion = '{0}' where CursoId = {1} ", this.Descripcion, this.CursoId));
 
             }
             catch (Exception exc)
@@ -64,7 +64,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" delete from Cursos where CursoId = {0}  ", this.CursoId));
+                retorno = conexion.Ejecutar(String.Format(" delete from Curso where CursoId = {0}  ", this.CursoId));
 
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where CursoId= {0}", IdBuscado));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Curso where CursoId= {0}", IdBuscado));
                 if (datatable.Rows.Count > 0)
                 {
                     this.CursoId = (int)datatable.Rows[0]["CursoId"];
@@ -101,7 +101,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where Descripcion= '" + DescripcionBuscada + "'"));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Curso where Descripcion= '" + DescripcionBuscada + "'"));
             }
             catch (Exception exc)
             {
@@ -119,7 +119,7 @@ namespace BLL
             if (!Orden.Equals(""))
                     ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Cursos Where " + Condicion + Orden);
+            return conexion.ObtenerDatos("Select " + Campos + " From Curso Where " + Condicion + Orden);
         }
     }
 }

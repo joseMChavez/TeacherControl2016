@@ -1,4 +1,5 @@
-﻿create table Usuario(
+﻿go
+create table Usuario(
  usuarioId int identity(1,1),
  nombre varchar(50),
  apellido varchar(50),
@@ -31,7 +32,7 @@ Create table Estudiante(
 		Matricula int,
 		Nombre varchar(50),
 		Apellido varchar(50),
-		Genero int,
+		Genero Varchar(3),
 		FechaNacimiento varchar(20),
 		Edad int,
 		Celular varchar(15),
@@ -87,6 +88,4 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-Drop table  CategoriaCalificaciones;
-Select * From CategoriaCalificaciones
-insert into Usuario(nombre,apellido,email,direccion,telefono,clave,confirmarClave) Values('Jose','Carlos','Gimenez','hj','809-844-2216','123345','123345')
+drop table Estudiante;

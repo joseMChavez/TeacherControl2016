@@ -115,11 +115,13 @@
             this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FiltrocomboBox.FormattingEnabled = true;
+            this.FiltrocomboBox.Items.AddRange(new object[] {
+            "Id",
+            "Descripcion"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(111, 42);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 23;
-            this.FiltrocomboBox.ContextMenu = new System.Windows.Forms.ContextMenu();
             // 
             // ConsultaEstudianteCursos
             // 

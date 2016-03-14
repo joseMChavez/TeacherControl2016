@@ -15,18 +15,10 @@ namespace TeacherControl2016.Consultas
         public ConsultaEstudianteCursos()
         {
             InitializeComponent();
-            CargarComboBox();
-        }
-        private void CargarComboBox()
-        {
-            DataTable data = new DataTable();
-            Cursos curso = new Cursos();
+            DesactivarMenuContextual();
 
-            data = curso.Listado("CursoId,Descripcion", "0=0", "ORDER BY CursoId");
-            FiltrocomboBox.DataSource = data;
-            FiltrocomboBox.ValueMember = "CursoId";
-            FiltrocomboBox.DisplayMember = "Descripcion";
         }
+       
         public void DesactivarMenuContextual()
         {
             var blankContextMenu = new ContextMenu();
@@ -44,12 +36,7 @@ namespace TeacherControl2016.Consultas
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            if (FiltrocomboBox.Text.Equals(""))
-            {
-                Utility.Mensajes(1, "Agregue Estudiantes, pero Antes Agregue los Cursos a los Cuales lo Agregara en el Registro de Cursos.");
-            }
-            else
-            {
+            
                 CursosDetalle curso = new CursosDetalle();
                 string filtro = "1=1";
 
@@ -61,7 +48,7 @@ namespace TeacherControl2016.Consultas
                 CursoEstDataGridView.DataSource = curso.Listado("Curso,Descripcion,Nombre,Apellidos,Matricula", filtro, "");
 
                 TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
-            }
+            
         }
     }
 }
