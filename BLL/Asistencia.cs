@@ -14,21 +14,51 @@ namespace BLL
         public int AsistenciaId { get; set; }
         public int CursoId { get; set; }
         public int EstudianteId { get; set; }
-        public string Accion { get; set; }//Esta Presente, Ausente o tiene Excusas
+        public string CursoGrupo { get; set; }
+        public string Activo { get; set; }
+        public List<AsistenciaDetalle> aDetalle { get; set; }
         public Asistencia()
         {
             this.AsistenciaId = 0;
             this.CursoId = 0;
             this.EstudianteId = 0;
-            this.Accion = "";
+            this.CursoGrupo = "";
+            this.Activo = "";
+            aDetalle = new List<AsistenciaDetalle>();
         }
-
-
-        public override bool Buscar(int IdBuscado)
+        public Asistencia(int Id, int CursoId, int EstudianteId,string CursoGrupo, string Activo)
         {
-            throw new NotImplementedException();
+            this.AsistenciaId = Id;
+            this.CursoId = CursoId;
+            this.EstudianteId = EstudianteId;
+            this.CursoGrupo = CursoGrupo;
+            this.Activo = Activo;
         }
+        public override bool Insertar()
+        {
+            object identity;
+            int retorno = 0;
+            try
+            {
+                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo) values({0},'{1}') select @@Identity", this.CursoId,this.CursoGrupo));
+                int.TryParse(identity.ToString(), out retorno);
+                this.AsistenciaId = retorno;
+                if (retorno>0)
+                {
+                    foreach (AsistenciaDetalle asistenciaD in aDetalle)
+                    {
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},{1},'{2}')", retorno, this.EstudianteId, this.Activo));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            return retorno > 0;
+        }
+       
         public override bool Editar()
         {
             throw new NotImplementedException();
@@ -39,7 +69,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public override bool Insertar()
+        public override bool Buscar(int IdBuscado)
         {
             throw new NotImplementedException();
         }

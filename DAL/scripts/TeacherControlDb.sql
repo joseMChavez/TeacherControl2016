@@ -53,11 +53,18 @@ create table Materias(
 go
 create table Asistencias(
        AsistenciaId int identity(1,1),
-	   CursoId  int,
-	   EstudianteId int, 
-	   Accion varchar(12),
+	   CursoId  int foreign key references Curso(CursoId),
+	   Cursogrupo varchar(5),
 	   primary key(AsistenciaId)
 ) 
+go
+Create table AsistenciaDetalle(
+ Id int identity(1,1),
+ EstudianteId int foreign key references Estudiante(EstudianteId), 
+ AsistenciaId int foreign key references Asistencias(AsistenciaId),
+ Activo varchar(15),
+ primary key(Id)
+)
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
@@ -76,8 +83,7 @@ go
 create table Evaluaciones(
 	EvaluacionId int identity(1,1) primary key,
 	AsitenciaId int,
-	CalificacionId int, 
-
+	CalificacionId int,
 )
 go
 CREATE TABLE CategoriaCalificaciones
@@ -87,5 +93,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table CursosDetalle;
-select * From CursosDetalle
+drop table Asistencias;
+select * From Asistencias
