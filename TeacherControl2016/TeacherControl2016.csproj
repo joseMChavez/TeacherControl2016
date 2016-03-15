@@ -111,6 +111,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\AsistenciasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\AsistenciasForm.Designer.cs">
+      <DependentUpon>AsistenciasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\CategoriaCalificacionesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registros\AsistenciasForm.resx">
+      <DependentUpon>AsistenciasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros\CategoriaCalificacionesForm.resx">
       <DependentUpon>CategoriaCalificacionesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +259,9 @@
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\1455916000_user-group-new.png" />
+    <None Include="Resources\1455915988_user-group-new.png" />
+    <None Include="Resources\1455915995_user-group-new.png" />
     <None Include="Resources\1455099110_categories.png" />
     <None Include="Resources\icono_producto2.png" />
     <None Include="Resources\1457333256_bookcase.png" />

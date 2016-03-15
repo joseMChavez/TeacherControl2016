@@ -133,6 +133,36 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1455915988_user_group_new {
+            get {
+                object obj = ResourceManager.GetObject("1455915988_user-group-new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1455915995_user_group_new {
+            get {
+                object obj = ResourceManager.GetObject("1455915995_user-group-new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1455916000_user_group_new {
+            get {
+                object obj = ResourceManager.GetObject("1455916000_user-group-new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1455916129_Student_id_24 {
             get {
                 object obj = ResourceManager.GetObject("1455916129_Student-id-24", resourceCulture);
