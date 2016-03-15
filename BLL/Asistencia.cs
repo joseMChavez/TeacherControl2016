@@ -34,6 +34,11 @@ namespace BLL
             this.CursoGrupo = CursoGrupo;
             this.Activo = Activo;
         }
+
+        private void AgregarAsistencia(int estudianteId,string Activo)
+        {
+            aDetalle.Add(new AsistenciaDetalle(estudianteId, Activo));
+        }
         public override bool Insertar()
         {
             object identity;
@@ -61,22 +66,86 @@ namespace BLL
        
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId={0}, CursoGrupo='{1}' where AsistenciaId={2}", this.CursoId, this.CursoGrupo, this.AsistenciaId));
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("Delete * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
+                    foreach (AsistenciaDetalle asistenciaD in aDetalle)
+                    {
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},{1},'{2}')",this.AsistenciaId, this.EstudianteId, this.Activo));
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("Delete * from Asistencias where AsistenciaId={0}", AsistenciaId));
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("Delete * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
         }
 
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+            DataTable detalle = new DataTable();
+            AsistenciaDetalle asisDetalle = new AsistenciaDetalle();
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId={0}", this.AsistenciaId));
+                if (dt.Rows.Count> 0)
+                {
+                    CursoId = (int)dt.Rows[0]["cursoId"];
+                    CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
+                    detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
+                    foreach  (DataRow row in dt.Rows)
+                    {
+                        asisDetalle.Id = (int)row["Id"];
+                        asisDetalle.EstudianteId = (int)row["EstudianteId"];
+                        asisDetalle.Activo = row["Activo"].ToString();
+                        aDetalle.Add(asisDetalle);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+           string ordenFinal = "";
+            if (!Orden.Equals(""))
+            {
+                ordenFinal = "order by " + Orden;
+            }
+            return dt = conexion.ObtenerDatos(string.Format("select "+Campos+" from Asistencias where "+Condicion+ordenFinal));
+
         }
     }
 }
