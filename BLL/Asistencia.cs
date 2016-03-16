@@ -48,7 +48,7 @@ namespace BLL
             int retorno = 0;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},{1},'{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},'{1}','{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
                 int.TryParse(identity.ToString(), out retorno);
                 this.AsistenciaId = retorno;
                 if (retorno>0)

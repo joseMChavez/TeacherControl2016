@@ -41,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.EstacomboBox = new System.Windows.Forms.ComboBox();
             this.AsistenciadataGridView = new System.Windows.Forms.DataGridView();
-            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Esta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fechalabel = new System.Windows.Forms.Label();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Agregarbutton = new System.Windows.Forms.Button();
@@ -53,6 +51,8 @@
             this.TotalAsitencialabel = new System.Windows.Forms.Label();
             this.Porcentagelabel = new System.Windows.Forms.Label();
             this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -152,9 +152,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(278, 171);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 16);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Esta: ";
+            this.label1.Text = "Estado: ";
             // 
             // EstacomboBox
             // 
@@ -176,30 +176,17 @@
             this.AsistenciadataGridView.AllowUserToAddRows = false;
             this.AsistenciadataGridView.AllowUserToOrderColumns = true;
             this.AsistenciadataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AsistenciadataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AsistenciadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AsistenciadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Estudiante,
-            this.Esta});
+            this.Estado});
+            this.AsistenciadataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.AsistenciadataGridView.Location = new System.Drawing.Point(47, 217);
             this.AsistenciadataGridView.Name = "AsistenciadataGridView";
             this.AsistenciadataGridView.ReadOnly = true;
-            this.AsistenciadataGridView.Size = new System.Drawing.Size(464, 171);
+            this.AsistenciadataGridView.Size = new System.Drawing.Size(453, 171);
             this.AsistenciadataGridView.TabIndex = 32;
-            // 
-            // Estudiante
-            // 
-            this.Estudiante.HeaderText = "Estudiante";
-            this.Estudiante.Name = "Estudiante";
-            this.Estudiante.ReadOnly = true;
-            this.Estudiante.ToolTipText = "Estudiante";
-            this.Estudiante.Width = 250;
-            // 
-            // Esta
-            // 
-            this.Esta.HeaderText = "Esta";
-            this.Esta.Name = "Esta";
-            this.Esta.ReadOnly = true;
-            this.Esta.ToolTipText = "Esta";
             // 
             // Fechalabel
             // 
@@ -223,6 +210,7 @@
             // 
             // Agregarbutton
             // 
+            this.Agregarbutton.Enabled = false;
             this.Agregarbutton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
             this.Agregarbutton.FlatAppearance.BorderSize = 0;
             this.Agregarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -346,12 +334,28 @@
             this.AsistenciaerrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.AsistenciaerrorProvider.ContainerControl = this;
             // 
+            // Estudiante
+            // 
+            this.Estudiante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Estudiante.HeaderText = "Estudiante";
+            this.Estudiante.Name = "Estudiante";
+            this.Estudiante.ReadOnly = true;
+            this.Estudiante.ToolTipText = "Estudiante";
+            this.Estudiante.Width = 310;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.ToolTipText = "Estado";
+            // 
             // AsistenciasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(552, 490);
+            this.ClientSize = new System.Drawing.Size(552, 503);
             this.Controls.Add(this.Porcentagelabel);
             this.Controls.Add(this.TotalAsitencialabel);
             this.Controls.Add(this.FechadateTimePicker);
@@ -405,10 +409,10 @@
         private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.Label Fechalabel;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Esta;
         private System.Windows.Forms.Label TotalAsitencialabel;
         private System.Windows.Forms.Label Porcentagelabel;
         private System.Windows.Forms.ErrorProvider AsistenciaerrorProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

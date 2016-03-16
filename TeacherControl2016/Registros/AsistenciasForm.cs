@@ -32,10 +32,12 @@ namespace TeacherControl2016.Registros
         private void Limpiar() {
             AsistenciaIdtextBox.Clear();
             AsistenciadataGridView.Rows.Clear();
+            AsistenciaerrorProvider.Clear();
             
-            if (CursoComboBox.Text.Equals(""))
+            if (CursoComboBox.Text.Equals("") || GrupocomboBox.Text.Equals("") || EstudiantecomboBox.Text.Equals(""))
             {
-                Utility.Mensajes(1, "En esto Momentos No se Puede Pasar Lista \nPues no Tenemos Estudiantes Ni Cursos Registrados\n Registrelos eh Intente Nuevamente.");
+                Utility.Mensajes(1, "En esto Momentos No se Puede Pasar Lista \nPues no Tenemos Estudiantes Registrados\n Registrelos eh Intente Nuevamente.");
+                ActivarBotones(false);
             }
             else
             {
@@ -44,12 +46,17 @@ namespace TeacherControl2016.Registros
                 EstudiantecomboBox.SelectedIndex = 0;
                 EstacomboBox.SelectedIndex = 0;
                 CursoComboBox.Focus();
+                Porcentagelabel.Text = "";
+                GuardarButton.Enabled = true;
+                Agregarbutton.Enabled = true;
             }
 
         }
+
         public void ActivarBotones(bool btn)
         {
             GuardarButton.Enabled = btn;
+            Agregarbutton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
         private void ValidarTodo()
@@ -64,7 +71,7 @@ namespace TeacherControl2016.Registros
                 AsistenciaerrorProvider.Clear();
             }
         }
-        private void Validar(TextBox tb, string mensaje)
+        private void Validar(Control tb, string mensaje)
         {
 
             if (tb.Text.Equals(""))
@@ -79,6 +86,7 @@ namespace TeacherControl2016.Registros
                 
             }
         }
+
         private void Llenardatos() {
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
@@ -149,6 +157,7 @@ namespace TeacherControl2016.Registros
            // dt = asistencia.ListadoDetalle("EstudianteId,Activo", "AsistenciaId='" +AsistenciaIdtextBox.Text+"'");
            // AsistenciadataGridView.DataSource = dt;
         }
+
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
@@ -179,10 +188,15 @@ namespace TeacherControl2016.Registros
             int EstudianteId = Utility.ConvierteEntero(EstudiantecomboBox.SelectedValue.ToString());
             try
             {
-                
-                asistencia.AgregarAsistencia(EstudianteId, EstacomboBox.Text);
 
-                AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text, EstacomboBox.Text);
+                if (!EstacomboBox.Text.Equals(""))
+                {
+                    asistencia.AgregarAsistencia(EstudianteId, EstacomboBox.Text);
+                    AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text, EstacomboBox.Text);
+                    EstacomboBox.SelectedIndex = 0; 
+                }
+
+                Validar(EstacomboBox, "Seleccione Un Estado!");
 
                 Porcentagelabel.Text = AsistenciadataGridView.RowCount.ToString();
 
@@ -198,8 +212,7 @@ namespace TeacherControl2016.Registros
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            GuardarButton.Enabled = true;
-            EliminarButton.Enabled = false;
+          
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)

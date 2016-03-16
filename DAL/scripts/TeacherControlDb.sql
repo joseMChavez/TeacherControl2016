@@ -1,4 +1,5 @@
-﻿go
+﻿use [C:\USERS\JOSE\SOURCE\REPOS\TEACHERCONTROL2016\TEACHERCONTROL2016\DATABASE\TEACHERCONTROLDB.MDF]
+go
 create table Usuario(
  usuarioId int identity(1,1),
  nombre varchar(50),
@@ -69,15 +70,19 @@ Create table AsistenciaDetalle(
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
-		EstudianteId int,
-		MateriaId int, 
-		Descripcion varchar(70),
-		Puntuacion int
+		EstudianteId int foreign key references Estudiante(EstudianteId), 
+		MateriaId int foreign key references Materias(MateriaId), 
+	    CursoId  int foreign key references Curso(CursoId),
+	    Cursogrupo varchar(5),
+	    Fecha varchar(15),
+		
 )
 go
-create table CalificaionesDetalle(
-		CalificaionDetalleId int identity(1,1) primary key,
-
+create table CalificacionDetalle(
+		Id int identity(1,1) primary key,
+		CalificacionId int foreign key references Calificaciones(CalificacionId),
+		Descripcion varchar(70),
+		Puntuacion int
 
 )
 go
@@ -94,5 +99,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table Estudiante;
-select * From Asistencias
+drop table CalificacionDetalle;
+select * From CalificacionDetalle
