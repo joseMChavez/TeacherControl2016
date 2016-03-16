@@ -38,6 +38,11 @@ namespace TeacherControl2016.Registros
             AsistenciadataGridView.Rows.Clear();
 
         }
+        public void ActivarBotones(bool btn)
+        {
+            GuardarButton.Enabled = btn;
+            EliminarButton.Enabled = btn;
+        }
         private void Llenardatos() {
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
@@ -95,20 +100,29 @@ namespace TeacherControl2016.Registros
         {
             CargarEstudiantes();
         }
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             int EstudianteId = Utility.ConvierteEntero(EstudiantecomboBox.SelectedValue.ToString());
             try
             {
                 
-                foreach (DataGridViewRow row in AsistenciadataGridView.Rows)
-                {
-                    asistencia.AgregarAsistencia(EstudianteId, EstacomboBox.Text);
-                }
+                asistencia.AgregarAsistencia(EstudianteId, EstacomboBox.Text);
 
                 AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text, EstacomboBox.Text);
-                Porcentagelabel.Text = AsistenciadataGridView.RowCount.ToString();
 
+                Porcentagelabel.Text = AsistenciadataGridView.RowCount.ToString();
 
                 }
             
@@ -124,6 +138,59 @@ namespace TeacherControl2016.Registros
             Limpiar();
             GuardarButton.Enabled = true;
             EliminarButton.Enabled = false;
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
+            DialogResult resultado;
+           
+            try
+            {
+                if (!AsistenciaIdtextBox.Text.Equals("") && asistencia.Buscar(id))
+                {
+                    resultado = MessageBox.Show("¿Esta Seguro que desea Eliminar la lista del dia " + FechadateTimePicker.Text + " del Curso "+CursoComboBox.Text+" "+GrupocomboBox.Text+"? ","Teacher Control", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        if (asistencia.Eliminar())
+                        {
+                            Utility.Mensajes(1, "Lista de Asistencia Eliminada Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(2, "Error en Eliminar Lista!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                    }
+                }
+                else
+                {
+                    Utility.Mensajes(3, "Id No Encontrado!");
+                    Limpiar();
+                    ActivarBotones(false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
