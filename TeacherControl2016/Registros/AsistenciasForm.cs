@@ -31,17 +31,53 @@ namespace TeacherControl2016.Registros
         }
         private void Limpiar() {
             AsistenciaIdtextBox.Clear();
-            CursoComboBox.SelectedIndex = 0;
-            GrupocomboBox.SelectedIndex = 0;
-            EstudiantecomboBox.SelectedIndex = 0;
-            EstacomboBox.SelectedIndex = 0;
             AsistenciadataGridView.Rows.Clear();
+            
+            if (CursoComboBox.Text.Equals(""))
+            {
+                Utility.Mensajes(1, "En esto Momentos No se Puede Pasar Lista \nPues no Tenemos Estudiantes Ni Cursos Registrados\n Registrelos eh Intente Nuevamente.");
+            }
+            else
+            {
+                CursoComboBox.SelectedIndex = 0;
+                GrupocomboBox.SelectedIndex = 0;
+                EstudiantecomboBox.SelectedIndex = 0;
+                EstacomboBox.SelectedIndex = 0;
+                CursoComboBox.Focus();
+            }
 
         }
         public void ActivarBotones(bool btn)
         {
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
+        }
+        private void ValidarTodo()
+        {
+            if (AsistenciadataGridView.RowCount == 0)
+            {
+                AsistenciaerrorProvider.SetError(AsistenciadataGridView, "No hay estudiantes en la Lista");
+                EstacomboBox.Focus();
+            }
+            else
+            {
+                AsistenciaerrorProvider.Clear();
+            }
+        }
+        private void Validar(TextBox tb, string mensaje)
+        {
+
+            if (tb.Text.Equals(""))
+            {
+                AsistenciaerrorProvider.SetError(tb, mensaje);
+                tb.Focus();
+                
+            }
+            else
+            {
+                AsistenciaerrorProvider.Clear();
+                
+            }
         }
         private void Llenardatos() {
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
@@ -100,11 +136,37 @@ namespace TeacherControl2016.Registros
         {
             CargarEstudiantes();
         }
+        private void ObtenerDatos()
+        {
+            DataTable dt = new DataTable();
+            FechadateTimePicker.Text = asistencia.Fecha;
+            CursoComboBox.Text = asistencia.CursoId.ToString();
+            GrupocomboBox.Text = asistencia.CursoGrupo;
+            //foreach (var item in asistencia.aDetalle)
+            //{
+            //    asistencia.AgregarAsistencia();
+            //}
+           // dt = asistencia.ListadoDetalle("EstudianteId,Activo", "AsistenciaId='" +AsistenciaIdtextBox.Text+"'");
+           // AsistenciadataGridView.DataSource = dt;
+        }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             try
             {
-
+                Validar(AsistenciaIdtextBox,"Digite un Id!");
+                if (!AsistenciaIdtextBox.Text.Equals("") && asistencia.Buscar(id))
+                {
+                    ObtenerDatos();
+                    ActivarBotones(true);
+                    EstacomboBox.Focus();
+                }
+                else
+                {
+                    Utility.Mensajes(3, "Id No encontrado!");
+                    AsistenciaIdtextBox.Focus();
+                    ActivarBotones(false);
+                }
             }
             catch (Exception ex)
             {
@@ -142,9 +204,45 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            
+            int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             try
             {
-
+                ValidarTodo();
+                Llenardatos();
+                if (AsistenciaIdtextBox.Text.Equals("") && AsistenciadataGridView.Rows.Count > 0)
+                {
+                    if (asistencia.Insertar())
+                    {
+                        Utility.Mensajes(1, "Se ah Guardado Correctamente \nla Asistencia\n del Curso " + CursoComboBox.Text + " " + GrupocomboBox.Text + "\n del dia " + FechadateTimePicker.Text);
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                    else
+                    {
+                        Utility.Mensajes(1, " No Se ah Guardado \nla Asistencia\n del Curso " + CursoComboBox.Text + " " + GrupocomboBox.Text + "\n del dia " + FechadateTimePicker.Text);
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                }
+                else
+                {
+                    if (!AsistenciaIdtextBox.Text.Equals("") && asistencia.Buscar(id) && AsistenciadataGridView.Rows.Count > 0)
+                    {
+                        if (asistencia.Editar())
+                        {
+                            Utility.Mensajes(1, "Se ah Modificado Correctamente \nla Asistencia\n del Curso " + CursoComboBox.Text + " " + GrupocomboBox.Text + "\n del dia " + FechadateTimePicker.Text);
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(1, " No Se ah Modificado \nla Asistencia\n del Curso " + CursoComboBox.Text + " " + GrupocomboBox.Text + "\n del dia " + FechadateTimePicker.Text);
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -188,7 +286,6 @@ namespace TeacherControl2016.Registros
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }

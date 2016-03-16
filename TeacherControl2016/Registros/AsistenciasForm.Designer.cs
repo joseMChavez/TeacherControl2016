@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsistenciasForm));
             this.AsistenciaIdtextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
@@ -51,7 +52,9 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.TotalAsitencialabel = new System.Windows.Forms.Label();
             this.Porcentagelabel = new System.Windows.Forms.Label();
+            this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // AsistenciaIdtextBox
@@ -338,6 +341,11 @@
             this.Porcentagelabel.Size = new System.Drawing.Size(0, 16);
             this.Porcentagelabel.TabIndex = 37;
             // 
+            // AsistenciaerrorProvider
+            // 
+            this.AsistenciaerrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.AsistenciaerrorProvider.ContainerControl = this;
+            // 
             // AsistenciasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,6 +379,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Asistencias";
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,5 +409,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Esta;
         private System.Windows.Forms.Label TotalAsitencialabel;
         private System.Windows.Forms.Label Porcentagelabel;
+        private System.Windows.Forms.ErrorProvider AsistenciaerrorProvider;
     }
 }

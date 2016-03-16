@@ -48,7 +48,7 @@ namespace BLL
             int retorno = 0;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},'{1}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},{1},'{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
                 int.TryParse(identity.ToString(), out retorno);
                 this.AsistenciaId = retorno;
                 if (retorno>0)
@@ -123,7 +123,7 @@ namespace BLL
                     CursoId = (int)dt.Rows[0]["cursoId"];
                     CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
                     detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
-                    foreach  (DataRow row in dt.Rows)
+                    foreach  (DataRow row in detalle.Rows)
                     {
                         asisDetalle.Id = (int)row["Id"];
                         asisDetalle.EstudianteId = (int)row["EstudianteId"];
@@ -137,6 +137,13 @@ namespace BLL
                 throw ex;
             }
             return dt.Rows.Count > 0;
+        }
+        public  DataTable ListadoDetalle(string Campos, string Condicion)
+        {
+            DataTable dt = new DataTable();
+           
+            return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from AsistenciaDetalle where " + Condicion));
+
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
