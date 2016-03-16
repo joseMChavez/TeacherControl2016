@@ -55,6 +55,7 @@ create table Asistencias(
        AsistenciaId int identity(1,1),
 	   CursoId  int foreign key references Curso(CursoId),
 	   Cursogrupo varchar(5),
+	   Fecha varchar(15),
 	   primary key(AsistenciaId)
 ) 
 go
@@ -93,5 +94,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table Asistencias;
+drop table Estudiante;
 select * From Asistencias

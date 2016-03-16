@@ -16,6 +16,7 @@ namespace BLL
         public int EstudianteId { get; set; }
         public string CursoGrupo { get; set; }
         public string Activo { get; set; }
+        public string Fecha { get; set; }
         public List<AsistenciaDetalle> aDetalle { get; set; }
         public Asistencia()
         {
@@ -24,18 +25,20 @@ namespace BLL
             this.EstudianteId = 0;
             this.CursoGrupo = "";
             this.Activo = "";
+            this.Fecha = "";
             aDetalle = new List<AsistenciaDetalle>();
         }
-        public Asistencia(int Id, int CursoId, int EstudianteId,string CursoGrupo, string Activo)
+        public Asistencia(int Id, int CursoId, int EstudianteId,string CursoGrupo, string Activo, string Fecha)
         {
             this.AsistenciaId = Id;
             this.CursoId = CursoId;
             this.EstudianteId = EstudianteId;
             this.CursoGrupo = CursoGrupo;
             this.Activo = Activo;
+            this.Fecha = Fecha;
         }
 
-        private void AgregarAsistencia(int estudianteId,string Activo)
+        public void AgregarAsistencia(int estudianteId,string Activo)
         {
             aDetalle.Add(new AsistenciaDetalle(estudianteId, Activo));
         }
@@ -45,7 +48,7 @@ namespace BLL
             int retorno = 0;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo) values({0},'{1}') select @@Identity", this.CursoId,this.CursoGrupo));
+                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},'{1}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
                 int.TryParse(identity.ToString(), out retorno);
                 this.AsistenciaId = retorno;
                 if (retorno>0)
@@ -69,7 +72,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId={0}, CursoGrupo='{1}' where AsistenciaId={2}", this.CursoId, this.CursoGrupo, this.AsistenciaId));
+                retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId={0}, CursoGrupo='{1}', Fecha='{2}' where AsistenciaId={3}", this.CursoId, this.CursoGrupo, this.Fecha,this.AsistenciaId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));

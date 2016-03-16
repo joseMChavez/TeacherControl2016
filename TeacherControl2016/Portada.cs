@@ -112,5 +112,11 @@ namespace TeacherControl2016
             Consultas.ConsultaCategoriaCalificaiones cCCalificaciones = new Consultas.ConsultaCategoriaCalificaiones();
             cCCalificaciones.Show();
         }
+
+        private void AsistenciatoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.AsistenciasForm asistencia = new Registros.AsistenciasForm();
+            asistencia.Show();
+        }
     }
 }

@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows.Forms;
-
 using BLL;
 
 namespace TeacherControl2016.Registros
