@@ -82,8 +82,7 @@ create table CalificacionDetalle(
 		Id int identity(1,1) primary key,
 		CalificacionId int foreign key references Calificaciones(CalificacionId),
 		Descripcion varchar(70),
-		Puntuacion int
-
+		Puntuacion float
 )
 go
 create table Evaluaciones(
