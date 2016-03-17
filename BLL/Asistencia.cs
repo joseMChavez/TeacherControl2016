@@ -13,7 +13,7 @@ namespace BLL
         ConexionDb conexion = new ConexionDb();
         public int AsistenciaId { get; set; }
         public int CursoId { get; set; }
-        public int EstudianteId { get; set; }
+        public string EstudianteId { get; set; }
         public string CursoGrupo { get; set; }
         public string Activo { get; set; }
         public string Fecha { get; set; }
@@ -22,13 +22,13 @@ namespace BLL
         {
             this.AsistenciaId = 0;
             this.CursoId = 0;
-            this.EstudianteId = 0;
+            this.EstudianteId = "";
             this.CursoGrupo = "";
             this.Activo = "";
             this.Fecha = "";
             aDetalle = new List<AsistenciaDetalle>();
         }
-        public Asistencia(int Id, int CursoId, int EstudianteId,string CursoGrupo, string Activo, string Fecha)
+        public Asistencia(int Id, int CursoId, string EstudianteId,string CursoGrupo, string Activo, string Fecha)
         {
             this.AsistenciaId = Id;
             this.CursoId = CursoId;
@@ -38,7 +38,7 @@ namespace BLL
             this.Fecha = Fecha;
         }
 
-        public void AgregarAsistencia(int estudianteId,string Activo)
+        public void AgregarAsistencia(string estudianteId,string Activo)
         {
             aDetalle.Add(new AsistenciaDetalle(estudianteId, Activo));
         }
@@ -55,7 +55,7 @@ namespace BLL
                 {
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
-                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},{1},'{2}')", retorno, this.EstudianteId, this.Activo));
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", retorno, this.EstudianteId, this.Activo));
                     }
                 }
             }
@@ -78,7 +78,7 @@ namespace BLL
                     conexion.Ejecutar(string.Format("Delete * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
-                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},{1},'{2}')",this.AsistenciaId, this.EstudianteId, this.Activo));
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')",this.AsistenciaId, this.EstudianteId, this.Activo));
                     }
 
                 }
@@ -126,7 +126,7 @@ namespace BLL
                     foreach  (DataRow row in detalle.Rows)
                     {
                         asisDetalle.Id = (int)row["Id"];
-                        asisDetalle.EstudianteId = (int)row["EstudianteId"];
+                        asisDetalle.EstudianteId = row["EstudianteId"].ToString();
                         asisDetalle.Activo = row["Activo"].ToString();
                         aDetalle.Add(asisDetalle);
                     }

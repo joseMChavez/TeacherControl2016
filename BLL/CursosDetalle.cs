@@ -47,7 +47,7 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select "+campos+ ",C.Descripcion as Curso, CursosDetalle.Descripcion as Grupo From CursosDetalle Inner Join Curso as C on CursosDetalle.Curso = C.CursoId where " + Condicion+Orden);
+            return conexion.ObtenerDatos("Select "+campos+ ",C.Descripcion as Curso, CursosDetalle.Grupo From CursosDetalle Inner Join Curso as C on CursosDetalle.Curso = C.CursoId where " + Condicion+Orden);
         }
 
 

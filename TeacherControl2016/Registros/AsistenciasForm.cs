@@ -185,15 +185,15 @@ namespace TeacherControl2016.Registros
         }
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            int EstudianteId = Utility.ConvierteEntero(EstudiantecomboBox.SelectedValue.ToString());
+           
             try
             {
-
+                EstacomboBox.SelectedIndex = 0;
                 if (!EstacomboBox.Text.Equals(""))
                 {
-                    asistencia.AgregarAsistencia(EstudianteId, EstacomboBox.Text);
+                    asistencia.AgregarAsistencia(EstudiantecomboBox.Text, EstacomboBox.Text);
                     AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text, EstacomboBox.Text);
-                    EstacomboBox.SelectedIndex = 0; 
+                    
                 }
 
                 Validar(EstacomboBox, "Seleccione Un Estado!");

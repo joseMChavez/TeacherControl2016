@@ -62,7 +62,7 @@ create table Asistencias(
 go
 Create table AsistenciaDetalle(
  Id int identity(1,1),
- EstudianteId int foreign key references Estudiante(EstudianteId), 
+ EstudianteId varchar(30), 
  AsistenciaId int foreign key references Asistencias(AsistenciaId),
  Activo varchar(15),
  primary key(Id)
@@ -98,5 +98,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table CalificacionDetalle;
+drop table AsistenciaDetalle;
 select * From CalificacionDetalle
