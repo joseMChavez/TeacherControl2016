@@ -97,6 +97,19 @@ namespace TeacherControl2016.Registros
             
 
         }
+        private void ObtenerDatos()
+        {
+            DataTable dt = new DataTable();
+            FechadateTimePicker.Text = asistencia.Fecha;
+            CursoComboBox.Text = asistencia.CursoId.ToString();
+            GrupocomboBox.Text = asistencia.CursoGrupo;
+            foreach (var item in asistencia.aDetalle)
+            {
+                AsistenciadataGridView.Rows.Add(item.EstudianteId, item.Activo);
+            }
+
+        }
+
         //Metodos para Cargar los ComboBox
 
         private void CargarCursos() {
@@ -144,20 +157,7 @@ namespace TeacherControl2016.Registros
         {
             CargarEstudiantes();
         }
-        private void ObtenerDatos()
-        {
-            DataTable dt = new DataTable();
-            FechadateTimePicker.Text = asistencia.Fecha;
-            CursoComboBox.Text = asistencia.CursoId.ToString();
-            GrupocomboBox.Text = asistencia.CursoGrupo;
-            //foreach (var item in asistencia.aDetalle)
-            //{
-            //    asistencia.AgregarAsistencia();
-            //}
-           // dt = asistencia.ListadoDetalle("EstudianteId,Activo", "AsistenciaId='" +AsistenciaIdtextBox.Text+"'");
-           // AsistenciadataGridView.DataSource = dt;
-        }
-
+       
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
@@ -188,7 +188,7 @@ namespace TeacherControl2016.Registros
            
             try
             {
-                EstacomboBox.SelectedIndex = 0;
+                //EstacomboBox.SelectedIndex = 0;
                 if (!EstacomboBox.Text.Equals(""))
                 {
                     asistencia.AgregarAsistencia(EstudiantecomboBox.Text, EstacomboBox.Text);

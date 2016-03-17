@@ -10,7 +10,7 @@ namespace BLL
 {
     public class Asistencia : ClaseMaestra
     {
-        ConexionDb conexion = new ConexionDb();
+        
         public int AsistenciaId { get; set; }
         public int CursoId { get; set; }
         public string EstudianteId { get; set; }
@@ -44,6 +44,7 @@ namespace BLL
         }
         public override bool Insertar()
         {
+            ConexionDb conexion = new ConexionDb();
             object identity;
             int retorno = 0;
             try
@@ -69,6 +70,7 @@ namespace BLL
        
         public override bool Editar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
@@ -93,14 +95,12 @@ namespace BLL
 
         public override bool Eliminar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Delete * from Asistencias where AsistenciaId={0}", AsistenciaId));
-                if (retorno)
-                {
-                    conexion.Ejecutar(string.Format("Delete * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
-                }
+               retorno = conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0};"+
+                                                "Delete  from Asistencias where AsistenciaId={0}", this.AsistenciaId));
             }
             catch (Exception ex)
             {
@@ -112,6 +112,7 @@ namespace BLL
 
         public override bool Buscar(int IdBuscado)
         {
+            ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             DataTable detalle = new DataTable();
             AsistenciaDetalle asisDetalle = new AsistenciaDetalle();
@@ -123,12 +124,10 @@ namespace BLL
                     CursoId = (int)dt.Rows[0]["cursoId"];
                     CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
                     detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
+                    detalle.Clear();
                     foreach  (DataRow row in detalle.Rows)
                     {
-                        asisDetalle.Id = (int)row["Id"];
-                        asisDetalle.EstudianteId = row["EstudianteId"].ToString();
-                        asisDetalle.Activo = row["Activo"].ToString();
-                        aDetalle.Add(asisDetalle);
+                        AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
                     }
                 }
             }
@@ -141,13 +140,14 @@ namespace BLL
         public  DataTable ListadoDetalle(string Campos, string Condicion)
         {
             DataTable dt = new DataTable();
-           
+            ConexionDb conexion = new ConexionDb();
             return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from AsistenciaDetalle where " + Condicion));
 
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
+            ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
            string ordenFinal = "";
             if (!Orden.Equals(""))
