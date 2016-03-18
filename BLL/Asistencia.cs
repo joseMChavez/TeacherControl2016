@@ -18,6 +18,7 @@ namespace BLL
         public string Activo { get; set; }
         public string Fecha { get; set; }
         public List<AsistenciaDetalle> aDetalle { get; set; }
+
         public Asistencia()
         {
             this.AsistenciaId = 0;
@@ -42,6 +43,7 @@ namespace BLL
         {
             aDetalle.Add(new AsistenciaDetalle(estudianteId, Activo));
         }
+
         public override bool Insertar()
         {
             ConexionDb conexion = new ConexionDb();
@@ -77,7 +79,7 @@ namespace BLL
                 retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId={0}, CursoGrupo='{1}', Fecha='{2}' where AsistenciaId={3}", this.CursoId, this.CursoGrupo, this.Fecha,this.AsistenciaId));
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("Delete * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
+                    conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
                         conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')",this.AsistenciaId, this.EstudianteId, this.Activo));
@@ -137,14 +139,7 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
-        public  DataTable ListadoDetalle(string Campos, string Condicion)
-        {
-            DataTable dt = new DataTable();
-            ConexionDb conexion = new ConexionDb();
-            return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from AsistenciaDetalle where " + Condicion));
-
-        }
-
+        
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();

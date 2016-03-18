@@ -148,11 +148,11 @@ namespace TeacherControl2016.Registros
         {
             Utility.TextBoxNuemericos(e);
         }
+
         private void CursoComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             CargarGrupo();
         }
-
         private void GrupocomboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             CargarEstudiantes();

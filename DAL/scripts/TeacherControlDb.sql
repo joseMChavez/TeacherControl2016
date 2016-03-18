@@ -70,12 +70,11 @@ Create table AsistenciaDetalle(
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
-		EstudianteId int foreign key references Estudiante(EstudianteId), 
-		MateriaId int foreign key references Materias(MateriaId), 
-	    CursoId  int foreign key references Curso(CursoId),
+		Estudiante varchar(50), 
+		Materia varchar(20), 
+	    Curso varchar(20),
 	    Cursogrupo varchar(5),
-	    Fecha varchar(15),
-		
+	    Fecha varchar(15)	
 )
 go
 create table CalificacionDetalle(
@@ -98,5 +97,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table AsistenciaDetalle;
+drop table Calificaciones;
 select * From CalificacionDetalle
