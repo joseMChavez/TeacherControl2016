@@ -99,7 +99,7 @@ namespace TeacherControl2016.Registros
         }
         private void ObtenerDatos()
         {
-            DataTable dt = new DataTable();
+           
             FechadateTimePicker.Text = asistencia.Fecha;
             CursoComboBox.Text = asistencia.CursoId.ToString();
             GrupocomboBox.Text = asistencia.CursoGrupo;

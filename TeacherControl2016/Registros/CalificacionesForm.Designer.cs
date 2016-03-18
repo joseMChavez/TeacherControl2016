@@ -35,7 +35,7 @@
             this.EstudiantecomboBox = new System.Windows.Forms.ComboBox();
             this.Cursolabel = new System.Windows.Forms.Label();
             this.CursoComboBox = new System.Windows.Forms.ComboBox();
-            this.AsistenciaIdtextBox = new System.Windows.Forms.TextBox();
+            this.CalificacionIdtextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
             this.Grupolabel = new System.Windows.Forms.Label();
             this.GrupocomboBox = new System.Windows.Forms.ComboBox();
@@ -131,14 +131,14 @@
             this.CursoComboBox.TabIndex = 35;
             this.CursoComboBox.TextChanged += new System.EventHandler(this.CursoComboBox_TextChanged);
             // 
-            // AsistenciaIdtextBox
+            // CalificacionIdtextBox
             // 
-            this.AsistenciaIdtextBox.Location = new System.Drawing.Point(147, 48);
-            this.AsistenciaIdtextBox.MaxLength = 5;
-            this.AsistenciaIdtextBox.Name = "AsistenciaIdtextBox";
-            this.AsistenciaIdtextBox.Size = new System.Drawing.Size(84, 20);
-            this.AsistenciaIdtextBox.TabIndex = 34;
-            this.AsistenciaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AsistenciaIdtextBox_KeyPress);
+            this.CalificacionIdtextBox.Location = new System.Drawing.Point(147, 48);
+            this.CalificacionIdtextBox.MaxLength = 5;
+            this.CalificacionIdtextBox.Name = "CalificacionIdtextBox";
+            this.CalificacionIdtextBox.Size = new System.Drawing.Size(84, 20);
+            this.CalificacionIdtextBox.TabIndex = 34;
+            this.CalificacionIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AsistenciaIdtextBox_KeyPress);
             // 
             // IdLabel
             // 
@@ -305,6 +305,7 @@
             this.Agregarbutton.Text = "Agregar";
             this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // GuardarButton
             // 
@@ -325,6 +326,7 @@
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // EliminarButton
             // 
@@ -344,6 +346,7 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // NuevoButton
             // 
@@ -362,6 +365,7 @@
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // BuscarButton
             // 
@@ -381,6 +385,7 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // CalificaioneserrorProvider
             // 
@@ -413,7 +418,7 @@
             this.Controls.Add(this.EstudiantecomboBox);
             this.Controls.Add(this.Cursolabel);
             this.Controls.Add(this.CursoComboBox);
-            this.Controls.Add(this.AsistenciaIdtextBox);
+            this.Controls.Add(this.CalificacionIdtextBox);
             this.Controls.Add(this.IdLabel);
             this.Controls.Add(this.BuscarButton);
             this.Name = "CalificacionesForm";
@@ -433,7 +438,7 @@
         private System.Windows.Forms.ComboBox EstudiantecomboBox;
         private System.Windows.Forms.Label Cursolabel;
         private System.Windows.Forms.ComboBox CursoComboBox;
-        private System.Windows.Forms.TextBox AsistenciaIdtextBox;
+        private System.Windows.Forms.TextBox CalificacionIdtextBox;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.Button Agregarbutton;

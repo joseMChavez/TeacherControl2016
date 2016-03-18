@@ -13,13 +13,37 @@ namespace TeacherControl2016.Registros
 {
     public partial class CalificacionesForm : Form
     {
+        Calificaciones calificaciones = new Calificaciones();
         public CalificacionesForm()
         {
             InitializeComponent();
             CargarCursos();
             CargaMateria();
+            CargarDescripcion();
             DesactivarMenuContextual();
 
+        }
+
+        private void Limpiar() {
+            CalificacionesDataGridView.Rows.Clear();
+            CalificaioneserrorProvider.Clear();
+            CalificacionIdtextBox.Clear();
+            if (CursoComboBox.Text.Equals("") || GrupocomboBox.Text.Equals("") || EstudiantecomboBox.Text.Equals("") || MateriacomboBox.Text.Equals(""))
+            {
+                Utility.Mensajes(1, "En esto Momentos No se Puede Agregar Calificaciones \nPues no Tenemos Estudiantes  o Materias Registrados\n Registrelos eh Intente Nuevamente.");
+                ActivarBotones(false);
+            }
+            else
+            {
+                CursoComboBox.SelectedIndex = 0;
+                GrupocomboBox.SelectedIndex = 0;
+                EstudiantecomboBox.SelectedIndex = 0;
+                MateriacomboBox.SelectedIndex = 0;
+                
+                TotaltextBox.Clear();
+                GuardarButton.Enabled = true;
+                Agregarbutton.Enabled = true;
+            }
         }
         private void DesactivarMenuContextual()
         {
@@ -29,6 +53,30 @@ namespace TeacherControl2016.Registros
             {
                 control.ContextMenu = blankContextMenu;
             }
+        }
+
+        private void LlenarDatos()
+        {
+            int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
+            calificaciones.CalificacionId = id;
+            calificaciones.Fecha = FechadateTimePicker.Text;
+            calificaciones.Curso = CursoComboBox.Text;
+            calificaciones.CursoGrupo = GrupocomboBox.Text;
+            calificaciones.Materia = MateriacomboBox.Text;
+
+        }
+        private void ObtenerDatos() {
+            FechadateTimePicker.Text = calificaciones.Fecha;
+            CursoComboBox.Text = calificaciones.Curso;
+            GrupocomboBox.Text = calificaciones.CursoGrupo;
+            MateriacomboBox.Text = calificaciones.Materia;
+            EstudiantecomboBox.Text = calificaciones.Estudiante;
+            foreach (var item in calificaciones.CalificaionesD)
+            {
+                CalificacionesDataGridView.Rows.Add(item.Descripcion, item.Puntuacion);
+            }
+
+
         }
 
         private void CargarCursos()
@@ -74,6 +122,16 @@ namespace TeacherControl2016.Registros
             MateriacomboBox.ValueMember = "MateriaId";
             MateriacomboBox.DisplayMember = "Descripcion";
         }
+        private void CargarDescripcion()
+        {
+            DataTable dt = new DataTable();
+            CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
+
+            dt = cCalificaciones.Listado("CategoriaCalificacionesId,Descripcion", "0=0", "CategoriaCalificacionesId");
+            CCalificaionesComboBox.DataSource = dt;
+            CCalificaionesComboBox.ValueMember = "CategoriaCalificacionesId";
+            CCalificaionesComboBox.DisplayMember = "Descripcion";
+        }
 
         public void ActivarBotones(bool btn)
         {
@@ -113,14 +171,153 @@ namespace TeacherControl2016.Registros
         {
             Utility.TextBoxNuemericos(e);
         }
+
         private void CursoComboBox_TextChanged(object sender, EventArgs e)
         {
             CargarGrupo();
         }
-
         private void GrupocomboBox_TextChanged(object sender, EventArgs e)
         {
             CargarEstudiantes();
+        }
+
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
+            try
+            {
+                if (!CalificacionIdtextBox.Text.Equals("") && calificaciones.Buscar(id))
+                {
+                    ObtenerDatos();
+                    ActivarBotones(true);
+                    PuntostextBox.Focus();
+                }
+                else
+                {
+                    Utility.Mensajes(3, "Id No Encontrado!");
+                    ActivarBotones(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Teacher Control");
+            }
+        }
+
+        private void Agregarbutton_Click(object sender, EventArgs e)
+        {
+            float puntos=0;
+            float.TryParse(PuntostextBox.Text, out puntos);
+            try
+
+            {
+                Validar(PuntostextBox, "Digite los Puntos para la Descripcion Designada.");
+                if (!PuntostextBox.Text.Equals(""))
+                {
+                    CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
+                    calificaciones.AgregarCalificaiones(CCalificaionesComboBox.Text, puntos);
+                    PuntostextBox.Clear();
+                    PuntostextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Teacher Control");
+            }
+        }
+
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            EstudiantecomboBox.Focus();
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LlenarDatos();
+                ValidarTodo();
+                if (CalificacionIdtextBox.Text.Equals("") && CalificacionesDataGridView.RowCount>0)
+                {
+                    if (calificaciones.Insertar())
+                    {
+                        Utility.Mensajes(1, "Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Guardada Correctamente!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                    else
+                    {
+                        Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Guardada!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                }
+                else
+                {
+                    if (!CalificacionIdtextBox.Text.Equals("") && CalificacionesDataGridView.RowCount > 0)
+                    {
+                        if (calificaciones.Editar())
+                        {
+                            Utility.Mensajes(1, "Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Modificada Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Modificada!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Teacher Control");
+
+            }
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
+            DialogResult resultado;
+            try
+            {
+                if (!CalificacionIdtextBox.Text.Equals("") && calificaciones.Buscar(id))
+                {
+                    resultado = MessageBox.Show("¿Esta Seguro de Eliminar las Calificaiones del Estudiante " + EstudiantecomboBox.Text + " de la Materia" + MateriacomboBox.Text + "?", "Teacher Control", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado== DialogResult.Yes)
+                    {
+                        if (calificaciones.Eliminar())
+                        {
+                            Utility.Mensajes(1, "Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Eliminadas Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Eliminadas!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    Utility.Mensajes(3, "Id No Encontrado!");
+                    ActivarBotones(false);
+                    CalificacionIdtextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Teacher Control");
+            }
         }
     }
 }
