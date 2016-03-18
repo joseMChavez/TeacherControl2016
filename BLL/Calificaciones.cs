@@ -10,7 +10,7 @@ namespace BLL
 {
     public class Calificaciones : ClaseMaestra
     {
-        ConexionDb conexion = new ConexionDb();
+        
         public int CalificacionId { get; set; }
         public string Estudiante { get; set; }
         public string Materia { get; set; }
@@ -49,7 +49,28 @@ namespace BLL
        
         public override bool Insertar()
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            int retorno = 0;
+            object identity;
+            try
+            {
+                identity= conexion.ObtenerValor(string.Format("Insert into Calificaiones(Estudiante,Materia,Cuarso,Cursogrupo,Fecha) values('{0}','{1}','{3}','{4}') select @@Identity",this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.Fecha));
+                retorno=Utility.ConvierteEntero(identity.ToString());
+                this.CalificacionId = retorno;
+                if (retorno > 0)
+                {
+                    foreach (CalificacionesDetalle detalle in CalificaionesD)
+                    {
+                        conexion.Ejecutar(string.Format("Insert into CalificacionDetalle(CalificacionId,Descripcion,Puntuacion) Values({0},'{1}',{2})", retorno, this.Descripcion, this.Puntuacion));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno > 0;
         }
         public override bool Editar()
         {
@@ -94,7 +115,33 @@ namespace BLL
         }
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            DataTable detalle = new DataTable();
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificaionId={0}",IdBuscado));
+                if (dt.Rows.Count>0)
+                {
+                    Estudiante = dt.Rows[0]["Estudiante"].ToString();
+                    Materia = dt.Rows[0]["Materia"].ToString();
+                    Curso = dt.Rows[0]["Curso"].ToString();
+                    CursoGrupo = dt.Rows[0]["Cursogrupo"].ToString();
+                    Fecha = dt.Rows[0]["Fecha"].ToString();
+                    detalle = conexion.ObtenerDatos(string.Format("select * from CalificacionDetalle where CalificaionId={0}", IdBuscado));
+                    detalle.Clear();
+                    foreach (DataRow row in detalle.Rows)
+                    {
+                        AgregarCalificaiones(row["Descripcion"].ToString(), (float)Convert.ToDecimal(row["Puntuacion"].ToString()));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)

@@ -52,7 +52,7 @@ namespace BLL
             try
             {
                 identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},'{1}','{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
-                int.TryParse(identity.ToString(), out retorno);
+                retorno = Utility.ConvierteEntero(identity.ToString());
                 this.AsistenciaId = retorno;
                 if (retorno>0)
                 {
@@ -117,15 +117,14 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             DataTable detalle = new DataTable();
-            AsistenciaDetalle asisDetalle = new AsistenciaDetalle();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId={0}", this.AsistenciaId));
+                dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId={0}", IdBuscado));
                 if (dt.Rows.Count> 0)
                 {
                     CursoId = (int)dt.Rows[0]["cursoId"];
                     CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
-                    detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
+                    detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
                     detalle.Clear();
                     foreach  (DataRow row in detalle.Rows)
                     {
