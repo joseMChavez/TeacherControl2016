@@ -117,6 +117,12 @@
     <Compile Include="Registros\AsistenciasForm.Designer.cs">
       <DependentUpon>AsistenciasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\CalificacionesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\CalificacionesForm.Designer.cs">
+      <DependentUpon>CalificacionesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\CategoriaCalificacionesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     <EmbeddedResource Include="Registros\AsistenciasForm.resx">
       <DependentUpon>AsistenciasForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registros\CalificacionesForm.resx">
+      <DependentUpon>CalificacionesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros\CategoriaCalificacionesForm.resx">
       <DependentUpon>CategoriaCalificacionesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +268,7 @@
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\1456533592_notebook-add.png" />
     <None Include="Resources\1458036564_attendance_list.png" />
     <None Include="Resources\1455916000_user-group-new.png" />
     <None Include="Resources\1455915988_user-group-new.png" />

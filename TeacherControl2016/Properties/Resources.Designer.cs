@@ -183,6 +183,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1456533592_notebook_add {
+            get {
+                object obj = ResourceManager.GetObject("1456533592_notebook-add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1457150845_education_course_training {
             get {
                 object obj = ResourceManager.GetObject("1457150845_education_course_training", resourceCulture);

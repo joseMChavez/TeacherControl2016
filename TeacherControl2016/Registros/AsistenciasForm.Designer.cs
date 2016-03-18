@@ -30,64 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsistenciasForm));
-            this.AsistenciaIdtextBox = new System.Windows.Forms.TextBox();
-            this.IdLabel = new System.Windows.Forms.Label();
-            this.CursoComboBox = new System.Windows.Forms.ComboBox();
             this.GrupocomboBox = new System.Windows.Forms.ComboBox();
-            this.Cursolabel = new System.Windows.Forms.Label();
             this.Grupolabel = new System.Windows.Forms.Label();
-            this.EstudiantecomboBox = new System.Windows.Forms.ComboBox();
-            this.Estudiantelabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.EstacomboBox = new System.Windows.Forms.ComboBox();
             this.AsistenciadataGridView = new System.Windows.Forms.DataGridView();
+            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fechalabel = new System.Windows.Forms.Label();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Agregarbutton = new System.Windows.Forms.Button();
-            this.BuscarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.TotalAsitencialabel = new System.Windows.Forms.Label();
             this.Porcentagelabel = new System.Windows.Forms.Label();
             this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuscarButton = new System.Windows.Forms.Button();
+            this.IdLabel = new System.Windows.Forms.Label();
+            this.AsistenciaIdtextBox = new System.Windows.Forms.TextBox();
+            this.CursoComboBox = new System.Windows.Forms.ComboBox();
+            this.Cursolabel = new System.Windows.Forms.Label();
+            this.EstudiantecomboBox = new System.Windows.Forms.ComboBox();
+            this.Estudiantelabel = new System.Windows.Forms.Label();
+            this.EstacomboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // AsistenciaIdtextBox
-            // 
-            this.AsistenciaIdtextBox.Location = new System.Drawing.Point(141, 30);
-            this.AsistenciaIdtextBox.MaxLength = 5;
-            this.AsistenciaIdtextBox.Name = "AsistenciaIdtextBox";
-            this.AsistenciaIdtextBox.Size = new System.Drawing.Size(84, 20);
-            this.AsistenciaIdtextBox.TabIndex = 22;
-            this.AsistenciaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AsistenciaIdtextBox_KeyPress);
-            // 
-            // IdLabel
-            // 
-            this.IdLabel.AutoSize = true;
-            this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.IdLabel.Location = new System.Drawing.Point(44, 30);
-            this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(25, 16);
-            this.IdLabel.TabIndex = 21;
-            this.IdLabel.Text = "Id:";
-            // 
-            // CursoComboBox
-            // 
-            this.CursoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CursoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CursoComboBox.FormattingEnabled = true;
-            this.CursoComboBox.Location = new System.Drawing.Point(141, 96);
-            this.CursoComboBox.Name = "CursoComboBox";
-            this.CursoComboBox.Size = new System.Drawing.Size(184, 21);
-            this.CursoComboBox.TabIndex = 23;
-            this.CursoComboBox.SelectedValueChanged += new System.EventHandler(this.CursoComboBox_SelectedValueChanged);
             // 
             // GrupocomboBox
             // 
@@ -100,17 +68,6 @@
             this.GrupocomboBox.TabIndex = 24;
             this.GrupocomboBox.SelectedValueChanged += new System.EventHandler(this.GrupocomboBox_SelectedValueChanged);
             // 
-            // Cursolabel
-            // 
-            this.Cursolabel.AutoSize = true;
-            this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cursolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Cursolabel.Location = new System.Drawing.Point(44, 100);
-            this.Cursolabel.Name = "Cursolabel";
-            this.Cursolabel.Size = new System.Drawing.Size(56, 16);
-            this.Cursolabel.TabIndex = 26;
-            this.Cursolabel.Text = "Curso: ";
-            // 
             // Grupolabel
             // 
             this.Grupolabel.AutoSize = true;
@@ -121,55 +78,6 @@
             this.Grupolabel.Size = new System.Drawing.Size(58, 16);
             this.Grupolabel.TabIndex = 27;
             this.Grupolabel.Text = "Grupo: ";
-            // 
-            // EstudiantecomboBox
-            // 
-            this.EstudiantecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.EstudiantecomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EstudiantecomboBox.FormattingEnabled = true;
-            this.EstudiantecomboBox.Items.AddRange(new object[] {
-            "dfd"});
-            this.EstudiantecomboBox.Location = new System.Drawing.Point(47, 190);
-            this.EstudiantecomboBox.Name = "EstudiantecomboBox";
-            this.EstudiantecomboBox.Size = new System.Drawing.Size(184, 21);
-            this.EstudiantecomboBox.TabIndex = 28;
-            // 
-            // Estudiantelabel
-            // 
-            this.Estudiantelabel.AutoSize = true;
-            this.Estudiantelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Estudiantelabel.Location = new System.Drawing.Point(44, 171);
-            this.Estudiantelabel.Name = "Estudiantelabel";
-            this.Estudiantelabel.Size = new System.Drawing.Size(89, 16);
-            this.Estudiantelabel.TabIndex = 29;
-            this.Estudiantelabel.Text = "Estudiante: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(278, 171);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Estado: ";
-            // 
-            // EstacomboBox
-            // 
-            this.EstacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.EstacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EstacomboBox.FormattingEnabled = true;
-            this.EstacomboBox.Items.AddRange(new object[] {
-            "",
-            "Presente",
-            "Ausente",
-            "Excusa"});
-            this.EstacomboBox.Location = new System.Drawing.Point(281, 190);
-            this.EstacomboBox.Name = "EstacomboBox";
-            this.EstacomboBox.Size = new System.Drawing.Size(144, 21);
-            this.EstacomboBox.TabIndex = 30;
             // 
             // AsistenciadataGridView
             // 
@@ -187,6 +95,22 @@
             this.AsistenciadataGridView.ReadOnly = true;
             this.AsistenciadataGridView.Size = new System.Drawing.Size(453, 171);
             this.AsistenciadataGridView.TabIndex = 32;
+            // 
+            // Estudiante
+            // 
+            this.Estudiante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Estudiante.HeaderText = "Estudiante";
+            this.Estudiante.Name = "Estudiante";
+            this.Estudiante.ReadOnly = true;
+            this.Estudiante.ToolTipText = "Estudiante";
+            this.Estudiante.Width = 310;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.ToolTipText = "Estado";
             // 
             // Fechalabel
             // 
@@ -227,26 +151,6 @@
             this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Agregarbutton.UseVisualStyleBackColor = true;
             this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
-            // 
-            // BuscarButton
-            // 
-            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.BuscarButton.FlatAppearance.BorderSize = 0;
-            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
-            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(247, 3);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(78, 64);
-            this.BuscarButton.TabIndex = 20;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // GuardarButton
             // 
@@ -334,21 +238,117 @@
             this.AsistenciaerrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.AsistenciaerrorProvider.ContainerControl = this;
             // 
-            // Estudiante
+            // BuscarButton
             // 
-            this.Estudiante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Estudiante.HeaderText = "Estudiante";
-            this.Estudiante.Name = "Estudiante";
-            this.Estudiante.ReadOnly = true;
-            this.Estudiante.ToolTipText = "Estudiante";
-            this.Estudiante.Width = 310;
+            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.BuscarButton.FlatAppearance.BorderSize = 0;
+            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BuscarButton.Location = new System.Drawing.Point(247, 3);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(78, 64);
+            this.BuscarButton.TabIndex = 20;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
-            // Estado
+            // IdLabel
             // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.ToolTipText = "Estado";
+            this.IdLabel.AutoSize = true;
+            this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.IdLabel.Location = new System.Drawing.Point(44, 30);
+            this.IdLabel.Name = "IdLabel";
+            this.IdLabel.Size = new System.Drawing.Size(25, 16);
+            this.IdLabel.TabIndex = 21;
+            this.IdLabel.Text = "Id:";
+            // 
+            // AsistenciaIdtextBox
+            // 
+            this.AsistenciaIdtextBox.Location = new System.Drawing.Point(141, 30);
+            this.AsistenciaIdtextBox.MaxLength = 5;
+            this.AsistenciaIdtextBox.Name = "AsistenciaIdtextBox";
+            this.AsistenciaIdtextBox.Size = new System.Drawing.Size(84, 20);
+            this.AsistenciaIdtextBox.TabIndex = 22;
+            this.AsistenciaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AsistenciaIdtextBox_KeyPress);
+            // 
+            // CursoComboBox
+            // 
+            this.CursoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CursoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CursoComboBox.FormattingEnabled = true;
+            this.CursoComboBox.Location = new System.Drawing.Point(141, 96);
+            this.CursoComboBox.Name = "CursoComboBox";
+            this.CursoComboBox.Size = new System.Drawing.Size(184, 21);
+            this.CursoComboBox.TabIndex = 23;
+            this.CursoComboBox.SelectedValueChanged += new System.EventHandler(this.CursoComboBox_SelectedValueChanged);
+            // 
+            // Cursolabel
+            // 
+            this.Cursolabel.AutoSize = true;
+            this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cursolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Cursolabel.Location = new System.Drawing.Point(44, 100);
+            this.Cursolabel.Name = "Cursolabel";
+            this.Cursolabel.Size = new System.Drawing.Size(56, 16);
+            this.Cursolabel.TabIndex = 26;
+            this.Cursolabel.Text = "Curso: ";
+            // 
+            // EstudiantecomboBox
+            // 
+            this.EstudiantecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EstudiantecomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EstudiantecomboBox.FormattingEnabled = true;
+            this.EstudiantecomboBox.Items.AddRange(new object[] {
+            "dfd"});
+            this.EstudiantecomboBox.Location = new System.Drawing.Point(47, 190);
+            this.EstudiantecomboBox.Name = "EstudiantecomboBox";
+            this.EstudiantecomboBox.Size = new System.Drawing.Size(184, 21);
+            this.EstudiantecomboBox.TabIndex = 28;
+            // 
+            // Estudiantelabel
+            // 
+            this.Estudiantelabel.AutoSize = true;
+            this.Estudiantelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Estudiantelabel.Location = new System.Drawing.Point(44, 171);
+            this.Estudiantelabel.Name = "Estudiantelabel";
+            this.Estudiantelabel.Size = new System.Drawing.Size(89, 16);
+            this.Estudiantelabel.TabIndex = 29;
+            this.Estudiantelabel.Text = "Estudiante: ";
+            // 
+            // EstacomboBox
+            // 
+            this.EstacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EstacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EstacomboBox.FormattingEnabled = true;
+            this.EstacomboBox.Items.AddRange(new object[] {
+            "",
+            "Presente",
+            "Ausente",
+            "Excusa"});
+            this.EstacomboBox.Location = new System.Drawing.Point(281, 190);
+            this.EstacomboBox.Name = "EstacomboBox";
+            this.EstacomboBox.Size = new System.Drawing.Size(144, 21);
+            this.EstacomboBox.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(278, 171);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Estado: ";
             // 
             // AsistenciasForm
             // 
@@ -390,21 +390,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox AsistenciaIdtextBox;
-        private System.Windows.Forms.Label IdLabel;
-        private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button NuevoButton;
-        private System.Windows.Forms.ComboBox CursoComboBox;
         private System.Windows.Forms.ComboBox GrupocomboBox;
-        private System.Windows.Forms.Label Cursolabel;
         private System.Windows.Forms.Label Grupolabel;
-        private System.Windows.Forms.ComboBox EstudiantecomboBox;
-        private System.Windows.Forms.Label Estudiantelabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox EstacomboBox;
         private System.Windows.Forms.DataGridView AsistenciadataGridView;
         private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.Label Fechalabel;
@@ -414,5 +404,14 @@
         private System.Windows.Forms.ErrorProvider AsistenciaerrorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox EstacomboBox;
+        private System.Windows.Forms.Label Estudiantelabel;
+        private System.Windows.Forms.ComboBox EstudiantecomboBox;
+        private System.Windows.Forms.Label Cursolabel;
+        private System.Windows.Forms.ComboBox CursoComboBox;
+        private System.Windows.Forms.TextBox AsistenciaIdtextBox;
+        private System.Windows.Forms.Label IdLabel;
+        private System.Windows.Forms.Button BuscarButton;
     }
 }
