@@ -11,7 +11,7 @@ namespace BLL
 {
     public class Estudiantes : ClaseMaestra
     {
-        ConexionDb conexion = new ConexionDb();
+       
         public int EstudianteId { get; set; }
         public int Matricula { get; set; }
         public string Nombre { get; set; }
@@ -68,6 +68,7 @@ namespace BLL
 
         public override bool Insertar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             Cursos curso = new Cursos();
             
@@ -90,6 +91,7 @@ namespace BLL
         }
         public override bool Editar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             Cursos curso = new Cursos();
             try
@@ -112,6 +114,7 @@ namespace BLL
 
         public override bool Eliminar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
@@ -131,6 +134,7 @@ namespace BLL
         }
         public override bool Buscar(int IdBuscado)
         {
+            ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             try
             {
@@ -164,6 +168,7 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
+            ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Order by  " + Orden;

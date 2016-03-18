@@ -10,7 +10,7 @@ namespace BLL
 {
     public class Materias : ClaseMaestra
     {
-        ConexionDb conexion = new ConexionDb();
+        
         public int MateriaId { get; set; }
         public string Descripcion { get; set; }
         public Materias()
@@ -25,15 +25,12 @@ namespace BLL
         }
         public override bool Insertar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
-                if (conexion.Ejecutar(string.Format("Insert Into Materias(Descripcion) values('{0}')", this.Descripcion)))
-                {
-                    retorno = true;
-                }
-
-
+               retorno= conexion.Ejecutar(string.Format("Insert Into Materias(Descripcion) values('{0}')", this.Descripcion));
+        
             }
             catch (Exception ex)
             {
@@ -45,6 +42,7 @@ namespace BLL
         }
         public override bool Editar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
@@ -61,6 +59,7 @@ namespace BLL
 
         public override bool Eliminar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
@@ -78,6 +77,7 @@ namespace BLL
         
         public override bool Buscar(int IdBuscado)
         {
+            ConexionDb conexion = new ConexionDb();
             DataTable datatable = new DataTable();
             try
             {
@@ -98,6 +98,7 @@ namespace BLL
         }
         public bool BuscarDescripcion(string DescripcionBuscada)
         {
+            ConexionDb conexion = new ConexionDb();
             DataTable datatable = new DataTable();
             try
             {
@@ -113,6 +114,7 @@ namespace BLL
         }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
+            ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Order by  " + Orden;

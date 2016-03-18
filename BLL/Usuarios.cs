@@ -18,7 +18,7 @@ namespace BLL
         public string pass { get; set; }
         public string passConfir { get; set; }
      
-        ConexionDb conexion = new ConexionDb();
+       
         public Usuarios() {
             this.usuarioId = 0;
             this.nombre = "";
@@ -39,6 +39,7 @@ namespace BLL
 
         public override bool Insertar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
@@ -54,6 +55,7 @@ namespace BLL
       
         public override bool Editar()
         {
+            ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
@@ -66,9 +68,25 @@ namespace BLL
             }
             return retorno;
         }
+       
+        public override bool Eliminar()
+        {
+            ConexionDb conexion = new ConexionDb();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("delete from Usuario where usuarioId= {0} ", this.usuarioId));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
+        }
         public override bool Buscar(int IdBuscado)
         {
-
+            ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
 
             try
@@ -91,18 +109,18 @@ namespace BLL
 
                 throw ex;
             }
-            return dt.Rows.Count>0;
+            return dt.Rows.Count > 0;
 
         }
-        public  bool BuscarNombre(string nombre)
+        public bool BuscarNombre(string nombre)
         {
-
+            ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where nombre= '{0}'",nombre ));
-               
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where nombre= '{0}'", nombre));
+
             }
             catch (Exception ex)
             {
@@ -114,12 +132,12 @@ namespace BLL
         }
         public bool BuscarPass(string clave)
         {
-
+            ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where clave= '{0}'", clave));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where clave='{0}'", clave));
 
             }
             catch (Exception ex)
@@ -130,23 +148,9 @@ namespace BLL
             return dt.Rows.Count > 0;
 
         }
-        public override bool Eliminar()
-        {
-            bool retorno = false;
-            try
-            {
-                retorno = conexion.Ejecutar(string.Format("delete from Usuario where usuarioId= {0} ", this.usuarioId));
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            return retorno;
-        }
-
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
+            ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " order by  " + Orden;
