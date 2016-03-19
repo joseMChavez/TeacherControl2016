@@ -74,6 +74,7 @@ create table Calificaciones(
 		Materia varchar(20), 
 	    Curso varchar(20),
 	    Cursogrupo varchar(5),
+		TotalPuntos float,
 	    Fecha varchar(15)	
 )
 go
@@ -97,5 +98,5 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table Calificaciones;
+drop table  Calificaciones;
 select * From CalificacionDetalle

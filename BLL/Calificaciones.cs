@@ -19,6 +19,7 @@ namespace BLL
         public string Fecha { get; set; }
         public string Descripcion { get; set; }
         public float Puntuacion { get; set; }
+        public float TotalPuntos { get; set; }
         public List<CalificacionesDetalle> CalificaionesD { get; set; }
         public Calificaciones()
         {
@@ -54,7 +55,7 @@ namespace BLL
             object identity;
             try
             {
-                identity= conexion.ObtenerValor(string.Format("Insert into Calificaiones(Estudiante,Materia,Cuarso,Cursogrupo,Fecha) values('{0}','{1}','{3}','{4}') select @@Identity",this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.Fecha));
+                identity= conexion.ObtenerValor(string.Format("Insert into Calificaiones(Estudiante,Materia,Cuarso,Cursogrupo,TotalPuntos,Fecha) values('{0}','{1}','{3}',{4},'{5}') select @@Identity", this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
                 retorno=Utility.ConvierteEntero(identity.ToString());
                 this.CalificacionId = retorno;
                 if (retorno > 0)

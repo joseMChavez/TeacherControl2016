@@ -63,6 +63,9 @@ namespace TeacherControl2016.Registros
             calificaciones.Curso = CursoComboBox.Text;
             calificaciones.CursoGrupo = GrupocomboBox.Text;
             calificaciones.Materia = MateriacomboBox.Text;
+            float total = 0;
+            float.TryParse(TotaltextBox.Text, out total);
+            calificaciones.TotalPuntos = total;
 
         }
         private void ObtenerDatos() {
@@ -71,6 +74,7 @@ namespace TeacherControl2016.Registros
             GrupocomboBox.Text = calificaciones.CursoGrupo;
             MateriacomboBox.Text = calificaciones.Materia;
             EstudiantecomboBox.Text = calificaciones.Estudiante;
+            TotaltextBox.Text = calificaciones.TotalPuntos.ToString();
             foreach (var item in calificaciones.CalificaionesD)
             {
                 CalificacionesDataGridView.Rows.Add(item.Descripcion, item.Puntuacion);
@@ -184,6 +188,7 @@ namespace TeacherControl2016.Registros
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
+
             try
             {
                 if (!CalificacionIdtextBox.Text.Equals("") && calificaciones.Buscar(id))
@@ -207,6 +212,7 @@ namespace TeacherControl2016.Registros
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             float puntos=0;
+            float total = 0;
             float.TryParse(PuntostextBox.Text, out puntos);
             try
 
@@ -214,11 +220,19 @@ namespace TeacherControl2016.Registros
                 Validar(PuntostextBox, "Digite los Puntos para la Descripcion Designada.");
                 if (!PuntostextBox.Text.Equals(""))
                 {
+                    
                     CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
                     calificaciones.AgregarCalificaiones(CCalificaionesComboBox.Text, puntos);
+                    total = puntos;
+                    foreach ( DataGridViewRow  row in CalificacionesDataGridView.Rows)
+                    {
+                        total += puntos;
+                    }
                     PuntostextBox.Clear();
                     PuntostextBox.Focus();
+
                 }
+                TotaltextBox.Text = total.ToString();
             }
             catch (Exception ex)
             {
