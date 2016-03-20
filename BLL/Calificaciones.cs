@@ -55,7 +55,7 @@ namespace BLL
             object identity;
             try
             {
-                identity= conexion.ObtenerValor(string.Format("Insert into Calificaiones(Estudiante,Materia,Cuarso,Cursogrupo,TotalPuntos,Fecha) values('{0}','{1}','{3}',{4},'{5}') select @@Identity", this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
+                identity= conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Materia,Curso,Cursogrupo,TotalPuntos,Fecha) values('{0}','{1}','{3}',{4},'{5}') select @@Identity", this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
                 retorno=Utility.ConvierteEntero(identity.ToString());
                 this.CalificacionId = retorno;
                 if (retorno > 0)
@@ -79,7 +79,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}', Materia='{1}',Curso='{2}', Cursogrupo='{3}', Fecha='{4}' where CalificacionId={5}",this.Estudiante,this.Materia, this.Curso, this.CursoGrupo, this.Fecha, this.CalificacionId));
+                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}', Materia='{1}',Curso='{2}', Cursogrupo='{3}', Fecha='{4}', TotalPuntos={5} where CalificacionId={6}", this.Estudiante,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha, this.CalificacionId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where AsistenciaId={0}", this.CalificacionId));
@@ -128,6 +128,7 @@ namespace BLL
                     Materia = dt.Rows[0]["Materia"].ToString();
                     Curso = dt.Rows[0]["Curso"].ToString();
                     CursoGrupo = dt.Rows[0]["Cursogrupo"].ToString();
+                    TotalPuntos = (float)Convert.ToDecimal(dt.Rows[0]["TotalPuntos"]);
                     Fecha = dt.Rows[0]["Fecha"].ToString();
                     detalle = conexion.ObtenerDatos(string.Format("select * from CalificacionDetalle where CalificaionId={0}", IdBuscado));
                     detalle.Clear();

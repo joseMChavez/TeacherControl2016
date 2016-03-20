@@ -233,6 +233,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Capture {
+            get {
+                object obj = ResourceManager.GetObject("Capture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cuadro_transparente_png_by_chocolateespuma_d6ygq45 {
             get {
                 object obj = ResourceManager.GetObject("cuadro_transparente_png_by_chocolateespuma-d6ygq45", resourceCulture);

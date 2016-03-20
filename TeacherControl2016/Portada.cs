@@ -118,5 +118,24 @@ namespace TeacherControl2016
             Registros.AsistenciasForm asistencia = new Registros.AsistenciasForm();
             asistencia.Show();
         }
+
+        private void asistenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.AsistenciasForm asistencia = new Registros.AsistenciasForm();
+            asistencia.Show();
+        }
+
+
+        private void calificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.CalificacionesForm calificaciones = new Registros.CalificacionesForm();
+            calificaciones.Show();
+        }
+
+        private void CalificacionestoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.CalificacionesForm calificaciones = new Registros.CalificacionesForm();
+            calificaciones.Show();
+        }
     }
 }

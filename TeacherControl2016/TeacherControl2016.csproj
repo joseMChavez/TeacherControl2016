@@ -268,6 +268,7 @@
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\Capture.PNG" />
     <None Include="Resources\1456533592_notebook-add.png" />
     <None Include="Resources\1458036564_attendance_list.png" />
     <None Include="Resources\1455916000_user-group-new.png" />

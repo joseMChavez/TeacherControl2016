@@ -223,7 +223,7 @@ namespace TeacherControl2016.Registros
                     
                     CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
                     calificaciones.AgregarCalificaiones(CCalificaionesComboBox.Text, puntos);
-                    total = puntos;
+                   
                     foreach ( DataGridViewRow  row in CalificacionesDataGridView.Rows)
                     {
                         total += puntos;
