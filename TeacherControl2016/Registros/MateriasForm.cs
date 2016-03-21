@@ -79,18 +79,23 @@ namespace TeacherControl2016.Registros
             try
             {
                 Utility.Validar(MateriaIdtextBox, MateriasErrorProvider, "Digite el Nombre o Descripcion de la Materia!");
-                if (!MateriaIdtextBox.Text.Equals("") && materia.Buscar(id) )
+                if (!MateriaIdtextBox.Text.Equals(""))
                 {
-                    MateriaIdtextBox.Text = materia.MateriaId.ToString();
-                    DescripcionTextBox.Text = materia.Descripcion;
-                    ActivarBotones(true);
+                    if (materia.Buscar(id))
+                    {
+                        MateriaIdtextBox.Text = materia.MateriaId.ToString();
+                        DescripcionTextBox.Text = materia.Descripcion;
+                        ActivarBotones(true);
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No Encontrado!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+
                 }
-                else
-                {
-                    Utility.Mensajes(3, "Id No Encontrado!");
-                    Limpiar();
-                    ActivarBotones(false);
-                }
+               
             }
             catch (Exception ex)
             {

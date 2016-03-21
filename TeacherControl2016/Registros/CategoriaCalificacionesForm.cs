@@ -74,19 +74,24 @@ namespace TeacherControl2016.Registros
             try
             {
                 Utility.Validar(CCalificacionesIdtextBox,cCalificacioneserrorProvider, "Digite un Id!");
-                if (!CCalificacionesIdtextBox.Text.Equals("") && cCalificaciones.Buscar(id))
+                if (!CCalificacionesIdtextBox.Text.Equals(""))
                 {
-                    DescripcionTextBox.Text = cCalificaciones.Descripcion;
-                    DescripcionTextBox.Focus();
-                    ActivarBotones(true);
-                }
-                else
-                {
-                    Utility.Mensajes(3, "Id no Econtrado!");
-                    ActivarBotones(false);
-                    CCalificacionesIdtextBox.Focus();
+                    if (cCalificaciones.Buscar(id))
+                    {
+                        DescripcionTextBox.Text = cCalificaciones.Descripcion;
+                        DescripcionTextBox.Focus();
+                        ActivarBotones(true);
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id no Econtrado!");
+                        ActivarBotones(false);
+                        CCalificacionesIdtextBox.Focus();
+
+                    }
 
                 }
+                
             }
             catch (Exception ex)
             {

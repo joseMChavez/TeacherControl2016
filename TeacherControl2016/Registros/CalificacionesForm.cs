@@ -13,7 +13,7 @@ namespace TeacherControl2016.Registros
 {
     public partial class CalificacionesForm : Form
     {
-        
+        Calificaciones calificaciones = new Calificaciones();
         public CalificacionesForm()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace TeacherControl2016.Registros
 
         private void LlenarDatos()
         {
-            Calificaciones calificaciones = new Calificaciones();
+            
             int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
             calificaciones.CalificacionId = id;
             calificaciones.Fecha = FechadateTimePicker.Text;
@@ -70,7 +70,7 @@ namespace TeacherControl2016.Registros
 
         }
         private void ObtenerDatos() {
-            Calificaciones calificaciones = new Calificaciones();
+            
             FechadateTimePicker.Text = calificaciones.Fecha;
             CursoComboBox.Text = calificaciones.Curso;
             GrupocomboBox.Text = calificaciones.CursoGrupo;
@@ -174,23 +174,27 @@ namespace TeacherControl2016.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Calificaciones calificaciones = new Calificaciones();
+            
             int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
 
             try
             {
                 Utility.Validar(CalificacionIdtextBox, CalificaioneserrorProvider, "Digite un Id a Buscar!");
-                if (!CalificacionIdtextBox.Text.Equals("") && calificaciones.Buscar(id))
+                if (!CalificacionIdtextBox.Text.Equals(""))
                 {
-                    ObtenerDatos();
-                    ActivarBotones(true);
-                    PuntostextBox.Focus();
+                    if (calificaciones.Buscar(id))
+                    {
+                        ObtenerDatos();
+                        ActivarBotones(true);
+                        PuntostextBox.Focus();
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No Encontrado!");
+                        ActivarBotones(false);
+                    }
                 }
-                else
-                {
-                    Utility.Mensajes(3, "Id No Encontrado!");
-                    ActivarBotones(false);
-                }
+                
             }
             catch (Exception ex)
             {
@@ -202,10 +206,8 @@ namespace TeacherControl2016.Registros
         {
             float puntos = 0;
             float total = 0;
-            Calificaciones calificaciones = new Calificaciones();
             float.TryParse(PuntostextBox.Text, out puntos);
             try
-
             {
                 Utility.Validar(PuntostextBox, CalificaioneserrorProvider, "Digite los Puntos para la Descripcion Designada.");
                 Utility.Validar(CCalificaionesComboBox, CalificaioneserrorProvider, "Registre un Descripcion en el Registro de Categorias de Calificaciones!");
@@ -241,7 +243,7 @@ namespace TeacherControl2016.Registros
         {
             try
             {
-                Calificaciones calificaciones = new Calificaciones();
+                
                 LlenarDatos();
                 ValidarTodo();
                 if (CalificacionIdtextBox.Text.Equals("") && CalificacionesDataGridView.RowCount>0)
@@ -289,7 +291,7 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            Calificaciones calificaciones = new Calificaciones();
+            
 
             int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
             DialogResult resultado;

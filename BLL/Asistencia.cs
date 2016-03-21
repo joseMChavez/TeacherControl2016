@@ -39,9 +39,9 @@ namespace BLL
             this.Fecha = Fecha;
         }
 
-        public void AgregarAsistencia(string estudianteId,string Activo)
+        public void AgregarAsistencia(string estudiante,string Activo)
         {
-            aDetalle.Add(new AsistenciaDetalle(estudianteId, Activo));
+            aDetalle.Add(new AsistenciaDetalle(estudiante, Activo));
         }
 
         public override bool Insertar()

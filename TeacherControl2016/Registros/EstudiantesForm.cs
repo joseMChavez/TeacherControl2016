@@ -292,19 +292,24 @@ namespace TeacherControl2016.Registros
             try
             {
                 Utility.Validar(EstudianteIdtextBox, EstudianteErrorProvider, "Digite el Id a Buscar!");
-                if (!EstudianteIdtextBox.Text.Equals("") && estudiante.Buscar(id))
+                if (!EstudianteIdtextBox.Text.Equals(""))
                 {
-                    ObtenerValor(estudiante);
-                    ActivarBotones(true);
-                    MatriculatextBox.Focus();
+                    if (estudiante.Buscar(id))
+                    {
+                        ObtenerValor(estudiante);
+                        ActivarBotones(true);
+                        MatriculatextBox.Focus();
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No encontrado!");
+                        EstudianteIdtextBox.Focus();
+                        ActivarBotones(false);
+                        Limpiar();
+                    }
+
                 }
-                else
-                {
-                    Utility.Mensajes(3, "Id No encontrado!");
-                    EstudianteIdtextBox.Focus();
-                    ActivarBotones(false);
-                    Limpiar();
-                }
+                
             }
             catch (Exception Ex)
             {

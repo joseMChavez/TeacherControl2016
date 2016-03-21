@@ -162,22 +162,25 @@ namespace TeacherControl2016.Registros
             try
             {
                 Utility.Validar(UsuIdtextBox, UsuariosErrorProvider, "Digite el Id a Buscar!");
-                if (!UsuIdtextBox.Text.Equals("") && usuario.Buscar(id))
+                if (!UsuIdtextBox.Text.Equals(""))
                 {
+                    if (usuario.Buscar(id))
+                    {
+                        ObtenerDatos(usuario);
+                        NombreTextBox.Focus();
+                        ActivarBotones(true);
+                    }
+                    else
+                    {
+                        Utility.Mensajes(2, "El Id: " + UsuIdtextBox.Text + " NO existe!");
 
-                    ObtenerDatos(usuario);
-                    NombreTextBox.Focus();
-                    ActivarBotones(true);
+                        Limpiar();
+
+                        ActivarBotones(false);
+                    }
 
                 }
-                else
-                {
-                    Utility.Mensajes(2, "El Id: " + UsuIdtextBox.Text + " NO existe!");
-
-                    Limpiar();
-
-                    ActivarBotones(false);
-                }
+                
             }
             catch (Exception ex)
             {

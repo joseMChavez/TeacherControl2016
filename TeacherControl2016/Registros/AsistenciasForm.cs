@@ -13,7 +13,7 @@ namespace TeacherControl2016.Registros
 {
     public partial class AsistenciasForm : Form
     {
-        
+        Asistencia asistencia = new Asistencia();
         public AsistenciasForm()
         {
             InitializeComponent();
@@ -73,7 +73,7 @@ namespace TeacherControl2016.Registros
         }
         
         private void Llenardatos() {
-            Asistencia asistencia = new Asistencia();
+           
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
             asistencia.Fecha = FechadateTimePicker.Text;
@@ -85,7 +85,7 @@ namespace TeacherControl2016.Registros
         }
         private void ObtenerDatos()
         {
-            Asistencia asistencia = new Asistencia();
+            
             FechadateTimePicker.Text = asistencia.Fecha;
             CursoComboBox.Text = asistencia.CursoId.ToString();
             GrupocomboBox.Text = asistencia.CursoGrupo;
@@ -146,23 +146,28 @@ namespace TeacherControl2016.Registros
        
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Asistencia asistencia = new Asistencia();
+            
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             try
             {
                 Utility.Validar(AsistenciaIdtextBox, AsistenciaerrorProvider, "Digite un Id a Buscar!");
-                if (!AsistenciaIdtextBox.Text.Equals("") && asistencia.Buscar(id))
+                if (!AsistenciaIdtextBox.Text.Equals(""))
                 {
-                    ObtenerDatos();
-                    ActivarBotones(true);
-                    EstacomboBox.Focus();
+                    if (asistencia.Buscar(id))
+                    {
+                        ObtenerDatos();
+                        ActivarBotones(true);
+                        EstacomboBox.Focus();
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No encontrado!");
+                        AsistenciaIdtextBox.Focus();
+                        ActivarBotones(false);
+                    }
+
                 }
-                else
-                {
-                    Utility.Mensajes(3, "Id No encontrado!");
-                    AsistenciaIdtextBox.Focus();
-                    ActivarBotones(false);
-                }
+               
             }
             catch (Exception ex)
             {
@@ -172,10 +177,10 @@ namespace TeacherControl2016.Registros
         }
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            Asistencia asistencia = new Asistencia();
+            
             try
             {
-                //EstacomboBox.SelectedIndex = 0;
+                
                 Utility.Validar(EstacomboBox, AsistenciaerrorProvider, "Digite el Estado del Estudiante!");
                 if (!EstacomboBox.Text.Equals(""))
                 {
@@ -184,7 +189,7 @@ namespace TeacherControl2016.Registros
                     
                 }
 
-                Porcentagelabel.Text = AsistenciadataGridView.RowCount.ToString();
+                Porcentagelabel.Text = AsistenciadataGridView.Rows.Count.ToString();
 
                 }
             
@@ -203,7 +208,7 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            Asistencia asistencia = new Asistencia();
+            
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             try
             {
@@ -252,7 +257,7 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            Asistencia asistencia = new Asistencia();
+           
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             DialogResult resultado;
            
