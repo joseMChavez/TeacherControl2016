@@ -12,13 +12,13 @@ namespace TeacherControl2016.Registros
 {
     public partial class CategoriaCalificacionesForm : Form
     {
-        CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
+        
         public CategoriaCalificacionesForm()
         {
             InitializeComponent();
             DesactivarMenuContextual();
         }
-        private void LlenarDatos()
+        private void LlenarDatos(CategoriaCalificaciones cCalificaciones)
         {
             int id = Utility.ConvierteEntero(CCalificacionesIdtextBox.Text);
             cCalificaciones.CategoriaCalificacionesId = id;
@@ -48,36 +48,7 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
-        private void ValidarTodo()
-        {
-            if (DescripcionTextBox.Text.Equals(""))
-            {
-                cCalificacioneserrorProvider.SetError(DescripcionTextBox, " Digite el Nombre o la Descripcion de la Categoria.");
-                DescripcionTextBox.Focus();
-
-            }
-            else
-            {
-                cCalificacioneserrorProvider.Clear();
-            }
-                
-        }
-        private void Validar(TextBox tb, string mensaje)
-        {
-
-            if (tb.Text.Equals(""))
-            {
-                cCalificacioneserrorProvider.SetError(tb, mensaje);
-                tb.Focus();
-
-            }
-            else
-            {
-                cCalificacioneserrorProvider.Clear();
-
-            }
-        }
-
+      
         private void CCalificacionesIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
@@ -98,10 +69,11 @@ namespace TeacherControl2016.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
             int id = Utility.ConvierteEntero(CCalificacionesIdtextBox.Text);
             try
             {
-                Validar(CCalificacionesIdtextBox, "Digite un Id!");
+                Utility.Validar(CCalificacionesIdtextBox,cCalificacioneserrorProvider, "Digite un Id!");
                 if (!CCalificacionesIdtextBox.Text.Equals("") && cCalificaciones.Buscar(id))
                 {
                     DescripcionTextBox.Text = cCalificaciones.Descripcion;
@@ -131,12 +103,12 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-
+            CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
             int id = Utility.ConvierteEntero(CCalificacionesIdtextBox.Text);
             try
             {
-                LlenarDatos();
-                ValidarTodo();
+                LlenarDatos(cCalificaciones);
+                Utility.Validar(DescripcionTextBox, cCalificacioneserrorProvider, "Digite la Descripcion de la Categoria de Calificaiones!");
                 if (CCalificacionesIdtextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
                     if (cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text))
@@ -200,6 +172,7 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
             int id = Utility.ConvierteEntero(CCalificacionesIdtextBox.Text);
             DialogResult resultado;
             try

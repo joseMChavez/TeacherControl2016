@@ -19,11 +19,11 @@ namespace TeacherControl2016.Registros
             InitializeComponent();
             DesactivarMenuContextual();
         }
-        Materias materia = new Materias();
 
-    private void LlenarDatos()
+    private void LlenarDatos(Materias materia)
     {
-        int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
+
+            int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
             materia.MateriaId = id;
             materia.Descripcion = DescripcionTextBox.Text;
 
@@ -51,37 +51,8 @@ namespace TeacherControl2016.Registros
         GuardarButton.Enabled = btn;
         EliminarButton.Enabled = btn;
     }
-    private void ValidarTodo()
-    {
-        if (DescripcionTextBox.Text.Equals(""))
-        {
-            MateriasErrorProvider.SetError(DescripcionTextBox, "Digite el Nombre \n o\n Descripcion de La Nueva Materia.");
-            DescripcionTextBox.Focus();
- 
-        }
-        else
-        {
-            MateriasErrorProvider.Clear();
-        }
-    }
-    private bool Validar(TextBox tb, string mensaje)
-    {
 
-        if (tb.Text.Equals(""))
-        {
-            MateriasErrorProvider.SetError(tb, mensaje);
-          
-            tb.Focus();
-            return true;
-
-            }
-        else
-        {
-                MateriasErrorProvider.Clear();
-                return false;
-
-            }
-    }
+   
     private void MateriaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
@@ -102,11 +73,13 @@ namespace TeacherControl2016.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            Materias materia = new Materias();
+
             int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
             try
             {
-                
-                if (Validar(MateriaIdtextBox, "Digite un Id") == false && materia.Buscar(id) )
+                Utility.Validar(MateriaIdtextBox, MateriasErrorProvider, "Digite el Nombre o Descripcion de la Materia!");
+                if (!MateriaIdtextBox.Text.Equals("") && materia.Buscar(id) )
                 {
                     MateriaIdtextBox.Text = materia.MateriaId.ToString();
                     DescripcionTextBox.Text = materia.Descripcion;
@@ -135,11 +108,13 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            Materias materia = new Materias();
+
             int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
             try
             {
-                LlenarDatos();
-                ValidarTodo();
+                LlenarDatos(materia);
+                Utility.Validar(DescripcionTextBox, MateriasErrorProvider, "Digite el Nombre o Descripcion de la Materia!");
                 if (MateriaIdtextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
                     if (materia.BuscarDescripcion(DescripcionTextBox.Text))
@@ -203,12 +178,14 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            Materias materia = new Materias();
+
             DialogResult resultado;
             int id = Utility.ConvierteEntero(MateriaIdtextBox.Text);
             try
             {
 
-                if (Validar(MateriaIdtextBox, "Digite un Id") == false && materia.Buscar(id))
+                if (!MateriaIdtextBox.Text.Equals("") && materia.Buscar(id))
                 {
                     resultado = MessageBox.Show("¿Estas seguro(a) de Eliminal La Materia" + DescripcionTextBox.Text + " ?", "Teacher Control", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)

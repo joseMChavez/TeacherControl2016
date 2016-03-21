@@ -91,5 +91,29 @@ namespace BLL
             else
                 e.Handled = true;
         }
+        public static void TextBoxSoloTexto(KeyPressEventArgs e) {
+            if ( (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar == 33) || (e.KeyChar == 95) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165) || (e.KeyChar >= 129 && e.KeyChar <= 130) )
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+        }
+
+        public static void Validar(Control tb,ErrorProvider e, string mensaje)
+        {
+
+            if (tb.Text.Equals(""))
+            {
+                e.SetError(tb, mensaje);
+                tb.Focus();
+
+            }
+            else
+            {
+                e.Clear();
+
+            }
+        }
     }
 }

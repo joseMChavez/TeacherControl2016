@@ -423,7 +423,7 @@
             this.CursocomboBox.Name = "CursocomboBox";
             this.CursocomboBox.Size = new System.Drawing.Size(127, 21);
             this.CursocomboBox.TabIndex = 40;
-           
+            this.CursocomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CursocomboBox_KeyPress);
             // 
             // GrupocomboBox
             // 
@@ -442,6 +442,7 @@
             this.GrupocomboBox.Name = "GrupocomboBox";
             this.GrupocomboBox.Size = new System.Drawing.Size(75, 21);
             this.GrupocomboBox.TabIndex = 41;
+            this.GrupocomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GrupocomboBox_KeyPress);
             // 
             // Grupolabel
             // 

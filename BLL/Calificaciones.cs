@@ -121,7 +121,7 @@ namespace BLL
             DataTable detalle = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificaionId={0}",IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificacionId={0}",IdBuscado));
                 if (dt.Rows.Count>0)
                 {
                     Estudiante = dt.Rows[0]["Estudiante"].ToString();
@@ -130,7 +130,7 @@ namespace BLL
                     CursoGrupo = dt.Rows[0]["Cursogrupo"].ToString();
                     TotalPuntos = (float)Convert.ToDecimal(dt.Rows[0]["TotalPuntos"]);
                     Fecha = dt.Rows[0]["Fecha"].ToString();
-                    detalle = conexion.ObtenerDatos(string.Format("select * from CalificacionDetalle where CalificaionId={0}", IdBuscado));
+                    detalle = conexion.ObtenerDatos(string.Format("select * from CalificacionDetalle where CalificacionId={0}", IdBuscado));
                     detalle.Clear();
                     foreach (DataRow row in detalle.Rows)
                     {

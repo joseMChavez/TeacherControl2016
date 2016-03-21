@@ -14,7 +14,7 @@ namespace TeacherControl2016.Registros
 {
     public partial class UsuariosForm : Form
     {
-        Usuarios usuario = new Usuarios();
+        
         public UsuariosForm()
         {
             InitializeComponent();
@@ -45,21 +45,7 @@ namespace TeacherControl2016.Registros
             NombreTextBox.Focus();
 
         }
-       
-        //Este metodo es para Validar los Textbox
-        private void Validar(TextBox tb, string mensaje)
-        {
-            
-            if (tb.Text.Equals(""))
-            {
-                UsuariosErrorProvider.SetError(tb, mensaje);
-                tb.Focus();
-            }
-            else
-            {
-                UsuariosErrorProvider.Clear();
-            }
-        }
+      
         //Este metodo es para Validar los Textbox
         private bool ValidarTodo()
         {
@@ -91,10 +77,9 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
-        public void LlenarDatos()
+        public void LlenarDatos(Usuarios usuario)
         {
-            int id;
-            int.TryParse(UsuIdtextBox.Text, out id);
+            int id = Utility.ConvierteEntero(UsuIdtextBox.Text);
             usuario.usuarioId = id;
             usuario.nombre = NombreTextBox.Text;
             usuario.apellido = ApellidotextBox.Text;
@@ -105,7 +90,17 @@ namespace TeacherControl2016.Registros
             usuario.passConfir = ConfirPasstextBox.Text;
             
         }
-       
+        private void ObtenerDatos( Usuarios usuario) {
+
+            NombreTextBox.Text = usuario.nombre;
+            ApellidotextBox.Text = usuario.apellido;
+            EmailtextBox.Text = usuario.email;
+            DirecciontextBox.Text = usuario.direccion;
+
+            PassTextBox.Text = usuario.pass;
+            ConfirPasstextBox.Text = usuario.passConfir;
+        }
+
 
         
         private void UsuIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -118,14 +113,14 @@ namespace TeacherControl2016.Registros
         private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            Utility.TextboxAlfaNumerico(e);
+            Utility.TextBoxSoloTexto(e);
             if (e.KeyChar == 13)
                 ApellidotextBox.Focus();
 
         }
         private void ApellidotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextboxAlfaNumerico(e);
+            Utility.TextBoxSoloTexto(e);
             if (e.KeyChar == 13)
                 EmailtextBox.Focus();
         }
@@ -140,8 +135,6 @@ namespace TeacherControl2016.Registros
         private void DirecciontextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-
-
             if (e.KeyChar == 13)
                 PassTextBox.Focus();
         }
@@ -164,20 +157,15 @@ namespace TeacherControl2016.Registros
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            Usuarios usuario = new Usuarios();
             int id = Utility.ConvierteEntero(UsuIdtextBox.Text);
             try
             {
-                Validar(UsuIdtextBox, "Id no Encotrado!");
+                Utility.Validar(UsuIdtextBox, UsuariosErrorProvider, "Digite el Id a Buscar!");
                 if (!UsuIdtextBox.Text.Equals("") && usuario.Buscar(id))
                 {
-                    NombreTextBox.Text = usuario.nombre;
-                    ApellidotextBox.Text = usuario.apellido;
-                    EmailtextBox.Text = usuario.email;
-                    DirecciontextBox.Text = usuario.direccion;
-                 
-                    PassTextBox.Text = usuario.pass;
-                    ConfirPasstextBox.Text = usuario.passConfir;
 
+                    ObtenerDatos(usuario);
                     NombreTextBox.Focus();
                     ActivarBotones(true);
 
@@ -206,7 +194,7 @@ namespace TeacherControl2016.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             bool Validacion = ValidarTodo();
-
+            Usuarios usuario = new Usuarios();
             try
             {
                 if (UsuIdtextBox.Text.Equals(""))
@@ -222,7 +210,7 @@ namespace TeacherControl2016.Registros
                         }
                         else
                         {
-                            LlenarDatos();
+                            LlenarDatos(usuario);
                             if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
                             {
                                 if (usuario.Insertar())
@@ -299,7 +287,7 @@ namespace TeacherControl2016.Registros
         {
             DialogResult resut;
             //Dialogo para confirmar que se desea Eliminar...
-
+            Usuarios usuario = new Usuarios();
             int id = Utility.ConvierteEntero(UsuIdtextBox.Text);
             try
             {

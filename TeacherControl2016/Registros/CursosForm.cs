@@ -13,13 +13,14 @@ namespace TeacherControl2016.Registros
 {
     public partial class CursosForm : Form
     {
-        Cursos curso = new Cursos();
+       
         public CursosForm()
         {
             InitializeComponent();
             DesactivarMenuContextual();
         }
-        private void LlenarDatos() {
+        private void LlenarDatos(Cursos curso) {
+           
             int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             curso.CursoId = id;
             curso.Descripcion = DescripcionTextBox.Text;
@@ -48,36 +49,7 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
-        private void ValidarTodo()
-        {
-            if (DescripcionTextBox.Text.Equals(""))
-            {
-                CursosErrorProvider.SetError(DescripcionTextBox, "Digite el Nombre o la Descripción del Curso.");
-                DescripcionTextBox.Focus();
-                
-            }
-            else
-            {
-                CursosErrorProvider.Clear();
-                
-            }
-        }
-        private void Validar(TextBox tb, string mensaje)
-        {
-
-            if (tb.Text.Equals(""))
-            {
-                CursosErrorProvider.SetError(tb, mensaje);
-                tb.Focus();
-                
-            }
-            else
-            {
-                CursosErrorProvider.Clear();
-                
-            }
-        }
-        
+     
         private void CursosIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
@@ -97,10 +69,11 @@ namespace TeacherControl2016.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            Cursos curso = new Cursos();
             int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             try
             {
-                Validar(CursosIdtextBox, "Digite un Id!");
+                Utility.Validar(CursosIdtextBox, CursosErrorProvider, "Digite un Id!");
                 if (!CursosIdtextBox.Text.Equals("") && curso.Buscar(id))
                 {
                     DescripcionTextBox.Text = curso.Descripcion;
@@ -130,12 +103,12 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-             ValidarTodo();
+            Cursos curso = new Cursos();
             int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             try
             {
-                LlenarDatos();
-
+                LlenarDatos(curso);
+                Utility.Validar(DescripcionTextBox, CursosErrorProvider, "Digite el Nombre o Descripcion del Curso!");
                 if (CursosIdtextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
                     if (curso.BuscarDescripcion(DescripcionTextBox.Text))
@@ -196,6 +169,7 @@ namespace TeacherControl2016.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            Cursos curso = new Cursos();
             int id = Utility.ConvierteEntero(CursosIdtextBox.Text);
             DialogResult resultado;
             try

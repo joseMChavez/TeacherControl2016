@@ -15,7 +15,7 @@ namespace TeacherControl2016.Registros
 {
     public partial class EstudiantesForm : Form
     {
-        Estudiantes estudiante = new Estudiantes();
+        
         public EstudiantesForm()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace TeacherControl2016.Registros
             CursocomboBox.ValueMember = "CursoId";
             CursocomboBox.DisplayMember = "Descripcion";
         }
-         private void LlenarDatos()
+        private void LlenarDatos(Estudiantes estudiante)
             {
             int id = 0;
             int.TryParse(EstudianteIdtextBox.Text, out id);
@@ -77,7 +77,7 @@ namespace TeacherControl2016.Registros
 
             
         }
-        private void ObtenerValor() {
+        private void ObtenerValor(Estudiantes estudiante) {
             EstudianteIdtextBox.Text = estudiante.EstudianteId.ToString();
             MatriculatextBox.Text = estudiante.Matricula.ToString();
             NombretextBox.Text = estudiante.Nombre;
@@ -101,7 +101,7 @@ namespace TeacherControl2016.Registros
             TelefonoPmaskedTextBox.Text = estudiante.TelefonoPadre;
         }
 
-         private void Limpiar()
+        private void Limpiar()
             {
             EstudianteIdtextBox.Clear();
             MatriculatextBox.Clear();
@@ -139,25 +139,10 @@ namespace TeacherControl2016.Registros
             EliminarButton.Enabled = btn;
         }
        
-        //Este metodo es para Validar los Textbox
-        private bool Validar(TextBox tb, string mensaje)
-        {
-
-            if (tb.Text.Equals(""))
-            {
-                EstudianteErrorProvider.SetError(tb, mensaje);
-                tb.Focus();
-                return true;
-            }
-            else
-            {
-                EstudianteErrorProvider.Clear();
-                return false;
-            }
-        }
+    
         private bool ValidarTodo()
         {
-            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && (EmailtextBox.Text.Equals("") || Utility.ComprobarFormatoEmail(EmailtextBox.Text)==false ) && DirecciontextBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
+            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && EmailtextBox.Text.Equals("") && Utility.ComprobarFormatoEmail(EmailtextBox.Text)==false && DirecciontextBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
             {
                 EstudianteErrorProvider.SetError(MatriculatextBox, "Digite La Matricula del Estudiante!");
                 EstudianteErrorProvider.SetError(NombretextBox, "Digite el Nombre del Estudiante!");
@@ -201,7 +186,7 @@ namespace TeacherControl2016.Registros
 
         private void NombretextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextboxAlfaNumerico(e);
+            Utility.TextBoxSoloTexto(e);
             if (e.KeyChar == 13)
             {
                 ApellidostextBox.Focus();
@@ -210,7 +195,7 @@ namespace TeacherControl2016.Registros
 
         private void ApellidostextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextboxAlfaNumerico(e);
+            Utility.TextBoxSoloTexto(e);
             if (e.KeyChar == 13)
             {
                 FechaDateTimePicker.Focus();
@@ -261,13 +246,28 @@ namespace TeacherControl2016.Registros
             Utility.TextboxAlfaNumerico(e);
             if (e.KeyChar == 13)
             {
+                CursocomboBox.Focus();
+            }
+        }
+        private void CursocomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                CursocomboBox.SelectedIndex = 0;
+                GrupocomboBox.Focus();
+            }
+        }
+        private void GrupocomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                GrupocomboBox.SelectedIndex = 1;
                 NombrePadretextBox.Focus();
             }
         }
-
         private void NombrePadretextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-             Utility.TextboxAlfaNumerico(e);
+            Utility.TextBoxSoloTexto(e);
             if (e.KeyChar == 13)
             {
                 TelefonoPmaskedTextBox.Focus();
@@ -287,12 +287,14 @@ namespace TeacherControl2016.Registros
        
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            Estudiantes estudiante = new Estudiantes();
             int id = Utility.ConvierteEntero(EstudianteIdtextBox.Text);
             try
             {
-                if (Validar(EstudianteIdtextBox,"Digite un Id!")==false && estudiante.Buscar(id))
+                Utility.Validar(EstudianteIdtextBox, EstudianteErrorProvider, "Digite el Id a Buscar!");
+                if (!EstudianteIdtextBox.Text.Equals("") && estudiante.Buscar(id))
                 {
-                    ObtenerValor();
+                    ObtenerValor(estudiante);
                     ActivarBotones(true);
                     MatriculatextBox.Focus();
                 }
@@ -323,9 +325,10 @@ namespace TeacherControl2016.Registros
         /// 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            Estudiantes estudiante = new Estudiantes();
             try
             {
-                LlenarDatos();
+                LlenarDatos(estudiante);
                 if (EstudianteIdtextBox.Text.Equals("") && ValidarTodo()==false)
                 {
                     if (estudiante.Insertar()== true)
@@ -370,11 +373,11 @@ namespace TeacherControl2016.Registros
         {
             int id = Utility.ConvierteEntero(EstudianteIdtextBox.Text);
             DialogResult resut;
-            
+            Estudiantes estudiante = new Estudiantes();
             try
             {
-                LlenarDatos();
-                if ( estudiante.Buscar(id))
+               
+                if (!EstudianteIdtextBox.Text.Equals("") && estudiante.Buscar(id))
                 {
                     //Dialogo para confirmar que se desea Eliminar...
                     resut = MessageBox.Show("¿Esta seguro que desea eliminar a "+NombretextBox.Text+"?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -410,6 +413,6 @@ namespace TeacherControl2016.Registros
             }
         }
 
-       
+        
     }
 }
