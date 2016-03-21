@@ -45,12 +45,13 @@
             this.FiltrocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
-            "Id",
+            "CategoriaCalificacionesId",
             "Descripcion"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(139, 35);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 37;
+            this.FiltrocomboBox.TextChanged += new System.EventHandler(this.FiltrocomboBox_TextChanged);
             // 
             // Filtrolabel
             // 
@@ -85,7 +86,9 @@
             // BuscartextBox
             // 
             this.BuscartextBox.Location = new System.Drawing.Point(371, 36);
+            this.BuscartextBox.MaxLength = 100;
             this.BuscartextBox.Name = "BuscartextBox";
+            this.BuscartextBox.ReadOnly = true;
             this.BuscartextBox.Size = new System.Drawing.Size(133, 20);
             this.BuscartextBox.TabIndex = 33;
             this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
@@ -138,9 +141,10 @@
             this.Controls.Add(this.CursoEstDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ConsultaCategoriaCalificaiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta de Categorias de Calificaiones";
+            this.Text = "Consulta de Categorias de Calificaciones";
             ((System.ComponentModel.ISupportInitialize)(this.CursoEstDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

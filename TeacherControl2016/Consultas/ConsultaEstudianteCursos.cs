@@ -31,24 +31,67 @@ namespace TeacherControl2016.Consultas
         
         private void BuscartextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextboxAlfaNumerico(e);
+            if (FiltrocomboBox.SelectedIndex == 0)
+            {
+                Utility.TextBoxNuemericos(e);
+                BuscartextBox.MaxLength = 5;
+            }
+            else
+            {
+                Utility.TextboxAlfaNumerico(e);
+            }
+        }
+        private void FiltrocomboBox_TextChanged(object sender, EventArgs e)
+        {
+            BuscartextBox.ReadOnly = false;
+        }
+        private void Mostrar() {
+            CursosDetalle curso = new CursosDetalle();
+            string filtro = "1=1";
+
+            if (BuscartextBox.Text.Length > 0)
+            {
+                filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+            }
+
+            CursoEstDataGridView.DataSource = curso.Listado("Id,Matricula,Nombre as Nombres,Apellidos", filtro, "");
+
+            TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
+
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            
-                CursosDetalle curso = new CursosDetalle();
-                string filtro = "1=1";
-
-                if (BuscartextBox.Text.Length > 0)
+            Cursos curso = new Cursos();
+            int id = 0;
+            try
+            {
+                if (FiltrocomboBox.SelectedIndex==0 && !BuscartextBox.Text.Equals(""))
                 {
-                    filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                    id = Utility.ConvierteEntero(BuscartextBox.Text);
+                    if (curso.Buscar(id))
+                    {
+                        Mostrar();
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No Encontrado!");
+                        BuscartextBox.Clear();
+                        BuscartextBox.Focus();
+                    }
                 }
+                else
+                {
+                    Mostrar();
+                }
+            }
+            catch (Exception ex)
+            {
 
-                CursoEstDataGridView.DataSource = curso.Listado("Id,Matricula,Nombre as Nombres,Apellidos", filtro,"");
-
-                TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
-            
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        
     }
 }

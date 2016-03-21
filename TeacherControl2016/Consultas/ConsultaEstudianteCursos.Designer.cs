@@ -75,7 +75,9 @@
             // BuscartextBox
             // 
             this.BuscartextBox.Location = new System.Drawing.Point(343, 43);
+            this.BuscartextBox.MaxLength = 49;
             this.BuscartextBox.Name = "BuscartextBox";
+            this.BuscartextBox.ReadOnly = true;
             this.BuscartextBox.Size = new System.Drawing.Size(133, 20);
             this.BuscartextBox.TabIndex = 19;
             this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
@@ -122,6 +124,7 @@
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 23;
+            this.FiltrocomboBox.TextChanged += new System.EventHandler(this.FiltrocomboBox_TextChanged);
             // 
             // ConsultaEstudianteCursos
             // 
