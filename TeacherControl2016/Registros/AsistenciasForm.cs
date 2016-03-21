@@ -72,7 +72,8 @@ namespace TeacherControl2016.Registros
             }
         }
         
-        private void Llenardatos( Asistencia asistencia) {
+        private void Llenardatos() {
+            Asistencia asistencia = new Asistencia();
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
             asistencia.Fecha = FechadateTimePicker.Text;
@@ -82,8 +83,9 @@ namespace TeacherControl2016.Registros
             
 
         }
-        private void ObtenerDatos(Asistencia asistencia)
+        private void ObtenerDatos()
         {
+            Asistencia asistencia = new Asistencia();
             FechadateTimePicker.Text = asistencia.Fecha;
             CursoComboBox.Text = asistencia.CursoId.ToString();
             GrupocomboBox.Text = asistencia.CursoGrupo;
@@ -151,7 +153,7 @@ namespace TeacherControl2016.Registros
                 Utility.Validar(AsistenciaIdtextBox, AsistenciaerrorProvider, "Digite un Id a Buscar!");
                 if (!AsistenciaIdtextBox.Text.Equals("") && asistencia.Buscar(id))
                 {
-                    ObtenerDatos(asistencia);
+                    ObtenerDatos();
                     ActivarBotones(true);
                     EstacomboBox.Focus();
                 }
@@ -206,7 +208,7 @@ namespace TeacherControl2016.Registros
             try
             {
                 ValidarTodo();
-                Llenardatos(asistencia);
+                Llenardatos();
                 if (AsistenciaIdtextBox.Text.Equals("") && AsistenciadataGridView.Rows.Count > 0)
                 {
                     if (asistencia.Insertar())

@@ -128,6 +128,7 @@ namespace BLL
                     detalle.Clear();
                     foreach  (DataRow row in detalle.Rows)
                     {
+                      
                         AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
                     }
                 }
