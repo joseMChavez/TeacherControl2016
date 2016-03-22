@@ -103,6 +103,12 @@
     <Compile Include="Consultas\ConsultaUsuarios.Designer.cs">
       <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaUsuarios.resx">
       <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portada.resx">
       <DependentUpon>Portada.cs</DependentUpon>
@@ -257,17 +266,20 @@
   <ItemGroup>
     <Content Include="1455915694_Courses.ico" />
     <Content Include="DataBase\TeacherControlDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataBase\TeacherControlDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TeacherControlDb.mdf</DependentUpon>
     </Content>
     <Content Include="Resources\1452825521_Add.png" />
+    <None Include="Resources\1452899051_close_red.png" />
     <Content Include="Resources\1452899178_trash.png" />
     <Content Include="Resources\1453541179_ok-sign.png" />
     <Content Include="Resources\1453541193_save.png" />
     <Content Include="Resources\1453541260_search.png" />
+    <None Include="Resources\1455916104_Teacher-male-24.png" />
+    <None Include="Resources\1455915810_userconfig1.png" />
     <None Include="Resources\Capture.PNG" />
     <None Include="Resources\1456533592_notebook-add.png" />
     <None Include="Resources\1458036564_attendance_list.png" />

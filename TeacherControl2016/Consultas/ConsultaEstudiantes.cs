@@ -29,11 +29,23 @@ namespace TeacherControl2016.Consultas
         }
         private void BuscartextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextboxAlfaNumerico(e);
+            if (FiltrocomboBox.SelectedIndex <= 1)
+            {
+                Utility.TextBoxNuemericos(e);
+                BuscartextBox.MaxLength = 5;
+            }
+            else
+            {
+                Utility.TextBoxSoloTexto(e);
+                BuscartextBox.MaxLength = 45;
+            }
         }
-        private void BuscarButton_Click(object sender, EventArgs e)
+        private void FiltrocomboBox_TextChanged(object sender, EventArgs e)
         {
-             Estudiantes estudiante= new Estudiantes();
+            BuscartextBox.ReadOnly = false;
+        }
+        private void Mostrar(Estudiantes estudiante)
+        {
             string filtro = "1=1";
 
             if (BuscartextBox.Text.Length > 0)
@@ -45,7 +57,30 @@ namespace TeacherControl2016.Consultas
 
             TotaltextBox.Text = EstudianteDataGridView.RowCount.ToString();
         }
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            Estudiantes estudiante = new Estudiantes();
+            if (FiltrocomboBox.SelectedIndex== 0)
+            {
+                id = Utility.ConvierteEntero(BuscartextBox.Text);
+                if (estudiante.Buscar(id))
+                {
+                    Mostrar(estudiante);
+                }
+                else
+                {
+                    Utility.Mensajes(3, "Id no Encontrado!");
+                    BuscartextBox.Clear();
+                    BuscartextBox.Focus();
+                }
+            }
+            else
+            {
+                Mostrar(estudiante);
+            }
+        }
 
-        
+      
     }
 }

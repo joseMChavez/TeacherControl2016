@@ -73,6 +73,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1452899051_close_red {
+            get {
+                object obj = ResourceManager.GetObject("1452899051_close_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1452899178_trash {
             get {
                 object obj = ResourceManager.GetObject("1452899178_trash", resourceCulture);
@@ -133,6 +143,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1455915810_userconfig1 {
+            get {
+                object obj = ResourceManager.GetObject("1455915810_userconfig1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1455915988_user_group_new {
             get {
                 object obj = ResourceManager.GetObject("1455915988_user-group-new", resourceCulture);
@@ -156,6 +176,16 @@ namespace TeacherControl2016.Properties {
         internal static System.Drawing.Bitmap _1455916000_user_group_new {
             get {
                 object obj = ResourceManager.GetObject("1455916000_user-group-new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1455916104_Teacher_male_24 {
+            get {
+                object obj = ResourceManager.GetObject("1455916104_Teacher-male-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -39,6 +39,7 @@ namespace TeacherControl2016.Consultas
             else
             {
                 Utility.TextboxAlfaNumerico(e);
+                BuscartextBox.MaxLength = 45;
             }
         }
         private void FiltrocomboBox_TextChanged(object sender, EventArgs e)

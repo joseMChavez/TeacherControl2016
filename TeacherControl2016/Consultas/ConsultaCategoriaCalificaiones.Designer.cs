@@ -45,7 +45,7 @@
             this.FiltrocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
-            "CategoriaCalificacionesId",
+            "Id",
             "Descripcion"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(139, 35);
             this.FiltrocomboBox.Name = "FiltrocomboBox";

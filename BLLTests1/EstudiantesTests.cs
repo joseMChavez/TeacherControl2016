@@ -11,34 +11,73 @@ namespace BLL.Tests
     [TestClass()]
     public class EstudiantesTests
     {
-        [TestMethod()]
-        public void EstudiantesTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void EstudiantesTest1()
-        {
-            Assert.Fail();
-        }
-
+        
         [TestMethod()]
         public void InsertarTest()
         {
-            Assert.Fail();
+            Estudiantes estudiante = new Estudiantes();
+            estudiante.Matricula = 1;
+            estudiante.Nombre = "jose";
+            estudiante.Apellidos = "Chavez";
+            estudiante.Genero = "M";
+            estudiante.FechaNacimiento = "21/02/2000";
+            estudiante.Edad = 15;
+            estudiante.Celular = "809-844-2216";
+            estudiante.Email = "jose@gmail.com";
+            estudiante.Direccion = "Cenovi";
+            estudiante.CursoId = 1;
+            estudiante.Grupo = "B";
+            estudiante.NombrePadre = "Juan";
+            estudiante.TelefonoPadre = "809-844-2216";
+            bool prueba = estudiante.Insertar();
+
+            Assert.IsTrue(prueba);
         }
 
         [TestMethod()]
         public void EditarTest()
         {
-            Assert.Fail();
+            Estudiantes estudiante = new Estudiantes();
+            estudiante.EstudianteId = 1;
+            estudiante.Matricula = 5;
+            estudiante.Nombre = "jose";
+            estudiante.Apellidos = "Chavez";
+            estudiante.Genero = "M";
+            estudiante.FechaNacimiento = "21/02/2000";
+            estudiante.Edad = 15;
+            estudiante.Celular = "809-844-2216";
+            estudiante.Email = "jose@gmail.com";
+            estudiante.Direccion = "Cenovi";
+            estudiante.CursoId = 1;
+            estudiante.Grupo = "B";
+            estudiante.NombrePadre = "Juan";
+            estudiante.TelefonoPadre = "809-844-2216";
+            bool prueba = estudiante.Editar();
+
+            Assert.IsTrue(prueba);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            Estudiantes estudiante = new Estudiantes();
+            estudiante.EstudianteId = 1;
+            estudiante.Matricula = 5;
+            estudiante.Nombre = "jose";
+            estudiante.Apellidos = "Chavez";
+            estudiante.Genero = "M";
+            estudiante.FechaNacimiento = "21/02/2000";
+            estudiante.Edad = 15;
+            estudiante.Celular = "809-844-2216";
+            estudiante.Email = "jose@gmail.com";
+            estudiante.Direccion = "Cenovi";
+            estudiante.CursoId = 1;
+            estudiante.Grupo = "B";
+            estudiante.NombrePadre = "Juan";
+            estudiante.TelefonoPadre = "809-844-2216";
+
+            bool prueba= estudiante.Eliminar();
+            Assert.IsTrue(prueba);
         }
 
         [TestMethod()]

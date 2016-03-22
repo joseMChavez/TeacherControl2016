@@ -55,6 +55,7 @@
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 30;
+            this.FiltrocomboBox.TextChanged += new System.EventHandler(this.FiltrocomboBox_TextChanged);
             // 
             // Filtrolabel
             // 
@@ -90,6 +91,7 @@
             // 
             this.BuscartextBox.Location = new System.Drawing.Point(369, 28);
             this.BuscartextBox.Name = "BuscartextBox";
+            this.BuscartextBox.ReadOnly = true;
             this.BuscartextBox.Size = new System.Drawing.Size(153, 20);
             this.BuscartextBox.TabIndex = 26;
             this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);

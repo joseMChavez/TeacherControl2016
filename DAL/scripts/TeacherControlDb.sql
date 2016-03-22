@@ -99,4 +99,4 @@ CREATE TABLE CategoriaCalificaciones
 
 go
 drop table  Calificaciones;
-select * From CalificacionDetalle
+select * From Estudiante

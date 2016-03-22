@@ -37,6 +37,7 @@ namespace TeacherControl2016.Consultas
             else
             {
                 Utility.TextboxAlfaNumerico(e);
+                BuscartextBox.MaxLength = 45;
             }
         }
         private void FiltrocomboBox_TextChanged(object sender, EventArgs e)
@@ -44,14 +45,22 @@ namespace TeacherControl2016.Consultas
             BuscartextBox.ReadOnly = false;
             
         }
-        private void Mostrar()
+        private void Mostrar(Cursos curso)
         {
-            Cursos curso = new Cursos();
+          
             string filtro = "1=1";
 
             if (BuscartextBox.Text.Length > 0)
             {
-                filtro = "CursoId as" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                if (FiltrocomboBox.SelectedIndex==0)
+                {
+                    filtro = "Curso" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
+                else
+                {
+                    filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
+                
             }
 
             CursoEstDataGridView.DataSource = curso.Listado("CursoId as Id ,Descripcion as Descripción", filtro, "");
@@ -69,7 +78,7 @@ namespace TeacherControl2016.Consultas
                     id = Utility.ConvierteEntero(BuscartextBox.Text);
                     if (curso.Buscar(id))
                     {
-                        Mostrar();
+                        Mostrar(curso);
                     }
                     else
                     {
@@ -80,7 +89,7 @@ namespace TeacherControl2016.Consultas
                 }
                 else
                 {
-                    Mostrar();
+                    Mostrar(curso);
                 }
 
             }

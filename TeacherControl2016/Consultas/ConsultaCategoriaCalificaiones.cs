@@ -43,13 +43,19 @@ namespace TeacherControl2016.Consultas
         {
             BuscartextBox.ReadOnly = false;
         }
-        private void Mostrar()
+        private void Mostrar(CategoriaCalificaciones cCalificaciones)
         {
-            CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
             string filtro = "1=1";
             if (BuscartextBox.Text.Length > 0)
             {
-                filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                if (FiltrocomboBox.SelectedIndex==0)
+                {
+                    filtro = "CategoriaCalificaciones" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
+                else
+                {
+                    filtro =  FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
             }
 
             CursoEstDataGridView.DataSource = cCalificaciones.Listado("CategoriaCalificacionesId as Id ,Descripcion as Descripción", filtro, "");
@@ -67,7 +73,7 @@ namespace TeacherControl2016.Consultas
                     id = Utility.ConvierteEntero(BuscartextBox.Text);
                     if (cCalificaciones.Buscar(id))
                     {
-                        Mostrar();
+                        Mostrar(cCalificaciones);
                     }
                     else
                     {
@@ -77,7 +83,7 @@ namespace TeacherControl2016.Consultas
                 }
                 else
                 {
-                    Mostrar();
+                    Mostrar(cCalificaciones);
                 }
             }
             catch (Exception ex)

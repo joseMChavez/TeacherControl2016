@@ -49,20 +49,12 @@
             "Matricula",
             "Nombre",
             "Apellidos",
-            "Genero",
-            "Fecha de Nacimiento",
-            "Edad",
-            "Celular",
-            "Email",
-            "Direccion",
-            "CursoId",
-            "Grupo",
-            "Nombre del Padre",
-            "Telefono del Padre"});
+            "Edad"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(137, 27);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 30;
+            this.FiltrocomboBox.TextChanged += new System.EventHandler(this.FiltrocomboBox_TextChanged);
             // 
             // Filtrolabel
             // 
@@ -97,7 +89,9 @@
             // BuscartextBox
             // 
             this.BuscartextBox.Location = new System.Drawing.Point(413, 29);
+            this.BuscartextBox.MaxLength = 50;
             this.BuscartextBox.Name = "BuscartextBox";
+            this.BuscartextBox.ReadOnly = true;
             this.BuscartextBox.Size = new System.Drawing.Size(204, 20);
             this.BuscartextBox.TabIndex = 26;
             this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
