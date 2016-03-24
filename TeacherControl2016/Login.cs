@@ -56,15 +56,18 @@ namespace TeacherControl2016
         {
             Usuarios usuario = new Usuarios();
             Portada portada = new Portada();
+           
             Utility.Validar(UsuarioNametextBox, LoginerrorProvider, "Digite un Nombre de Usurio!");
             Utility.Validar(PasstextBox, LoginerrorProvider, "Digite una Contrseña!");
             if ( !UsuarioNametextBox.Text.Equals("") && !PasstextBox.Text.Equals(""))
             {
                 if ( usuario.BuscarNombre(UsuarioNametextBox.Text) && usuario.BuscarPass(PasstextBox.Text))
                 {
+
                     portada.Show();
                     Limpiar();
                     Hide();
+                    
                 }
                 else
                 {

@@ -126,11 +126,16 @@ namespace BLL
                     CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
                     detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
                     detalle.Clear();
-                    foreach  (DataRow row in detalle.Rows)
+                    if (detalle.Rows.Count > 0)
                     {
-                      
-                        AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
+                        foreach (DataRow row in detalle.Rows)
+                        {
+                            this.EstudianteId = row["EstudianteId"].ToString();
+                            this.Activo = row["Activo"].ToString();
+                            AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
+                        }
                     }
+                    
                 }
             }
             catch (Exception ex)

@@ -103,6 +103,11 @@
     <Compile Include="Consultas\ConsultaUsuarios.Designer.cs">
       <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstudiantesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstudiantesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +164,10 @@
     <Compile Include="Registros\UsuariosForm.Designer.cs">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViews\ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\ReportViewer.Designer.cs" />
     <Compile Include="TeacherControlDbDataSet.cs">
       <DependentUpon>TeacherControlDbDataSet.xsd</DependentUpon>
     </Compile>
@@ -166,6 +175,16 @@
       <DependentUpon>TeacherControlDbDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TeacherControlDbDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherControlDbDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherControlDbDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherControlDbDataSet2.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Consultas\ConsultaCategoriaCalificaiones.resx">
       <DependentUpon>ConsultaCategoriaCalificaiones.cs</DependentUpon>
@@ -222,7 +241,22 @@
     <EmbeddedResource Include="Registros\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
+    <EmbeddedResource Include="Reportes\CursoXestudiantesReport.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportEstudiantes.rdlc" />
     <EmbeddedResource Include="Reportes\ReportUsuarios.rdlc" />
+    <EmbeddedResource Include="ReportViews\ReportViewer.resx" />
+    <None Include="EstudiantesDataSet.xsc">
+      <DependentUpon>EstudiantesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EstudiantesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EstudiantesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EstudiantesDataSet.xss">
+      <DependentUpon>EstudiantesDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\BLL.Asistencia.datasource" />
     <None Include="Properties\DataSources\BLL.ClaseMaestra.datasource" />
     <None Include="Properties\DataSources\BLL.Cursos.datasource" />
@@ -250,6 +284,28 @@
     <None Include="TeacherControlDbDataSet.xss">
       <DependentUpon>TeacherControlDbDataSet.xsd</DependentUpon>
     </None>
+    <None Include="TeacherControlDbDataSet11.xsc">
+      <DependentUpon>TeacherControlDbDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherControlDbDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TeacherControlDbDataSet11.xss">
+      <DependentUpon>TeacherControlDbDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSet2.xsc">
+      <DependentUpon>TeacherControlDbDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherControlDbDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TeacherControlDbDataSet2.xss">
+      <DependentUpon>TeacherControlDbDataSet2.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -276,6 +332,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TeacherControlDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\1458844922_folder_print2.png" />
     <None Include="Resources\1458765921_Close.png" />
     <None Include="Resources\1458766571_user.png" />
     <None Include="Resources\1458766531_Key.png" />

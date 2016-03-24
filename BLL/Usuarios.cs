@@ -146,7 +146,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where userName= '{0}' and tipoUsuario='Adiministrador'", nombre));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where (userName= '{0}') AND (tipoUsuario like '%Adiministrador%')", nombre));
                 
             }
             catch (Exception ex)
