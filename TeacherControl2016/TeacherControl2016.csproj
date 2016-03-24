@@ -262,6 +262,10 @@
       <Project>{f7bd6c3b-6364-490f-b271-d7b6d85ceb4e}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{7077c676-4e41-4629-b6a7-1bfda934a78a}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="1455915694_Courses.ico" />
@@ -272,6 +276,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TeacherControlDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\1458765921_Close.png" />
+    <None Include="Resources\1458766571_user.png" />
+    <None Include="Resources\1458766531_Key.png" />
+    <None Include="Resources\Capture31.PNG" />
+    <None Include="Resources\Capture3.PNG" />
+    <None Include="Resources\1455915734_Generate-keys.png" />
+    <None Include="Resources\1452825463_agt_action_fail.png" />
     <Content Include="Resources\1452825521_Add.png" />
     <None Include="Resources\1452899051_close_red.png" />
     <Content Include="Resources\1452899178_trash.png" />

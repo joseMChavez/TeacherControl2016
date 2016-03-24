@@ -12,22 +12,25 @@ namespace BLL
        public int usuarioId { get; set; }
        public string nombre { get; set; }
         public string apellido { get; set; }
+        public string userName { get; set; }
+        public string Telefono { get; set; }
         public string email { get; set; }
         public string telefono { get; set; }
         public string direccion { get; set; }
         public string pass { get; set; }
         public string passConfir { get; set; }
-     
-       
+        public string TipoUsuario { get; set; }
+
         public Usuarios() {
             this.usuarioId = 0;
             this.nombre = "";
             this.apellido = "";
+            this.userName = "";
             this.email = "";
             this.telefono = "";
             this.direccion = "";
             this.pass = "";
-
+            this.TipoUsuario = "";
           
 
         }
@@ -43,7 +46,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Usuario(nombre,apellido,email,direccion,clave,confirmarClave) Values('{0}','{1}','{2}','{3}','{4}','{5}')", nombre, this.apellido,this.email,this.direccion, this.pass,this.passConfir));
+                retorno = conexion.Ejecutar(string.Format("insert into Usuario(nombre,apellido,userName,telefono,email,direccion,clave,confirmarClave,tipoUsuario) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", nombre, this.apellido,this.userName,this.telefono,this.email,this.direccion, this.pass,this.passConfir,this.TipoUsuario));
             }
             catch (Exception ex)
             {
@@ -59,7 +62,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Usuario set nombre= '{0}',apellido = '{1}' ,email='{2}',direccion='{3}',telefono = '{4}',clave='{5}', confirmarClave='{6}' where usuarioId= {7}",this.nombre, this.apellido, this.email, this.direccion, this.telefono,this.pass, this.passConfir, this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("update Usuario set nombre= '{0}',apellido = '{1}' ,userName='{2}',telefono='{3}',email='{4}',direccion='{5}',clave='{6}', confirmarClave='{7}', tipoUsuario='{8}' where usuarioId= {9}",this.nombre, this.apellido,this.userName, this.telefono ,this.email, this.direccion,this.pass, this.passConfir,this.TipoUsuario ,this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -97,11 +100,13 @@ namespace BLL
                     this.usuarioId = (int)dt.Rows[0]["usuarioId"];
                     this.nombre = dt.Rows[0]["nombre"].ToString();
                     this.apellido = dt.Rows[0]["apellido"].ToString();
+                    this.userName = dt.Rows[0]["userName"].ToString();
+                    this.telefono = dt.Rows[0]["telefono"].ToString();
                     this.email = dt.Rows[0]["email"].ToString();
                     this.direccion = dt.Rows[0]["direccion"].ToString();
                     this.pass = dt.Rows[0]["clave"].ToString();
                     this.passConfir = dt.Rows[0]["confirmarClave"].ToString();
-
+                    this.TipoUsuario = dt.Rows[0]["tipoUsuario"].ToString();
                 }
             }
             catch (Exception ex)
@@ -119,8 +124,30 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where nombre= '{0}'", nombre));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where UserName= '{0}'", nombre));
+                if (dt.Rows.Count>0)
+                {
+                    this.TipoUsuario = dt.Rows[0]["tipoUsuario"].ToString();
+                    this.userName = dt.Rows[0]["userName"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
+
+        }
+        public bool BuscarAdministrador(string nombre)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where userName= '{0}' and tipoUsuario='Adiministrador'", nombre));
+                
             }
             catch (Exception ex)
             {

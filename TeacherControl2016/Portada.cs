@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DAL;
 
 namespace TeacherControl2016
 {
     public partial class Portada : Form
     {
+        
         public Portada()
         {
             InitializeComponent();
@@ -68,7 +71,9 @@ namespace TeacherControl2016
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Consultas.ConsultaUsuarios usuarios = new Consultas.ConsultaUsuarios();
-            usuarios.Show();
+         
+                usuarios.Show();
+           
         }
 
         private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -136,6 +141,11 @@ namespace TeacherControl2016
         {
             Registros.CalificacionesForm calificaciones = new Registros.CalificacionesForm();
             calificaciones.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+            Application.Exit();
         }
     }
 }

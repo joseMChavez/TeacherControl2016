@@ -63,6 +63,16 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1452825463_agt_action_fail {
+            get {
+                object obj = ResourceManager.GetObject("1452825463_agt_action_fail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1452825521_Add {
             get {
                 object obj = ResourceManager.GetObject("1452825521_Add", resourceCulture);
@@ -126,6 +136,16 @@ namespace TeacherControl2016.Properties {
         internal static System.Drawing.Bitmap _1455099110_categories {
             get {
                 object obj = ResourceManager.GetObject("1455099110_categories", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1455915734_Generate_keys {
+            get {
+                object obj = ResourceManager.GetObject("1455915734_Generate-keys", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,6 +273,36 @@ namespace TeacherControl2016.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1458765921_Close {
+            get {
+                object obj = ResourceManager.GetObject("1458765921_Close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1458766531_Key {
+            get {
+                object obj = ResourceManager.GetObject("1458766531_Key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1458766571_user {
+            get {
+                object obj = ResourceManager.GetObject("1458766571_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _733510_e191_2 {
             get {
                 object obj = ResourceManager.GetObject("733510_e191_2", resourceCulture);
@@ -266,6 +316,26 @@ namespace TeacherControl2016.Properties {
         internal static System.Drawing.Bitmap Capture {
             get {
                 object obj = ResourceManager.GetObject("Capture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Capture3 {
+            get {
+                object obj = ResourceManager.GetObject("Capture3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Capture31 {
+            get {
+                object obj = ResourceManager.GetObject("Capture31", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuariosForm));
-            this.UsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NombreLabel = new System.Windows.Forms.Label();
             this.ConfirPassLabel = new System.Windows.Forms.Label();
             this.IdLabel = new System.Windows.Forms.Label();
@@ -46,12 +45,19 @@
             this.Emaillabel = new System.Windows.Forms.Label();
             this.DirecciontextBox = new System.Windows.Forms.TextBox();
             this.Direccionlabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TipoUsuariocomboBox = new System.Windows.Forms.ComboBox();
+            this.UserNametextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).BeginInit();
+            this.UsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreLabel
@@ -72,7 +78,7 @@
             this.ConfirPassLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ConfirPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirPassLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ConfirPassLabel.Location = new System.Drawing.Point(25, 269);
+            this.ConfirPassLabel.Location = new System.Drawing.Point(25, 340);
             this.ConfirPassLabel.Name = "ConfirPassLabel";
             this.ConfirPassLabel.Size = new System.Drawing.Size(161, 16);
             this.ConfirPassLabel.TabIndex = 1;
@@ -96,7 +102,7 @@
             this.ContrasenaLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ContrasenaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContrasenaLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ContrasenaLabel.Location = new System.Drawing.Point(25, 230);
+            this.ContrasenaLabel.Location = new System.Drawing.Point(28, 303);
             this.ContrasenaLabel.Name = "ContrasenaLabel";
             this.ContrasenaLabel.Size = new System.Drawing.Size(91, 16);
             this.ContrasenaLabel.TabIndex = 3;
@@ -104,7 +110,7 @@
             // 
             // PassTextBox
             // 
-            this.PassTextBox.Location = new System.Drawing.Point(193, 229);
+            this.PassTextBox.Location = new System.Drawing.Point(194, 302);
             this.PassTextBox.MaxLength = 12;
             this.PassTextBox.Name = "PassTextBox";
             this.PassTextBox.Size = new System.Drawing.Size(144, 20);
@@ -158,7 +164,7 @@
             // 
             // ConfirPasstextBox
             // 
-            this.ConfirPasstextBox.Location = new System.Drawing.Point(193, 265);
+            this.ConfirPasstextBox.Location = new System.Drawing.Point(193, 339);
             this.ConfirPasstextBox.MaxLength = 12;
             this.ConfirPasstextBox.Name = "ConfirPasstextBox";
             this.ConfirPasstextBox.Size = new System.Drawing.Size(145, 20);
@@ -168,7 +174,7 @@
             // 
             // EmailtextBox
             // 
-            this.EmailtextBox.Location = new System.Drawing.Point(194, 149);
+            this.EmailtextBox.Location = new System.Drawing.Point(193, 232);
             this.EmailtextBox.MaxLength = 50;
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(191, 20);
@@ -181,7 +187,7 @@
             this.Emaillabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Emaillabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Emaillabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Emaillabel.Location = new System.Drawing.Point(27, 149);
+            this.Emaillabel.Location = new System.Drawing.Point(26, 233);
             this.Emaillabel.Name = "Emaillabel";
             this.Emaillabel.Size = new System.Drawing.Size(51, 16);
             this.Emaillabel.TabIndex = 15;
@@ -189,7 +195,7 @@
             // 
             // DirecciontextBox
             // 
-            this.DirecciontextBox.Location = new System.Drawing.Point(194, 187);
+            this.DirecciontextBox.Location = new System.Drawing.Point(193, 267);
             this.DirecciontextBox.MaxLength = 100;
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(191, 20);
@@ -202,11 +208,68 @@
             this.Direccionlabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Direccionlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Direccionlabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Direccionlabel.Location = new System.Drawing.Point(27, 187);
+            this.Direccionlabel.Location = new System.Drawing.Point(26, 268);
             this.Direccionlabel.Name = "Direccionlabel";
             this.Direccionlabel.Size = new System.Drawing.Size(78, 16);
             this.Direccionlabel.TabIndex = 17;
             this.Direccionlabel.Text = "Direccion:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(25, 195);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 16);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Telefono:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(25, 381);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 16);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Tipo de Usuario:";
+            // 
+            // TipoUsuariocomboBox
+            // 
+            this.TipoUsuariocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoUsuariocomboBox.FormattingEnabled = true;
+            this.TipoUsuariocomboBox.Items.AddRange(new object[] {
+            "Administrador",
+            "Empleado"});
+            this.TipoUsuariocomboBox.Location = new System.Drawing.Point(193, 380);
+            this.TipoUsuariocomboBox.Name = "TipoUsuariocomboBox";
+            this.TipoUsuariocomboBox.Size = new System.Drawing.Size(191, 21);
+            this.TipoUsuariocomboBox.TabIndex = 22;
+            // 
+            // UserNametextBox
+            // 
+            this.UserNametextBox.Location = new System.Drawing.Point(193, 151);
+            this.UserNametextBox.MaxLength = 50;
+            this.UserNametextBox.Name = "UserNametextBox";
+            this.UserNametextBox.Size = new System.Drawing.Size(191, 20);
+            this.UserNametextBox.TabIndex = 23;
+            this.UserNametextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UserNametextBox_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(26, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 16);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Nombre de Usuario:";
             // 
             // BuscarButton
             // 
@@ -219,7 +282,7 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(290, -4);
+            this.BuscarButton.Location = new System.Drawing.Point(295, -2);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 11;
@@ -240,7 +303,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(157, 316);
+            this.GuardarButton.Location = new System.Drawing.Point(156, 448);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 6;
@@ -260,7 +323,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(304, 316);
+            this.EliminarButton.Location = new System.Drawing.Point(295, 450);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 5;
@@ -279,7 +342,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(30, 316);
+            this.NuevoButton.Location = new System.Drawing.Point(29, 450);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 4;
@@ -288,13 +351,28 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
+            // TelefonomaskedTextBox
+            // 
+            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(194, 190);
+            this.TelefonomaskedTextBox.Mask = "000-000-0000";
+            this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
+            this.TelefonomaskedTextBox.Size = new System.Drawing.Size(71, 20);
+            this.TelefonomaskedTextBox.TabIndex = 25;
+            this.TelefonomaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonomaskedTextBox_KeyPress);
+            // 
             // UsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(419, 385);
+            this.ClientSize = new System.Drawing.Size(419, 520);
+            this.Controls.Add(this.TelefonomaskedTextBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.UserNametextBox);
+            this.Controls.Add(this.TipoUsuariocomboBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.DirecciontextBox);
             this.Controls.Add(this.Direccionlabel);
             this.Controls.Add(this.EmailtextBox);
@@ -321,9 +399,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Usuarios";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            
-            ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,5 +428,11 @@
         private System.Windows.Forms.Label Emaillabel;
         private System.Windows.Forms.TextBox ConfirPasstextBox;
         private System.Windows.Forms.BindingSource UsuariosBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox TipoUsuariocomboBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox UserNametextBox;
+        private System.Windows.Forms.MaskedTextBox TelefonomaskedTextBox;
     }
 }

@@ -35,12 +35,13 @@ namespace TeacherControl2016.Registros
             UsuIdtextBox.Clear();
             NombreTextBox.Clear();
             ApellidotextBox.Clear();
+            UserNametextBox.Clear();
+            TelefonomaskedTextBox.Text = "###-###-####";
             EmailtextBox.Clear();
             DirecciontextBox.Clear();
-       
             PassTextBox.Clear();
             ConfirPasstextBox.Clear();
-            
+            TipoUsuariocomboBox.SelectedIndex = 0;
             UsuariosErrorProvider.Clear();
             NombreTextBox.Focus();
 
@@ -51,17 +52,17 @@ namespace TeacherControl2016.Registros
         {
           
             //Textbox Nombre
-            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && (EmailtextBox.Text.Equals("") || Utility.ComprobarFormatoEmail(EmailtextBox.Text)==false )&& DirecciontextBox.Text.Equals("") && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
+            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && UserNametextBox.Text.Equals("") && TelefonomaskedTextBox.MaskFull && EmailtextBox.Text.Equals("") && Utility.ComprobarFormatoEmail(EmailtextBox.Text)==false  && DirecciontextBox.Text.Equals("") && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(NombreTextBox, "Digite el nombre de Usuario!");
                 UsuariosErrorProvider.SetError(ApellidotextBox, "Digite el apellido de Usuario!");
                 UsuariosErrorProvider.SetError(EmailtextBox, "Digite un Email del Usuario que sea del Formato ejemplo@ejemail.eje!");
-               
+                UsuariosErrorProvider.SetError(TelefonomaskedTextBox, "Digite el Numero de Telefono!");
+                UsuariosErrorProvider.SetError(UserNametextBox, "Digite un Nombre de Usuario!");
                 UsuariosErrorProvider.SetError(DirecciontextBox, "Digite un Direccion!");
                 UsuariosErrorProvider.SetError(PassTextBox, "Digite Una Contarseña con mas de 6 Caracteres!");
                 UsuariosErrorProvider.SetError(ConfirPasstextBox, "Confirme la Contraseña!");
-               
-
+                
                 NombreTextBox.Focus();
                 return false;
             }
@@ -83,26 +84,29 @@ namespace TeacherControl2016.Registros
             usuario.usuarioId = id;
             usuario.nombre = NombreTextBox.Text;
             usuario.apellido = ApellidotextBox.Text;
+            usuario.userName = UserNametextBox.Text;
+            usuario.telefono = TelefonomaskedTextBox.Text;
             usuario.email = EmailtextBox.Text;
             usuario.direccion = DirecciontextBox.Text;
             
             usuario.pass = PassTextBox.Text;
             usuario.passConfir = ConfirPasstextBox.Text;
+            usuario.TipoUsuario = TipoUsuariocomboBox.Text;
             
         }
         private void ObtenerDatos( Usuarios usuario) {
 
             NombreTextBox.Text = usuario.nombre;
             ApellidotextBox.Text = usuario.apellido;
+            UserNametextBox.Text = usuario.userName;
+            TelefonomaskedTextBox.Text= usuario.telefono;
             EmailtextBox.Text = usuario.email;
             DirecciontextBox.Text = usuario.direccion;
-
+           
             PassTextBox.Text = usuario.pass;
             ConfirPasstextBox.Text = usuario.passConfir;
+            TipoUsuariocomboBox.Text = usuario.TipoUsuario;
         }
-
-
-        
         private void UsuIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
            Utility.TextBoxNuemericos(e);
@@ -122,7 +126,22 @@ namespace TeacherControl2016.Registros
         {
             Utility.TextBoxSoloTexto(e);
             if (e.KeyChar == 13)
+                UserNametextBox.Focus();
+        }
+        private void UserNametextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.TextboxAlfaNumerico(e);
+            if (e.KeyChar == 13)
+            {
+                TelefonomaskedTextBox.Focus();
+            }
+        }
+        private void TelefonomaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
                 EmailtextBox.Focus();
+            }
         }
         private void EmailtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -202,11 +221,11 @@ namespace TeacherControl2016.Registros
             {
                 if (UsuIdtextBox.Text.Equals(""))
                 {
-                    if (Validacion)
+                    if ( Validacion)
                     {
-                        if (usuario.BuscarNombre(NombreTextBox.Text))
+                        if (usuario.BuscarNombre(UserNametextBox.Text))
                         {
-                            Utility.Mensajes(1, NombreTextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
+                            Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
 
                             Limpiar();
                             NombreTextBox.Focus();
@@ -218,13 +237,14 @@ namespace TeacherControl2016.Registros
                             {
                                 if (usuario.Insertar())
                                 {
-                                    Utility.Mensajes(1, "El Usuarios " + NombreTextBox.Text + " A sido Guardado Correctamente!");
+                                    Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Guardado Correctamente!");
                                     Limpiar();
                                     ActivarBotones(false);
                                 }
                                 else
                                 {
                                     Utility.Mensajes(2, "Error en Guardar Usuario!");
+                                    Limpiar();
                                     ActivarBotones(false);
                                 }
                             }
@@ -236,10 +256,42 @@ namespace TeacherControl2016.Registros
 
                         }
                     }
-                    else
+                    else if (!UsuIdtextBox.Text.Equals("") && Validacion)
                     {
-                        NombreTextBox.Focus();
+                        if (usuario.BuscarNombre(UserNametextBox.Text))
+                        {
+                            Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
+
+                            Limpiar();
+                            NombreTextBox.Focus();
+                        }
+                        else
+                        {
+                            LlenarDatos(usuario);
+                            if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
+                            {
+                                if (usuario.Editar())
+                                {
+                                    Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Modificado Correctamente!");
+                                    Limpiar();
+                                    ActivarBotones(false);
+                                }
+                                else
+                                {
+                                    Utility.Mensajes(2, "Error en Modificar Usuario!");
+                                    Limpiar();
+                                    ActivarBotones(false);
+                                }
+                            }
+                            else
+                            {
+                                Utility.Mensajes(3, "La Contraseñas No Coinsiden!");
+                                PassTextBox.Focus();
+                            }
+
+                        }
                     }
+                   
 
                 }
                 else

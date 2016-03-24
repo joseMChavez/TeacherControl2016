@@ -50,9 +50,29 @@ namespace TeacherControl2016.Consultas
            
             if (BuscartextBox.Text.Length > 0)
             {
-                filtro = FiltrocomboBox.Text + "like '%" + BuscartextBox + "%'";
+                if (FiltrocomboBox.SelectedIndex==0)
+                {
+                    filtro = "usuario"+FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
+                else if (FiltrocomboBox.SelectedIndex==1)
+                {
+                    filtro = "nombre  like '%" + BuscartextBox.Text + "%'";
+                }
+                else if (FiltrocomboBox.SelectedIndex == 2)
+                {
+                    filtro = "apellido  like '%" + BuscartextBox.Text + "%'";
+                }
+                else if (FiltrocomboBox.SelectedIndex == 3)
+                {
+                    filtro = "userName  like '%" + BuscartextBox.Text + "%'";
+                }
+                else if (FiltrocomboBox.SelectedIndex == 4)
+                {
+                    filtro = "tipoUsuario  like '%" + BuscartextBox.Text + "%'";
+                }
+
             }
-            UsuariosDataGridView.DataSource = usuario.Listado("usuarioId as Id,nombre as Nombres, apellido as Apellidos, email as Email, direccion as Dirección, clave as Contraseña", filtro, "");
+            UsuariosDataGridView.DataSource = usuario.Listado("usuarioId as Id,nombre as Nombres, apellido as Apellidos,userName as Usuario,telefono as Telefono ,email as Email, direccion as Dirección, tipoUsuario as Tipo_de_Usuario", filtro, "");
             TotaltextBox.Text = UsuariosDataGridView.RowCount.ToString();
         }
         private void BuscarButton_Click(object sender, EventArgs e)
