@@ -16,6 +16,7 @@ namespace TeacherControl2016.Consultas
         {
             InitializeComponent();
             DesactivarMenuContextual();
+            ImprimirButton.Enabled = false;
 
         }
        
@@ -73,6 +74,7 @@ namespace TeacherControl2016.Consultas
                     if (curso.Buscar(id))
                     {
                         Mostrar();
+                        ImprimirButton.Enabled = true;
                     }
                     else
                     {
@@ -84,6 +86,7 @@ namespace TeacherControl2016.Consultas
                 else
                 {
                     Mostrar();
+                    ImprimirButton.Enabled = true;
                 }
             }
             catch (Exception ex)

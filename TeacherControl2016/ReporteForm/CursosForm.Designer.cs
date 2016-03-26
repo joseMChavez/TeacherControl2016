@@ -59,7 +59,7 @@
             this.CursosreportViewer.LocalReport.ReportEmbeddedResource = "TeacherControl2016.Reportes.CursosReport.rdlc";
             this.CursosreportViewer.Location = new System.Drawing.Point(0, 0);
             this.CursosreportViewer.Name = "CursosreportViewer";
-            this.CursosreportViewer.Size = new System.Drawing.Size(496, 316);
+            this.CursosreportViewer.Size = new System.Drawing.Size(647, 316);
             this.CursosreportViewer.TabIndex = 0;
             // 
             // cursoBindingSource
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 316);
+            this.ClientSize = new System.Drawing.Size(647, 316);
             this.Controls.Add(this.CursosreportViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CursosReportes";
