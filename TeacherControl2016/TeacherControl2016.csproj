@@ -196,6 +196,12 @@
     <Compile Include="ReporteForm\ReporteUsuarios.Designer.cs">
       <DependentUpon>ReporteUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteForm\ReportViewGenerico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteForm\ReportViewGenerico.Designer.cs">
+      <DependentUpon>ReportViewGenerico.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherControlDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteForm\ReporteUsuarios.resx">
       <DependentUpon>ReporteUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteForm\ReportViewGenerico.resx">
+      <DependentUpon>ReportViewGenerico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
     <EmbeddedResource Include="Reportes\EstudiantesReport.rdlc" />
