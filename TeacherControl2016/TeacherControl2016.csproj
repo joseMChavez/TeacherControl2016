@@ -108,6 +108,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetEstudianteCurso.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EstudiantesDataSet.cs">
+      <DependentUpon>EstudiantesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EstudiantesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,23 +172,29 @@
     <Compile Include="Registros\UsuariosForm.Designer.cs">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportCursoXEst.cs">
+    <Compile Include="ReporteForm\CursosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportCursoXEst.Designer.cs">
-      <DependentUpon>ReportCursoXEst.cs</DependentUpon>
+    <Compile Include="ReporteForm\CursosForm.Designer.cs">
+      <DependentUpon>CursosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteUsuarios.cs">
+    <Compile Include="ReporteForm\EstudianteCursoReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteUsuarios.Designer.cs">
+    <Compile Include="ReporteForm\EstudianteCursoReporte.Designer.cs">
+      <DependentUpon>EstudianteCursoReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteForm\EstudiantesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteForm\EstudiantesReport.Designer.cs">
+      <DependentUpon>EstudiantesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteForm\ReporteUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteForm\ReporteUsuarios.Designer.cs">
       <DependentUpon>ReporteUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReportViewCursos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportViewCursos.Designer.cs">
-      <DependentUpon>ReportViewCursos.cs</DependentUpon>
     </Compile>
     <Compile Include="TeacherControlDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -202,10 +211,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TeacherControlDbDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TeacherControlDbDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherControlDbDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TeacherControlDbDataSetCursos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TeacherControlDbDataSetCursos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherControlDbDataSetEstudianteCursoss.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherControlDbDataSetEstudianteCursoss.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherControlDbDataSetGenerico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherControlDbDataSetGenerico.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherControlDbEtudiantesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherControlDbEtudiantesDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Consultas\ConsultaCategoriaCalificaiones.resx">
       <DependentUpon>ConsultaCategoriaCalificaiones.cs</DependentUpon>
@@ -262,19 +291,22 @@
     <EmbeddedResource Include="Registros\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportCursoXEst.resx">
-      <DependentUpon>ReportCursoXEst.cs</DependentUpon>
+    <EmbeddedResource Include="ReporteForm\CursosForm.resx">
+      <DependentUpon>CursosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
-    <EmbeddedResource Include="Reportes\ReportEstudianteCurso.rdlc" />
-    <EmbeddedResource Include="Reportes\ReportEstudiantes.rdlc" />
-    <EmbeddedResource Include="Reportes\UsuarioReport.rdlc" />
-    <EmbeddedResource Include="ReporteUsuarios.resx">
+    <EmbeddedResource Include="ReporteForm\EstudianteCursoReporte.resx">
+      <DependentUpon>EstudianteCursoReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteForm\EstudiantesReport.resx">
+      <DependentUpon>EstudiantesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteForm\ReporteUsuarios.resx">
       <DependentUpon>ReporteUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportViewCursos.resx">
-      <DependentUpon>ReportViewCursos.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
+    <EmbeddedResource Include="Reportes\EstudiantesReport.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportEstudianteCurso.rdlc" />
+    <EmbeddedResource Include="Reportes\UsuarioReport.rdlc" />
     <None Include="DataSetEstudianteCurso.xsc">
       <DependentUpon>DataSetEstudianteCurso.xsd</DependentUpon>
     </None>
@@ -346,6 +378,17 @@
     <None Include="TeacherControlDbDataSet2.xss">
       <DependentUpon>TeacherControlDbDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="TeacherControlDbDataSet3.xsc">
+      <DependentUpon>TeacherControlDbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherControlDbDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TeacherControlDbDataSet3.xss">
+      <DependentUpon>TeacherControlDbDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="TeacherControlDbDataSetCursos.xsc">
       <DependentUpon>TeacherControlDbDataSetCursos.xsd</DependentUpon>
     </None>
@@ -356,6 +399,39 @@
     </None>
     <None Include="TeacherControlDbDataSetCursos.xss">
       <DependentUpon>TeacherControlDbDataSetCursos.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSetEstudianteCursoss.xsc">
+      <DependentUpon>TeacherControlDbDataSetEstudianteCursoss.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSetEstudianteCursoss.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherControlDbDataSetEstudianteCursoss.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TeacherControlDbDataSetEstudianteCursoss.xss">
+      <DependentUpon>TeacherControlDbDataSetEstudianteCursoss.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSetGenerico.xsc">
+      <DependentUpon>TeacherControlDbDataSetGenerico.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbDataSetGenerico.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherControlDbDataSetGenerico.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TeacherControlDbDataSetGenerico.xss">
+      <DependentUpon>TeacherControlDbDataSetGenerico.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbEtudiantesDataSet.xsc">
+      <DependentUpon>TeacherControlDbEtudiantesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherControlDbEtudiantesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherControlDbEtudiantesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TeacherControlDbEtudiantesDataSet.xss">
+      <DependentUpon>TeacherControlDbEtudiantesDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

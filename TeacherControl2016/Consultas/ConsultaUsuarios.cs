@@ -111,7 +111,7 @@ namespace TeacherControl2016.Consultas
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-            ReporteUsuarios usuarioR = new ReporteUsuarios();
+            ReporteForm.ReporteUsuarios usuarioR = new ReporteForm.ReporteUsuarios();
             //DataTable dt = new DataTable();
 
             //dt = (DataTable)UsuariosDataGridView.DataSource;

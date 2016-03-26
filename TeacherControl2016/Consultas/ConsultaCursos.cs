@@ -105,11 +105,8 @@ namespace TeacherControl2016.Consultas
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-            ReportViewCursos reporte = new ReportViewCursos();
-            //TeacherControlDbDataSetCursos curso = new TeacherControlDbDataSetCursos();
-            //curso = (TeacherControlDbDataSetCursos)CursoEstDataGridView.DataSource;
+            ReporteForm.CursosReportes reporte = new ReporteForm.CursosReportes();
            
-
             reporte.ShowDialog();
         }
     }

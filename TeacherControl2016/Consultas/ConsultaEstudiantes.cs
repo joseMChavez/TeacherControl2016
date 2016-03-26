@@ -87,9 +87,9 @@ namespace TeacherControl2016.Consultas
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-            //ReportViewerEstudiante reporte = new ReportViewerEstudiante();
-          
-            //reporte.ShowDialog();
+            ReporteForm.EstudiantesReport reporte = new ReporteForm.EstudiantesReport();
+
+            reporte.ShowDialog();
 
         }
     }
