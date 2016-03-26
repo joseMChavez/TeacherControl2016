@@ -35,6 +35,7 @@
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.BuscartextBox = new System.Windows.Forms.TextBox();
             this.CursoEstDataGridView = new System.Windows.Forms.DataGridView();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CursoEstDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +106,24 @@
             this.CursoEstDataGridView.Size = new System.Drawing.Size(574, 295);
             this.CursoEstDataGridView.TabIndex = 24;
             // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.FlatAppearance.BorderSize = 0;
+            this.ImprimirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
+            this.ImprimirButton.Location = new System.Drawing.Point(511, 366);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(87, 55);
+            this.ImprimirButton.TabIndex = 32;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
+            // 
             // BuscarButton
             // 
             this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
@@ -130,7 +149,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(622, 392);
+            this.ClientSize = new System.Drawing.Size(622, 433);
+            this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.FiltrocomboBox);
             this.Controls.Add(this.Filtrolabel);
             this.Controls.Add(this.Totallabel);
@@ -159,5 +179,6 @@
         private System.Windows.Forms.TextBox BuscartextBox;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.DataGridView CursoEstDataGridView;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }

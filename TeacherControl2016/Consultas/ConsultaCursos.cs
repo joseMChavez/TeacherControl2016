@@ -16,6 +16,7 @@ namespace TeacherControl2016.Consultas
         {
             InitializeComponent();
             DesactivarMenuContextual();
+            ImprimirButton.Enabled = false;
 
         }
         private void DesactivarMenuContextual()
@@ -79,6 +80,7 @@ namespace TeacherControl2016.Consultas
                     if (curso.Buscar(id))
                     {
                         Mostrar(curso);
+                        ImprimirButton.Enabled = true;
                     }
                     else
                     {
@@ -90,6 +92,7 @@ namespace TeacherControl2016.Consultas
                 else
                 {
                     Mostrar(curso);
+                    ImprimirButton.Enabled = true;
                 }
 
             }
@@ -100,5 +103,14 @@ namespace TeacherControl2016.Consultas
 
         }
 
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            ReportViewCursos reporte = new ReportViewCursos();
+            //TeacherControlDbDataSetCursos curso = new TeacherControlDbDataSetCursos();
+            //curso = (TeacherControlDbDataSetCursos)CursoEstDataGridView.DataSource;
+           
+
+            reporte.ShowDialog();
         }
+    }
 }

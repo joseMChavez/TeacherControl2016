@@ -55,7 +55,7 @@ namespace TeacherControl2016.Consultas
                 filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
             }
 
-            CursoEstDataGridView.DataSource = curso.Listado("Id,Matricula,Nombre as Nombres,Apellidos", filtro, "");
+            CursoEstDataGridView.DataSource = curso.Listado("Id,Matricula,Nombre as Nombres,Apellidos,Curso,Grupo", filtro, "");
 
             TotaltextBox.Text = CursoEstDataGridView.RowCount.ToString();
 
@@ -93,6 +93,19 @@ namespace TeacherControl2016.Consultas
             }
         }
 
-        
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            ReportCursoXEst reporte = new ReportCursoXEst();
+            //DataTable dt = new DataTable();
+
+            //dt = (DataTable)CursoEstDataGridView.DataSource;
+            //dt.TableName = "CursosDetalle";
+
+            //reporte.reporte = "C:\\Users\\jose\\Source\\Repos\\TeacherControl2016\\TeacherControl2016\\Reportes\\CursoXestudiantesReport.rdlc";
+            //reporte.data = dt;
+
+            reporte.ShowDialog();
+
+        }
     }
 }

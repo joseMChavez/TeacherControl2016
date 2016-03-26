@@ -117,7 +117,7 @@
             this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
             this.ImprimirButton.Location = new System.Drawing.Point(637, 374);
             this.ImprimirButton.Name = "ImprimirButton";
@@ -126,6 +126,7 @@
             this.ImprimirButton.Text = "Imprimir";
             this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
             // BuscarButton
             // 

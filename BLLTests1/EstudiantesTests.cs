@@ -25,7 +25,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.CursoId = 1;
+            estudiante.CursoId = "";
             estudiante.Grupo = "B";
             estudiante.NombrePadre = "Juan";
             estudiante.TelefonoPadre = "809-844-2216";
@@ -48,7 +48,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.CursoId = 1;
+            estudiante.CursoId = "";
             estudiante.Grupo = "B";
             estudiante.NombrePadre = "Juan";
             estudiante.TelefonoPadre = "809-844-2216";
@@ -71,7 +71,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.CursoId = 1;
+            estudiante.CursoId = "";
             estudiante.Grupo = "B";
             estudiante.NombrePadre = "Juan";
             estudiante.TelefonoPadre = "809-844-2216";

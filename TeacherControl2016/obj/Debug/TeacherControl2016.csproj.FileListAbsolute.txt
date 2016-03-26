@@ -30,3 +30,6 @@ C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\Teach
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.AsistenciasForm.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Registros.CalificacionesForm.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Login.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.ReportViewCursos.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.ReporteUsuarios.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.ReportCursoXEst.resources

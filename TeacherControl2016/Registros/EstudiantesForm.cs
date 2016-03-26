@@ -68,9 +68,8 @@ namespace TeacherControl2016.Registros
             estudiante.Celular = TelefonoMaskedTextBox.Text;
             estudiante.Email = EmailtextBox.Text;
             estudiante.Direccion = DirecciontextBox.Text;
-
-            int cursoId = Utility.ConvierteEntero(CursocomboBox.SelectedValue.ToString());
-            estudiante.CursoId = cursoId;
+            
+            estudiante.CursoId = CursocomboBox.Text;
             estudiante.Grupo = GrupocomboBox.Text;
             estudiante.NombrePadre = NombrePadretextBox.Text;
             estudiante.TelefonoPadre = TelefonoPmaskedTextBox.Text;
@@ -95,7 +94,7 @@ namespace TeacherControl2016.Registros
             TelefonoMaskedTextBox.Text = estudiante.Celular;
             EmailtextBox.Text = estudiante.Email;
             DirecciontextBox.Text = estudiante.Direccion;
-            CursocomboBox.Text = estudiante.CursoId.ToString();
+            CursocomboBox.Text = estudiante.CursoId;
             GrupocomboBox.Text = estudiante.Grupo;
             NombrePadretextBox.Text = estudiante.NombrePadre;
             TelefonoPmaskedTextBox.Text = estudiante.TelefonoPadre;

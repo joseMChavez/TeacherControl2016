@@ -17,6 +17,7 @@ namespace TeacherControl2016.Consultas
         {
             InitializeComponent();
             DesactivarMenuContextual();
+            ImprimirButton.Enabled = false;
         }
         private void DesactivarMenuContextual()
         {
@@ -87,6 +88,7 @@ namespace TeacherControl2016.Consultas
                     if (usuario.Buscar(id))
                     {
                         Mostrar(usuario);
+                        ImprimirButton.Enabled = true;
                     }
                     else
                     {
@@ -98,6 +100,7 @@ namespace TeacherControl2016.Consultas
                 else
                 {
                     Mostrar(usuario);
+                    ImprimirButton.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -106,6 +109,18 @@ namespace TeacherControl2016.Consultas
             }
         }
 
-        
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            ReporteUsuarios usuarioR = new ReporteUsuarios();
+            //DataTable dt = new DataTable();
+
+            //dt = (DataTable)UsuariosDataGridView.DataSource;
+            //dt.TableName = "Usuario";
+           
+            //usuarioR.reporte = @"C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\Consultas\ReportUsuarios.rdlc";
+            //usuarioR.data = dt;
+
+            usuarioR.ShowDialog();
+        }
     }
 }

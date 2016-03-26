@@ -17,6 +17,7 @@ namespace TeacherControl2016.Consultas
         {
             InitializeComponent();
             DesactivarMenuContextual();
+            ImprimirButton.Enabled = false;
         }
         private void DesactivarMenuContextual()
         {
@@ -61,12 +62,14 @@ namespace TeacherControl2016.Consultas
         {
             int id = 0;
             Estudiantes estudiante = new Estudiantes();
+            
             if (FiltrocomboBox.SelectedIndex== 0)
             {
                 id = Utility.ConvierteEntero(BuscartextBox.Text);
                 if (estudiante.Buscar(id))
                 {
                     Mostrar(estudiante);
+                    ImprimirButton.Enabled =true;
                 }
                 else
                 {
@@ -78,9 +81,16 @@ namespace TeacherControl2016.Consultas
             else
             {
                 Mostrar(estudiante);
+                ImprimirButton.Enabled = true;
             }
         }
 
-      
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            //ReportViewerEstudiante reporte = new ReportViewerEstudiante();
+          
+            //reporte.ShowDialog();
+
+        }
     }
 }
