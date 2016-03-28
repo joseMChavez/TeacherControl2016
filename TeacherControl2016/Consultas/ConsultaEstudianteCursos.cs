@@ -98,14 +98,14 @@ namespace TeacherControl2016.Consultas
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-            ReporteForm.EstudianteCursoReporte reporte = new ReporteForm.EstudianteCursoReporte();
-            //DataTable dt = new DataTable();
+            ReporteForm.ReportViewGenerico reporte = new ReporteForm.ReportViewGenerico();
+            DataTable dt = new DataTable();
 
-            //dt = (DataTable)CursoEstDataGridView.DataSource;
-            //dt.TableName = "CursosDetalle";
+            dt = (DataTable)CursoEstDataGridView.DataSource;
+            dt.TableName = "CursosDetalle";
 
-            //reporte.reporte = "C:\\Users\\jose\\Source\\Repos\\TeacherControl2016\\TeacherControl2016\\Reportes\\CursoXestudiantesReport.rdlc";
-            //reporte.data = dt;
+            reporte.reporte = "CursosDetalleReport.rdlc";
+            reporte.data = dt;
 
            reporte.ShowDialog();
 

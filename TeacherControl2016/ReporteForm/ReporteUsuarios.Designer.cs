@@ -32,11 +32,11 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.UsuarioreportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.teacherControlDbDataSetGenericoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherControlDbDataSetGenerico = new TeacherControl2016.TeacherControlDbDataSetGenerico();
+            //this.teacherControlDbDataSetGenerico = new TeacherControl2016.TeacherControlDbDataSetGenerico();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuarioTableAdapter = new TeacherControl2016.TeacherControlDbDataSetGenericoTableAdapters.UsuarioTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).BeginInit();
+            //this.usuarioTableAdapter = new TeacherControl2016.TeacherControlDbDataSetGenericoTableAdapters.UsuarioTableAdapter();
+            //((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).BeginInit();
+            //ok((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,13 +54,13 @@
             // 
             // teacherControlDbDataSetGenericoBindingSource
             // 
-            this.teacherControlDbDataSetGenericoBindingSource.DataSource = this.teacherControlDbDataSetGenerico;
+            //////this.teacherControlDbDataSetGenericoBindingSource.DataSource = this.teacherControlDbDataSetGenerico;
             this.teacherControlDbDataSetGenericoBindingSource.Position = 0;
             // 
             // teacherControlDbDataSetGenerico
             // 
-            this.teacherControlDbDataSetGenerico.DataSetName = "TeacherControlDbDataSetGenerico";
-            this.teacherControlDbDataSetGenerico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.teacherControlDbDataSetGenerico.DataSetName = "TeacherControlDbDataSetGenerico";
+            //this.teacherControlDbDataSetGenerico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usuarioBindingSource
             // 
@@ -69,7 +69,7 @@
             // 
             // usuarioTableAdapter
             // 
-            this.usuarioTableAdapter.ClearBeforeFill = true;
+            //this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
             // ReporteUsuarios
             // 
@@ -83,7 +83,7 @@
             this.Text = "Reporte de Usuarios";
             this.Load += new System.EventHandler(this.ReporteUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -93,8 +93,8 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer UsuarioreportViewer;
         private System.Windows.Forms.BindingSource teacherControlDbDataSetGenericoBindingSource;
-        private TeacherControlDbDataSetGenerico teacherControlDbDataSetGenerico;
+        //private TeacherControlDbDataSetGenerico teacherControlDbDataSetGenerico;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
-        private TeacherControlDbDataSetGenericoTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        //private TeacherControlDbDataSetGenericoTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
     }
 }

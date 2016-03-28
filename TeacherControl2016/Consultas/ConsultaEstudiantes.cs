@@ -49,7 +49,11 @@ namespace TeacherControl2016.Consultas
         {
             string filtro = "1=1";
 
-            if (BuscartextBox.Text.Length > 0)
+            if (FiltrocomboBox.SelectedIndex==0)
+            {
+                filtro = "Estudiante"+FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+            }
+            else
             {
                 filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
             }
@@ -87,8 +91,16 @@ namespace TeacherControl2016.Consultas
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-            ReporteForm.EstudiantesReport reporte = new ReporteForm.EstudiantesReport();
+            ReporteForm.ReportViewGenerico reporte = new ReporteForm.ReportViewGenerico();
+            DataTable dt = new DataTable();
 
+            dt = (DataTable)EstudianteDataGridView.DataSource;
+            dt.TableName = "Estudiante";
+
+            reporte.reporte = "EstudianteReport.rdlc";
+            reporte.data = dt;
+
+            reporte.ShowDialog();
             reporte.ShowDialog();
 
         }

@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewerEstudiantes = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.teacherControlDbDataSetGenerico = new TeacherControl2016.TeacherControlDbDataSetGenerico();
+            //this.teacherControlDbDataSetGenerico = new TeacherControl2016.TeacherControlDbDataSetGenerico();
             this.teacherControlDbDataSetGenericoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.estudianteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estudianteTableAdapter = new TeacherControl2016.TeacherControlDbDataSetGenericoTableAdapters.EstudianteTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).BeginInit();
+            //this.estudianteTableAdapter = new TeacherControl2016.TeacherControlDbDataSetGenericoTableAdapters.EstudianteTableAdapter();
+            //((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -54,12 +54,12 @@
             // 
             // teacherControlDbDataSetGenerico
             // 
-            this.teacherControlDbDataSetGenerico.DataSetName = "TeacherControlDbDataSetGenerico";
-            this.teacherControlDbDataSetGenerico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.teacherControlDbDataSetGenerico.DataSetName = "TeacherControlDbDataSetGenerico";
+            //this.teacherControlDbDataSetGenerico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // teacherControlDbDataSetGenericoBindingSource
             // 
-            this.teacherControlDbDataSetGenericoBindingSource.DataSource = this.teacherControlDbDataSetGenerico;
+            //this.teacherControlDbDataSetGenericoBindingSource.DataSource = this.teacherControlDbDataSetGenerico;
             this.teacherControlDbDataSetGenericoBindingSource.Position = 0;
             // 
             // estudianteBindingSource
@@ -69,7 +69,7 @@
             // 
             // estudianteTableAdapter
             // 
-            this.estudianteTableAdapter.ClearBeforeFill = true;
+            //this.estudianteTableAdapter.ClearBeforeFill = true;
             // 
             // EstudiantesReport
             // 
@@ -82,7 +82,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Estudiantes";
             this.Load += new System.EventHandler(this.EstudiantesReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -93,8 +93,8 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewerEstudiantes;
         private System.Windows.Forms.BindingSource teacherControlDbDataSetGenericoBindingSource;
-        private TeacherControlDbDataSetGenerico teacherControlDbDataSetGenerico;
+        //private TeacherControlDbDataSetGenerico teacherControlDbDataSetGenerico;
         private System.Windows.Forms.BindingSource estudianteBindingSource;
-        private TeacherControlDbDataSetGenericoTableAdapters.EstudianteTableAdapter estudianteTableAdapter;
+        ////private TeacherControlDbDataSetGenericoTableAdapters.EstudianteTableAdapter estudianteTableAdapter;
     }
 }

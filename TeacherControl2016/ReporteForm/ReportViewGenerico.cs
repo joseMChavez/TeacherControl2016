@@ -26,7 +26,8 @@ namespace TeacherControl2016.ReporteForm
             this.reportViewerGenerico.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
 
             this.reportViewerGenerico.LocalReport.ReportPath = this.reporte;
-
+            
+            
             ReportDataSource source = new ReportDataSource(this.data.TableName, this.data);
 
             this.reportViewerGenerico.LocalReport.DataSources.Add(source);

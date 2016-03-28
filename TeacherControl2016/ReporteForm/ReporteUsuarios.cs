@@ -20,7 +20,7 @@ namespace TeacherControl2016.ReporteForm
         private void ReporteUsuarios_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'teacherControlDbDataSetGenerico.Usuario' table. You can move, or remove it, as needed.
-            this.usuarioTableAdapter.Fill(this.teacherControlDbDataSetGenerico.Usuario);
+            //this.usuarioTableAdapter.Fill(this.teacherControlDbDataSetGenerico.Usuario);
 
             this.UsuarioreportViewer.RefreshReport();
         }
