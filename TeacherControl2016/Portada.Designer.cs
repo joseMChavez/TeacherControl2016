@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Portada));
             this.TeacherControlmenuStrip = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,7 @@
             this.AsistenciatoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalificacionestoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.TeacherControlmenuStrip.SuspendLayout();
             this.TControlstatusStrip.SuspendLayout();
             this.TeacherControltoolStrip.SuspendLayout();
@@ -92,6 +93,13 @@
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.archivoToolStripMenuItem.Text = "&Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.salirToolStripMenuItem.Text = "&Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // registrosToolStripMenuItem
             // 
@@ -170,7 +178,8 @@
             this.estudiantesToolStripMenuItem1,
             this.cursosToolStripMenuItem1,
             this.materiasToolStripMenuItem1,
-            this.categoriaDeCalificacionesToolStripMenuItem1});
+            this.categoriaDeCalificacionesToolStripMenuItem1,
+            this.asistenciasToolStripMenuItem1});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "&Consultas";
@@ -375,12 +384,13 @@
             this.CalificacionestoolStripButton.Text = "Registro de Calificaiones";
             this.CalificacionestoolStripButton.Click += new System.EventHandler(this.CalificacionestoolStripButton_Click);
             // 
-            // salirToolStripMenuItem
+            // asistenciasToolStripMenuItem1
             // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.salirToolStripMenuItem.Text = "&Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            this.asistenciasToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1458036564_attendance_list;
+            this.asistenciasToolStripMenuItem1.Name = "asistenciasToolStripMenuItem1";
+            this.asistenciasToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
+            this.asistenciasToolStripMenuItem1.Text = "&Asistencias";
+            this.asistenciasToolStripMenuItem1.Click += new System.EventHandler(this.asistenciasToolStripMenuItem1_Click);
             // 
             // Portada
             // 
@@ -447,5 +457,6 @@
         private System.Windows.Forms.ToolStripMenuItem calificacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton CalificacionestoolStripButton;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asistenciasToolStripMenuItem1;
     }
 }

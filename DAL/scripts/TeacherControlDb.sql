@@ -54,7 +54,7 @@ create table Materias(
 go
 create table Asistencias(
        AsistenciaId int identity(1,1),
-	   CursoId  int foreign key references Curso(CursoId),
+	   CursoId  int,
 	   Cursogrupo varchar(5),
 	   Fecha varchar(15),
 	   primary key(AsistenciaId)

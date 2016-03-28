@@ -79,6 +79,12 @@
     <Compile Include="Consultas\ConsultaCursos.Designer.cs">
       <DependentUpon>ConsultaCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaAsistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaAsistencias.Designer.cs">
+      <DependentUpon>ConsultaAsistencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaEstudianteCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaCursos.resx">
       <DependentUpon>ConsultaCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaAsistencias.resx">
+      <DependentUpon>ConsultaAsistencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaEstudianteCursos.resx">
       <DependentUpon>ConsultaEstudianteCursos.cs</DependentUpon>

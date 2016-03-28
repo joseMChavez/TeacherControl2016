@@ -119,6 +119,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             DataTable detalle = new DataTable();
+            CalificacionesDetalle calificaionDetalle = new CalificacionesDetalle();
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificacionId={0}",IdBuscado));
@@ -134,6 +135,8 @@ namespace BLL
                     detalle.Clear();
                     foreach (DataRow row in detalle.Rows)
                     {
+                        calificaionDetalle.Descripcion = row["Descripcion"].ToString();
+                        calificaionDetalle.Puntuacion = (float)Convert.ToDecimal(row["Puntuacion"].ToString());
                         AgregarCalificaiones(row["Descripcion"].ToString(), (float)Convert.ToDecimal(row["Puntuacion"].ToString()));
                     }
                 }

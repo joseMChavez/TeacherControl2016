@@ -12,7 +12,7 @@ namespace BLL
     {
         
         public int AsistenciaId { get; set; }
-        public int CursoId { get; set; }
+        public string CursoId { get; set; }
         public string EstudianteId { get; set; }
         public string CursoGrupo { get; set; }
         public string Activo { get; set; }
@@ -22,14 +22,14 @@ namespace BLL
         public Asistencia()
         {
             this.AsistenciaId = 0;
-            this.CursoId = 0;
+            this.CursoId = "";
             this.EstudianteId = "";
             this.CursoGrupo = "";
             this.Activo = "";
             this.Fecha = "";
             aDetalle = new List<AsistenciaDetalle>();
         }
-        public Asistencia(int Id, int CursoId, string EstudianteId,string CursoGrupo, string Activo, string Fecha)
+        public Asistencia(int Id,string CursoId, string EstudianteId,string CursoGrupo, string Activo, string Fecha)
         {
             this.AsistenciaId = Id;
             this.CursoId = CursoId;
@@ -51,7 +51,7 @@ namespace BLL
             int retorno = 0;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,CursoGrupo,Fecha) values({0},'{1}','{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(Curso,CursoGrupo,Fecha) values('{0}','{1}','{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
                 retorno = Utility.ConvierteEntero(identity.ToString());
                 this.AsistenciaId = retorno;
                 if (retorno>0)
@@ -76,7 +76,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId={0}, CursoGrupo='{1}', Fecha='{2}' where AsistenciaId={3}", this.CursoId, this.CursoGrupo, this.Fecha,this.AsistenciaId));
+                retorno = conexion.Ejecutar(string.Format("update Asistencias set Curso='{0}', CursoGrupo='{1}', Fecha='{2}' where AsistenciaId={3}", this.CursoId, this.CursoGrupo, this.Fecha,this.AsistenciaId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
@@ -122,7 +122,7 @@ namespace BLL
                 dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId={0}", IdBuscado));
                 if (dt.Rows.Count> 0)
                 {
-                    CursoId = (int)dt.Rows[0]["cursoId"];
+                    CursoId = dt.Rows[0]["Curso"].ToString();
                     CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
                     detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
                     detalle.Clear();
@@ -144,7 +144,18 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
-        
+        public DataTable ListadoUnido(string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+            {
+                ordenFinal = "order by " + Orden;
+            }
+            return dt = conexion.ObtenerDatos(string.Format("select A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
+
+        }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();

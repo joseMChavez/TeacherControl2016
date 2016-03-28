@@ -147,5 +147,12 @@ namespace TeacherControl2016
         { 
             Application.Exit();
         }
+
+        private void asistenciasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaAsistencias asistencia = new Consultas.ConsultaAsistencias();
+
+            asistencia.Show();
+        }
     }
 }

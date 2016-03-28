@@ -11,13 +11,12 @@ using BLL;
 
 namespace TeacherControl2016.Consultas
 {
-    public partial class ConsultaEstudiantes : Form
+    public partial class ConsultaAsistencias : Form
     {
-        public ConsultaEstudiantes()
+        public ConsultaAsistencias()
         {
             InitializeComponent();
             DesactivarMenuContextual();
-            ImprimirButton.Enabled = false;
         }
         private void DesactivarMenuContextual()
         {
@@ -28,9 +27,10 @@ namespace TeacherControl2016.Consultas
                 control.ContextMenu = blankContextMenu;
             }
         }
+
         private void BuscartextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (FiltrocomboBox.SelectedIndex <= 1)
+            if (FiltrocomboBox.SelectedIndex==0)
             {
                 Utility.TextBoxNuemericos(e);
                 BuscartextBox.MaxLength = 5;
@@ -41,16 +41,23 @@ namespace TeacherControl2016.Consultas
                 BuscartextBox.MaxLength = 45;
             }
         }
+
         private void FiltrocomboBox_TextChanged(object sender, EventArgs e)
         {
             BuscartextBox.ReadOnly = false;
         }
-        private void Mostrar(Estudiantes estudiante)
+        private void Mostrar(Asistencia asistencia)
         {
+            
             string filtro = "1=1";
+
             if (BuscartextBox.Text.Length > 0)
             {
                 if (FiltrocomboBox.SelectedIndex == 0)
+                {
+                    filtro = "Asistencia" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                }
+                else if (FiltrocomboBox.SelectedIndex == 1)
                 {
                     filtro = "Estudiante" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
                 }
@@ -58,54 +65,37 @@ namespace TeacherControl2016.Consultas
                 {
                     filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
                 }
+
             }
-           
 
-            EstudianteDataGridView.DataSource = estudiante.Listado("EstudianteId as Id,Matricula,Nombre as Nombres ,Apellido as Apellidos,Genero as Sexo,FechaNacimiento as Fecha_de_Nacimiento,Edad,Celular,Email,Direccion As Direcciòn,NombrePadre as Padre,TelefonoPadre as Telefono", filtro, "");
+            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "AsitenciaId");
 
-            TotaltextBox.Text = EstudianteDataGridView.RowCount.ToString();
+            TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            Asistencia asistencia = new Asistencia();
             int id = 0;
-            Estudiantes estudiante = new Estudiantes();
-            
-            if (FiltrocomboBox.SelectedIndex== 0)
+            if (FiltrocomboBox.SelectedIndex==0 && !BuscartextBox.Text.Equals(""))
             {
                 id = Utility.ConvierteEntero(BuscartextBox.Text);
-                if (estudiante.Buscar(id))
+                if (asistencia.Buscar(id))
                 {
-                    Mostrar(estudiante);
-                    ImprimirButton.Enabled =true;
+                    Mostrar(asistencia);
+                    ImprimirButton.Enabled = true;
                 }
                 else
                 {
-                    Utility.Mensajes(3, "Id no Encontrado!");
+                    Utility.Mensajes(3, "Id No Encontrado!");
                     BuscartextBox.Clear();
                     BuscartextBox.Focus();
                 }
             }
             else
             {
-                Mostrar(estudiante);
+                Mostrar(asistencia);
                 ImprimirButton.Enabled = true;
             }
-        }
-
-        private void ImprimirButton_Click(object sender, EventArgs e)
-        {
-            ReporteForm.ReportViewGenerico reporte = new ReporteForm.ReportViewGenerico();
-            DataTable dt = new DataTable();
-
-            dt = (DataTable)EstudianteDataGridView.DataSource;
-            dt.TableName = "Estudiante";
-
-            reporte.reporte = "EstudianteReport.rdlc";
-            reporte.data = dt;
-
-            reporte.ShowDialog();
-            reporte.ShowDialog();
-
         }
     }
 }
