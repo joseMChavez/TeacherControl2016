@@ -68,7 +68,7 @@ namespace TeacherControl2016.Consultas
 
             }
 
-            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "AsitenciaId");
+            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "Id");
 
             TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }

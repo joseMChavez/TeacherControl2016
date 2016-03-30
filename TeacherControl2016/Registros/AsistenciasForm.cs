@@ -77,10 +77,13 @@ namespace TeacherControl2016.Registros
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
             asistencia.Fecha = FechadateTimePicker.Text;
-            int cursoId = Utility.ConvierteEntero(CursoComboBox.SelectedValue.ToString());
-            asistencia.CursoId = cursoId;
+
+            asistencia.CursoId = CursoComboBox.Text; 
             asistencia.CursoGrupo = GrupocomboBox.Text;
-            
+            foreach (DataGridViewRow row in AsistenciadataGridView.Rows)
+            {
+                asistencia.AgregarAsistencia(row.Cells["Estudiante"].Value.ToString(), row.Cells["Estado"].Value.ToString());
+            }
 
         }
         private void ObtenerDatos()
@@ -181,10 +184,10 @@ namespace TeacherControl2016.Registros
             try
             {
                 
-                Utility.Validar(EstacomboBox, AsistenciaerrorProvider, "Digite el Estado del Estudiante!");
+                Utility.Validar(EstacomboBox, AsistenciaerrorProvider, "Seleccione el Estado del Estudiante!");
                 if (!EstacomboBox.Text.Equals(""))
                 {
-                    asistencia.AgregarAsistencia(EstudiantecomboBox.Text, EstacomboBox.Text);
+                   
                     AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text, EstacomboBox.Text);
                     
                 }
@@ -203,7 +206,7 @@ namespace TeacherControl2016.Registros
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-          
+            EliminarButton.Enabled = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)

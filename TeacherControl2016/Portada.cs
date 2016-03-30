@@ -144,8 +144,14 @@ namespace TeacherControl2016
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
-            Application.Exit();
+        {
+            DialogResult resul;
+            resul = MessageBox.Show("¿Esta Seguro que Desea Salir?", "Teacher Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resul == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void asistenciasToolStripMenuItem1_Click(object sender, EventArgs e)

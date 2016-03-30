@@ -54,13 +54,12 @@ namespace BLL
                 identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(Curso,CursoGrupo,Fecha) values('{0}','{1}','{2}') select @@Identity", this.CursoId,this.CursoGrupo,this.Fecha));
                 retorno = Utility.ConvierteEntero(identity.ToString());
                 this.AsistenciaId = retorno;
-                if (retorno>0)
-                {
+              
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
                         conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", retorno, this.EstudianteId, this.Activo));
                     }
-                }
+                
             }
             catch (Exception ex)
             {
@@ -117,6 +116,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             DataTable detalle = new DataTable();
+            AsistenciaDetalle detalleAs = new AsistenciaDetalle();
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId={0}", IdBuscado));
@@ -124,15 +124,15 @@ namespace BLL
                 {
                     CursoId = dt.Rows[0]["Curso"].ToString();
                     CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
-                    detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
+                    detalle = conexion.ObtenerDatos(string.Format("Select EstudianteId,Activo from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
                     detalle.Clear();
-                    if (detalle.Rows.Count > 0)
+                    if (dt.Rows.Count > 0)
                     {
                         foreach (DataRow row in detalle.Rows)
                         {
-                            this.EstudianteId = row["EstudianteId"].ToString();
-                            this.Activo = row["Activo"].ToString();
-                            AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
+                            detalleAs.EstudianteId = row["EstudianteId"].ToString();
+                            detalleAs.Activo = row["Activo"].ToString();
+                            AgregarAsistencia(detalleAs.Activo, detalleAs.EstudianteId);
                         }
                     }
                     
@@ -153,7 +153,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
 
         }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
