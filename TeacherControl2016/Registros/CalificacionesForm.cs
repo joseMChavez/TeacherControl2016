@@ -60,9 +60,12 @@ namespace TeacherControl2016.Registros
             
             int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
             calificaciones.CalificacionId = id;
-            calificaciones.Fecha = FechadateTimePicker.Text;
+            calificaciones.Fecha = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             calificaciones.Curso = CursoComboBox.Text;
             calificaciones.CursoGrupo = GrupocomboBox.Text;
+            float promedio = 0;
+            float.TryParse(PromediotextBox.Text, out promedio);
+            calificaciones.Promedio = promedio;
             calificaciones.Materia = MateriacomboBox.Text;
             float total = 0;
             float.TryParse(TotaltextBox.Text, out total);
@@ -76,6 +79,7 @@ namespace TeacherControl2016.Registros
             GrupocomboBox.Text = calificaciones.CursoGrupo;
             MateriacomboBox.Text = calificaciones.Materia;
             EstudiantecomboBox.Text = calificaciones.Estudiante;
+            PromediotextBox.Text = calificaciones.Promedio.ToString();
             TotaltextBox.Text = calificaciones.TotalPuntos.ToString();
             foreach (var item in calificaciones.CalificaionesD)
             {
@@ -204,8 +208,8 @@ namespace TeacherControl2016.Registros
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            float puntos = 0;
-            float total = 0;
+            float puntos = 0,total = 0, promedio=0;
+
             float.TryParse(PuntostextBox.Text, out puntos);
             try
             {
@@ -220,12 +224,16 @@ namespace TeacherControl2016.Registros
                     foreach ( DataGridViewRow  row in CalificacionesDataGridView.Rows)
                     {
                         total += puntos;
+
                     }
+                    promedio = total / CalificacionesDataGridView.RowCount;
                     PuntostextBox.Clear();
                     PuntostextBox.Focus();
 
                 }
+
                 TotaltextBox.Text = total.ToString();
+                PromediotextBox.Text = promedio.ToString();
             }
             catch (Exception ex)
             {

@@ -32,6 +32,7 @@
             this.TeacherControlmenuStrip = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,10 +48,15 @@
             this.cursosPorEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materiasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaDeCalificacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.evaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TControlstatusStrip = new System.Windows.Forms.StatusStrip();
             this.TControltoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UsuariosSLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UsuariotSSLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.TeacherControltoolStrip = new System.Windows.Forms.ToolStrip();
             this.EstudiantesRtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,7 +69,8 @@
             this.AsistenciatoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalificacionestoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.asistenciasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.FechaLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.TeacherControlmenuStrip.SuspendLayout();
             this.TControlstatusStrip.SuspendLayout();
             this.TeacherControltoolStrip.SuspendLayout();
@@ -89,17 +96,28 @@
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.cerrarSesionToolStripMenuItem});
+            this.archivoToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1455915673_Courses;
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.archivoToolStripMenuItem.Text = "&Archivo";
             // 
             // salirToolStripMenuItem
             // 
+            this.salirToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1458765921_Close;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.salirToolStripMenuItem.Text = "&Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources.Exit_delete_close_remove_door_logout_out;
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.cerrarSesionToolStripMenuItem.Text = "&Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // registrosToolStripMenuItem
             // 
@@ -111,8 +129,9 @@
             this.categoriaDeCalificacionesToolStripMenuItem,
             this.asistenciasToolStripMenuItem,
             this.calificacionesToolStripMenuItem});
+            this.registrosToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1454312482_blog;
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
-            this.registrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.registrosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
             // 
             // usuarioToolStripMenuItem
@@ -180,8 +199,9 @@
             this.materiasToolStripMenuItem1,
             this.categoriaDeCalificacionesToolStripMenuItem1,
             this.asistenciasToolStripMenuItem1});
+            this.consultasToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources._1455135756_Card_file;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.consultasToolStripMenuItem.Text = "&Consultas";
             // 
             // usuariosToolStripMenuItem
@@ -234,22 +254,38 @@
             this.categoriaDeCalificacionesToolStripMenuItem1.Text = "Ca&tegoria de Calificaciones";
             this.categoriaDeCalificacionesToolStripMenuItem1.Click += new System.EventHandler(this.categoriaDeCalificacionesToolStripMenuItem1_Click);
             // 
+            // asistenciasToolStripMenuItem1
+            // 
+            this.asistenciasToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1458036564_attendance_list;
+            this.asistenciasToolStripMenuItem1.Name = "asistenciasToolStripMenuItem1";
+            this.asistenciasToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
+            this.asistenciasToolStripMenuItem1.Text = "&Asistencias";
+            this.asistenciasToolStripMenuItem1.Click += new System.EventHandler(this.asistenciasToolStripMenuItem1_Click);
+            // 
             // evaluacionToolStripMenuItem
             // 
+            this.evaluacionToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources.vector_432_10_32;
             this.evaluacionToolStripMenuItem.Name = "evaluacionToolStripMenuItem";
-            this.evaluacionToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.evaluacionToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.evaluacionToolStripMenuItem.Text = "&Evaluacion";
             // 
             // ayudaToolStripMenuItem
             // 
+            this.ayudaToolStripMenuItem.Image = global::TeacherControl2016.Properties.Resources.Info_32;
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.ayudaToolStripMenuItem.Text = "&Ayuda";
             // 
             // TControlstatusStrip
             // 
             this.TControlstatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TControltoolStripStatusLabel});
+            this.TControltoolStripStatusLabel,
+            this.UsuariosSLabel,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.UsuariotSSLabel,
+            this.toolStripStatusLabel3,
+            this.FechaLabel});
             this.TControlstatusStrip.Location = new System.Drawing.Point(0, 502);
             this.TControlstatusStrip.Name = "TControlstatusStrip";
             this.TControlstatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
@@ -260,8 +296,30 @@
             // TControltoolStripStatusLabel
             // 
             this.TControltoolStripStatusLabel.Name = "TControltoolStripStatusLabel";
-            this.TControltoolStripStatusLabel.Size = new System.Drawing.Size(47, 17);
-            this.TControltoolStripStatusLabel.Text = "Usuario";
+            this.TControltoolStripStatusLabel.Size = new System.Drawing.Size(50, 17);
+            this.TControltoolStripStatusLabel.Text = "Usuario:";
+            // 
+            // UsuariosSLabel
+            // 
+            this.UsuariosSLabel.Name = "UsuariosSLabel";
+            this.UsuariosSLabel.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.ToolTipText = "Usuario";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
+            // 
+            // UsuariotSSLabel
+            // 
+            this.UsuariotSSLabel.Name = "UsuariotSSLabel";
+            this.UsuariotSSLabel.Size = new System.Drawing.Size(13, 17);
+            this.UsuariotSSLabel.Text = "..";
             // 
             // TeacherControltoolStrip
             // 
@@ -384,13 +442,17 @@
             this.CalificacionestoolStripButton.Text = "Registro de Calificaiones";
             this.CalificacionestoolStripButton.Click += new System.EventHandler(this.CalificacionestoolStripButton_Click);
             // 
-            // asistenciasToolStripMenuItem1
+            // toolStripStatusLabel3
             // 
-            this.asistenciasToolStripMenuItem1.Image = global::TeacherControl2016.Properties.Resources._1458036564_attendance_list;
-            this.asistenciasToolStripMenuItem1.Name = "asistenciasToolStripMenuItem1";
-            this.asistenciasToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
-            this.asistenciasToolStripMenuItem1.Text = "&Asistencias";
-            this.asistenciasToolStripMenuItem1.Click += new System.EventHandler(this.asistenciasToolStripMenuItem1_Click);
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel3.Text = "||";
+            // 
+            // FechaLabel
+            // 
+            this.FechaLabel.Name = "FechaLabel";
+            this.FechaLabel.Size = new System.Drawing.Size(16, 17);
+            this.FechaLabel.Text = "...";
             // 
             // Portada
             // 
@@ -425,12 +487,9 @@
 
         private System.Windows.Forms.MenuStrip TeacherControlmenuStrip;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem evaluacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.StatusStrip TControlstatusStrip;
-        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel TControltoolStripStatusLabel;
         private System.Windows.Forms.ToolStrip TeacherControltoolStrip;
         private System.Windows.Forms.ToolStripButton EstudiantesRtoolStripButton;
@@ -439,7 +498,6 @@
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estudiantesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cursosPorEstudiantesToolStripMenuItem;
@@ -458,5 +516,16 @@
         private System.Windows.Forms.ToolStripButton CalificacionestoolStripButton;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asistenciasToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem registrosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel UsuariosSLabel;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        public System.Windows.Forms.ToolStripStatusLabel UsuariotSSLabel;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel FechaLabel;
     }
 }

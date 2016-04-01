@@ -18,6 +18,7 @@ namespace TeacherControl2016
         public Portada()
         {
             InitializeComponent();
+            FechaLabel.Text = DateTime.Now.ToShortDateString();
         }
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -159,6 +160,14 @@ namespace TeacherControl2016
             Consultas.ConsultaAsistencias asistencia = new Consultas.ConsultaAsistencias();
 
             asistencia.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Close();
+            login.Show();
+            login.Limpiar();
         }
     }
 }

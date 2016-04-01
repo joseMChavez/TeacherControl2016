@@ -54,9 +54,9 @@ create table Materias(
 go
 create table Asistencias(
        AsistenciaId int identity(1,1),
-	   CursoId  int,
-	   Cursogrupo varchar(5),
-	   Fecha varchar(15),
+	   Curso int,
+	   CursoGrupo varchar(5),
+	   Fecha DateTime,
 	   CantidaEst int,
 	   primary key(AsistenciaId)
 ) 
@@ -76,7 +76,7 @@ create table Calificaciones(
 	    Curso varchar(20),
 	    Cursogrupo varchar(5),
 		TotalPuntos float,
-	    Fecha varchar(15)	
+	    Fecha DateTime	
 )
 go
 create table CalificacionDetalle(
@@ -99,8 +99,8 @@ CREATE TABLE CategoriaCalificaciones
 )
 
 go
-drop table  Calificaciones;
+select * from  AsistenciaDetalle;
 select * From Estudiante
-Insert Into Asistencias(Curso,CursoGrupo,Fecha) values('Primero','C','hoy') ;
-Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values(1,'Jose','Presente')
-select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where Id=1;
+Insert Into Asistencias(Curso,CursoGrupo,Fecha) values(1,'C','2016-03-31 09:21:32 PM',1) ;
+Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values(5,'Jose','Presente')
+select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId;

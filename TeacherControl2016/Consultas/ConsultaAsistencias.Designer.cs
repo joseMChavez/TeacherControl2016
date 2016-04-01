@@ -37,7 +37,14 @@
             this.ImprimirButton = new System.Windows.Forms.Button();
             this.Totallabel = new System.Windows.Forms.Label();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ActivarcheckBox = new System.Windows.Forms.CheckBox();
+            this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaDataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // FiltrocomboBox
@@ -49,7 +56,7 @@
             "Id",
             "Estudiante",
             "Curso"});
-            this.FiltrocomboBox.Location = new System.Drawing.Point(158, 35);
+            this.FiltrocomboBox.Location = new System.Drawing.Point(158, 31);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(200, 21);
             this.FiltrocomboBox.TabIndex = 28;
@@ -68,7 +75,7 @@
             // 
             // BuscartextBox
             // 
-            this.BuscartextBox.Location = new System.Drawing.Point(389, 36);
+            this.BuscartextBox.Location = new System.Drawing.Point(389, 31);
             this.BuscartextBox.MaxLength = 49;
             this.BuscartextBox.Name = "BuscartextBox";
             this.BuscartextBox.ReadOnly = true;
@@ -81,12 +88,13 @@
             this.AsistenciaDataGridView.AllowUserToAddRows = false;
             this.AsistenciaDataGridView.AllowUserToDeleteRows = false;
             this.AsistenciaDataGridView.AllowUserToOrderColumns = true;
-            this.AsistenciaDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.AsistenciaDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AsistenciaDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AsistenciaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AsistenciaDataGridView.Location = new System.Drawing.Point(36, 82);
+            this.AsistenciaDataGridView.Location = new System.Drawing.Point(36, 127);
             this.AsistenciaDataGridView.Name = "AsistenciaDataGridView";
             this.AsistenciaDataGridView.ReadOnly = true;
-            this.AsistenciaDataGridView.Size = new System.Drawing.Size(646, 295);
+            this.AsistenciaDataGridView.Size = new System.Drawing.Size(646, 261);
             this.AsistenciaDataGridView.TabIndex = 24;
             // 
             // BuscarButton
@@ -100,7 +108,7 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(595, 12);
+            this.BuscarButton.Location = new System.Drawing.Point(595, 31);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(87, 64);
             this.BuscarButton.TabIndex = 25;
@@ -111,6 +119,7 @@
             // 
             // ImprimirButton
             // 
+            this.ImprimirButton.Enabled = false;
             this.ImprimirButton.FlatAppearance.BorderSize = 0;
             this.ImprimirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -118,12 +127,11 @@
             this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImprimirButton.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
-            this.ImprimirButton.Location = new System.Drawing.Point(595, 383);
+            this.ImprimirButton.Location = new System.Drawing.Point(595, 394);
             this.ImprimirButton.Name = "ImprimirButton";
             this.ImprimirButton.Size = new System.Drawing.Size(87, 55);
             this.ImprimirButton.TabIndex = 35;
             this.ImprimirButton.Text = "Imprimir";
-            ImprimirButton.Enabled = false;
             this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ImprimirButton.UseVisualStyleBackColor = true;
             // 
@@ -132,7 +140,7 @@
             this.Totallabel.AutoSize = true;
             this.Totallabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Totallabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Totallabel.Location = new System.Drawing.Point(33, 384);
+            this.Totallabel.Location = new System.Drawing.Point(33, 406);
             this.Totallabel.Name = "Totallabel";
             this.Totallabel.Size = new System.Drawing.Size(48, 16);
             this.Totallabel.TabIndex = 34;
@@ -140,18 +148,83 @@
             // 
             // TotaltextBox
             // 
-            this.TotaltextBox.Location = new System.Drawing.Point(87, 380);
+            this.TotaltextBox.Location = new System.Drawing.Point(87, 405);
             this.TotaltextBox.Name = "TotaltextBox";
             this.TotaltextBox.ReadOnly = true;
             this.TotaltextBox.Size = new System.Drawing.Size(61, 20);
             this.TotaltextBox.TabIndex = 33;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.HastadateTimePicker);
+            this.groupBox1.Controls.Add(this.DesdedateTimePicker);
+            this.groupBox1.Controls.Add(this.ActivarcheckBox);
+            this.groupBox1.Location = new System.Drawing.Point(36, 62);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(517, 59);
+            this.groupBox1.TabIndex = 36;
+            this.groupBox1.TabStop = false;
+            // 
+            // ActivarcheckBox
+            // 
+            this.ActivarcheckBox.AutoSize = true;
+            this.ActivarcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ActivarcheckBox.Location = new System.Drawing.Point(0, -3);
+            this.ActivarcheckBox.Name = "ActivarcheckBox";
+            this.ActivarcheckBox.Size = new System.Drawing.Size(75, 20);
+            this.ActivarcheckBox.TabIndex = 0;
+            this.ActivarcheckBox.Text = "Activar";
+            this.ActivarcheckBox.UseVisualStyleBackColor = true;
+            this.ActivarcheckBox.CheckedChanged += new System.EventHandler(this.ActivarcheckBox_CheckedChanged);
+            // 
+            // DesdedateTimePicker
+            // 
+            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DesdedateTimePicker.Location = new System.Drawing.Point(122, 23);
+            this.DesdedateTimePicker.Name = "DesdedateTimePicker";
+            this.DesdedateTimePicker.Size = new System.Drawing.Size(97, 20);
+            this.DesdedateTimePicker.TabIndex = 1;
+            // 
+            // HastadateTimePicker
+            // 
+            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.HastadateTimePicker.Location = new System.Drawing.Point(397, 19);
+            this.HastadateTimePicker.Name = "HastadateTimePicker";
+            this.HastadateTimePicker.Size = new System.Drawing.Size(84, 20);
+            this.HastadateTimePicker.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(32, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Desde:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(314, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Hasta:";
             // 
             // ConsultaAsistencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(717, 443);
+            this.ClientSize = new System.Drawing.Size(717, 454);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.Totallabel);
             this.Controls.Add(this.TotaltextBox);
@@ -167,6 +240,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Asistencias";
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaDataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +257,11 @@
         private System.Windows.Forms.Button ImprimirButton;
         private System.Windows.Forms.Label Totallabel;
         private System.Windows.Forms.TextBox TotaltextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker HastadateTimePicker;
+        private System.Windows.Forms.DateTimePicker DesdedateTimePicker;
+        private System.Windows.Forms.CheckBox ActivarcheckBox;
     }
 }

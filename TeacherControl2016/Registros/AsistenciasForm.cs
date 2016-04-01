@@ -46,7 +46,7 @@ namespace TeacherControl2016.Registros
                 EstudiantecomboBox.SelectedIndex = 0;
                 EstacomboBox.SelectedIndex = 0;
                 CursoComboBox.Focus();
-                Porcentagelabel.Text = "";
+                CantidadEsttextBox.Clear();
                 GuardarButton.Enabled = true;
                 Agregarbutton.Enabled = true;
             }
@@ -73,12 +73,12 @@ namespace TeacherControl2016.Registros
         }
         
         private void Llenardatos() {
-           
+            int cantidad = Utility.ConvierteEntero(CantidadEsttextBox.Text);
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
-            asistencia.Fecha = FechadateTimePicker.Text;
-
-            asistencia.CursoId = CursoComboBox.Text; 
+            asistencia.Fecha = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            asistencia.CantidadEst = cantidad;
+            asistencia.Curso = CursoComboBox.Text; 
             asistencia.CursoGrupo = GrupocomboBox.Text;
             foreach (DataGridViewRow row in AsistenciadataGridView.Rows)
             {
@@ -90,8 +90,9 @@ namespace TeacherControl2016.Registros
         {
             
             FechadateTimePicker.Text = asistencia.Fecha;
-            CursoComboBox.Text = asistencia.CursoId.ToString();
+            CursoComboBox.Text = asistencia.Curso.ToString();
             GrupocomboBox.Text = asistencia.CursoGrupo;
+            CantidadEsttextBox.Text = asistencia.CantidadEst.ToString();
             foreach (var item in asistencia.aDetalle)
             {
                 AsistenciadataGridView.Rows.Add(item.EstudianteId, item.Activo);
@@ -192,7 +193,7 @@ namespace TeacherControl2016.Registros
                     
                 }
 
-                Porcentagelabel.Text = AsistenciadataGridView.Rows.Count.ToString();
+                CantidadEsttextBox.Text = AsistenciadataGridView.Rows.Count.ToString();
 
                 }
             

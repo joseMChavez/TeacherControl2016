@@ -97,6 +97,12 @@
     <Compile Include="Consultas\ConsultaEstudiantes.Designer.cs">
       <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaEvaluacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaEvaluacion.Designer.cs">
+      <DependentUpon>ConsultaEvaluacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     <EmbeddedResource Include="Consultas\ConsultaEstudiantes.resx">
       <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaEvaluacion.resx">
+      <DependentUpon>ConsultaEvaluacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaMaterias.resx">
       <DependentUpon>ConsultaMaterias.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +339,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TeacherControlDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Info-32.png" />
+    <None Include="Resources\1455135756_Card_file.png" />
+    <None Include="Resources\vector_432_10-32.png" />
+    <None Include="Resources\1455915673_Courses.png" />
+    <None Include="Resources\1453541260_search1.png" />
+    <None Include="Resources\1454312482_blog.png" />
+    <None Include="Resources\1455916259_school.png" />
+    <None Include="Resources\Exit_delete_close_remove_door_logout_out.png" />
     <None Include="Resources\1458844922_folder_print2.png" />
     <None Include="Resources\1458765921_Close.png" />
     <None Include="Resources\1458766571_user.png" />

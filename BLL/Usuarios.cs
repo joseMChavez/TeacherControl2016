@@ -139,14 +139,14 @@ namespace BLL
             return dt.Rows.Count > 0;
 
         }
-        public bool BuscarAdministrador(string nombre)
+        public bool BuscarAdministrador(string nombre, string clave)
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where (userName= '{0}') AND (tipoUsuario like '%Adiministrador%')", nombre));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where userName= '{0}' AND clave='{1}' AND tipoUsuario='Administrador'", nombre, clave));
                 
             }
             catch (Exception ex)

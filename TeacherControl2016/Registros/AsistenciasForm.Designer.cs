@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsistenciasForm));
             this.GrupocomboBox = new System.Windows.Forms.ComboBox();
             this.Grupolabel = new System.Windows.Forms.Label();
-            this.AsistenciadataGridView = new System.Windows.Forms.DataGridView();
-            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fechalabel = new System.Windows.Forms.Label();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Agregarbutton = new System.Windows.Forms.Button();
@@ -42,8 +39,6 @@
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.TotalAsitencialabel = new System.Windows.Forms.Label();
-            this.Porcentagelabel = new System.Windows.Forms.Label();
-            this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.BuscarButton = new System.Windows.Forms.Button();
             this.IdLabel = new System.Windows.Forms.Label();
             this.AsistenciaIdtextBox = new System.Windows.Forms.TextBox();
@@ -53,8 +48,13 @@
             this.Estudiantelabel = new System.Windows.Forms.Label();
             this.EstacomboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
+            this.CantidadEsttextBox = new System.Windows.Forms.TextBox();
+            this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.AsistenciadataGridView = new System.Windows.Forms.DataGridView();
+            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // GrupocomboBox
@@ -62,9 +62,9 @@
             this.GrupocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GrupocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GrupocomboBox.FormattingEnabled = true;
-            this.GrupocomboBox.Location = new System.Drawing.Point(434, 95);
+            this.GrupocomboBox.Location = new System.Drawing.Point(433, 94);
             this.GrupocomboBox.Name = "GrupocomboBox";
-            this.GrupocomboBox.Size = new System.Drawing.Size(87, 21);
+            this.GrupocomboBox.Size = new System.Drawing.Size(77, 21);
             this.GrupocomboBox.TabIndex = 24;
             this.GrupocomboBox.SelectedValueChanged += new System.EventHandler(this.GrupocomboBox_SelectedValueChanged);
             // 
@@ -73,44 +73,11 @@
             this.Grupolabel.AutoSize = true;
             this.Grupolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Grupolabel.Location = new System.Drawing.Point(370, 95);
+            this.Grupolabel.Location = new System.Drawing.Point(366, 95);
             this.Grupolabel.Name = "Grupolabel";
             this.Grupolabel.Size = new System.Drawing.Size(58, 16);
             this.Grupolabel.TabIndex = 27;
             this.Grupolabel.Text = "Grupo: ";
-            // 
-            // AsistenciadataGridView
-            // 
-            this.AsistenciadataGridView.AllowUserToAddRows = false;
-            this.AsistenciadataGridView.AllowUserToOrderColumns = true;
-            this.AsistenciadataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AsistenciadataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AsistenciadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AsistenciadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Estudiante,
-            this.Estado});
-            this.AsistenciadataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AsistenciadataGridView.Location = new System.Drawing.Point(47, 217);
-            this.AsistenciadataGridView.Name = "AsistenciadataGridView";
-            this.AsistenciadataGridView.ReadOnly = true;
-            this.AsistenciadataGridView.Size = new System.Drawing.Size(453, 171);
-            this.AsistenciadataGridView.TabIndex = 32;
-            // 
-            // Estudiante
-            // 
-            this.Estudiante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Estudiante.HeaderText = "Estudiante";
-            this.Estudiante.Name = "Estudiante";
-            this.Estudiante.ReadOnly = true;
-            this.Estudiante.ToolTipText = "Estudiante";
-            this.Estudiante.Width = 310;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.ToolTipText = "Estado";
             // 
             // Fechalabel
             // 
@@ -118,7 +85,7 @@
             this.Fechalabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Fechalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Fechalabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Fechalabel.Location = new System.Drawing.Point(370, 28);
+            this.Fechalabel.Location = new System.Drawing.Point(366, 28);
             this.Fechalabel.Name = "Fechalabel";
             this.Fechalabel.Size = new System.Drawing.Size(55, 16);
             this.Fechalabel.TabIndex = 34;
@@ -126,8 +93,9 @@
             // 
             // FechadateTimePicker
             // 
+            this.FechadateTimePicker.Enabled = false;
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(437, 24);
+            this.FechadateTimePicker.Location = new System.Drawing.Point(433, 24);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(84, 20);
             this.FechadateTimePicker.TabIndex = 35;
@@ -143,7 +111,7 @@
             this.Agregarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregarbutton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Agregarbutton.Image = global::TeacherControl2016.Properties.Resources._1455915995_user_group_new;
-            this.Agregarbutton.Location = new System.Drawing.Point(431, 158);
+            this.Agregarbutton.Location = new System.Drawing.Point(427, 158);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(80, 53);
             this.Agregarbutton.TabIndex = 33;
@@ -164,7 +132,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(231, 426);
+            this.GuardarButton.Location = new System.Drawing.Point(227, 426);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 19;
@@ -184,7 +152,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(431, 428);
+            this.EliminarButton.Location = new System.Drawing.Point(427, 428);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 18;
@@ -203,7 +171,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(47, 428);
+            this.NuevoButton.Location = new System.Drawing.Point(43, 428);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 17;
@@ -217,26 +185,11 @@
             this.TotalAsitencialabel.AutoSize = true;
             this.TotalAsitencialabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalAsitencialabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.TotalAsitencialabel.Location = new System.Drawing.Point(44, 400);
+            this.TotalAsitencialabel.Location = new System.Drawing.Point(40, 400);
             this.TotalAsitencialabel.Name = "TotalAsitencialabel";
             this.TotalAsitencialabel.Size = new System.Drawing.Size(181, 16);
             this.TotalAsitencialabel.TabIndex = 36;
             this.TotalAsitencialabel.Text = "Cantidad de Estudiantes:";
-            // 
-            // Porcentagelabel
-            // 
-            this.Porcentagelabel.AutoSize = true;
-            this.Porcentagelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Porcentagelabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Porcentagelabel.Location = new System.Drawing.Point(244, 400);
-            this.Porcentagelabel.Name = "Porcentagelabel";
-            this.Porcentagelabel.Size = new System.Drawing.Size(0, 16);
-            this.Porcentagelabel.TabIndex = 37;
-            // 
-            // AsistenciaerrorProvider
-            // 
-            this.AsistenciaerrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.AsistenciaerrorProvider.ContainerControl = this;
             // 
             // BuscarButton
             // 
@@ -249,7 +202,7 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(247, 3);
+            this.BuscarButton.Location = new System.Drawing.Point(243, 3);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 20;
@@ -264,7 +217,7 @@
             this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.IdLabel.Location = new System.Drawing.Point(44, 30);
+            this.IdLabel.Location = new System.Drawing.Point(40, 30);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(25, 16);
             this.IdLabel.TabIndex = 21;
@@ -272,7 +225,7 @@
             // 
             // AsistenciaIdtextBox
             // 
-            this.AsistenciaIdtextBox.Location = new System.Drawing.Point(141, 30);
+            this.AsistenciaIdtextBox.Location = new System.Drawing.Point(137, 30);
             this.AsistenciaIdtextBox.MaxLength = 5;
             this.AsistenciaIdtextBox.Name = "AsistenciaIdtextBox";
             this.AsistenciaIdtextBox.Size = new System.Drawing.Size(84, 20);
@@ -284,7 +237,7 @@
             this.CursoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CursoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CursoComboBox.FormattingEnabled = true;
-            this.CursoComboBox.Location = new System.Drawing.Point(141, 96);
+            this.CursoComboBox.Location = new System.Drawing.Point(137, 96);
             this.CursoComboBox.Name = "CursoComboBox";
             this.CursoComboBox.Size = new System.Drawing.Size(184, 21);
             this.CursoComboBox.TabIndex = 23;
@@ -295,7 +248,7 @@
             this.Cursolabel.AutoSize = true;
             this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cursolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Cursolabel.Location = new System.Drawing.Point(44, 100);
+            this.Cursolabel.Location = new System.Drawing.Point(40, 100);
             this.Cursolabel.Name = "Cursolabel";
             this.Cursolabel.Size = new System.Drawing.Size(56, 16);
             this.Cursolabel.TabIndex = 26;
@@ -308,7 +261,7 @@
             this.EstudiantecomboBox.FormattingEnabled = true;
             this.EstudiantecomboBox.Items.AddRange(new object[] {
             "dfd"});
-            this.EstudiantecomboBox.Location = new System.Drawing.Point(47, 190);
+            this.EstudiantecomboBox.Location = new System.Drawing.Point(43, 190);
             this.EstudiantecomboBox.Name = "EstudiantecomboBox";
             this.EstudiantecomboBox.Size = new System.Drawing.Size(184, 21);
             this.EstudiantecomboBox.TabIndex = 28;
@@ -318,7 +271,7 @@
             this.Estudiantelabel.AutoSize = true;
             this.Estudiantelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Estudiantelabel.Location = new System.Drawing.Point(44, 171);
+            this.Estudiantelabel.Location = new System.Drawing.Point(40, 171);
             this.Estudiantelabel.Name = "Estudiantelabel";
             this.Estudiantelabel.Size = new System.Drawing.Size(89, 16);
             this.Estudiantelabel.TabIndex = 29;
@@ -334,7 +287,7 @@
             "Presente",
             "Ausente",
             "Excusa"});
-            this.EstacomboBox.Location = new System.Drawing.Point(281, 190);
+            this.EstacomboBox.Location = new System.Drawing.Point(277, 190);
             this.EstacomboBox.Name = "EstacomboBox";
             this.EstacomboBox.Size = new System.Drawing.Size(144, 21);
             this.EstacomboBox.TabIndex = 30;
@@ -344,11 +297,54 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(278, 171);
+            this.label1.Location = new System.Drawing.Point(274, 171);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 31;
             this.label1.Text = "Estado: ";
+            // 
+            // CantidadEsttextBox
+            // 
+            this.CantidadEsttextBox.Location = new System.Drawing.Point(227, 399);
+            this.CantidadEsttextBox.MaxLength = 5;
+            this.CantidadEsttextBox.Name = "CantidadEsttextBox";
+            this.CantidadEsttextBox.ReadOnly = true;
+            this.CantidadEsttextBox.Size = new System.Drawing.Size(47, 20);
+            this.CantidadEsttextBox.TabIndex = 38;
+            // 
+            // AsistenciaerrorProvider
+            // 
+            this.AsistenciaerrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.AsistenciaerrorProvider.ContainerControl = this;
+            // 
+            // AsistenciadataGridView
+            // 
+            this.AsistenciadataGridView.AllowUserToAddRows = false;
+            this.AsistenciadataGridView.AllowUserToOrderColumns = true;
+            this.AsistenciadataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.AsistenciadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AsistenciadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Estudiante,
+            this.Estado});
+            this.AsistenciadataGridView.Location = new System.Drawing.Point(43, 227);
+            this.AsistenciadataGridView.Name = "AsistenciadataGridView";
+            this.AsistenciadataGridView.ReadOnly = true;
+            this.AsistenciadataGridView.Size = new System.Drawing.Size(464, 150);
+            this.AsistenciadataGridView.TabIndex = 39;
+            // 
+            // Estudiante
+            // 
+            this.Estudiante.HeaderText = "Estudiante";
+            this.Estudiante.Name = "Estudiante";
+            this.Estudiante.ReadOnly = true;
+            this.Estudiante.Width = 300;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 120;
             // 
             // AsistenciasForm
             // 
@@ -356,12 +352,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(552, 503);
-            this.Controls.Add(this.Porcentagelabel);
+            this.Controls.Add(this.AsistenciadataGridView);
+            this.Controls.Add(this.CantidadEsttextBox);
             this.Controls.Add(this.TotalAsitencialabel);
             this.Controls.Add(this.FechadateTimePicker);
             this.Controls.Add(this.Fechalabel);
             this.Controls.Add(this.Agregarbutton);
-            this.Controls.Add(this.AsistenciadataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EstacomboBox);
             this.Controls.Add(this.Estudiantelabel);
@@ -382,8 +378,8 @@
             this.Name = "AsistenciasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Asistencias";
-            ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,15 +391,10 @@
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.ComboBox GrupocomboBox;
         private System.Windows.Forms.Label Grupolabel;
-        private System.Windows.Forms.DataGridView AsistenciadataGridView;
         private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.Label Fechalabel;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
         private System.Windows.Forms.Label TotalAsitencialabel;
-        private System.Windows.Forms.Label Porcentagelabel;
-        private System.Windows.Forms.ErrorProvider AsistenciaerrorProvider;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox EstacomboBox;
         private System.Windows.Forms.Label Estudiantelabel;
@@ -413,5 +404,10 @@
         private System.Windows.Forms.TextBox AsistenciaIdtextBox;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.Button BuscarButton;
+        private System.Windows.Forms.TextBox CantidadEsttextBox;
+        private System.Windows.Forms.ErrorProvider AsistenciaerrorProvider;
+        private System.Windows.Forms.DataGridView AsistenciadataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

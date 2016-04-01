@@ -13,6 +13,7 @@ namespace TeacherControl2016
 {
     public partial class Login : Form
     {
+        Usuarios usuario = new Usuarios();
         public Login()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace TeacherControl2016
                 UsuarioNametextBox.Focus();
             }
         }
-        private void Limpiar()
+        public void Limpiar()
         {
             UsuarioNametextBox.Clear();
             PasstextBox.Clear();
@@ -54,7 +55,7 @@ namespace TeacherControl2016
         }
         private void Aceptarbutton_Click(object sender, EventArgs e)
         {
-            Usuarios usuario = new Usuarios();
+            
             Portada portada = new Portada();
            
             Utility.Validar(UsuarioNametextBox, LoginerrorProvider, "Digite un Nombre de Usurio!");
@@ -63,10 +64,21 @@ namespace TeacherControl2016
             {
                 if ( usuario.BuscarNombre(UsuarioNametextBox.Text) && usuario.BuscarPass(PasstextBox.Text))
                 {
-
-                    portada.Show();
-                    Limpiar();
-                    Hide();
+                    if (usuario.BuscarAdministrador(UsuarioNametextBox.Text, PasstextBox.Text))
+                    {
+                        portada.Show();
+                        portada.UsuariotSSLabel.Text = UsuarioNametextBox.Text;
+                        Hide();
+                    }
+                    else
+                    {
+                        portada.Show();
+                        portada.UsuariotSSLabel.Text = UsuarioNametextBox.Text;
+                        Hide();
+                        portada.usuarioToolStripMenuItem.Visible = false;
+                        portada.consultasToolStripMenuItem.Visible = false;
+                    }
+                    
                     
                 }
                 else

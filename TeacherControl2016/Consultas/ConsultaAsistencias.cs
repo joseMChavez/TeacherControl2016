@@ -46,6 +46,25 @@ namespace TeacherControl2016.Consultas
         {
             BuscartextBox.ReadOnly = false;
         }
+        private void MostrarxFecha(Asistencia asistencia)
+        {
+            string filtro = "1=1";
+
+            if (BuscartextBox.Text.Length > 0)
+            {
+                if (FiltrocomboBox.SelectedIndex == 0)
+                {
+                    filtro = "A.Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
+                }
+                
+
+            }
+
+            //AsistenciaDataGridView.DataSource = asistencia.Listado("AsistenciaId as Id, Curso, Cursogrupo as Grupo, CantidadEst as Cantidad,Fecha", filtro, "");
+            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "");
+
+            TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
+        }
         private void Mostrar(Asistencia asistencia)
         {
             
@@ -68,7 +87,8 @@ namespace TeacherControl2016.Consultas
 
             }
 
-            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "Id");
+           
+            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido( filtro, "");
 
             TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }
@@ -76,26 +96,45 @@ namespace TeacherControl2016.Consultas
         {
             Asistencia asistencia = new Asistencia();
             int id = 0;
-            if (FiltrocomboBox.SelectedIndex==0 && !BuscartextBox.Text.Equals(""))
+            if (ActivarcheckBox.Checked)
             {
-                id = Utility.ConvierteEntero(BuscartextBox.Text);
-                if (asistencia.Buscar(id))
+                MostrarxFecha(asistencia);
+            }
+            else
+            {
+                if (FiltrocomboBox.SelectedIndex == 0 && !BuscartextBox.Text.Equals(""))
+                {
+                   id= Utility.ConvierteEntero(BuscartextBox.Text);
+                    if (asistencia.Buscar(id))
+                    {
+                        Mostrar(asistencia);
+                        ImprimirButton.Enabled = true;
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No Encontrado!");
+                        BuscartextBox.Clear();
+                        BuscartextBox.Focus();
+                    }
+                }
+                else
                 {
                     Mostrar(asistencia);
                     ImprimirButton.Enabled = true;
                 }
-                else
-                {
-                    Utility.Mensajes(3, "Id No Encontrado!");
-                    BuscartextBox.Clear();
-                    BuscartextBox.Focus();
-                }
+            } 
+        }
+
+        private void ActivarcheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Asistencia asistencia = new Asistencia();
+            if (ActivarcheckBox.Checked)
+            {
+                FiltrocomboBox.Enabled = false;
             }
             else
-            {
-                Mostrar(asistencia);
-                ImprimirButton.Enabled = true;
-            }
+                FiltrocomboBox.Enabled = true;
+
         }
     }
 }
