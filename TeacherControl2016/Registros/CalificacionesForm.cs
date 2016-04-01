@@ -63,9 +63,7 @@ namespace TeacherControl2016.Registros
             calificaciones.Fecha = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             calificaciones.Curso = CursoComboBox.Text;
             calificaciones.CursoGrupo = GrupocomboBox.Text;
-            float promedio = 0;
-            float.TryParse(PromediotextBox.Text, out promedio);
-            calificaciones.Promedio = promedio;
+            calificaciones.Estudiante = EstudiantecomboBox.Text;
             calificaciones.Materia = MateriacomboBox.Text;
             float total = 0;
             float.TryParse(TotaltextBox.Text, out total);
@@ -79,7 +77,7 @@ namespace TeacherControl2016.Registros
             GrupocomboBox.Text = calificaciones.CursoGrupo;
             MateriacomboBox.Text = calificaciones.Materia;
             EstudiantecomboBox.Text = calificaciones.Estudiante;
-            PromediotextBox.Text = calificaciones.Promedio.ToString();
+            
             TotaltextBox.Text = calificaciones.TotalPuntos.ToString();
             foreach (var item in calificaciones.CalificaionesD)
             {
@@ -161,7 +159,13 @@ namespace TeacherControl2016.Registros
                 CalificaioneserrorProvider.Clear();
             }
         }
-        
+        private void EstudiantecomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                PuntostextBox.Focus();
+            }
+        }
         private void AsistenciaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
@@ -208,32 +212,32 @@ namespace TeacherControl2016.Registros
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            float puntos = 0,total = 0, promedio=0;
+            float puntos = 0, total = 0;
 
             float.TryParse(PuntostextBox.Text, out puntos);
             try
             {
                 Utility.Validar(PuntostextBox, CalificaioneserrorProvider, "Digite los Puntos para la Descripcion Designada.");
                 Utility.Validar(CCalificaionesComboBox, CalificaioneserrorProvider, "Registre un Descripcion en el Registro de Categorias de Calificaciones!");
-                if (!PuntostextBox.Text.Equals("") || !CCalificaionesComboBox.Text.Equals(""))
+                if (!PuntostextBox.Text.Equals("") || !CCalificaionesComboBox.Text.Equals("") || total <=100)
                 {
                     
                     CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
                     calificaciones.AgregarCalificaiones(CCalificaionesComboBox.Text, puntos);
-                   
-                    foreach ( DataGridViewRow  row in CalificacionesDataGridView.Rows)
+                   // total = puntos;
+                    for ( int x=0;  x<CalificacionesDataGridView.Rows.Count;x++)
                     {
                         total += puntos;
-
+                      
                     }
-                    promedio = total / CalificacionesDataGridView.RowCount;
+                    
                     PuntostextBox.Clear();
                     PuntostextBox.Focus();
 
                 }
 
                 TotaltextBox.Text = total.ToString();
-                PromediotextBox.Text = promedio.ToString();
+                
             }
             catch (Exception ex)
             {
@@ -337,5 +341,7 @@ namespace TeacherControl2016.Registros
                 MessageBox.Show(ex.Message, "Teacher Control");
             }
         }
+
+       
     }
 }

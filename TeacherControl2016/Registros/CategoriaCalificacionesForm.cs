@@ -39,7 +39,6 @@ namespace TeacherControl2016.Registros
             CCalificacionesIdtextBox.Clear();
             DescripcionTextBox.Clear();
             cCalificacioneserrorProvider.Clear();
-            DescripcionTextBox.Focus();
         }
 
 
@@ -63,7 +62,7 @@ namespace TeacherControl2016.Registros
             Utility.TextboxAlfaNumerico(e);
             if (e.KeyChar == 13)
             {
-                CCalificacionesIdtextBox.Focus();
+                GuardarButton.Focus();
             }
         }
 
@@ -104,6 +103,7 @@ namespace TeacherControl2016.Registros
             Limpiar();
             GuardarButton.Enabled = true;
             EliminarButton.Enabled = false;
+            DescripcionTextBox.Focus();
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace TeacherControl2016.Registros
                 {
                     if (cCalificaciones.BuscarDescripcion(DescripcionTextBox.Text))
                     {
-                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Utility.Mensajes(3, "La Categoria: " + DescripcionTextBox.Text + " Ya Existe \n Intente Nuevamente!");
                         Limpiar();
                         DescripcionTextBox.Focus();
                     }
@@ -127,7 +127,7 @@ namespace TeacherControl2016.Registros
 
                         if (cCalificaciones.Insertar())
                         {
-                            Utility.Mensajes(1, "La Categoria : " + DescripcionTextBox.Text + " Ah Sido Guardada Correctamente!");
+                            Utility.Mensajes(1, "La Categoria " + DescripcionTextBox.Text + " Ah Sido Guardada Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }

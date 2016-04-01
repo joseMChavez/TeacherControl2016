@@ -116,7 +116,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(130, 168);
+            this.GuardarButton.Location = new System.Drawing.Point(130, 151);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 24;
@@ -136,7 +136,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(243, 170);
+            this.EliminarButton.Location = new System.Drawing.Point(241, 153);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 23;
@@ -155,7 +155,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(27, 170);
+            this.NuevoButton.Location = new System.Drawing.Point(27, 153);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 22;
@@ -174,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(350, 246);
+            this.ClientSize = new System.Drawing.Size(350, 226);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);

@@ -61,7 +61,7 @@ namespace TeacherControl2016.Consultas
             }
            
 
-            EstudianteDataGridView.DataSource = estudiante.Listado("EstudianteId as Id,Matricula,Nombre as Nombres ,Apellido as Apellidos,Genero as Sexo,FechaNacimiento as Fecha_de_Nacimiento,Edad,Celular,Email,Direccion As Direcciòn,NombrePadre as Padre,TelefonoPadre as Telefono", filtro, "");
+            EstudianteDataGridView.DataSource = estudiante.Listado("EstudianteId as Id,Matricula,Nombre as Nombres ,Apellido as Apellidos,Genero as Sexo,FechaNacimiento as Fecha_de_Nacimiento,Edad,Celular,Email,Direccion As Direcciòn", filtro, "");
 
             TotaltextBox.Text = EstudianteDataGridView.RowCount.ToString();
         }

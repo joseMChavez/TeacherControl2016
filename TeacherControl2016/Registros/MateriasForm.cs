@@ -42,7 +42,7 @@ namespace TeacherControl2016.Registros
         MateriaIdtextBox.Clear();
         DescripcionTextBox.Clear();
         MateriasErrorProvider.Clear();
-        DescripcionTextBox.Focus();
+        
     }
 
 
@@ -67,7 +67,7 @@ namespace TeacherControl2016.Registros
             Utility.TextboxAlfaNumerico(e);
             if (e.KeyChar == 13)
             {
-                MateriaIdtextBox.Focus();
+                BuscarButton.Focus();
             }
         }
 
@@ -109,6 +109,7 @@ namespace TeacherControl2016.Registros
             Limpiar();
             GuardarButton.Enabled = true;
             EliminarButton.Enabled = false;
+            DescripcionTextBox.Focus();
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)

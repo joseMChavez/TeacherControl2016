@@ -38,11 +38,11 @@
             this.Totallabel = new System.Windows.Forms.Label();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ActivarcheckBox = new System.Windows.Forms.CheckBox();
-            this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ActivarcheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -167,34 +167,16 @@
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             // 
-            // ActivarcheckBox
+            // label2
             // 
-            this.ActivarcheckBox.AutoSize = true;
-            this.ActivarcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ActivarcheckBox.Location = new System.Drawing.Point(0, -3);
-            this.ActivarcheckBox.Name = "ActivarcheckBox";
-            this.ActivarcheckBox.Size = new System.Drawing.Size(75, 20);
-            this.ActivarcheckBox.TabIndex = 0;
-            this.ActivarcheckBox.Text = "Activar";
-            this.ActivarcheckBox.UseVisualStyleBackColor = true;
-            this.ActivarcheckBox.CheckedChanged += new System.EventHandler(this.ActivarcheckBox_CheckedChanged);
-            // 
-            // DesdedateTimePicker
-            // 
-            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DesdedateTimePicker.Location = new System.Drawing.Point(122, 23);
-            this.DesdedateTimePicker.Name = "DesdedateTimePicker";
-            this.DesdedateTimePicker.Size = new System.Drawing.Size(97, 20);
-            this.DesdedateTimePicker.TabIndex = 1;
-            // 
-            // HastadateTimePicker
-            // 
-            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.HastadateTimePicker.Location = new System.Drawing.Point(397, 19);
-            this.HastadateTimePicker.Name = "HastadateTimePicker";
-            this.HastadateTimePicker.Size = new System.Drawing.Size(84, 20);
-            this.HastadateTimePicker.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(314, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Hasta:";
             // 
             // label1
             // 
@@ -207,16 +189,36 @@
             this.label1.TabIndex = 37;
             this.label1.Text = "Desde:";
             // 
-            // label2
+            // HastadateTimePicker
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(314, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Hasta:";
+            this.HastadateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.HastadateTimePicker.Location = new System.Drawing.Point(397, 19);
+            this.HastadateTimePicker.Name = "HastadateTimePicker";
+            this.HastadateTimePicker.Size = new System.Drawing.Size(96, 20);
+            this.HastadateTimePicker.TabIndex = 2;
+            // 
+            // DesdedateTimePicker
+            // 
+            this.DesdedateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DesdedateTimePicker.Location = new System.Drawing.Point(122, 23);
+            this.DesdedateTimePicker.Name = "DesdedateTimePicker";
+            this.DesdedateTimePicker.Size = new System.Drawing.Size(97, 20);
+            this.DesdedateTimePicker.TabIndex = 1;
+            // 
+            // ActivarcheckBox
+            // 
+            this.ActivarcheckBox.AutoSize = true;
+            this.ActivarcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ActivarcheckBox.Location = new System.Drawing.Point(0, -3);
+            this.ActivarcheckBox.Name = "ActivarcheckBox";
+            this.ActivarcheckBox.Size = new System.Drawing.Size(75, 20);
+            this.ActivarcheckBox.TabIndex = 0;
+            this.ActivarcheckBox.Text = "Activar";
+            this.ActivarcheckBox.UseVisualStyleBackColor = true;
+            this.ActivarcheckBox.CheckedChanged += new System.EventHandler(this.ActivarcheckBox_CheckedChanged);
             // 
             // ConsultaAsistencias
             // 

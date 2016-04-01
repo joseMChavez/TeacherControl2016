@@ -24,8 +24,7 @@ namespace BLL
         public string Direccion { get; set; }
         public string CursoId { get; set; }
         public string Grupo { get; set; }
-        public string NombrePadre { get; set; }
-        public string TelefonoPadre { get; set; }
+    
 
         public List<CursosDetalle> cursosDetalle { get; set; }
         public Estudiantes()
@@ -42,12 +41,11 @@ namespace BLL
             this.Direccion = "";
             this.CursoId = "";
             this.Grupo = "";
-            this.NombrePadre = "";
-            this.TelefonoPadre = "";
+          
             this.cursosDetalle = new List<CursosDetalle>();
            
         }
-        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, string Genero, string FechaNacimiento,int Edad, string Email, string Celular,  string Direcion,string CursoId, string Grupo, string Padre,string TellPadre)
+        public Estudiantes(int Id, int Matricula, string Nombre, string Apellido, string Genero, string FechaNacimiento,int Edad, string Email, string Celular,  string Direcion,string CursoId, string Grupo)
         {
             this.EstudianteId = Id;
             this.Matricula = Matricula;
@@ -61,8 +59,7 @@ namespace BLL
             this.Direccion = Direcion;
             this.CursoId = CursoId;
             this.Grupo = Grupo;
-            this.NombrePadre = Padre;
-            this.TelefonoPadre = TellPadre;
+          
             
         }
 
@@ -74,7 +71,7 @@ namespace BLL
             
             try
             {
-                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo,NombrePadre,TelefonoPadre) values({0},'{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}')", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre));
+                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo) values({0},'{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}')", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo));
 
                 if (retorno)
                 {
@@ -96,7 +93,7 @@ namespace BLL
             Cursos curso = new Cursos();
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= '{3}' , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId='{9}', Grupo='{10}', NombrePadre='{11}', TelefonoPadre='{12}' where EstudianteId= {13}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo, this.NombrePadre, this.TelefonoPadre,this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= '{3}' , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId='{9}', Grupo='{10}' where EstudianteId= {11}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.CursoId, this.Grupo,this.EstudianteId));
 
                 if (retorno)
                 {
@@ -153,8 +150,7 @@ namespace BLL
                     this.Direccion = dt.Rows[0]["Direccion"].ToString();
                     this.CursoId = dt.Rows[0]["CursoId"].ToString();
                     this.Grupo = dt.Rows[0]["Grupo"].ToString();
-                    this.NombrePadre = dt.Rows[0]["NombrePadre"].ToString();
-                    this.TelefonoPadre = dt.Rows[0]["TelefonoPadre"].ToString();
+                  
 
                 }
             }
@@ -165,7 +161,40 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
+        public bool BuscarMatricula(int IdBuscado,string curso, string grupo)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select * From Estudiante where Matricula={0}, CursoId='{1}', Grupo='{2}'" + IdBuscado));
+                if (dt.Rows.Count > 0)
+                {
 
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+        }
+        //public DataTable ListadoEstudiante(string Campos, string Condicion, string Orden)
+        //{
+        //    ConexionDb conexion = new ConexionDb();
+        //    string ordenFinal = "";
+        //    if (!Orden.Equals(""))
+        //        ordenFinal = " Order by  " + Orden;
+
+        //    return conexion.ObtenerDatos("Select"+Campos+" From Estudiante Where " + Condicion + ordenFinal);
+        //}
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();

@@ -100,9 +100,9 @@
             this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(247, 26);
+            this.BuscarButton.Location = new System.Drawing.Point(247, 27);
             this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(78, 61);
+            this.BuscarButton.Size = new System.Drawing.Size(78, 60);
             this.BuscarButton.TabIndex = 18;
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -121,7 +121,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(131, 174);
+            this.GuardarButton.Location = new System.Drawing.Point(132, 149);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 16;
@@ -141,7 +141,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(245, 174);
+            this.EliminarButton.Location = new System.Drawing.Point(245, 151);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 15;
@@ -160,7 +160,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(28, 178);
+            this.NuevoButton.Location = new System.Drawing.Point(28, 151);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 14;
@@ -174,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(351, 261);
+            this.ClientSize = new System.Drawing.Size(351, 232);
             this.Controls.Add(this.MateriaIdtextBox);
             this.Controls.Add(this.DescripcionTextBox);
             this.Controls.Add(this.IdLabel);

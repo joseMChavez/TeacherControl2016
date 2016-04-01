@@ -57,8 +57,6 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.CalificaioneserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.PromediotextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CalificacionesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalificaioneserrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +109,7 @@
             this.EstudiantecomboBox.Name = "EstudiantecomboBox";
             this.EstudiantecomboBox.Size = new System.Drawing.Size(184, 21);
             this.EstudiantecomboBox.TabIndex = 37;
+            this.EstudiantecomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EstudiantecomboBox_KeyPress);
             // 
             // Cursolabel
             // 
@@ -179,6 +178,7 @@
             // 
             // FechadateTimePicker
             // 
+            this.FechadateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.FechadateTimePicker.Enabled = false;
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FechadateTimePicker.Location = new System.Drawing.Point(509, 23);
@@ -395,35 +395,12 @@
             // 
             this.CalificaioneserrorProvider.ContainerControl = this;
             // 
-            // PromediotextBox
-            // 
-            this.PromediotextBox.Location = new System.Drawing.Point(421, 421);
-            this.PromediotextBox.MaxLength = 5;
-            this.PromediotextBox.Name = "PromediotextBox";
-            this.PromediotextBox.ReadOnly = true;
-            this.PromediotextBox.Size = new System.Drawing.Size(66, 20);
-            this.PromediotextBox.TabIndex = 57;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(298, 422);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 16);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Promedio:";
-            // 
             // CalificacionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(649, 524);
-            this.Controls.Add(this.PromediotextBox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.TotaltextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CalificacionesDataGridView);
@@ -490,7 +467,5 @@
         private System.Windows.Forms.TextBox TotaltextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider CalificaioneserrorProvider;
-        private System.Windows.Forms.TextBox PromediotextBox;
-        private System.Windows.Forms.Label label3;
     }
 }

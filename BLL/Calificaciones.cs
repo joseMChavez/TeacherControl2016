@@ -19,7 +19,6 @@ namespace BLL
         public string Fecha { get; set; }
         public string Descripcion { get; set; }
         public float Puntuacion { get; set; }
-        public float Promedio { get; set; }
         public float TotalPuntos { get; set; }
         public List<CalificacionesDetalle> CalificaionesD { get; set; }
         public Calificaciones()
@@ -56,16 +55,15 @@ namespace BLL
             object identity;
             try
             {
-                identity= conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Materia,Curso,Cursogrupo,TotalPuntos,Promedio,Fecha) values('{0}','{1}','{2}','{3}',{4},{5},'{6}') select @@Identity", this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Promedio,this.Fecha));
+                identity= conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Materia,Curso,Cursogrupo,TotalPuntos,Fecha) values('{0}','{1}','{2}','{3}',{4},'{5}') select @@Identity", this.Estudiante, this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
                 retorno=Utility.ConvierteEntero(identity.ToString());
                 this.CalificacionId = retorno;
-                if (retorno > 0)
-                {
+          
                     foreach (CalificacionesDetalle detalle in CalificaionesD)
                     {
-                        conexion.Ejecutar(string.Format("Insert into CalificacionDetalle(CalificacionId,Descripcion,Puntuacion) Values({0},'{1}',{2})", retorno, this.Descripcion, this.Puntuacion));
+                        conexion.Ejecutar(string.Format("Insert into CalificacionDetalle(CalificacionId,Descripcion,Puntuacion) Values({0},'{1}',{2})", retorno, detalle.Descripcion, detalle.Puntuacion));
                     }
-                }
+                
             }
             catch (Exception ex)
             {
@@ -80,7 +78,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}', Materia='{1}',Curso='{2}', Cursogrupo='{3}', Fecha='{4}', TotalPuntos={5}, Promedio={6} where CalificacionId={7}", this.Estudiante,this.Materia, this.Curso, this.CursoGrupo, this.Fecha, this.TotalPuntos,this.Promedio, this.CalificacionId));
+                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}', Materia='{1}',Curso='{2}', Cursogrupo='{3}', TotalPuntos={4},  Fecha='{5}' where CalificacionId={6}", this.Estudiante,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Fecha, this.CalificacionId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where AsistenciaId={0}", this.CalificacionId));
@@ -131,14 +129,13 @@ namespace BLL
                     Curso = dt.Rows[0]["Curso"].ToString();
                     CursoGrupo = dt.Rows[0]["Cursogrupo"].ToString();
                     TotalPuntos = (float)Convert.ToDecimal(dt.Rows[0]["TotalPuntos"]);
-                    Promedio = (float)Convert.ToDecimal(dt.Rows[0]["Promedio"]);
+                   
                     Fecha = dt.Rows[0]["Fecha"].ToString();
                     detalle = conexion.ObtenerDatos(string.Format("select * from CalificacionDetalle where CalificacionId={0}", IdBuscado));
                     detalle.Clear();
                     foreach (DataRow row in detalle.Rows)
                     {
-                        calificaionDetalle.Descripcion = row["Descripcion"].ToString();
-                        calificaionDetalle.Puntuacion = (float)Convert.ToDecimal(row["Puntuacion"].ToString());
+                        
                         AgregarCalificaiones(row["Descripcion"].ToString(), (float)Convert.ToDecimal(row["Puntuacion"].ToString()));
                     }
                 }

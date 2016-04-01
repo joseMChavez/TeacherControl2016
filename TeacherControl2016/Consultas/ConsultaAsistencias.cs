@@ -59,9 +59,8 @@ namespace TeacherControl2016.Consultas
                 
 
             }
-
-            //AsistenciaDataGridView.DataSource = asistencia.Listado("AsistenciaId as Id, Curso, Cursogrupo as Grupo, CantidadEst as Cantidad,Fecha", filtro, "");
             AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "");
+            // AsistenciaDataGridView.DataSource = asistencia.Listado("AsistenciaId as Id, Curso, Cursogrupo as Grupo, CantidadEst as Cantidad,Fecha", filtro, "");
 
             TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }
@@ -87,8 +86,8 @@ namespace TeacherControl2016.Consultas
 
             }
 
-           
-            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido( filtro, "");
+            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro,"");
+            //AsistenciaDataGridView.DataSource = asistencia.Listado("AsistenciaId as Id, Curso, CursoGrupo Grupo, CantidaEst Cantidad,Fecha",filtro,"");
 
             TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }

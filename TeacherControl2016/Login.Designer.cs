@@ -139,7 +139,7 @@
             this.Aceptarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Aceptarbutton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Aceptarbutton.Image = global::TeacherControl2016.Properties.Resources._1453541179_ok_sign;
-            this.Aceptarbutton.Location = new System.Drawing.Point(43, 205);
+            this.Aceptarbutton.Location = new System.Drawing.Point(34, 205);
             this.Aceptarbutton.Name = "Aceptarbutton";
             this.Aceptarbutton.Size = new System.Drawing.Size(84, 58);
             this.Aceptarbutton.TabIndex = 2;

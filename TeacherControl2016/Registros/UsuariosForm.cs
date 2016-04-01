@@ -43,8 +43,6 @@ namespace TeacherControl2016.Registros
             ConfirPasstextBox.Clear();
             TipoUsuariocomboBox.SelectedIndex = 0;
             UsuariosErrorProvider.Clear();
-            NombreTextBox.Focus();
-
         }
       
         //Este metodo es para Validar los Textbox
@@ -52,7 +50,7 @@ namespace TeacherControl2016.Registros
         {
           
             //Textbox Nombre
-            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && UserNametextBox.Text.Equals("") && TelefonomaskedTextBox.MaskFull && EmailtextBox.Text.Equals("") && Utility.ComprobarFormatoEmail(EmailtextBox.Text)==false  && DirecciontextBox.Text.Equals("") && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
+            if (NombreTextBox.Text.Equals("") && ApellidotextBox.Text.Equals("") && UserNametextBox.Text.Equals("") && TelefonomaskedTextBox.MaskFull && EmailtextBox.Text.Equals("") && DirecciontextBox.Text.Equals("") && (PassTextBox.Text.Equals("") || PassTextBox.Text.Length < 6) && ConfirPasstextBox.Text.Equals(""))
             {
                 UsuariosErrorProvider.SetError(NombreTextBox, "Digite el nombre de Usuario!");
                 UsuariosErrorProvider.SetError(ApellidotextBox, "Digite el apellido de Usuario!");
@@ -172,7 +170,7 @@ namespace TeacherControl2016.Registros
             Utility.TextBoxEspecial(e);
 
             if (e.KeyChar == 13)
-                NombreTextBox.Focus();
+                GuardarButton.Focus();
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
@@ -211,6 +209,8 @@ namespace TeacherControl2016.Registros
         {
             Limpiar();
             GuardarButton.Enabled = true;
+            EliminarButton.Enabled = false;
+            NombreTextBox.Focus();
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -219,77 +219,101 @@ namespace TeacherControl2016.Registros
             Usuarios usuario = new Usuarios();
             try
             {
+                LlenarDatos(usuario);
                 if (UsuIdtextBox.Text.Equals(""))
                 {
+
                     if ( Validacion)
                     {
-                        if (usuario.BuscarNombre(UserNametextBox.Text))
+                        if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                         {
-                            Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
-
-                            Limpiar();
-                            NombreTextBox.Focus();
-                        }
-                        else
-                        {
-                            LlenarDatos(usuario);
-                            if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
+                            if (usuario.BuscarNombre(UserNametextBox.Text))
                             {
-                                if (usuario.Insertar())
-                                {
-                                    Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Guardado Correctamente!");
-                                    Limpiar();
-                                    ActivarBotones(false);
-                                }
-                                else
-                                {
-                                    Utility.Mensajes(2, "Error en Guardar Usuario!");
-                                    Limpiar();
-                                    ActivarBotones(false);
-                                }
+                                Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
+
+                                Limpiar();
+                                NombreTextBox.Focus();
                             }
                             else
                             {
-                                Utility.Mensajes(3, "La Contraseñas No Coinsiden!");
-                                PassTextBox.Focus();
-                            }
+                                
+                                if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
+                                {
+                                    if (usuario.Insertar())
+                                    {
+                                        Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Guardado Correctamente!");
+                                        Limpiar();
+                                        ActivarBotones(false);
+                                    }
+                                    else
+                                    {
+                                        Utility.Mensajes(2, "Error en Guardar Usuario!");
+                                        Limpiar();
+                                        ActivarBotones(false);
+                                    }
+                                }
+                                else
+                                {
+                                    Utility.Mensajes(3, "La Contraseñas No Coinsiden!");
+                                    PassTextBox.Clear();
+                                    ConfirPasstextBox.Clear();
+                                    PassTextBox.Focus();
+                                }
 
+                            }
                         }
+                        else
+                        {
+                            UsuariosErrorProvider.SetError(EmailtextBox, "Email Invalido!");
+                            EmailtextBox.Clear();
+                            EmailtextBox.Focus();
+                        }
+                       
                     }
                     else if (!UsuIdtextBox.Text.Equals("") && Validacion)
                     {
-                        if (usuario.BuscarNombre(UserNametextBox.Text))
+                        if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                         {
-                            Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
-
-                            Limpiar();
-                            NombreTextBox.Focus();
-                        }
-                        else
-                        {
-                            LlenarDatos(usuario);
-                            if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
+                            if (usuario.BuscarNombre(UserNametextBox.Text))
                             {
-                                if (usuario.Editar())
-                                {
-                                    Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Modificado Correctamente!");
-                                    Limpiar();
-                                    ActivarBotones(false);
-                                }
-                                else
-                                {
-                                    Utility.Mensajes(2, "Error en Modificar Usuario!");
-                                    Limpiar();
-                                    ActivarBotones(false);
-                                }
+                                Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
+
+                                Limpiar();
+                                NombreTextBox.Focus();
                             }
                             else
                             {
-                                Utility.Mensajes(3, "La Contraseñas No Coinsiden!");
-                                PassTextBox.Focus();
-                            }
+                               
+                                if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
+                                {
+                                    if (usuario.Editar())
+                                    {
+                                        Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Modificado Correctamente!");
+                                        Limpiar();
+                                        ActivarBotones(false);
+                                    }
+                                    else
+                                    {
+                                        Utility.Mensajes(2, "Error en Modificar Usuario!");
+                                        Limpiar();
+                                        ActivarBotones(false);
+                                    }
+                                }
+                                else
+                                {
+                                    Utility.Mensajes(3, "La Contraseñas No Coinsiden!");
+                                    PassTextBox.Focus();
+                                }
 
+                            }
                         }
+                        else
+                        {
+                            UsuariosErrorProvider.SetError(EmailtextBox, "Email Invalido!");
+                            EmailtextBox.Clear();
+                            EmailtextBox.Focus();
+                        }
+                       
                     }
                    
 

@@ -18,7 +18,7 @@ namespace TeacherControl2016
         public Portada()
         {
             InitializeComponent();
-            FechaLabel.Text = DateTime.Now.ToShortDateString();
+            
         }
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace TeacherControl2016
 
         private void Portada_Load(object sender, EventArgs e)
         {
-
+            FechaLabel.Text = DateTime.Now.ToShortDateString();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -168,6 +168,18 @@ namespace TeacherControl2016
             this.Close();
             login.Show();
             login.Limpiar();
+        }
+
+        private void evaluacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaEvaluacion evaluacion = new Consultas.ConsultaEvaluacion();
+
+            evaluacion.Show();
+        }
+
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Utility.Mensajes(1, "Teacher Control Fue Creado por Jose M. Chavez Ortiz \nPara Mas Informaciòn llamar al 809-844-2216");
         }
     }
 }

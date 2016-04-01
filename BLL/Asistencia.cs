@@ -10,7 +10,7 @@ namespace BLL
 {
     public class Asistencia : ClaseMaestra
     {
-        
+
         public int AsistenciaId { get; set; }
         public string Curso { get; set; }
         public string EstudianteId { get; set; }
@@ -30,7 +30,7 @@ namespace BLL
             this.Fecha = "";
             aDetalle = new List<AsistenciaDetalle>();
         }
-        public Asistencia(int Id,string Curso, string EstudianteId,string CursoGrupo, string Activo, string Fecha)
+        public Asistencia(int Id, string Curso, string EstudianteId, string CursoGrupo, string Activo, string Fecha)
         {
             this.AsistenciaId = Id;
             this.Curso = Curso;
@@ -40,7 +40,7 @@ namespace BLL
             this.Fecha = Fecha;
         }
 
-        public void AgregarAsistencia(string estudiante,string Activo)
+        public void AgregarAsistencia(string estudiante, string Activo)
         {
             aDetalle.Add(new AsistenciaDetalle(estudiante, Activo));
         }
@@ -52,15 +52,15 @@ namespace BLL
             int retorno = 0;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(Curso,CursoGrupo,CantidaEst,Fecha) values('{0}','{1}',{2},'{3}') select @@Identity", this.Curso,this.CursoGrupo,this.CantidadEst,this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert Into Asistencias(Curso,CursoGrupo,CantidaEst,Fecha) values('{0}','{1}',{2},'{3}') select @@Identity", this.Curso, this.CursoGrupo, this.CantidadEst, this.Fecha));
                 retorno = Utility.ConvierteEntero(identity.ToString());
                 this.AsistenciaId = retorno;
 
-                    foreach (AsistenciaDetalle asistenciaD in aDetalle)
-                    {
-                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", retorno, this.EstudianteId, this.Activo));
-                    }
-                
+                foreach (AsistenciaDetalle asistenciaD in aDetalle)
+                {
+                    conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", retorno, asistenciaD.EstudianteId, asistenciaD.Activo));
+                }
+
             }
             catch (Exception ex)
             {
@@ -69,20 +69,20 @@ namespace BLL
             }
             return retorno > 0;
         }
-       
+
         public override bool Editar()
         {
             ConexionDb conexion = new ConexionDb();
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Asistencias set Curso='{0}', CursoGrupo='{1}',CantidaEst={2}, Fecha='{3}' where AsistenciaId={3}", this.Curso, this.CursoGrupo, this.CantidadEst,this.Fecha,this.AsistenciaId));
+                retorno = conexion.Ejecutar(string.Format("update Asistencias set Curso='{0}', CursoGrupo='{1}',CantidaEst={2}, Fecha='{3}' where AsistenciaId={3}", this.Curso, this.CursoGrupo, this.CantidadEst, this.Fecha, this.AsistenciaId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
-                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')",this.AsistenciaId, this.EstudianteId, this.Activo));
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", this.AsistenciaId, asistenciaD.EstudianteId, asistenciaD.Activo));
                     }
 
                 }
@@ -101,8 +101,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-               retorno = conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0};"+
-                                                "Delete  from Asistencias where AsistenciaId={0}", this.AsistenciaId));
+                retorno = conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0};" +
+                                                 "Delete  from Asistencias where AsistenciaId={0}", this.AsistenciaId));
             }
             catch (Exception ex)
             {
@@ -120,22 +120,22 @@ namespace BLL
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId = {0}", IdBuscado));
-                if (dt.Rows.Count> 0)
+                if (dt.Rows.Count > 0)
                 {
                     AsistenciaId = (int)dt.Rows[0]["AsistenciaId"];
                     Curso = dt.Rows[0]["Curso"].ToString();
-                    CursoGrupo= dt.Rows[0]["CursoGrupo"].ToString();
+                    CursoGrupo = dt.Rows[0]["CursoGrupo"].ToString();
                     CantidadEst = (int)dt.Rows[0]["CantidaEst"];
-                    detalle = conexion.ObtenerDatos(string.Format("Select EstudianteId,Activo from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
+
+                    detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}", IdBuscado));
+
                     detalle.Clear();
-                    if (dt.Rows.Count > 0)
+                    foreach (DataRow row in detalle.Rows)
                     {
-                        foreach (DataRow row in detalle.Rows)
-                        {
-                            AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
-                        }
+                        AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
                     }
-                    
+
+
                 }
             }
             catch (Exception ex)
@@ -160,12 +160,12 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-           string ordenFinal = "";
+            string ordenFinal = "";
             if (!Orden.Equals(""))
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select "+Campos+" from Asistencias where "+Condicion+ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from Asistencias where " + Condicion + ordenFinal));
 
         }
     }

@@ -60,10 +60,10 @@ namespace TeacherControl2016.Consultas
             {
                 if (FiltrocomboBox.SelectedIndex == 0)
                 {
-                    filtro = "A.Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
+                    filtro = "Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
                 }
             }
-            EvaluacionDataGridView.DataSource = calificacion.Listado("",filtro,"");
+            EvaluacionDataGridView.DataSource = calificacion.Listado("CalificacionId as Id,Estudiante,Materia,Curso,Cursogrupo as Grupo,TotalPuntos as Puntos,Fecha", filtro, "");
 
             TotaltextBox.Text = EvaluacionDataGridView.RowCount.ToString();
         }
@@ -85,13 +85,41 @@ namespace TeacherControl2016.Consultas
 
             }
 
-            EvaluacionDataGridView.DataSource = calificacion.Listado("CalificaonId as Id,Estudiante,Materia,Curso,Cursogrupo as Grupo,TotalPuntos as Puntos,Promedio,Fecha", filtro, "");
+            EvaluacionDataGridView.DataSource = calificacion.Listado("CalificacionId as Id,Estudiante,Materia,Curso,Cursogrupo as Grupo,TotalPuntos as Puntos,Fecha", filtro, "");
 
             TotaltextBox.Text = EvaluacionDataGridView.RowCount.ToString();
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-
+            Calificaciones calificacion = new Calificaciones();
+            int id = 0;
+            if (ActivarcheckBox.Checked)
+            {
+                MostrarxFecha(calificacion);
+            }
+            else
+            {
+                if (FiltrocomboBox.SelectedIndex == 0 && !BuscartextBox.Text.Equals(""))
+                {
+                    id = Utility.ConvierteEntero(BuscartextBox.Text);
+                    if (calificacion.Buscar(id))
+                    {
+                        Mostrar(calificacion);
+                        ImprimirButton.Enabled = true;
+                    }
+                    else
+                    {
+                        Utility.Mensajes(3, "Id No Encontrado!");
+                        BuscartextBox.Clear();
+                        BuscartextBox.Focus();
+                    }
+                }
+                else
+                {
+                    Mostrar(calificacion);
+                    ImprimirButton.Enabled = true;
+                }
+            }
         }
 
         

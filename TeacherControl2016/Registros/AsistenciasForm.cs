@@ -125,9 +125,10 @@ namespace TeacherControl2016.Registros
         private void CargarEstudiantes()
         {
             DataTable dato = new DataTable();
+            
             Estudiantes estudiante = new Estudiantes();
-            string filtro = "0=0";
-            dato = estudiante.Listado("CursoId,Nombre", filtro, "CursoId,Grupo");
+           
+            dato = estudiante.Listado("CursoId,Nombre", "0=0", "Grupo,CursoId");
             EstudiantecomboBox.DataSource= dato;
             EstudiantecomboBox.ValueMember = "CursoId";
             EstudiantecomboBox.DisplayMember = "Nombre";

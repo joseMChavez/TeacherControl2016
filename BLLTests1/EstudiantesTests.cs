@@ -27,8 +27,7 @@ namespace BLL.Tests
             estudiante.Direccion = "Cenovi";
             estudiante.CursoId = "";
             estudiante.Grupo = "B";
-            estudiante.NombrePadre = "Juan";
-            estudiante.TelefonoPadre = "809-844-2216";
+            
             bool prueba = estudiante.Insertar();
 
             Assert.IsTrue(prueba);
@@ -50,8 +49,7 @@ namespace BLL.Tests
             estudiante.Direccion = "Cenovi";
             estudiante.CursoId = "";
             estudiante.Grupo = "B";
-            estudiante.NombrePadre = "Juan";
-            estudiante.TelefonoPadre = "809-844-2216";
+        
             bool prueba = estudiante.Editar();
 
             Assert.IsTrue(prueba);
@@ -73,8 +71,7 @@ namespace BLL.Tests
             estudiante.Direccion = "Cenovi";
             estudiante.CursoId = "";
             estudiante.Grupo = "B";
-            estudiante.NombrePadre = "Juan";
-            estudiante.TelefonoPadre = "809-844-2216";
+         
 
             bool prueba= estudiante.Eliminar();
             Assert.IsTrue(prueba);

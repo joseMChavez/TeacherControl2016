@@ -70,9 +70,8 @@ namespace TeacherControl2016.Registros
             estudiante.Direccion = DirecciontextBox.Text;
             
             estudiante.CursoId = CursocomboBox.Text;
-            estudiante.Grupo = GrupocomboBox.Text;
-            estudiante.NombrePadre = NombrePadretextBox.Text;
-            estudiante.TelefonoPadre = TelefonoPmaskedTextBox.Text;
+            estudiante.Grupo = GrupotextBox.Text;
+            
 
             
         }
@@ -95,13 +94,13 @@ namespace TeacherControl2016.Registros
             EmailtextBox.Text = estudiante.Email;
             DirecciontextBox.Text = estudiante.Direccion;
             CursocomboBox.Text = estudiante.CursoId;
-            GrupocomboBox.Text = estudiante.Grupo;
-            NombrePadretextBox.Text = estudiante.NombrePadre;
-            TelefonoPmaskedTextBox.Text = estudiante.TelefonoPadre;
+            GrupotextBox.Text = estudiante.Grupo;
+          
         }
 
         private void Limpiar()
             {
+            
             EstudianteIdtextBox.Clear();
             MatriculatextBox.Clear();
             NombretextBox.Clear();
@@ -116,7 +115,6 @@ namespace TeacherControl2016.Registros
             if (!CursocomboBox.Text.Equals(""))
             {
                 CursocomboBox.SelectedIndex = 0;
-                MatriculatextBox.Focus();
                 GuardarButton.Enabled = true;
             }
             else
@@ -125,10 +123,8 @@ namespace TeacherControl2016.Registros
                 ActivarBotones(false);
 
             }
-            GrupocomboBox.SelectedIndex = 0;
-            NombrePadretextBox.Clear();
-            TelefonoPmaskedTextBox.Clear();
-            TelefonoPmaskedTextBox.Mask = "###-###-####";
+            GrupotextBox.Clear();
+           
             EstudianteErrorProvider.Clear();
            
         }
@@ -141,7 +137,7 @@ namespace TeacherControl2016.Registros
     
         private bool ValidarTodo()
         {
-            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && EmailtextBox.Text.Equals("") && Utility.ComprobarFormatoEmail(EmailtextBox.Text)==false && DirecciontextBox.Text.Equals("") && NombrePadretextBox.Text.Equals("") && TelefonoPmaskedTextBox.MaskCompleted)
+            if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && EmailtextBox.Text.Equals("") && DirecciontextBox.Text.Equals(""))
             {
                 EstudianteErrorProvider.SetError(MatriculatextBox, "Digite La Matricula del Estudiante!");
                 EstudianteErrorProvider.SetError(NombretextBox, "Digite el Nombre del Estudiante!");
@@ -152,8 +148,7 @@ namespace TeacherControl2016.Registros
                 EstudianteErrorProvider.SetError(EmailtextBox, "Digite un Email!");
                 EstudianteErrorProvider.SetError(DirecciontextBox, "Digite una Direccion!");
                 EstudianteErrorProvider.SetError(CursocomboBox, "Seleccione un Curso!");
-                EstudianteErrorProvider.SetError(NombrePadretextBox, "Digite el Nombre del Padre del Estudiante");
-                EstudianteErrorProvider.SetError(TelefonoPmaskedTextBox, "Digite el Telefono del Padre o ese Numero es !");
+                
                 NombretextBox.Focus();
 
                 return true;
@@ -253,33 +248,18 @@ namespace TeacherControl2016.Registros
             if (e.KeyChar == 13)
             {
                 CursocomboBox.SelectedIndex = 0;
-                GrupocomboBox.Focus();
+                GrupotextBox.Focus();
             }
         }
-        private void GrupocomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void GrupotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            Utility.TextboxAlfaNumerico(e);
+            if (e.KeyChar==13)
             {
-                GrupocomboBox.SelectedIndex = 1;
-                NombrePadretextBox.Focus();
+                GuardarButton.Focus();
             }
         }
-        private void NombrePadretextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Utility.TextBoxSoloTexto(e);
-            if (e.KeyChar == 13)
-            {
-                TelefonoPmaskedTextBox.Focus();
-            }
-        }
-
-        private void TelefonoPmaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar== 13)
-            {
-                MatriculatextBox.Focus();
-            }
-        }
+       
         /// 
         /// Boton Buscar
         /// 
@@ -323,6 +303,7 @@ namespace TeacherControl2016.Registros
         {
             Limpiar();
             EliminarButton.Enabled = false;
+            MatriculatextBox.Focus();
         }
         /// 
         /// Boton Guardar
@@ -333,34 +314,54 @@ namespace TeacherControl2016.Registros
             try
             {
                 LlenarDatos(estudiante);
+                
                 if (EstudianteIdtextBox.Text.Equals("") && ValidarTodo()==false)
                 {
-                    if (estudiante.Insertar()== true)
+                    if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                     {
-                        Utility.Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Guardado Correctamete.");
-                        Limpiar();
-                        ActivarBotones(false);
+                        if (estudiante.Insertar() == true)
+                        {
+                            Utility.Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Guardado Correctamete.");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Guardado.");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
                     }
                     else
                     {
-                        Utility.Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Guardado.");
-                        Limpiar();
-                        ActivarBotones(false);
+                        EstudianteErrorProvider.SetError(EmailtextBox, "Email Invalido");
+                        EmailtextBox.Clear();
+                        EmailtextBox.Focus();
                     }
+                    
                 }
                 else
                 {
-                    if (estudiante.Editar())
+                    if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                     {
-                        Utility.Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Modificado Correctamete.");
-                        Limpiar();
-                        ActivarBotones(false);
+                        if (estudiante.Editar())
+                        {
+                            Utility.Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Modificado Correctamete.");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Utility.Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Modificado.");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
                     }
                     else
                     {
-                        Utility.Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Modificado.");
-                        Limpiar();
-                        ActivarBotones(false);
+                        EstudianteErrorProvider.SetError(EmailtextBox, "Email Invalido");
+                        EmailtextBox.Clear();
+                        EmailtextBox.Focus();
                     }
                 }
             }

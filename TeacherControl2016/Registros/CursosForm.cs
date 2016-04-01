@@ -40,7 +40,7 @@ namespace TeacherControl2016.Registros
             CursosIdtextBox.Clear();
             DescripcionTextBox.Clear();
             CursosErrorProvider.Clear();
-            DescripcionTextBox.Focus();
+           
         }
       
       
@@ -64,7 +64,9 @@ namespace TeacherControl2016.Registros
         {
             Utility.TextboxAlfaNumerico(e);
             if(e.KeyChar==13)
-                CursosIdtextBox.Focus();
+            {
+                GuardarButton.Focus();
+            }
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -104,6 +106,7 @@ namespace TeacherControl2016.Registros
             Limpiar();
             GuardarButton.Enabled = true;
             EliminarButton.Enabled = false;
+            DescripcionTextBox.Focus();
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -118,7 +121,7 @@ namespace TeacherControl2016.Registros
                 {
                     if (curso.BuscarDescripcion(DescripcionTextBox.Text))
                     {
-                        Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + "Ya Existe \n Intente Nuevamente!");
+                        Utility.Mensajes(3, "El Curso: " + DescripcionTextBox.Text + " Ya Existe \n Intente Nuevamente!");
                         Limpiar();
                         DescripcionTextBox.Focus();
                     }

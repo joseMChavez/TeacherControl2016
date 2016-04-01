@@ -16,22 +16,13 @@ namespace BLL
         // Regex esta función permite mediante un patrón verificar si una cadena cumple con ese patrón 
         public static bool ComprobarFormatoEmail(string sEmailAComprobar)
         {
-            String sFormato;
-            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(sEmailAComprobar, sFormato))
+            if (!Regex.Match(sEmailAComprobar, @"\A(\w+\.?\w*\@\w+.)(com)\z").Success)
             {
-                if (Regex.Replace(sEmailAComprobar, sFormato, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
         //Este metodo es para Validar los Textbox
