@@ -37,3 +37,5 @@ C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\Teach
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.ReporteForm.ReportViewGenerico.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Consultas.ConsultaAsistencias.resources
 C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.Consultas.ConsultaEvaluacion.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.ReporteForm.AsistenciaReporForm.resources
+C:\Users\jose\Source\Repos\TeacherControl2016\TeacherControl2016\obj\Debug\TeacherControl2016.ReporteForm.EvaluacionesReporForm.resources

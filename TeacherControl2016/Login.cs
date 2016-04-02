@@ -57,7 +57,8 @@ namespace TeacherControl2016
         {
             
             Portada portada = new Portada();
-           
+            Registros.EstudiantesForm estudiante = new Registros.EstudiantesForm();
+            Registros.AsistenciasForm asistencia = new Registros.AsistenciasForm();
             Utility.Validar(UsuarioNametextBox, LoginerrorProvider, "Digite un Nombre de Usurio!");
             Utility.Validar(PasstextBox, LoginerrorProvider, "Digite una Contrseña!");
             if ( !UsuarioNametextBox.Text.Equals("") && !PasstextBox.Text.Equals(""))
@@ -77,6 +78,9 @@ namespace TeacherControl2016
                         Hide();
                         portada.usuarioToolStripMenuItem.Visible = false;
                         portada.consultasToolStripMenuItem.Visible = false;
+                        portada.reportesToolStripMenuItem.Visible = false;
+                        estudiante.EliminarButton.Enabled = false;
+
                     }
                     
                     

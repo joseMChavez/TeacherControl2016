@@ -1,6 +1,6 @@
 ﻿namespace TeacherControl2016.ReporteForm
 {
-    partial class CursosReportes
+    partial class AsistenciaReporForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,22 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.cursoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.asistenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherControlDbDataSetNewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherControlDbDataSetNew = new TeacherControl2016.TeacherControlDbDataSetNew();
-            this.CursosreportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.CursoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cursoTableAdapter = new TeacherControl2016.TeacherControlDbDataSetNewTableAdapters.CursoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource1)).BeginInit();
+            this.AsistenciareportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.asistenciasTableAdapter = new TeacherControl2016.TeacherControlDbDataSetNewTableAdapters.AsistenciasTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.asistenciasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNew)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CursoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // cursoBindingSource1
+            // asistenciasBindingSource
             // 
-            this.cursoBindingSource1.DataMember = "Curso";
-            this.cursoBindingSource1.DataSource = this.teacherControlDbDataSetNewBindingSource;
+            this.asistenciasBindingSource.DataMember = "Asistencias";
+            this.asistenciasBindingSource.DataSource = this.teacherControlDbDataSetNewBindingSource;
             // 
             // teacherControlDbDataSetNewBindingSource
             // 
@@ -57,54 +55,46 @@
             this.teacherControlDbDataSetNew.DataSetName = "TeacherControlDbDataSetNew";
             this.teacherControlDbDataSetNew.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // CursosreportViewer
+            // AsistenciareportViewer
             // 
-            this.CursosreportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "Cursos";
-            reportDataSource1.Value = this.cursoBindingSource1;
-            this.CursosreportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this.CursosreportViewer.LocalReport.ReportEmbeddedResource = "TeacherControl2016.Reportes.CursosReport.rdlc";
-            this.CursosreportViewer.Location = new System.Drawing.Point(0, 0);
-            this.CursosreportViewer.Name = "CursosreportViewer";
-            this.CursosreportViewer.Size = new System.Drawing.Size(717, 316);
-            this.CursosreportViewer.TabIndex = 0;
+            this.AsistenciareportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "Asistencias";
+            reportDataSource1.Value = this.asistenciasBindingSource;
+            this.AsistenciareportViewer.LocalReport.DataSources.Add(reportDataSource1);
+            this.AsistenciareportViewer.LocalReport.ReportEmbeddedResource = "TeacherControl2016.Reportes.AsistenciaReport.rdlc";
+            this.AsistenciareportViewer.Location = new System.Drawing.Point(0, 0);
+            this.AsistenciareportViewer.Name = "AsistenciareportViewer";
+            this.AsistenciareportViewer.Size = new System.Drawing.Size(731, 326);
+            this.AsistenciareportViewer.TabIndex = 1;
             // 
-            // CursoBindingSource
+            // asistenciasTableAdapter
             // 
-            this.CursoBindingSource.DataMember = "Curso";
-            this.CursoBindingSource.DataSource = this.teacherControlDbDataSetNew;
+            this.asistenciasTableAdapter.ClearBeforeFill = true;
             // 
-            // cursoTableAdapter
-            // 
-            this.cursoTableAdapter.ClearBeforeFill = true;
-            // 
-            // CursosReportes
+            // AsistenciaReporForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 316);
-            this.Controls.Add(this.CursosreportViewer);
+            this.ClientSize = new System.Drawing.Size(731, 326);
+            this.Controls.Add(this.AsistenciareportViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "CursosReportes";
+            this.Name = "AsistenciaReporForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reporte de Cursos";
-            this.Load += new System.EventHandler(this.CursosForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource1)).EndInit();
+            this.Text = "Reporte de  Asistencias";
+            this.Load += new System.EventHandler(this.AsistenciaReporForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.asistenciasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNew)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CursoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer CursosreportViewer;
-        private System.Windows.Forms.BindingSource CursoBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer AsistenciareportViewer;
         private TeacherControlDbDataSetNew teacherControlDbDataSetNew;
         private System.Windows.Forms.BindingSource teacherControlDbDataSetNewBindingSource;
-        private System.Windows.Forms.BindingSource cursoBindingSource1;
-        private TeacherControlDbDataSetNewTableAdapters.CursoTableAdapter cursoTableAdapter;
-        //private TeacherControlDbDataSetGenericoTableAdapters.CursoTableAdapter cursoTableAdapter;
+        private System.Windows.Forms.BindingSource asistenciasBindingSource;
+        private TeacherControlDbDataSetNewTableAdapters.AsistenciasTableAdapter asistenciasTableAdapter;
     }
 }

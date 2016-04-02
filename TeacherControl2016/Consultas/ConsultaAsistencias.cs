@@ -135,5 +135,19 @@ namespace TeacherControl2016.Consultas
                 FiltrocomboBox.Enabled = true;
 
         }
+
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            ReporteForm.ReportViewGenerico reporte = new ReporteForm.ReportViewGenerico();
+            DataTable dt = new DataTable();
+            dt = (DataTable)AsistenciaDataGridView.DataSource;
+            dt.TableName = "Asistencias";
+
+            reporte.reporte = "AsistenciaReport.rdlc";
+            reporte.data = dt;
+
+            reporte.ShowDialog();
+
+        }
     }
 }

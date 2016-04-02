@@ -51,12 +51,12 @@
             this.Puntos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.CalificaioneserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.CalificaioneserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CalificacionesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalificaioneserrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             // 
             this.Materialabel.AutoSize = true;
             this.Materialabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Materialabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Materialabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Materialabel.Location = new System.Drawing.Point(368, 154);
             this.Materialabel.Name = "Materialabel";
             this.Materialabel.Size = new System.Drawing.Size(68, 16);
@@ -84,14 +84,14 @@
             "Excusa"});
             this.MateriacomboBox.Location = new System.Drawing.Point(449, 150);
             this.MateriacomboBox.Name = "MateriacomboBox";
-            this.MateriacomboBox.Size = new System.Drawing.Size(144, 21);
+            this.MateriacomboBox.Size = new System.Drawing.Size(155, 21);
             this.MateriacomboBox.TabIndex = 39;
             // 
             // Estudiantelabel
             // 
             this.Estudiantelabel.AutoSize = true;
             this.Estudiantelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Estudiantelabel.Location = new System.Drawing.Point(52, 150);
             this.Estudiantelabel.Name = "Estudiantelabel";
             this.Estudiantelabel.Size = new System.Drawing.Size(89, 16);
@@ -115,7 +115,7 @@
             // 
             this.Cursolabel.AutoSize = true;
             this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cursolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Cursolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Cursolabel.Location = new System.Drawing.Point(52, 97);
             this.Cursolabel.Name = "Cursolabel";
             this.Cursolabel.Size = new System.Drawing.Size(56, 16);
@@ -147,7 +147,7 @@
             this.IdLabel.AutoSize = true;
             this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.IdLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.IdLabel.Location = new System.Drawing.Point(53, 31);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(25, 16);
@@ -158,7 +158,7 @@
             // 
             this.Grupolabel.AutoSize = true;
             this.Grupolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Grupolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Grupolabel.Location = new System.Drawing.Point(368, 94);
             this.Grupolabel.Name = "Grupolabel";
             this.Grupolabel.Size = new System.Drawing.Size(58, 16);
@@ -180,10 +180,10 @@
             // 
             this.FechadateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.FechadateTimePicker.Enabled = false;
-            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(509, 23);
+            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechadateTimePicker.Location = new System.Drawing.Point(509, 27);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
-            this.FechadateTimePicker.Size = new System.Drawing.Size(84, 20);
+            this.FechadateTimePicker.Size = new System.Drawing.Size(95, 20);
             this.FechadateTimePicker.TabIndex = 48;
             // 
             // Fechalabel
@@ -191,8 +191,8 @@
             this.Fechalabel.AutoSize = true;
             this.Fechalabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Fechalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Fechalabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Fechalabel.Location = new System.Drawing.Point(446, 27);
+            this.Fechalabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Fechalabel.Location = new System.Drawing.Point(446, 31);
             this.Fechalabel.Name = "Fechalabel";
             this.Fechalabel.Size = new System.Drawing.Size(55, 16);
             this.Fechalabel.TabIndex = 47;
@@ -202,7 +202,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(52, 206);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 16);
@@ -234,7 +234,7 @@
             this.Puntoslabel.AutoSize = true;
             this.Puntoslabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Puntoslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Puntoslabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Puntoslabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Puntoslabel.Location = new System.Drawing.Point(349, 206);
             this.Puntoslabel.Name = "Puntoslabel";
             this.Puntoslabel.Size = new System.Drawing.Size(55, 16);
@@ -254,7 +254,7 @@
             this.CalificacionesDataGridView.Location = new System.Drawing.Point(55, 260);
             this.CalificacionesDataGridView.Name = "CalificacionesDataGridView";
             this.CalificacionesDataGridView.ReadOnly = true;
-            this.CalificacionesDataGridView.Size = new System.Drawing.Size(538, 150);
+            this.CalificacionesDataGridView.Size = new System.Drawing.Size(549, 150);
             this.CalificacionesDataGridView.TabIndex = 53;
             // 
             // Descripción
@@ -284,12 +284,16 @@
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(53, 422);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 16);
             this.label2.TabIndex = 54;
             this.label2.Text = "Total de Puntos";
+            // 
+            // CalificaioneserrorProvider
+            // 
+            this.CalificaioneserrorProvider.ContainerControl = this;
             // 
             // Agregarbutton
             // 
@@ -300,7 +304,7 @@
             this.Agregarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Agregarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Agregarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Agregarbutton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Agregarbutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Agregarbutton.Image = global::TeacherControl2016.Properties.Resources._1456533592_notebook_add;
             this.Agregarbutton.Location = new System.Drawing.Point(524, 206);
             this.Agregarbutton.Name = "Agregarbutton";
@@ -320,7 +324,7 @@
             this.GuardarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.GuardarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.GuardarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.Location = new System.Drawing.Point(285, 450);
@@ -341,7 +345,7 @@
             this.EliminarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.EliminarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.EliminarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
             this.EliminarButton.Location = new System.Drawing.Point(524, 452);
             this.EliminarButton.Name = "EliminarButton";
@@ -360,7 +364,7 @@
             this.NuevoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.NuevoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.NuevoButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
             this.NuevoButton.Location = new System.Drawing.Point(44, 452);
             this.NuevoButton.Name = "NuevoButton";
@@ -379,10 +383,10 @@
             this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(255, 3);
+            this.BuscarButton.Location = new System.Drawing.Point(255, 6);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(78, 64);
             this.BuscarButton.TabIndex = 32;
@@ -390,10 +394,6 @@
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // CalificaioneserrorProvider
-            // 
-            this.CalificaioneserrorProvider.ContainerControl = this;
             // 
             // CalificacionesForm
             // 

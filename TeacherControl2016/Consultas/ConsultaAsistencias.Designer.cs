@@ -33,8 +33,6 @@
             this.Filtrolabel = new System.Windows.Forms.Label();
             this.BuscartextBox = new System.Windows.Forms.TextBox();
             this.AsistenciaDataGridView = new System.Windows.Forms.DataGridView();
-            this.BuscarButton = new System.Windows.Forms.Button();
-            this.ImprimirButton = new System.Windows.Forms.Button();
             this.Totallabel = new System.Windows.Forms.Label();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,6 +41,8 @@
             this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ActivarcheckBox = new System.Windows.Forms.CheckBox();
+            this.ImprimirButton = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             // 
             this.Filtrolabel.AutoSize = true;
             this.Filtrolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Filtrolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Filtrolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Filtrolabel.Location = new System.Drawing.Point(33, 36);
             this.Filtrolabel.Name = "Filtrolabel";
             this.Filtrolabel.Size = new System.Drawing.Size(93, 16);
@@ -97,49 +97,11 @@
             this.AsistenciaDataGridView.Size = new System.Drawing.Size(646, 261);
             this.AsistenciaDataGridView.TabIndex = 24;
             // 
-            // BuscarButton
-            // 
-            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.BuscarButton.FlatAppearance.BorderSize = 0;
-            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
-            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(595, 31);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(87, 64);
-            this.BuscarButton.TabIndex = 25;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // ImprimirButton
-            // 
-            this.ImprimirButton.Enabled = false;
-            this.ImprimirButton.FlatAppearance.BorderSize = 0;
-            this.ImprimirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
-            this.ImprimirButton.Location = new System.Drawing.Point(595, 394);
-            this.ImprimirButton.Name = "ImprimirButton";
-            this.ImprimirButton.Size = new System.Drawing.Size(87, 55);
-            this.ImprimirButton.TabIndex = 35;
-            this.ImprimirButton.Text = "Imprimir";
-            this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ImprimirButton.UseVisualStyleBackColor = true;
-            // 
             // Totallabel
             // 
             this.Totallabel.AutoSize = true;
             this.Totallabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Totallabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Totallabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Totallabel.Location = new System.Drawing.Point(33, 406);
             this.Totallabel.Name = "Totallabel";
             this.Totallabel.Size = new System.Drawing.Size(48, 16);
@@ -171,7 +133,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(314, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 16);
@@ -182,7 +144,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(32, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 16);
@@ -192,26 +154,26 @@
             // HastadateTimePicker
             // 
             this.HastadateTimePicker.CustomFormat = "yyyy-MM-dd";
-            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.HastadateTimePicker.Location = new System.Drawing.Point(397, 19);
+            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.HastadateTimePicker.Location = new System.Drawing.Point(373, 19);
             this.HastadateTimePicker.Name = "HastadateTimePicker";
-            this.HastadateTimePicker.Size = new System.Drawing.Size(96, 20);
+            this.HastadateTimePicker.Size = new System.Drawing.Size(120, 20);
             this.HastadateTimePicker.TabIndex = 2;
             // 
             // DesdedateTimePicker
             // 
             this.DesdedateTimePicker.CustomFormat = "yyyy-MM-dd";
-            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DesdedateTimePicker.Location = new System.Drawing.Point(122, 23);
             this.DesdedateTimePicker.Name = "DesdedateTimePicker";
-            this.DesdedateTimePicker.Size = new System.Drawing.Size(97, 20);
+            this.DesdedateTimePicker.Size = new System.Drawing.Size(95, 20);
             this.DesdedateTimePicker.TabIndex = 1;
             // 
             // ActivarcheckBox
             // 
             this.ActivarcheckBox.AutoSize = true;
             this.ActivarcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ActivarcheckBox.Location = new System.Drawing.Point(0, -3);
             this.ActivarcheckBox.Name = "ActivarcheckBox";
             this.ActivarcheckBox.Size = new System.Drawing.Size(75, 20);
@@ -219,6 +181,45 @@
             this.ActivarcheckBox.Text = "Activar";
             this.ActivarcheckBox.UseVisualStyleBackColor = true;
             this.ActivarcheckBox.CheckedChanged += new System.EventHandler(this.ActivarcheckBox_CheckedChanged);
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Enabled = false;
+            this.ImprimirButton.FlatAppearance.BorderSize = 0;
+            this.ImprimirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
+            this.ImprimirButton.Location = new System.Drawing.Point(595, 394);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(87, 55);
+            this.ImprimirButton.TabIndex = 35;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
+            // 
+            // BuscarButton
+            // 
+            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.BuscarButton.FlatAppearance.BorderSize = 0;
+            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BuscarButton.Location = new System.Drawing.Point(595, 31);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(87, 64);
+            this.BuscarButton.TabIndex = 25;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // ConsultaAsistencias
             // 
@@ -235,6 +236,7 @@
             this.Controls.Add(this.BuscartextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.AsistenciaDataGridView);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

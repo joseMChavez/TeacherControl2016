@@ -50,12 +50,12 @@
             this.TipoUsuariocomboBox = new System.Windows.Forms.ComboBox();
             this.UserNametextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.UsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             this.NombreLabel.AutoSize = true;
             this.NombreLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NombreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.NombreLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.NombreLabel.Location = new System.Drawing.Point(26, 69);
             this.NombreLabel.Name = "NombreLabel";
             this.NombreLabel.Size = new System.Drawing.Size(67, 16);
@@ -77,7 +77,7 @@
             this.ConfirPassLabel.AutoSize = true;
             this.ConfirPassLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ConfirPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirPassLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ConfirPassLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ConfirPassLabel.Location = new System.Drawing.Point(25, 340);
             this.ConfirPassLabel.Name = "ConfirPassLabel";
             this.ConfirPassLabel.Size = new System.Drawing.Size(161, 16);
@@ -89,7 +89,7 @@
             this.IdLabel.AutoSize = true;
             this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.IdLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.IdLabel.Location = new System.Drawing.Point(26, 20);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(25, 16);
@@ -101,7 +101,7 @@
             this.ContrasenaLabel.AutoSize = true;
             this.ContrasenaLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ContrasenaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContrasenaLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ContrasenaLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ContrasenaLabel.Location = new System.Drawing.Point(28, 303);
             this.ContrasenaLabel.Name = "ContrasenaLabel";
             this.ContrasenaLabel.Size = new System.Drawing.Size(91, 16);
@@ -155,7 +155,7 @@
             this.Apellidolabel.AutoSize = true;
             this.Apellidolabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Apellidolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Apellidolabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Apellidolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Apellidolabel.Location = new System.Drawing.Point(25, 109);
             this.Apellidolabel.Name = "Apellidolabel";
             this.Apellidolabel.Size = new System.Drawing.Size(78, 16);
@@ -186,7 +186,7 @@
             this.Emaillabel.AutoSize = true;
             this.Emaillabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Emaillabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Emaillabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Emaillabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Emaillabel.Location = new System.Drawing.Point(26, 233);
             this.Emaillabel.Name = "Emaillabel";
             this.Emaillabel.Size = new System.Drawing.Size(51, 16);
@@ -207,7 +207,7 @@
             this.Direccionlabel.AutoSize = true;
             this.Direccionlabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Direccionlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Direccionlabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Direccionlabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Direccionlabel.Location = new System.Drawing.Point(26, 268);
             this.Direccionlabel.Name = "Direccionlabel";
             this.Direccionlabel.Size = new System.Drawing.Size(78, 16);
@@ -219,7 +219,7 @@
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(25, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 16);
@@ -231,7 +231,7 @@
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(25, 381);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 16);
@@ -264,12 +264,21 @@
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(26, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 16);
             this.label3.TabIndex = 24;
             this.label3.Text = "Nombre de Usuario:";
+            // 
+            // TelefonomaskedTextBox
+            // 
+            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(194, 190);
+            this.TelefonomaskedTextBox.Mask = "000-000-0000";
+            this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
+            this.TelefonomaskedTextBox.Size = new System.Drawing.Size(71, 20);
+            this.TelefonomaskedTextBox.TabIndex = 25;
+            this.TelefonomaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonomaskedTextBox_KeyPress);
             // 
             // BuscarButton
             // 
@@ -279,7 +288,7 @@
             this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BuscarButton.Location = new System.Drawing.Point(295, -2);
@@ -300,7 +309,7 @@
             this.GuardarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.GuardarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.GuardarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.Location = new System.Drawing.Point(156, 448);
@@ -321,7 +330,7 @@
             this.EliminarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.EliminarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.EliminarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
             this.EliminarButton.Location = new System.Drawing.Point(295, 450);
             this.EliminarButton.Name = "EliminarButton";
@@ -340,7 +349,7 @@
             this.NuevoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.NuevoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NuevoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.NuevoButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
             this.NuevoButton.Location = new System.Drawing.Point(29, 450);
             this.NuevoButton.Name = "NuevoButton";
@@ -350,15 +359,6 @@
             this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
-            // 
-            // TelefonomaskedTextBox
-            // 
-            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(194, 190);
-            this.TelefonomaskedTextBox.Mask = "000-000-0000";
-            this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
-            this.TelefonomaskedTextBox.Size = new System.Drawing.Size(71, 20);
-            this.TelefonomaskedTextBox.TabIndex = 25;
-            this.TelefonomaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonomaskedTextBox_KeyPress);
             // 
             // UsuariosForm
             // 
@@ -392,6 +392,7 @@
             this.Controls.Add(this.ConfirPassLabel);
             this.Controls.Add(this.NombreLabel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UsuariosForm";

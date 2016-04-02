@@ -69,7 +69,7 @@ namespace TeacherControl2016.Registros
             estudiante.Email = EmailtextBox.Text;
             estudiante.Direccion = DirecciontextBox.Text;
             
-            estudiante.CursoId = CursocomboBox.Text;
+            estudiante.Curso = CursocomboBox.Text;
             estudiante.Grupo = GrupotextBox.Text;
             
 
@@ -93,7 +93,7 @@ namespace TeacherControl2016.Registros
             TelefonoMaskedTextBox.Text = estudiante.Celular;
             EmailtextBox.Text = estudiante.Email;
             DirecciontextBox.Text = estudiante.Direccion;
-            CursocomboBox.Text = estudiante.CursoId;
+            CursocomboBox.Text = estudiante.Curso;
             GrupotextBox.Text = estudiante.Grupo;
           
         }
@@ -148,7 +148,7 @@ namespace TeacherControl2016.Registros
                 EstudianteErrorProvider.SetError(EmailtextBox, "Digite un Email!");
                 EstudianteErrorProvider.SetError(DirecciontextBox, "Digite una Direccion!");
                 EstudianteErrorProvider.SetError(CursocomboBox, "Seleccione un Curso!");
-                
+                EstudianteErrorProvider.SetError(GrupotextBox, "Digite un Grupo!");
                 NombretextBox.Focus();
 
                 return true;
@@ -311,26 +311,38 @@ namespace TeacherControl2016.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Estudiantes estudiante = new Estudiantes();
+            int matricula = Utility.ConvierteEntero(MatriculatextBox.Text);
             try
             {
                 LlenarDatos(estudiante);
                 
                 if (EstudianteIdtextBox.Text.Equals("") && ValidarTodo()==false)
                 {
+                    
                     if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                     {
-                        if (estudiante.Insertar() == true)
+                        if (estudiante.BuscarMatricula(matricula,CursocomboBox.Text,GrupotextBox.Text)==false)
                         {
-                            Utility.Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Guardado Correctamete.");
-                            Limpiar();
-                            ActivarBotones(false);
+                            if (estudiante.Insertar())
+                            {
+                                Utility.Mensajes(1, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "'\n Ah Sido Guardado Correctamete.");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                            else
+                            {
+                                Utility.Mensajes(2, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "\n No se ah sido Guardado.");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
                         }
                         else
                         {
-                            Utility.Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Guardado.");
-                            Limpiar();
-                            ActivarBotones(false);
+                            Utility.Mensajes(3,"Ya Existe un Estudiante con la Matricula'"+MatriculatextBox.Text+"' En el Curso'"+CursocomboBox.Text+" "+GrupotextBox.Text+"'\n Por Favor Intente Nuevamente!");
+                            MatriculatextBox.Clear();
+                            MatriculatextBox.Focus();
                         }
+                       
                     }
                     else
                     {
@@ -344,18 +356,28 @@ namespace TeacherControl2016.Registros
                 {
                     if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                     {
-                        if (estudiante.Editar())
+                        if (estudiante.BuscarMatricula(matricula,CursocomboBox.Text,GrupotextBox.Text)==false)
                         {
-                            Utility.Mensajes(1, "El Estudiante: " + NombretextBox.Text + "\n Ah Sido Modificado Correctamete.");
-                            Limpiar();
-                            ActivarBotones(false);
+                            if (estudiante.Editar())
+                            {
+                                Utility.Mensajes(1, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "\n Ah Sido Modificado Correctamete.");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                            else
+                            {
+                                Utility.Mensajes(2, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "\n No se ah sido Modificado.");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
                         }
                         else
                         {
-                            Utility.Mensajes(2, "El Estudiante: " + NombretextBox.Text + "\n No se ah sido Modificado.");
-                            Limpiar();
-                            ActivarBotones(false);
+                            Utility.Mensajes(3, "Ya Existe un Estudiante con la Matricula'" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "'\n Por Favor Intente Nuevamente!");
+                            MatriculatextBox.Clear();
+                            MatriculatextBox.Focus();
                         }
+                        
                     }
                     else
                     {
@@ -368,6 +390,7 @@ namespace TeacherControl2016.Registros
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
+                
             }
                
         }

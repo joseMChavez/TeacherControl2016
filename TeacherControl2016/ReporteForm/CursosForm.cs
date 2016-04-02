@@ -19,6 +19,8 @@ namespace TeacherControl2016.ReporteForm
 
         private void CursosForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'teacherControlDbDataSetNew.Curso' table. You can move, or remove it, as needed.
+            this.cursoTableAdapter.Fill(this.teacherControlDbDataSetNew.Curso);
             // TODO: This line of code loads data into the 'teacherControlDbDataSetGenerico.Curso' table. You can move, or remove it, as needed.
             //this.cursoTableAdapter.Fill(this.teacherControlDbDataSetGenerico.Curso);
 

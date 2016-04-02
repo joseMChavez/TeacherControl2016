@@ -31,45 +31,45 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.EstudianteCursoreportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            //this.teacherControlDbDataSetGenerico = new TeacherControl2016.TeacherControlDbDataSetGenerico();
-            this.teacherControlDbDataSetGenericoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherControlDbDataSetNew = new TeacherControl2016.TeacherControlDbDataSetNew();
+            this.teacherControlDbDataSetNewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cursosDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.cursosDetalleTableAdapter = new TeacherControl2016.TeacherControlDbDataSetGenericoTableAdapters.CursosDetalleTableAdapter();
-            //((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).BeginInit();
+            this.cursosDetalleTableAdapter = new TeacherControl2016.TeacherControlDbDataSetNewTableAdapters.CursosDetalleTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursosDetalleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // EstudianteCursoreportViewer
             // 
             this.EstudianteCursoreportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Name = "CursosDetalle";
             reportDataSource1.Value = this.cursosDetalleBindingSource;
             this.EstudianteCursoreportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this.EstudianteCursoreportViewer.LocalReport.ReportEmbeddedResource = "TeacherControl2016.Reportes.ReportEstudianteCurso.rdlc";
+            this.EstudianteCursoreportViewer.LocalReport.ReportEmbeddedResource = "TeacherControl2016.Reportes.CursosDetalleReport.rdlc";
             this.EstudianteCursoreportViewer.Location = new System.Drawing.Point(0, 0);
             this.EstudianteCursoreportViewer.Name = "EstudianteCursoreportViewer";
             this.EstudianteCursoreportViewer.Size = new System.Drawing.Size(830, 261);
             this.EstudianteCursoreportViewer.TabIndex = 0;
             // 
-            // teacherControlDbDataSetGenerico
+            // teacherControlDbDataSetNew
             // 
-            //this.teacherControlDbDataSetGenerico.DataSetName = "TeacherControlDbDataSetGenerico";
-            //this.teacherControlDbDataSetGenerico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            //// 
-            // teacherControlDbDataSetGenericoBindingSource
+            this.teacherControlDbDataSetNew.DataSetName = "TeacherControlDbDataSetNew";
+            this.teacherControlDbDataSetNew.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            //this.teacherControlDbDataSetGenericoBindingSource.DataSource = this.teacherControlDbDataSetGenerico;
-            this.teacherControlDbDataSetGenericoBindingSource.Position = 0;
+            // teacherControlDbDataSetNewBindingSource
+            // 
+            this.teacherControlDbDataSetNewBindingSource.DataSource = this.teacherControlDbDataSetNew;
+            this.teacherControlDbDataSetNewBindingSource.Position = 0;
             // 
             // cursosDetalleBindingSource
             // 
             this.cursosDetalleBindingSource.DataMember = "CursosDetalle";
-            this.cursosDetalleBindingSource.DataSource = this.teacherControlDbDataSetGenericoBindingSource;
+            this.cursosDetalleBindingSource.DataSource = this.teacherControlDbDataSetNewBindingSource;
             // 
             // cursosDetalleTableAdapter
             // 
-            //this.cursosDetalleTableAdapter.ClearBeforeFill = true;
+            this.cursosDetalleTableAdapter.ClearBeforeFill = true;
             // 
             // EstudianteCursoReporte
             // 
@@ -82,8 +82,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte Estudiante Por Cursos";
             this.Load += new System.EventHandler(this.EstudianteCursoReporte_Load);
-            //((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenerico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetGenericoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherControlDbDataSetNewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursosDetalleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -92,9 +92,10 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer EstudianteCursoreportViewer;
-        private System.Windows.Forms.BindingSource teacherControlDbDataSetGenericoBindingSource;
-        //private TeacherControlDbDataSetGenerico teacherControlDbDataSetGenerico;
+        private TeacherControlDbDataSetNew teacherControlDbDataSetNew;
+        private System.Windows.Forms.BindingSource teacherControlDbDataSetNewBindingSource;
         private System.Windows.Forms.BindingSource cursosDetalleBindingSource;
+        private TeacherControlDbDataSetNewTableAdapters.CursosDetalleTableAdapter cursosDetalleTableAdapter;
         //private TeacherControlDbDataSetGenericoTableAdapters.CursosDetalleTableAdapter cursosDetalleTableAdapter;
     }
 }

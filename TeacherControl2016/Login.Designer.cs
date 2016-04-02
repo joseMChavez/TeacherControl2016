@@ -50,8 +50,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(45, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
@@ -61,8 +62,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(48, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(214, 16);
@@ -91,8 +93,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(48, 130);
             this.label1.Name = "label1";
@@ -119,7 +122,7 @@
             this.Cancelarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Cancelarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelarbutton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Cancelarbutton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Cancelarbutton.Image = global::TeacherControl2016.Properties.Resources._1458765921_Close;
             this.Cancelarbutton.Location = new System.Drawing.Point(206, 205);
             this.Cancelarbutton.Name = "Cancelarbutton";
@@ -137,7 +140,7 @@
             this.Aceptarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Aceptarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Aceptarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Aceptarbutton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Aceptarbutton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Aceptarbutton.Image = global::TeacherControl2016.Properties.Resources._1453541179_ok_sign;
             this.Aceptarbutton.Location = new System.Drawing.Point(34, 205);
             this.Aceptarbutton.Name = "Aceptarbutton";

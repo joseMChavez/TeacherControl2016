@@ -61,7 +61,7 @@
             this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BuscarButton.Location = new System.Drawing.Point(482, 18);
@@ -95,7 +95,7 @@
             // 
             this.Totallabel.AutoSize = true;
             this.Totallabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Totallabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Totallabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Totallabel.Location = new System.Drawing.Point(12, 385);
             this.Totallabel.Name = "Totallabel";
             this.Totallabel.Size = new System.Drawing.Size(48, 16);
@@ -106,7 +106,7 @@
             // 
             this.Filtrolabel.AutoSize = true;
             this.Filtrolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Filtrolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Filtrolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Filtrolabel.Location = new System.Drawing.Point(12, 44);
             this.Filtrolabel.Name = "Filtrolabel";
             this.Filtrolabel.Size = new System.Drawing.Size(93, 16);
@@ -135,7 +135,7 @@
             this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
             this.ImprimirButton.Location = new System.Drawing.Point(499, 392);
             this.ImprimirButton.Name = "ImprimirButton";
@@ -160,6 +160,7 @@
             this.Controls.Add(this.BuscartextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.CursoEstDataGridView);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

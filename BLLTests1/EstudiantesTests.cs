@@ -25,7 +25,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.CursoId = "";
+            estudiante.Curso = "";
             estudiante.Grupo = "B";
             
             bool prueba = estudiante.Insertar();
@@ -47,7 +47,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.CursoId = "";
+            estudiante.Curso = "";
             estudiante.Grupo = "B";
         
             bool prueba = estudiante.Editar();
@@ -69,7 +69,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.CursoId = "";
+            estudiante.Curso = "";
             estudiante.Grupo = "B";
          
 

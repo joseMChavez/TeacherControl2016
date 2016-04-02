@@ -157,7 +157,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from Calificaciones where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId=CD.CalificacionId  where " + Condicion + ordenFinal));
 
         }
     }

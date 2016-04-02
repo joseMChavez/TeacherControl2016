@@ -38,18 +38,19 @@
             this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
             this.Filtrolabel = new System.Windows.Forms.Label();
             this.BuscartextBox = new System.Windows.Forms.TextBox();
-            this.BuscarButton = new System.Windows.Forms.Button();
-            this.ImprimirButton = new System.Windows.Forms.Button();
             this.Totallabel = new System.Windows.Forms.Label();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.EvaluacionDataGridView = new System.Windows.Forms.DataGridView();
+            this.ImprimirButton = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
             this.FechasgroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EvaluacionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // HastadateTimePicker
             // 
-            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.HastadateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.HastadateTimePicker.Location = new System.Drawing.Point(396, 23);
             this.HastadateTimePicker.Name = "HastadateTimePicker";
             this.HastadateTimePicker.Size = new System.Drawing.Size(99, 20);
@@ -72,7 +73,7 @@
             // 
             this.Hastalabel.AutoSize = true;
             this.Hastalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hastalabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Hastalabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Hastalabel.Location = new System.Drawing.Point(314, 27);
             this.Hastalabel.Name = "Hastalabel";
             this.Hastalabel.Size = new System.Drawing.Size(53, 16);
@@ -83,7 +84,7 @@
             // 
             this.Desdelabel.AutoSize = true;
             this.Desdelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Desdelabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Desdelabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Desdelabel.Location = new System.Drawing.Point(32, 27);
             this.Desdelabel.Name = "Desdelabel";
             this.Desdelabel.Size = new System.Drawing.Size(58, 16);
@@ -92,7 +93,8 @@
             // 
             // DesdedateTimePicker
             // 
-            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DesdedateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DesdedateTimePicker.Location = new System.Drawing.Point(122, 23);
             this.DesdedateTimePicker.Name = "DesdedateTimePicker";
             this.DesdedateTimePicker.Size = new System.Drawing.Size(97, 20);
@@ -102,7 +104,7 @@
             // 
             this.ActivarcheckBox.AutoSize = true;
             this.ActivarcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ActivarcheckBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ActivarcheckBox.Location = new System.Drawing.Point(0, -3);
             this.ActivarcheckBox.Name = "ActivarcheckBox";
             this.ActivarcheckBox.Size = new System.Drawing.Size(75, 20);
@@ -130,7 +132,7 @@
             // 
             this.Filtrolabel.AutoSize = true;
             this.Filtrolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Filtrolabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Filtrolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Filtrolabel.Location = new System.Drawing.Point(39, 17);
             this.Filtrolabel.Name = "Filtrolabel";
             this.Filtrolabel.Size = new System.Drawing.Size(93, 16);
@@ -147,49 +149,11 @@
             this.BuscartextBox.TabIndex = 38;
             this.BuscartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuscartextBox_KeyPress);
             // 
-            // BuscarButton
-            // 
-            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
-            this.BuscarButton.FlatAppearance.BorderSize = 0;
-            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
-            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BuscarButton.Location = new System.Drawing.Point(575, 12);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(87, 64);
-            this.BuscarButton.TabIndex = 37;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // ImprimirButton
-            // 
-            this.ImprimirButton.Enabled = false;
-            this.ImprimirButton.FlatAppearance.BorderSize = 0;
-            this.ImprimirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
-            this.ImprimirButton.Location = new System.Drawing.Point(591, 375);
-            this.ImprimirButton.Name = "ImprimirButton";
-            this.ImprimirButton.Size = new System.Drawing.Size(87, 55);
-            this.ImprimirButton.TabIndex = 45;
-            this.ImprimirButton.Text = "Imprimir";
-            this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ImprimirButton.UseVisualStyleBackColor = true;
-            // 
             // Totallabel
             // 
             this.Totallabel.AutoSize = true;
             this.Totallabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Totallabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Totallabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Totallabel.Location = new System.Drawing.Point(29, 387);
             this.Totallabel.Name = "Totallabel";
             this.Totallabel.Size = new System.Drawing.Size(48, 16);
@@ -217,6 +181,45 @@
             this.EvaluacionDataGridView.ReadOnly = true;
             this.EvaluacionDataGridView.Size = new System.Drawing.Size(646, 261);
             this.EvaluacionDataGridView.TabIndex = 42;
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Enabled = false;
+            this.ImprimirButton.FlatAppearance.BorderSize = 0;
+            this.ImprimirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.ImprimirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ImprimirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImprimirButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ImprimirButton.Image = global::TeacherControl2016.Properties.Resources._1458844922_folder_print2;
+            this.ImprimirButton.Location = new System.Drawing.Point(591, 375);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(87, 55);
+            this.ImprimirButton.TabIndex = 45;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
+            // 
+            // BuscarButton
+            // 
+            this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.BuscarButton.FlatAppearance.BorderSize = 0;
+            this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BuscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuscarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BuscarButton.Image = global::TeacherControl2016.Properties.Resources._1453541260_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BuscarButton.Location = new System.Drawing.Point(575, 12);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(87, 64);
+            this.BuscarButton.TabIndex = 37;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // ConsultaEvaluacion
             // 

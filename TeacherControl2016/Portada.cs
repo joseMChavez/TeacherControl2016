@@ -177,9 +177,45 @@ namespace TeacherControl2016
             evaluacion.Show();
         }
 
-        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Utility.Mensajes(1, "Teacher Control Fue Creado por Jose M. Chavez Ortiz \nPara Mas Informaciòn llamar al 809-844-2216");
+        }
+
+        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReporteForm.ReporteUsuarios usuarios = new ReporteForm.ReporteUsuarios();
+            usuarios.Show();
+        }
+
+        private void estudiantesToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ReporteForm.EstudiantesReport estudiante = new ReporteForm.EstudiantesReport();
+            estudiante.Show();
+        }
+
+        private void cursosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ReporteForm.CursosReportes curso = new ReporteForm.CursosReportes();
+            curso.Show();
+        }
+
+        private void estudiantePorCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteForm.EstudianteCursoReporte EstCurso = new ReporteForm.EstudianteCursoReporte();
+            EstCurso.Show();
+        }
+
+        private void asistenciasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ReporteForm.AsistenciaReporForm asistencia = new ReporteForm.AsistenciaReporForm();
+            asistencia.Show();
+        }
+
+        private void evaluacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteForm.EvaluacionesReporForm evaluacion = new ReporteForm.EvaluacionesReporForm();
+            evaluacion.Show();
         }
     }
 }

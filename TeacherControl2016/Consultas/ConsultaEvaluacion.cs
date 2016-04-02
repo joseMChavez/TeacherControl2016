@@ -60,10 +60,10 @@ namespace TeacherControl2016.Consultas
             {
                 if (FiltrocomboBox.SelectedIndex == 0)
                 {
-                    filtro = "Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
+                    filtro = "C.Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
                 }
             }
-            EvaluacionDataGridView.DataSource = calificacion.Listado("CalificacionId as Id,Estudiante,Materia,Curso,Cursogrupo as Grupo,TotalPuntos as Puntos,Fecha", filtro, "");
+            EvaluacionDataGridView.DataSource = calificacion.Listado("C.CalificacionId as Id,C.Estudiante,C.Materia,CD.Descripcion Descripción,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha", filtro, "");
 
             TotaltextBox.Text = EvaluacionDataGridView.RowCount.ToString();
         }
@@ -85,7 +85,7 @@ namespace TeacherControl2016.Consultas
 
             }
 
-            EvaluacionDataGridView.DataSource = calificacion.Listado("CalificacionId as Id,Estudiante,Materia,Curso,Cursogrupo as Grupo,TotalPuntos as Puntos,Fecha", filtro, "");
+            EvaluacionDataGridView.DataSource = calificacion.Listado("C.CalificacionId as Id,C.Estudiante,C.Materia,CD.Descripcion Descripción,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha", filtro, "");
 
             TotaltextBox.Text = EvaluacionDataGridView.RowCount.ToString();
         }
@@ -122,6 +122,18 @@ namespace TeacherControl2016.Consultas
             }
         }
 
-        
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            ReporteForm.ReportViewGenerico reporte = new ReporteForm.ReportViewGenerico();
+            DataTable dt = new DataTable();
+
+            dt = (DataTable)EvaluacionDataGridView.DataSource;
+            dt.TableName = "Asistencias";
+
+            reporte.reporte = "AsistenciaReport.rdlc";
+            reporte.data = dt;
+
+            reporte.ShowDialog();
+        }
     }
 }
