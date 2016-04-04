@@ -16,7 +16,7 @@ namespace TeacherControl2016
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Portada());
+            Application.Run(new Login());
         }
     }
 }

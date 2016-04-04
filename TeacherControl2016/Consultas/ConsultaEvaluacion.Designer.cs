@@ -239,7 +239,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConsultaEvaluacion";
-            this.Text = "Evaluacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Evaluación";
             this.FechasgroupBox.ResumeLayout(false);
             this.FechasgroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EvaluacionDataGridView)).EndInit();

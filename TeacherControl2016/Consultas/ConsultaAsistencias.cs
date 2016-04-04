@@ -48,19 +48,9 @@ namespace TeacherControl2016.Consultas
         }
         private void MostrarxFecha(Asistencia asistencia)
         {
-            string filtro = "1=1";
+            string filtro = "A.Fecha between " + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
 
-            if (BuscartextBox.Text.Length > 0)
-            {
-                if (FiltrocomboBox.SelectedIndex == 0)
-                {
-                    filtro = "A.Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
-                }
-                
-
-            }
-            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro, "");
-            // AsistenciaDataGridView.DataSource = asistencia.Listado("AsistenciaId as Id, Curso, Cursogrupo as Grupo, CantidadEst as Cantidad,Fecha", filtro, "");
+            AsistenciaDataGridView.DataSource = asistencia.Listado("", filtro, "");
 
             TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }
@@ -73,21 +63,21 @@ namespace TeacherControl2016.Consultas
             {
                 if (FiltrocomboBox.SelectedIndex == 0)
                 {
-                    filtro = "Asistencia" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                    filtro = "A.AsistenciaId like '%" + BuscartextBox.Text + "%'";
                 }
                 else if (FiltrocomboBox.SelectedIndex == 1)
                 {
-                    filtro = "Estudiante" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                    filtro = "AD.EstudianteId like '%" + BuscartextBox.Text + "%'";
                 }
                 else
                 {
-                    filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                    filtro ="A."+ FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
                 }
 
             }
 
-            AsistenciaDataGridView.DataSource = asistencia.ListadoUnido(filtro,"");
-            //AsistenciaDataGridView.DataSource = asistencia.Listado("AsistenciaId as Id, Curso, CursoGrupo Grupo, CantidaEst Cantidad,Fecha",filtro,"");
+            AsistenciaDataGridView.DataSource = asistencia.Listado("", filtro, "");
+          
 
             TotaltextBox.Text = AsistenciaDataGridView.RowCount.ToString();
         }
@@ -98,6 +88,7 @@ namespace TeacherControl2016.Consultas
             if (ActivarcheckBox.Checked)
             {
                 MostrarxFecha(asistencia);
+                ImprimirButton.Enabled = true;
             }
             else
             {

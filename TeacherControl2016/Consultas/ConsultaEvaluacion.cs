@@ -54,16 +54,9 @@ namespace TeacherControl2016.Consultas
         }
         private void MostrarxFecha(Calificaciones calificacion)
         {
-            string filtro = "1=1";
+            string filtro = filtro = "C.Fecha >= " + DesdedateTimePicker.Text + " and C.Fecha <=" + HastadateTimePicker.Text;
 
-            if (BuscartextBox.Text.Length > 0)
-            {
-                if (FiltrocomboBox.SelectedIndex == 0)
-                {
-                    filtro = "C.Fecha between" + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
-                }
-            }
-            EvaluacionDataGridView.DataSource = calificacion.Listado("C.CalificacionId as Id,C.Estudiante,C.Materia,CD.Descripcion Descripción,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha", filtro, "");
+            EvaluacionDataGridView.DataSource = calificacion.Listado("", filtro, "");
 
             TotaltextBox.Text = EvaluacionDataGridView.RowCount.ToString();
         }
@@ -76,16 +69,16 @@ namespace TeacherControl2016.Consultas
             {
                 if (FiltrocomboBox.SelectedIndex == 0)
                 {
-                    filtro = "Calificacion" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                    filtro = "C.Calificacion" + FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
                 }
                 else
                 {
-                    filtro = FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
+                    filtro = "C."+FiltrocomboBox.Text + " like '%" + BuscartextBox.Text + "%'";
                 }
 
             }
 
-            EvaluacionDataGridView.DataSource = calificacion.Listado("C.CalificacionId as Id,C.Estudiante,C.Materia,CD.Descripcion Descripción,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha", filtro, "");
+            EvaluacionDataGridView.DataSource = calificacion.Listado("", filtro, "");
 
             TotaltextBox.Text = EvaluacionDataGridView.RowCount.ToString();
         }
@@ -96,6 +89,7 @@ namespace TeacherControl2016.Consultas
             if (ActivarcheckBox.Checked)
             {
                 MostrarxFecha(calificacion);
+                ImprimirButton.Enabled = true;
             }
             else
             {
@@ -128,9 +122,9 @@ namespace TeacherControl2016.Consultas
             DataTable dt = new DataTable();
 
             dt = (DataTable)EvaluacionDataGridView.DataSource;
-            dt.TableName = "Asistencias";
+            dt.TableName = "Calificaciones";
 
-            reporte.reporte = "AsistenciaReport.rdlc";
+            reporte.reporte = "EvaluacionesReport.rdlc";
             reporte.data = dt;
 
             reporte.ShowDialog();

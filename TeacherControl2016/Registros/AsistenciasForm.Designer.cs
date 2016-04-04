@@ -94,7 +94,6 @@
             // FechadateTimePicker
             // 
             this.FechadateTimePicker.CustomFormat = "yyyy-MM-dd";
-            this.FechadateTimePicker.Enabled = false;
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.FechadateTimePicker.Location = new System.Drawing.Point(433, 24);
             this.FechadateTimePicker.Name = "FechadateTimePicker";

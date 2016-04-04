@@ -36,6 +36,7 @@ namespace TeacherControl2016.Registros
             else
             {
                 CursoComboBox.SelectedIndex = 0;
+                MatriculatextBox.Clear();
                 GrupocomboBox.SelectedIndex = 0;
                 EstudiantecomboBox.SelectedIndex = 0;
                 MateriacomboBox.SelectedIndex = 0;
@@ -59,16 +60,22 @@ namespace TeacherControl2016.Registros
         {
             
             int id = Utility.ConvierteEntero(CalificacionIdtextBox.Text);
+            int matricula = Utility.ConvierteEntero(MatriculatextBox.Text);
             calificaciones.CalificacionId = id;
             calificaciones.Fecha = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             calificaciones.Curso = CursoComboBox.Text;
             calificaciones.CursoGrupo = GrupocomboBox.Text;
             calificaciones.Estudiante = EstudiantecomboBox.Text;
             calificaciones.Materia = MateriacomboBox.Text;
+            calificaciones.Matricula = matricula;
             float total = 0;
             float.TryParse(TotaltextBox.Text, out total);
             calificaciones.TotalPuntos = total;
-
+            foreach (DataGridViewRow item in CalificacionesDataGridView.Rows)
+            {
+                calificaciones.AgregarCalificaiones(item.Cells["Categoria"].Value.ToString(), (float)Convert.ToDecimal(item.Cells["Puntos"].Value));
+            }
+            
         }
         private void ObtenerDatos() {
             
@@ -77,7 +84,7 @@ namespace TeacherControl2016.Registros
             GrupocomboBox.Text = calificaciones.CursoGrupo;
             MateriacomboBox.Text = calificaciones.Materia;
             EstudiantecomboBox.Text = calificaciones.Estudiante;
-            
+            MatriculatextBox.Text = calificaciones.Matricula.ToString();
             TotaltextBox.Text = calificaciones.TotalPuntos.ToString();
             foreach (var item in calificaciones.CalificaionesD)
             {
@@ -149,10 +156,12 @@ namespace TeacherControl2016.Registros
         }
         private void ValidarTodo()
         {
-            if (CalificacionesDataGridView.RowCount == 0)
+            if (CalificacionesDataGridView.RowCount == 0 && MatriculatextBox.Text.Equals(""))
             {
-                CalificaioneserrorProvider.SetError(CalificacionesDataGridView, "No hay estudiantes en la Lista");
-                MateriacomboBox.Focus();
+                CalificaioneserrorProvider.SetError(CalificacionesDataGridView, "No hay Calificaciones");
+                CalificaioneserrorProvider.SetError(MatriculatextBox, "Digite Una Matricula!");
+                CalificacionesDataGridView.Focus();
+                MatriculatextBox.Focus();
             }
             else
             {
@@ -163,7 +172,7 @@ namespace TeacherControl2016.Registros
         {
             if (e.KeyChar == 13)
             {
-                PuntostextBox.Focus();
+                MatriculatextBox.Focus();
             }
         }
         private void AsistenciaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -180,6 +189,22 @@ namespace TeacherControl2016.Registros
             CargarEstudiantes();
         }
 
+        private void MatriculatextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.TextBoxNuemericos(e);
+            if (e.KeyChar == 13)
+            {
+                PuntostextBox.Focus();
+            }
+        }
+        private void PuntostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.TextBoxNuemericos(e);
+            if (e.KeyChar == 13)
+            {
+                Agregarbutton.Focus();
+            }
+        }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             
@@ -223,14 +248,11 @@ namespace TeacherControl2016.Registros
                 {
                     
                     CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
-                    calificaciones.AgregarCalificaiones(CCalificaionesComboBox.Text, puntos);
-                   // total = puntos;
-                    for ( int x=0;  x<CalificacionesDataGridView.Rows.Count;x++)
+                  
+                    foreach (DataGridViewRow item in CalificacionesDataGridView.Rows)
                     {
                         total += puntos;
-                      
                     }
-                    
                     PuntostextBox.Clear();
                     PuntostextBox.Focus();
 
@@ -253,43 +275,66 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            Estudiantes estudiante = new Estudiantes();
+            int matricula = Utility.ConvierteEntero(MatriculatextBox.Text);
             try
             {
-                
+                calificaciones.LimpiarLista();
                 LlenarDatos();
                 ValidarTodo();
                 if (CalificacionIdtextBox.Text.Equals("") && CalificacionesDataGridView.RowCount>0)
                 {
-                    if (calificaciones.Insertar())
+                    if (estudiante.BuscarMatricula(matricula,CursoComboBox.Text,GrupocomboBox.Text))
                     {
-                        Utility.Mensajes(1, "Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Guardada Correctamente!");
-                        Limpiar();
-                        ActivarBotones(false);
-                    }
-                    else
-                    {
-                        Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Guardada!");
-                        Limpiar();
-                        ActivarBotones(false);
-                    }
-                }
-                else
-                {
-                    if (!CalificacionIdtextBox.Text.Equals("") && CalificacionesDataGridView.RowCount > 0)
-                    {
-                        if (calificaciones.Editar())
+                        if (calificaciones.Insertar())
                         {
-                            Utility.Mensajes(1, "Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Modificada Correctamente!");
+                            Utility.Mensajes(1, "Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Guardada Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
                         else
                         {
-                            Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Modificada!");
+                            Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Guardada!");
                             Limpiar();
                             ActivarBotones(false);
                         }
                     }
+                    else
+                    {
+                        CalificaioneserrorProvider.SetError(MatriculatextBox, "No existe un Estudiante con esta Matricula En ese Curso!");
+                        MatriculatextBox.Clear();
+                        MatriculatextBox.Focus();
+                    }
+                    
+                }
+                else
+                {
+                    if (!CalificacionIdtextBox.Text.Equals("") && CalificacionesDataGridView.RowCount > 0)
+                    {
+                      
+                        if (estudiante.BuscarMatricula(matricula, CursoComboBox.Text, GrupocomboBox.Text))
+                        {
+                            if (calificaciones.Editar())
+                            {
+                                Utility.Mensajes(1, "Calificaciónes del Estudiante " + EstudiantecomboBox.Text + " An sido Modificada Correctamente!");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                            else
+                            {
+                                Utility.Mensajes(2, " Las Calificaciónes del Estudiante " + EstudiantecomboBox.Text + "NO An sido Modificada!");
+                                Limpiar();
+                                ActivarBotones(false);
+                            }
+                        }
+                        else
+                        {
+                            CalificaioneserrorProvider.SetError(MatriculatextBox, "No existe un Estudiante con esta Matricula En ese Curso!");
+                            MatriculatextBox.Clear();
+                            MatriculatextBox.Focus();
+                        }
+                    }
+
                 }
 
             }
@@ -342,6 +387,26 @@ namespace TeacherControl2016.Registros
             }
         }
 
-       
+        private void EstudiantecomboBox_TextChanged(object sender, EventArgs e)
+        {
+            // Estudiantes estudiante = new Estudiantes();
+            // Cursos curso = new Cursos();
+            //int matricula= Utility.ConvierteEntero(EstudiantecomboBox.SelectedValue.ToString());
+            // if (curso.Buscar(matricula))
+            // {
+            //     MatriculatextBox.Text = estudiante.Matricula.ToString();
+
+            // }
+            if (EstudiantecomboBox.SelectedValue != null)
+            {
+                DataRowView row;
+               
+                row= (DataRowView)EstudiantecomboBox.SelectedValue;
+
+                MatriculatextBox.Text = row["Matricula"].ToString();
+            }
+
+
+        }
     }
 }

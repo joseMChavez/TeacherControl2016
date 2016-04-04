@@ -76,7 +76,7 @@ namespace TeacherControl2016.Registros
             int cantidad = Utility.ConvierteEntero(CantidadEsttextBox.Text);
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             asistencia.AsistenciaId = id;
-            asistencia.Fecha = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            asistencia.Fecha = FechadateTimePicker.Text;
             asistencia.CantidadEst = cantidad;
             asistencia.Curso = CursoComboBox.Text; 
             asistencia.CursoGrupo = GrupocomboBox.Text;
@@ -213,10 +213,11 @@ namespace TeacherControl2016.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            
+              
             int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
             try
             {
+                asistencia.LimpiarLista();
                 ValidarTodo();
                 Llenardatos();
                 if (AsistenciaIdtextBox.Text.Equals("") && AsistenciadataGridView.Rows.Count > 0)

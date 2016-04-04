@@ -44,7 +44,9 @@ namespace BLL
         {
             aDetalle.Add(new AsistenciaDetalle(estudiante, Activo));
         }
-
+        public void LimpiarLista() {
+            aDetalle.Clear();
+        }
         public override bool Insertar()
         {
             ConexionDb conexion = new ConexionDb();
@@ -76,7 +78,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Asistencias set Curso='{0}', CursoGrupo='{1}',CantidaEst={2}, Fecha='{3}' where AsistenciaId={3}", this.Curso, this.CursoGrupo, this.CantidadEst, this.Fecha, this.AsistenciaId));
+                retorno = conexion.Ejecutar(string.Format("update Asistencias set Curso='{0}', CursoGrupo='{1}',CantidaEst={2}, Fecha='{3}' where AsistenciaId={4}", this.Curso, this.CursoGrupo, this.CantidadEst, this.Fecha, this.AsistenciaId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
@@ -153,7 +155,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("" + Condicion + ordenFinal));
 
         }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
@@ -165,7 +167,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select " + Campos + " from Asistencias where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select  A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
 
         }
     }

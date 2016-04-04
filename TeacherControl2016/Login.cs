@@ -42,9 +42,10 @@ namespace TeacherControl2016
 
         private void PasstextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            Utility.TextBoxEspecial(e);
             if (e.KeyChar == 13)
             {
-                UsuarioNametextBox.Focus();
+                Aceptarbutton.Focus();
             }
         }
         public void Limpiar()
@@ -79,7 +80,7 @@ namespace TeacherControl2016
                         portada.usuarioToolStripMenuItem.Visible = false;
                         portada.consultasToolStripMenuItem.Visible = false;
                         portada.reportesToolStripMenuItem.Visible = false;
-                        estudiante.EliminarButton.Enabled = false;
+                       
 
                     }
                     
