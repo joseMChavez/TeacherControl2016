@@ -50,7 +50,12 @@ namespace BLL
             int.TryParse(s, out id);
             return id;
         }
-
+        public static float ConvierteFloat(string s)
+        {
+            float id = 0;
+            float.TryParse(s, out id);
+            return id;
+        }
         // Estos metodos reciven un evento cuando se presiona una tecla en el textbox para Validarlos
         public static void TextBoxNuemericos(KeyPressEventArgs e)
         {

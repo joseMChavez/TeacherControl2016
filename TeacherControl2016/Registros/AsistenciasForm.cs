@@ -93,7 +93,7 @@ namespace TeacherControl2016.Registros
             CursoComboBox.Text = asistencia.Curso.ToString();
             GrupocomboBox.Text = asistencia.CursoGrupo;
             CantidadEsttextBox.Text = asistencia.CantidadEst.ToString();
-            foreach (var item in asistencia.aDetalle)
+            foreach (AsistenciaDetalle item in asistencia.aDetalle)
             {
                 AsistenciadataGridView.Rows.Add(item.EstudianteId, item.Activo);
             }

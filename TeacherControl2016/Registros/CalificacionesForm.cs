@@ -86,7 +86,7 @@ namespace TeacherControl2016.Registros
             EstudiantecomboBox.Text = calificaciones.Estudiante;
             MatriculatextBox.Text = calificaciones.Matricula.ToString();
             TotaltextBox.Text = calificaciones.TotalPuntos.ToString();
-            foreach (var item in calificaciones.CalificaionesD)
+            foreach (CalificacionesDetalle item in calificaciones.CalificaionesD)
             {
                 CalificacionesDataGridView.Rows.Add(item.Descripcion, item.Puntuacion);
             }
@@ -237,22 +237,24 @@ namespace TeacherControl2016.Registros
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            float puntos = 0, total = 0;
+           
+            float total=0;
 
-            float.TryParse(PuntostextBox.Text, out puntos);
             try
             {
                 Utility.Validar(PuntostextBox, CalificaioneserrorProvider, "Digite los Puntos para la Descripcion Designada.");
                 Utility.Validar(CCalificaionesComboBox, CalificaioneserrorProvider, "Registre un Descripcion en el Registro de Categorias de Calificaciones!");
-                if (!PuntostextBox.Text.Equals("") || !CCalificaionesComboBox.Text.Equals("") || total <=100)
+                if (!PuntostextBox.Text.Equals("") || !CCalificaionesComboBox.Text.Equals(""))
                 {
                     
                     CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
                   
-                    foreach (DataGridViewRow item in CalificacionesDataGridView.Rows)
+                    foreach(DataGridViewRow item in CalificacionesDataGridView.Rows)
                     {
-                        total += puntos;
+                        total += (float)Convert.ToDecimal(item.Cells["Puntos"].Value);
                     }
+                        
+                    
                     PuntostextBox.Clear();
                     PuntostextBox.Focus();
 
@@ -389,22 +391,14 @@ namespace TeacherControl2016.Registros
 
         private void EstudiantecomboBox_TextChanged(object sender, EventArgs e)
         {
-            // Estudiantes estudiante = new Estudiantes();
-            // Cursos curso = new Cursos();
-            //int matricula= Utility.ConvierteEntero(EstudiantecomboBox.SelectedValue.ToString());
-            // if (curso.Buscar(matricula))
-            // {
-            //     MatriculatextBox.Text = estudiante.Matricula.ToString();
-
-            // }
-            if (EstudiantecomboBox.SelectedValue != null)
-            {
+           
+            
                 DataRowView row;
                
-                row= (DataRowView)EstudiantecomboBox.SelectedValue;
+                row= (DataRowView)EstudiantecomboBox.SelectedItem;
 
                 MatriculatextBox.Text = row["Matricula"].ToString();
-            }
+            
 
 
         }

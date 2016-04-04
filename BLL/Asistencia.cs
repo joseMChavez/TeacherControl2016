@@ -146,18 +146,7 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
-        public DataTable ListadoUnido(string Condicion, string Orden)
-        {
-            ConexionDb conexion = new ConexionDb();
-            DataTable dt = new DataTable();
-            string ordenFinal = "";
-            if (!Orden.Equals(""))
-            {
-                ordenFinal = "order by " + Orden;
-            }
-            return dt = conexion.ObtenerDatos(string.Format("" + Condicion + ordenFinal));
-
-        }
+       
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
