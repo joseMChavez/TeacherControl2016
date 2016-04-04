@@ -215,11 +215,11 @@
         private System.Windows.Forms.Button Aceptarbutton;
         private System.Windows.Forms.Button Cancelarbutton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox UsuarioNametextBox;
         private System.Windows.Forms.TextBox PasstextBox;
         private System.Windows.Forms.PictureBox ImagepictureBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider LoginerrorProvider;
+        private System.Windows.Forms.TextBox UsuarioNametextBox;
     }
 }

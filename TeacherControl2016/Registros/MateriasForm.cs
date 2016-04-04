@@ -67,7 +67,7 @@ namespace TeacherControl2016.Registros
             Utility.TextboxAlfaNumerico(e);
             if (e.KeyChar == 13)
             {
-                BuscarButton.Focus();
+                GuardarButton.Focus();
             }
         }
 
@@ -133,7 +133,7 @@ namespace TeacherControl2016.Registros
                     {
                         if (materia.Insertar())
                         {
-                            Utility.Mensajes(1, "La Materia " + DescripcionTextBox.Text + "Fue Guardada Correctamente!");
+                            Utility.Mensajes(1, "La Materia " + DescripcionTextBox.Text + " Fue Guardada Correctamente!");
                             Limpiar();
                             ActivarBotones(false);
                         }
