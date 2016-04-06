@@ -40,9 +40,9 @@ namespace BLL
             this.Fecha = Fecha;
         }
 
-        public void AgregarAsistencia(string estudiante, string Activo)
+        public void AgregarAsistencia(string estudiante, string Activo,int Matricula)
         {
-            aDetalle.Add(new AsistenciaDetalle(estudiante, Activo));
+            aDetalle.Add(new AsistenciaDetalle(estudiante, Activo,Matricula));
         }
         public void LimpiarLista() {
             aDetalle.Clear();
@@ -60,7 +60,7 @@ namespace BLL
 
                 foreach (AsistenciaDetalle asistenciaD in aDetalle)
                 {
-                    conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", retorno, asistenciaD.EstudianteId, asistenciaD.Activo));
+                    conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,Estudiante,Activo,Matricula) Values({0},'{1}','{2}',{3})", retorno, asistenciaD.EstudianteId, asistenciaD.Activo,asistenciaD.Matricula));
                 }
 
             }
@@ -84,7 +84,7 @@ namespace BLL
                     conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
-                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values({0},'{1}','{2}')", this.AsistenciaId, asistenciaD.EstudianteId, asistenciaD.Activo));
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,Estudiante,Activo) Values({0},'{1}','{2}',{3})", this.AsistenciaId, asistenciaD.EstudianteId, asistenciaD.Activo,asistenciaD.Matricula));
                     }
 
                 }
@@ -134,7 +134,7 @@ namespace BLL
                     detalle.Clear();
                     foreach (DataRow row in detalle.Rows)
                     {
-                        AgregarAsistencia(row["EstudianteId"].ToString(), row["Activo"].ToString());
+                        AgregarAsistencia(row["Estudiante"].ToString(), row["Activo"].ToString(),(int)row["Matricula"]);
                     }
 
 
@@ -156,7 +156,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select  A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select  A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.Estudiante,AD.Matricula,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
 
         }
     }

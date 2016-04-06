@@ -163,9 +163,13 @@ namespace TeacherControl2016.Registros
         private void EstudianteIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && GuardarButton.Enabled==true)
             {
                 MatriculatextBox.Focus();
+            }
+            else
+            {
+                BuscarButton.Focus();
             }
         }
 

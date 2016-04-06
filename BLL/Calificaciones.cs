@@ -83,7 +83,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}',Materia={1}, Materia='{2}',Curso='{3}', Cursogrupo='{4}', TotalPuntos={5},  Fecha='{6}' where CalificacionId={7}", this.Estudiante,this.Matricula,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Fecha, this.CalificacionId));
+                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}',Matricula={1}, Materia='{2}',Curso='{3}', Cursogrupo='{4}', TotalPuntos={5},  Fecha='{6}' where CalificacionId={7}", this.Estudiante,this.Matricula,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Fecha, this.CalificacionId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where AsistenciaId={0}", this.CalificacionId));
@@ -162,7 +162,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select C.CalificacionId as Id,C.Estudiante,C.Matricula,C.Materia,CD.Descripcion Descripción,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha from Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId=CD.CalificacionId  where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select C.CalificacionId as Id,C.Estudiante,C.Matricula,C.Materia,CD.Descripcion Categoria,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha from Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId=CD.CalificacionId  where " + Condicion + ordenFinal));
 
         }
     }

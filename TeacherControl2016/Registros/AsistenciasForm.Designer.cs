@@ -51,7 +51,10 @@
             this.CantidadEsttextBox = new System.Windows.Forms.TextBox();
             this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.AsistenciadataGridView = new System.Windows.Forms.DataGridView();
+            this.MatriculacomboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
@@ -62,9 +65,9 @@
             this.GrupocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GrupocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GrupocomboBox.FormattingEnabled = true;
-            this.GrupocomboBox.Location = new System.Drawing.Point(433, 94);
+            this.GrupocomboBox.Location = new System.Drawing.Point(137, 113);
             this.GrupocomboBox.Name = "GrupocomboBox";
-            this.GrupocomboBox.Size = new System.Drawing.Size(77, 21);
+            this.GrupocomboBox.Size = new System.Drawing.Size(84, 21);
             this.GrupocomboBox.TabIndex = 24;
             this.GrupocomboBox.SelectedValueChanged += new System.EventHandler(this.GrupocomboBox_SelectedValueChanged);
             // 
@@ -73,7 +76,7 @@
             this.Grupolabel.AutoSize = true;
             this.Grupolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Grupolabel.Location = new System.Drawing.Point(366, 95);
+            this.Grupolabel.Location = new System.Drawing.Point(40, 118);
             this.Grupolabel.Name = "Grupolabel";
             this.Grupolabel.Size = new System.Drawing.Size(58, 16);
             this.Grupolabel.TabIndex = 27;
@@ -85,7 +88,7 @@
             this.Fechalabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Fechalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Fechalabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Fechalabel.Location = new System.Drawing.Point(366, 28);
+            this.Fechalabel.Location = new System.Drawing.Point(430, 31);
             this.Fechalabel.Name = "Fechalabel";
             this.Fechalabel.Size = new System.Drawing.Size(55, 16);
             this.Fechalabel.TabIndex = 34;
@@ -95,9 +98,9 @@
             // 
             this.FechadateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(433, 24);
+            this.FechadateTimePicker.Location = new System.Drawing.Point(494, 26);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
-            this.FechadateTimePicker.Size = new System.Drawing.Size(84, 20);
+            this.FechadateTimePicker.Size = new System.Drawing.Size(93, 20);
             this.FechadateTimePicker.TabIndex = 35;
             // 
             // Agregarbutton
@@ -111,7 +114,7 @@
             this.Agregarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregarbutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Agregarbutton.Image = global::TeacherControl2016.Properties.Resources._1455915995_user_group_new;
-            this.Agregarbutton.Location = new System.Drawing.Point(427, 158);
+            this.Agregarbutton.Location = new System.Drawing.Point(507, 148);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(80, 53);
             this.Agregarbutton.TabIndex = 33;
@@ -237,9 +240,9 @@
             this.CursoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CursoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CursoComboBox.FormattingEnabled = true;
-            this.CursoComboBox.Location = new System.Drawing.Point(137, 96);
+            this.CursoComboBox.Location = new System.Drawing.Point(137, 73);
             this.CursoComboBox.Name = "CursoComboBox";
-            this.CursoComboBox.Size = new System.Drawing.Size(184, 21);
+            this.CursoComboBox.Size = new System.Drawing.Size(168, 21);
             this.CursoComboBox.TabIndex = 23;
             this.CursoComboBox.SelectedValueChanged += new System.EventHandler(this.CursoComboBox_SelectedValueChanged);
             // 
@@ -248,7 +251,7 @@
             this.Cursolabel.AutoSize = true;
             this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cursolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Cursolabel.Location = new System.Drawing.Point(40, 100);
+            this.Cursolabel.Location = new System.Drawing.Point(40, 74);
             this.Cursolabel.Name = "Cursolabel";
             this.Cursolabel.Size = new System.Drawing.Size(56, 16);
             this.Cursolabel.TabIndex = 26;
@@ -261,21 +264,22 @@
             this.EstudiantecomboBox.FormattingEnabled = true;
             this.EstudiantecomboBox.Items.AddRange(new object[] {
             "dfd"});
-            this.EstudiantecomboBox.Location = new System.Drawing.Point(43, 190);
+            this.EstudiantecomboBox.Location = new System.Drawing.Point(43, 180);
             this.EstudiantecomboBox.Name = "EstudiantecomboBox";
-            this.EstudiantecomboBox.Size = new System.Drawing.Size(184, 21);
+            this.EstudiantecomboBox.Size = new System.Drawing.Size(170, 21);
             this.EstudiantecomboBox.TabIndex = 28;
+            this.EstudiantecomboBox.SelectedIndexChanged += new System.EventHandler(this.EstudiantecomboBox_SelectedIndexChanged);
             // 
             // Estudiantelabel
             // 
             this.Estudiantelabel.AutoSize = true;
             this.Estudiantelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Estudiantelabel.Location = new System.Drawing.Point(40, 171);
+            this.Estudiantelabel.Location = new System.Drawing.Point(40, 161);
             this.Estudiantelabel.Name = "Estudiantelabel";
-            this.Estudiantelabel.Size = new System.Drawing.Size(89, 16);
+            this.Estudiantelabel.Size = new System.Drawing.Size(81, 16);
             this.Estudiantelabel.TabIndex = 29;
-            this.Estudiantelabel.Text = "Estudiante: ";
+            this.Estudiantelabel.Text = "Estudiante";
             // 
             // EstacomboBox
             // 
@@ -287,21 +291,22 @@
             "Presente",
             "Ausente",
             "Excusa"});
-            this.EstacomboBox.Location = new System.Drawing.Point(277, 190);
+            this.EstacomboBox.Location = new System.Drawing.Point(357, 180);
             this.EstacomboBox.Name = "EstacomboBox";
             this.EstacomboBox.Size = new System.Drawing.Size(144, 21);
             this.EstacomboBox.TabIndex = 30;
+            this.EstacomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EstacomboBox_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(274, 171);
+            this.label1.Location = new System.Drawing.Point(354, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.Size = new System.Drawing.Size(57, 16);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Estado: ";
+            this.label1.Text = "Estado";
             // 
             // CantidadEsttextBox
             // 
@@ -326,12 +331,34 @@
             this.AsistenciadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AsistenciadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Estudiante,
+            this.Matricula,
             this.Estado});
-            this.AsistenciadataGridView.Location = new System.Drawing.Point(43, 227);
+            this.AsistenciadataGridView.Location = new System.Drawing.Point(43, 202);
             this.AsistenciadataGridView.Name = "AsistenciadataGridView";
             this.AsistenciadataGridView.ReadOnly = true;
-            this.AsistenciadataGridView.Size = new System.Drawing.Size(464, 150);
+            this.AsistenciadataGridView.Size = new System.Drawing.Size(544, 177);
             this.AsistenciadataGridView.TabIndex = 39;
+            // 
+            // MatriculacomboBox
+            // 
+            this.MatriculacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MatriculacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MatriculacomboBox.FormattingEnabled = true;
+            this.MatriculacomboBox.Location = new System.Drawing.Point(219, 180);
+            this.MatriculacomboBox.Name = "MatriculacomboBox";
+            this.MatriculacomboBox.Size = new System.Drawing.Size(132, 21);
+            this.MatriculacomboBox.TabIndex = 40;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(216, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Matricula";
             // 
             // Estudiante
             // 
@@ -340,19 +367,26 @@
             this.Estudiante.ReadOnly = true;
             this.Estudiante.Width = 300;
             // 
+            // Matricula
+            // 
+            this.Matricula.HeaderText = "Matricula";
+            this.Matricula.Name = "Matricula";
+            this.Matricula.ReadOnly = true;
+            // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            this.Estado.Width = 120;
             // 
             // AsistenciasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(552, 503);
+            this.ClientSize = new System.Drawing.Size(626, 503);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.MatriculacomboBox);
             this.Controls.Add(this.AsistenciadataGridView);
             this.Controls.Add(this.CantidadEsttextBox);
             this.Controls.Add(this.TotalAsitencialabel);
@@ -380,6 +414,7 @@
             this.Name = "AsistenciasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Asistencias";
+            this.Load += new System.EventHandler(this.AsistenciasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -409,7 +444,10 @@
         private System.Windows.Forms.TextBox CantidadEsttextBox;
         private System.Windows.Forms.ErrorProvider AsistenciaerrorProvider;
         private System.Windows.Forms.DataGridView AsistenciadataGridView;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox MatriculacomboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Matricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

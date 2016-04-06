@@ -56,16 +56,21 @@ namespace TeacherControl2016.Registros
     private void MateriaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && GuardarButton.Enabled == true)
             {
                 DescripcionTextBox.Focus();
             }
+            else if (e.KeyChar==13 && GuardarButton.Enabled==false)
+            {
+                BuscarButton.Focus();
+            }
+
         }
 
         private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && GuardarButton.Enabled==true)
             {
                 GuardarButton.Focus();
             }
@@ -191,7 +196,7 @@ namespace TeacherControl2016.Registros
             try
             {
 
-                if (!MateriaIdtextBox.Text.Equals("") && materia.Buscar(id))
+                if (!MateriaIdtextBox.Equals("") && materia.Buscar(id))
                 {
                     resultado = MessageBox.Show("¿Estas seguro(a) de Eliminal La Materia" + DescripcionTextBox.Text + " ?", "Teacher Control", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)

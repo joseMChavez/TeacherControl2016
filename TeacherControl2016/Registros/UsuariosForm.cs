@@ -108,8 +108,14 @@ namespace TeacherControl2016.Registros
         private void UsuIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
            Utility.TextBoxNuemericos(e);
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && GuardarButton.Enabled==true)
+            {
                 NombreTextBox.Focus();
+            }
+            else
+            {
+                BuscarButton.Focus();
+            }
         }
 
         private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -171,6 +177,7 @@ namespace TeacherControl2016.Registros
 
             if (e.KeyChar == 13)
                 GuardarButton.Focus();
+            
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
@@ -236,7 +243,6 @@ namespace TeacherControl2016.Registros
                             }
                             else
                             {
-                                
                                 if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
                                 {
                                     if (usuario.Insertar())
@@ -270,20 +276,23 @@ namespace TeacherControl2016.Registros
                         }
                        
                     }
-                    else if (!UsuIdtextBox.Text.Equals("") && Validacion)
+                    
+                   
+
+                }
+                else
+                if (!UsuIdtextBox.Text.Equals("") && Validacion)
                     {
                         if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                         {
                             if (usuario.BuscarNombre(UserNametextBox.Text))
                             {
                                 Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
-
-                                Limpiar();
                                 NombreTextBox.Focus();
                             }
                             else
                             {
-                               
+
                                 if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
                                 {
                                     if (usuario.Editar())
@@ -313,45 +322,9 @@ namespace TeacherControl2016.Registros
                             EmailtextBox.Clear();
                             EmailtextBox.Focus();
                         }
-                       
-                    }
-                   
 
-                }
-                else
-                {
-
-                    if (Validacion)
-                    {
-                        if (usuario.BuscarNombre(NombreTextBox.Text) && PassTextBox.Text.Length >= 6)
-                        {
-                            if (PassTextBox.Text.Equals(ConfirPasstextBox.Text))
-                            {
-                                if (usuario.Editar())
-                                {
-                                    Utility.Mensajes(1, "Usuarios Modificado Correctamente");
-                                    Limpiar();
-                                }
-                                else
-                                {
-                                    Utility.Mensajes(2, "Error en Modifica Usuario!");
-                                }
-                            }
-                            else
-                            {
-                                Utility.Mensajes(3, "La Contraseña no coincide!");
-                                PassTextBox.Focus();
-                            }
-
-                        }
-                        else
-                        {
-                            Utility.Mensajes(3, "La Contraseña debe de contener mas de 5 digitos \no\n " + NombreTextBox.Text + " Ya existe!");
-                            PassTextBox.Focus();
-                        }
                     }
                 }
-            }
             catch (Exception ex)
             {
 

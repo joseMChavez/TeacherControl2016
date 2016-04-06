@@ -47,6 +47,8 @@
             this.PuntostextBox = new System.Windows.Forms.TextBox();
             this.Puntoslabel = new System.Windows.Forms.Label();
             this.CalificacionesDataGridView = new System.Windows.Forms.DataGridView();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puntos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CalificaioneserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -55,10 +57,8 @@
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.MatriculatextBox = new System.Windows.Forms.TextBox();
             this.Matriculalabel = new System.Windows.Forms.Label();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Puntos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatriculacomboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.CalificacionesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalificaioneserrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             this.Materialabel.AutoSize = true;
             this.Materialabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Materialabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Materialabel.Location = new System.Drawing.Point(368, 154);
+            this.Materialabel.Location = new System.Drawing.Point(31, 201);
             this.Materialabel.Name = "Materialabel";
             this.Materialabel.Size = new System.Drawing.Size(68, 16);
             this.Materialabel.TabIndex = 40;
@@ -84,9 +84,9 @@
             "Presente",
             "Ausente",
             "Excusa"});
-            this.MateriacomboBox.Location = new System.Drawing.Point(449, 150);
+            this.MateriacomboBox.Location = new System.Drawing.Point(147, 200);
             this.MateriacomboBox.Name = "MateriacomboBox";
-            this.MateriacomboBox.Size = new System.Drawing.Size(155, 21);
+            this.MateriacomboBox.Size = new System.Drawing.Size(186, 21);
             this.MateriacomboBox.TabIndex = 39;
             // 
             // Estudiantelabel
@@ -94,7 +94,7 @@
             this.Estudiantelabel.AutoSize = true;
             this.Estudiantelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Estudiantelabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Estudiantelabel.Location = new System.Drawing.Point(52, 150);
+            this.Estudiantelabel.Location = new System.Drawing.Point(31, 151);
             this.Estudiantelabel.Name = "Estudiantelabel";
             this.Estudiantelabel.Size = new System.Drawing.Size(89, 16);
             this.Estudiantelabel.TabIndex = 38;
@@ -118,7 +118,7 @@
             this.Cursolabel.AutoSize = true;
             this.Cursolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cursolabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Cursolabel.Location = new System.Drawing.Point(52, 97);
+            this.Cursolabel.Location = new System.Drawing.Point(31, 94);
             this.Cursolabel.Name = "Cursolabel";
             this.Cursolabel.Size = new System.Drawing.Size(56, 16);
             this.Cursolabel.TabIndex = 36;
@@ -150,7 +150,7 @@
             this.IdLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.IdLabel.Location = new System.Drawing.Point(53, 31);
+            this.IdLabel.Location = new System.Drawing.Point(31, 31);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(25, 16);
             this.IdLabel.TabIndex = 33;
@@ -205,11 +205,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(54, 246);
+            this.label1.Location = new System.Drawing.Point(31, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Categoria";
+            this.label1.Text = "Categoria:";
             // 
             // CCalificaionesComboBox
             // 
@@ -218,17 +218,17 @@
             this.CCalificaionesComboBox.FormattingEnabled = true;
             this.CCalificaionesComboBox.Items.AddRange(new object[] {
             "dfd"});
-            this.CCalificaionesComboBox.Location = new System.Drawing.Point(55, 265);
+            this.CCalificaionesComboBox.Location = new System.Drawing.Point(34, 271);
             this.CCalificaionesComboBox.Name = "CCalificaionesComboBox";
-            this.CCalificaionesComboBox.Size = new System.Drawing.Size(276, 21);
+            this.CCalificaionesComboBox.Size = new System.Drawing.Size(186, 21);
             this.CCalificaionesComboBox.TabIndex = 49;
             // 
             // PuntostextBox
             // 
-            this.PuntostextBox.Location = new System.Drawing.Point(352, 265);
+            this.PuntostextBox.Location = new System.Drawing.Point(449, 272);
             this.PuntostextBox.MaxLength = 5;
             this.PuntostextBox.Name = "PuntostextBox";
-            this.PuntostextBox.Size = new System.Drawing.Size(166, 20);
+            this.PuntostextBox.Size = new System.Drawing.Size(91, 20);
             this.PuntostextBox.TabIndex = 52;
             this.PuntostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PuntostextBox_KeyPress);
             // 
@@ -238,11 +238,11 @@
             this.Puntoslabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Puntoslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Puntoslabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Puntoslabel.Location = new System.Drawing.Point(349, 246);
+            this.Puntoslabel.Location = new System.Drawing.Point(446, 247);
             this.Puntoslabel.Name = "Puntoslabel";
-            this.Puntoslabel.Size = new System.Drawing.Size(55, 16);
+            this.Puntoslabel.Size = new System.Drawing.Size(59, 16);
             this.Puntoslabel.TabIndex = 51;
-            this.Puntoslabel.Text = "Puntos";
+            this.Puntoslabel.Text = "Puntos:";
             // 
             // CalificacionesDataGridView
             // 
@@ -254,15 +254,28 @@
             this.CalificacionesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Categoria,
             this.Puntos});
-            this.CalificacionesDataGridView.Location = new System.Drawing.Point(55, 292);
+            this.CalificacionesDataGridView.Location = new System.Drawing.Point(34, 292);
             this.CalificacionesDataGridView.Name = "CalificacionesDataGridView";
             this.CalificacionesDataGridView.ReadOnly = true;
-            this.CalificacionesDataGridView.Size = new System.Drawing.Size(549, 150);
+            this.CalificacionesDataGridView.Size = new System.Drawing.Size(570, 150);
             this.CalificacionesDataGridView.TabIndex = 53;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 380;
+            // 
+            // Puntos
+            // 
+            this.Puntos.HeaderText = "Puntos";
+            this.Puntos.Name = "Puntos";
+            this.Puntos.ReadOnly = true;
             // 
             // TotaltextBox
             // 
-            this.TotaltextBox.Location = new System.Drawing.Point(177, 448);
+            this.TotaltextBox.Location = new System.Drawing.Point(149, 449);
             this.TotaltextBox.MaxLength = 5;
             this.TotaltextBox.Name = "TotaltextBox";
             this.TotaltextBox.ReadOnly = true;
@@ -275,11 +288,11 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(52, 449);
+            this.label2.Location = new System.Drawing.Point(30, 449);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 16);
+            this.label2.Size = new System.Drawing.Size(121, 16);
             this.label2.TabIndex = 54;
-            this.label2.Text = "Total de Puntos";
+            this.label2.Text = "Total de Puntos:";
             // 
             // CalificaioneserrorProvider
             // 
@@ -296,7 +309,7 @@
             this.Agregarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregarbutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Agregarbutton.Image = global::TeacherControl2016.Properties.Resources._1456533592_notebook_add;
-            this.Agregarbutton.Location = new System.Drawing.Point(524, 232);
+            this.Agregarbutton.Location = new System.Drawing.Point(537, 233);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(80, 53);
             this.Agregarbutton.TabIndex = 46;
@@ -337,7 +350,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(524, 473);
+            this.EliminarButton.Location = new System.Drawing.Point(537, 473);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 42;
@@ -356,7 +369,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(44, 473);
+            this.NuevoButton.Location = new System.Drawing.Point(33, 473);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 41;
@@ -385,39 +398,27 @@
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
-            // MatriculatextBox
-            // 
-            this.MatriculatextBox.Location = new System.Drawing.Point(147, 203);
-            this.MatriculatextBox.MaxLength = 5;
-            this.MatriculatextBox.Name = "MatriculatextBox";
-            this.MatriculatextBox.Size = new System.Drawing.Size(86, 20);
-            this.MatriculatextBox.TabIndex = 57;
-            this.MatriculatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatriculatextBox_KeyPress);
-            // 
             // Matriculalabel
             // 
             this.Matriculalabel.AutoSize = true;
             this.Matriculalabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Matriculalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Matriculalabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Matriculalabel.Location = new System.Drawing.Point(54, 204);
+            this.Matriculalabel.Location = new System.Drawing.Point(368, 154);
             this.Matriculalabel.Name = "Matriculalabel";
             this.Matriculalabel.Size = new System.Drawing.Size(75, 16);
             this.Matriculalabel.TabIndex = 56;
             this.Matriculalabel.Text = "Matricula:";
             // 
-            // Categoria
+            // MatriculacomboBox
             // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 380;
-            // 
-            // Puntos
-            // 
-            this.Puntos.HeaderText = "Puntos";
-            this.Puntos.Name = "Puntos";
-            this.Puntos.ReadOnly = true;
+            this.MatriculacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MatriculacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MatriculacomboBox.FormattingEnabled = true;
+            this.MatriculacomboBox.Location = new System.Drawing.Point(449, 150);
+            this.MatriculacomboBox.Name = "MatriculacomboBox";
+            this.MatriculacomboBox.Size = new System.Drawing.Size(84, 21);
+            this.MatriculacomboBox.TabIndex = 59;
             // 
             // CalificacionesForm
             // 
@@ -425,7 +426,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(649, 556);
-            this.Controls.Add(this.MatriculatextBox);
+            this.Controls.Add(this.MatriculacomboBox);
             this.Controls.Add(this.Matriculalabel);
             this.Controls.Add(this.TotaltextBox);
             this.Controls.Add(this.label2);
@@ -457,6 +458,7 @@
             this.Name = "CalificacionesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Calificaciones";
+            this.Load += new System.EventHandler(this.CalificacionesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CalificacionesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalificaioneserrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -491,9 +493,9 @@
         private System.Windows.Forms.TextBox TotaltextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider CalificaioneserrorProvider;
-        private System.Windows.Forms.TextBox MatriculatextBox;
         private System.Windows.Forms.Label Matriculalabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Puntos;
+        private System.Windows.Forms.ComboBox MatriculacomboBox;
     }
 }

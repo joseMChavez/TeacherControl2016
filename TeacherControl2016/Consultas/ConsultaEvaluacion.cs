@@ -54,7 +54,7 @@ namespace TeacherControl2016.Consultas
         }
         private void MostrarxFecha(Calificaciones calificacion)
         {
-            string filtro = filtro = "C.Fecha >= " + DesdedateTimePicker.Text + " and C.Fecha <=" + HastadateTimePicker.Text;
+            string filtro = filtro = "C.Fecha between " + DesdedateTimePicker.Text + " and " + HastadateTimePicker.Text;
 
             EvaluacionDataGridView.DataSource = calificacion.Listado("", filtro, "");
 

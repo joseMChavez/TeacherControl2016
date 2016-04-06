@@ -234,7 +234,7 @@
             // DirecciontextBox
             // 
             this.DirecciontextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DirecciontextBox.Location = new System.Drawing.Point(534, 146);
+            this.DirecciontextBox.Location = new System.Drawing.Point(502, 146);
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(228, 20);
             this.DirecciontextBox.TabIndex = 31;
@@ -252,7 +252,7 @@
             // EmailtextBox
             // 
             this.EmailtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EmailtextBox.Location = new System.Drawing.Point(534, 109);
+            this.EmailtextBox.Location = new System.Drawing.Point(502, 109);
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(228, 20);
             this.EmailtextBox.TabIndex = 33;
@@ -261,7 +261,7 @@
             // TelefonoMaskedTextBox
             // 
             this.TelefonoMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(534, 68);
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(502, 68);
             this.TelefonoMaskedTextBox.Mask = "000-000-0000";
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
             this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(75, 20);
@@ -324,7 +324,7 @@
             this.CursocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CursocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CursocomboBox.FormattingEnabled = true;
-            this.CursocomboBox.Location = new System.Drawing.Point(534, 178);
+            this.CursocomboBox.Location = new System.Drawing.Point(502, 178);
             this.CursocomboBox.Name = "CursocomboBox";
             this.CursocomboBox.Size = new System.Drawing.Size(127, 21);
             this.CursocomboBox.TabIndex = 40;
@@ -364,7 +364,7 @@
             // EdadtextBox
             // 
             this.EdadtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EdadtextBox.Location = new System.Drawing.Point(534, 250);
+            this.EdadtextBox.Location = new System.Drawing.Point(502, 250);
             this.EdadtextBox.Name = "EdadtextBox";
             this.EdadtextBox.ReadOnly = true;
             this.EdadtextBox.Size = new System.Drawing.Size(46, 20);
@@ -373,7 +373,7 @@
             // GrupotextBox
             // 
             this.GrupotextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GrupotextBox.Location = new System.Drawing.Point(534, 217);
+            this.GrupotextBox.Location = new System.Drawing.Point(502, 217);
             this.GrupotextBox.Name = "GrupotextBox";
             this.GrupotextBox.Size = new System.Drawing.Size(84, 20);
             this.GrupotextBox.TabIndex = 48;
@@ -411,7 +411,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(361, 323);
+            this.GuardarButton.Location = new System.Drawing.Point(348, 323);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 15;
@@ -431,7 +431,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(682, 323);
+            this.EliminarButton.Location = new System.Drawing.Point(650, 325);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 14;
@@ -450,7 +450,7 @@
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.NuevoButton.Image = global::TeacherControl2016.Properties.Resources._1452825521_Add;
-            this.NuevoButton.Location = new System.Drawing.Point(61, 323);
+            this.NuevoButton.Location = new System.Drawing.Point(61, 325);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 60);
             this.NuevoButton.TabIndex = 13;
@@ -464,7 +464,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(814, 396);
+            this.ClientSize = new System.Drawing.Size(784, 409);
             this.Controls.Add(this.GrupotextBox);
             this.Controls.Add(this.EdadtextBox);
             this.Controls.Add(this.Edadlabel);

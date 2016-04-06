@@ -99,7 +99,7 @@ namespace BLL
         public static void Validar(Control tb,ErrorProvider e, string mensaje)
         {
 
-            if (tb.Text.Equals(""))
+            if (tb.Text.Equals(" "))
             {
                 e.SetError(tb, mensaje);
                 tb.Focus();

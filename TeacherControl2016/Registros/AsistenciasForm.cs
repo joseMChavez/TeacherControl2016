@@ -17,6 +17,10 @@ namespace TeacherControl2016.Registros
         public AsistenciasForm()
         {
             InitializeComponent();
+           
+        }
+        private void AsistenciasForm_Load(object sender, EventArgs e)
+        {
             DesactivarMenuContextual();
             CargarCursos();
         }
@@ -44,7 +48,7 @@ namespace TeacherControl2016.Registros
                 CursoComboBox.SelectedIndex = 0;
                 GrupocomboBox.SelectedIndex = 0;
                 EstudiantecomboBox.SelectedIndex = 0;
-                EstacomboBox.SelectedIndex = 0;
+                EstacomboBox.SelectedIndex = 1;
                 CursoComboBox.Focus();
                 CantidadEsttextBox.Clear();
                 GuardarButton.Enabled = true;
@@ -82,7 +86,7 @@ namespace TeacherControl2016.Registros
             asistencia.CursoGrupo = GrupocomboBox.Text;
             foreach (DataGridViewRow row in AsistenciadataGridView.Rows)
             {
-                asistencia.AgregarAsistencia(row.Cells["Estudiante"].Value.ToString(), row.Cells["Estado"].Value.ToString());
+                asistencia.AgregarAsistencia(row.Cells["Estudiante"].Value.ToString(), row.Cells["Estado"].Value.ToString(),Utility.ConvierteEntero(row.Cells["Matricula"].Value.ToString()));
             }
 
         }
@@ -133,11 +137,25 @@ namespace TeacherControl2016.Registros
             EstudiantecomboBox.ValueMember = "CursoId";
             EstudiantecomboBox.DisplayMember = "Nombre";
         }
+        private void CargarMatricula()
+        {
+            DataTable dato = new DataTable();
 
+            Estudiantes estudiante = new Estudiantes();
+
+            dato = estudiante.Listado("EstudianteId,Matricula", "0=0", "EstudianteId");
+            MatriculacomboBox.DataSource = dato;
+            MatriculacomboBox.ValueMember = "EstudianteId";
+            MatriculacomboBox.DisplayMember = "Matricula";
+        }
 
         private void AsistenciaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
+            if (e.KeyChar==13 && GuardarButton.Enabled==false)
+            {
+                BuscarButton.Focus();
+            }
         }
 
         private void CursoComboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -147,8 +165,19 @@ namespace TeacherControl2016.Registros
         private void GrupocomboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             CargarEstudiantes();
+           
         }
-       
+        private void EstudiantecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarMatricula();
+        }
+        private void EstacomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 && Agregarbutton.Enabled == true)
+            {
+                Agregarbutton.Focus();
+            }
+        }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             
@@ -187,10 +216,10 @@ namespace TeacherControl2016.Registros
             {
                 
                 Utility.Validar(EstacomboBox, AsistenciaerrorProvider, "Seleccione el Estado del Estudiante!");
-                if (!EstacomboBox.Text.Equals(""))
+                if (!EstacomboBox.Text.Equals("") )
                 {
                    
-                    AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text, EstacomboBox.Text);
+                    AsistenciadataGridView.Rows.Add(EstudiantecomboBox.Text,MatriculacomboBox.Text, EstacomboBox.Text);
                     
                 }
 
@@ -300,5 +329,7 @@ namespace TeacherControl2016.Registros
                 MessageBox.Show(ex.Message);
             }
         }
+
+       
     }
 }

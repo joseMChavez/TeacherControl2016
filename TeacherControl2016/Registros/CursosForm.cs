@@ -53,10 +53,13 @@ namespace TeacherControl2016.Registros
         private void CursosIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
-
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && GuardarButton.Enabled == true)
             {
                 DescripcionTextBox.Focus();
+            }
+            else if (e.KeyChar == 13 && GuardarButton.Enabled == false)
+            {
+                BuscarButton.Focus();
             }
         }
 

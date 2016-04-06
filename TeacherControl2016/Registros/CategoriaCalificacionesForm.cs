@@ -60,9 +60,13 @@ namespace TeacherControl2016.Registros
         private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && GuardarButton.Enabled == true)
             {
-                GuardarButton.Focus();
+                DescripcionTextBox.Focus();
+            }
+            else if (e.KeyChar == 13 && GuardarButton.Enabled == false)
+            {
+                BuscarButton.Focus();
             }
         }
 
