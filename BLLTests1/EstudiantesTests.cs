@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BLL.Tests
 {
@@ -47,7 +48,7 @@ namespace BLL.Tests
             estudiante.Celular = "809-844-2216";
             estudiante.Email = "jose@gmail.com";
             estudiante.Direccion = "Cenovi";
-            estudiante.Curso = "";
+            estudiante.Curso = "H34";
             estudiante.Grupo = "B";
         
             bool prueba = estudiante.Editar();
@@ -60,19 +61,7 @@ namespace BLL.Tests
         {
             Estudiantes estudiante = new Estudiantes();
             estudiante.EstudianteId = 1;
-            estudiante.Matricula = 5;
-            estudiante.Nombre = "jose";
-            estudiante.Apellidos = "Chavez";
-            estudiante.Genero = "M";
-            estudiante.FechaNacimiento = "21/02/2000";
-            estudiante.Edad = 15;
-            estudiante.Celular = "809-844-2216";
-            estudiante.Email = "jose@gmail.com";
-            estudiante.Direccion = "Cenovi";
-            estudiante.Curso = "";
-            estudiante.Grupo = "B";
          
-
             bool prueba= estudiante.Eliminar();
             Assert.IsTrue(prueba);
         }
@@ -80,13 +69,39 @@ namespace BLL.Tests
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
-        }
+            Estudiantes estudiante = new Estudiantes();
+            estudiante.EstudianteId = 1;
+            estudiante.Insertar();
+            bool prueba = estudiante.Buscar(1);
 
+            Assert.IsTrue(prueba);
+        }
+        [TestMethod()]
+        public void BuscarMatriculaTest() {
+            Estudiantes estudiante = new Estudiantes();
+           
+            estudiante.Curso = "H45";
+            estudiante.Grupo = "B";
+
+            estudiante.Insertar();
+
+            bool prueba = estudiante.BuscarMatricula(1, "H45", "B");
+
+            Assert.IsTrue(prueba);
+        }
         [TestMethod()]
         public void ListadoTest()
         {
-            Assert.Fail();
+            Estudiantes estudiante = new Estudiantes();
+            DataTable dt = new DataTable();
+           
+            estudiante.Matricula = 1;
+            estudiante.Nombre = "jose";
+          
+            estudiante.Insertar();
+
+            dt = estudiante.Listado("*", "1=1", "");
+            Assert.IsTrue(dt.Rows.Count>0);
         }
     }
 }
