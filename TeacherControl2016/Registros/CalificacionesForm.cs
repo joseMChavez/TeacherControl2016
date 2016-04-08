@@ -124,7 +124,7 @@ namespace TeacherControl2016.Registros
             DataTable dato = new DataTable();
             Estudiantes estudiante = new Estudiantes();
            
-            dato = estudiante.Listado("CursoId,Nombre","0=0", "CursoId,Grupo");
+            dato = estudiante.Listado("CursoId,Nombre", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "CursoId,Grupo");
             EstudiantecomboBox.DataSource = dato;
             EstudiantecomboBox.ValueMember = "CursoId";
             EstudiantecomboBox.DisplayMember = "Nombre";
@@ -133,7 +133,7 @@ namespace TeacherControl2016.Registros
             DataTable dato = new DataTable();
             Estudiantes estudiante = new Estudiantes();
 
-            dato = estudiante.Listado("EstudianteId,Matricula","0=0","EstudianteId");
+            dato = estudiante.Listado("EstudianteId,Matricula", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
             MatriculacomboBox.DataSource = dato;
             MatriculacomboBox.ValueMember = "EstudianteId";
             MatriculacomboBox.DisplayMember = "Matricula";
