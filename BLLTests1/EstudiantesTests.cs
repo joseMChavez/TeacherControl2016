@@ -70,7 +70,9 @@ namespace BLL.Tests
         public void BuscarTest()
         {
             Estudiantes estudiante = new Estudiantes();
-            estudiante.EstudianteId = 1;
+          
+            estudiante.Curso = "H45";
+            estudiante.Grupo = "B";
             estudiante.Insertar();
             bool prueba = estudiante.Buscar(1);
 
@@ -79,13 +81,14 @@ namespace BLL.Tests
         [TestMethod()]
         public void BuscarMatriculaTest() {
             Estudiantes estudiante = new Estudiantes();
-           
+          
+            estudiante.Matricula = 5;
+       
             estudiante.Curso = "H45";
             estudiante.Grupo = "B";
-
             estudiante.Insertar();
 
-            bool prueba = estudiante.BuscarMatricula(1, "H45", "B");
+            bool prueba = estudiante.BuscarMatricula(5, "H45", "B");
 
             Assert.IsTrue(prueba);
         }

@@ -86,7 +86,7 @@ namespace BLL
                 retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}',Matricula={1}, Materia='{2}',Curso='{3}', Cursogrupo='{4}', TotalPuntos={5},  Fecha='{6}' where CalificacionId={7}", this.Estudiante,this.Matricula,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Fecha, this.CalificacionId));
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where AsistenciaId={0}", this.CalificacionId));
+                    conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where CalificacionId={0}", this.CalificacionId));
                     foreach (CalificacionesDetalle detalle in CalificaionesD)
                     {
                         conexion.Ejecutar(string.Format("Insert into CalificacionDetalle(CalificacionId,Descripcion,Puntuacion) Values({0},'{1}',{2})",this.CalificacionId, detalle.Descripcion, detalle.Puntuacion));

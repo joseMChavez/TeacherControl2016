@@ -46,11 +46,11 @@ namespace BLL.Tests
         public void BuscarTest()
         {
             Materias materias = new Materias();
-            materias.MateriaId = 1;
+            
             materias.Descripcion = "Sociales";
             materias.Insertar();
 
-            bool prueba = materias.Buscar(materias.MateriaId);
+            bool prueba = materias.Buscar(1);
             Assert.IsTrue(prueba);
         }
 

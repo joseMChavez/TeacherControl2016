@@ -52,6 +52,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AsistenciaTests.cs" />
+    <Compile Include="CalificacionesTests.cs" />
     <Compile Include="CategoriaCalificacionesTests.cs" />
     <Compile Include="CursosTests.cs" />
     <Compile Include="EstudiantesTests.cs" />

@@ -49,12 +49,9 @@ namespace BLL.Tests
         {
             Cursos curso = new Cursos();
           
-            int id = 1;
-            
-            
             curso.Descripcion = "Primero";
             curso.Insertar();
-            bool prueba = curso.Buscar(id);
+            bool prueba = curso.Buscar(1);
             Assert.IsTrue(prueba);
         }
 
