@@ -40,6 +40,7 @@ namespace TeacherControl2016.Consultas
             {
                 Utility.TextboxAlfaNumerico(e);
             }
+            Utility.Enter(e, BuscarButton);
         }
         private void ActivarcheckBox_CheckedChanged(object sender, EventArgs e)
         {

@@ -114,7 +114,7 @@ namespace TeacherControl2016.Registros
             DataTable data = new DataTable();
             CursosDetalle cDetalle = new CursosDetalle();
 
-            data = cDetalle.ListadoNormal("Id,Grupo", "0=0", "Id");
+            data = cDetalle.ListadoNormal("Id,Grupo", "Curso = '" + CursoComboBox.Text + "'", "Id");
             GrupocomboBox.DataSource = data;
             GrupocomboBox.ValueMember = "Id";
             GrupocomboBox.DisplayMember = "Grupo";
@@ -124,17 +124,18 @@ namespace TeacherControl2016.Registros
             DataTable dato = new DataTable();
             Estudiantes estudiante = new Estudiantes();
            
-            dato = estudiante.Listado("CursoId,Nombre", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "CursoId,Grupo");
+            dato = estudiante.Listado("EstudianteId,Nombre", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
             EstudiantecomboBox.DataSource = dato;
-            EstudiantecomboBox.ValueMember = "CursoId";
+            EstudiantecomboBox.ValueMember = "EstudianteId";
             EstudiantecomboBox.DisplayMember = "Nombre";
         }
         private void CargarMatricula() {
             DataTable dato = new DataTable();
             Estudiantes estudiante = new Estudiantes();
 
-            dato = estudiante.Listado("EstudianteId,Matricula", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
+            dato = estudiante.Listado("EstudianteId,Matricula", "Nombre='"+EstudiantecomboBox.Text+"' and CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
             MatriculacomboBox.DataSource = dato;
+            
             MatriculacomboBox.ValueMember = "EstudianteId";
             MatriculacomboBox.DisplayMember = "Matricula";
         }
@@ -180,13 +181,7 @@ namespace TeacherControl2016.Registros
                 CalificaioneserrorProvider.Clear();
             }
         }
-        private void EstudiantecomboBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                MatriculacomboBox.Focus();
-            }
-        }
+       
         private void AsistenciaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
@@ -194,6 +189,30 @@ namespace TeacherControl2016.Registros
             {
                 BuscarButton.Focus();
             }
+        }
+        private void EstudiantecomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, MateriacomboBox);
+        }
+        private void CursoComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, GrupocomboBox);
+        }
+
+        private void MateriacomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, CCalificaionesComboBox);
+        }
+
+        private void CCalificaionesComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, PuntostextBox);
+        }
+
+        private void PuntostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.TextBoxNuemericos(e);
+            Utility.Enter(e, Agregarbutton);
         }
 
         private void CursoComboBox_TextChanged(object sender, EventArgs e)
@@ -203,25 +222,14 @@ namespace TeacherControl2016.Registros
         private void GrupocomboBox_TextChanged(object sender, EventArgs e)
         {
             CargarEstudiantes();
+            
+        }
+        private void EstudiantecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             CargarMatricula();
         }
-
-        private void MatriculatextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Utility.TextBoxNuemericos(e);
-            if (e.KeyChar == 13)
-            {
-                PuntostextBox.Focus();
-            }
-        }
-        private void PuntostextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Utility.TextBoxNuemericos(e);
-            if (e.KeyChar == 13)
-            {
-                Agregarbutton.Focus();
-            }
-        }
+       
+       
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             

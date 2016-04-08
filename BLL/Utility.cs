@@ -95,11 +95,19 @@ namespace BLL
             else
                 e.Handled = true;
         }
-
+        // Este metodo en especial recibe un control con el fin de poder dar Focus a Cuarquier Componente de la clase Control.
+        public static void Enter(KeyPressEventArgs e, Control control)
+        {
+            if (e.KeyChar == 13)
+            {
+                control.Focus();
+            }
+        }
+        /// Fin Metodos de Seguridad en los texbox o mejor dicho cuando se realiza el evento cuando se presiona una tecla.
         public static void Validar(Control tb,ErrorProvider e, string mensaje)
         {
 
-            if (tb.Text.Equals(" "))
+            if (tb.Text.Equals(""))
             {
                 e.SetError(tb, mensaje);
                 tb.Focus();

@@ -40,6 +40,7 @@ namespace TeacherControl2016.Consultas
                 Utility.TextBoxSoloTexto(e);
                 BuscartextBox.MaxLength = 45;
             }
+            Utility.Enter(e, BuscarButton);
         }
 
         private void FiltrocomboBox_TextChanged(object sender, EventArgs e)

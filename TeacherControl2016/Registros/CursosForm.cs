@@ -66,10 +66,7 @@ namespace TeacherControl2016.Registros
         private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if(e.KeyChar==13)
-            {
-                GuardarButton.Focus();
-            }
+            Utility.Enter(e, GuardarButton);
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)

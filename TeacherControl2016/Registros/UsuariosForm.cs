@@ -122,44 +122,34 @@ namespace TeacherControl2016.Registros
         {
 
             Utility.TextBoxSoloTexto(e);
-            if (e.KeyChar == 13)
-                ApellidotextBox.Focus();
+            Utility.Enter(e, ApellidotextBox);
 
         }
         private void ApellidotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxSoloTexto(e);
-            if (e.KeyChar == 13)
-                UserNametextBox.Focus();
+            Utility.Enter(e, UserNametextBox);
         }
         private void UserNametextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar == 13)
-            {
-                TelefonomaskedTextBox.Focus();
-            }
+            Utility.Enter(e, TelefonomaskedTextBox);
         }
         private void TelefonomaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                EmailtextBox.Focus();
-            }
+            Utility.Enter(e, EmailtextBox);
         }
         private void EmailtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxEspecial(e);
 
-            if (e.KeyChar == 13)
-                DirecciontextBox.Focus();
+            Utility.Enter(e, DirecciontextBox);
         }
     
         private void DirecciontextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar == 13)
-                PassTextBox.Focus();
+            Utility.Enter(e, PassTextBox);
         }
 
         
@@ -167,17 +157,15 @@ namespace TeacherControl2016.Registros
         {
             Utility.TextBoxEspecial(e);
 
-            if (e.KeyChar == 13)
-                ConfirPasstextBox.Focus();
+            Utility.Enter(e, ConfirPasstextBox);
         }
 
         private void ConfirPasstextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxEspecial(e);
 
-            if (e.KeyChar == 13)
-                GuardarButton.Focus();
-            
+            Utility.Enter(e, GuardarButton);
+
         }
         private void BuscarButton_Click(object sender, EventArgs e)
         {

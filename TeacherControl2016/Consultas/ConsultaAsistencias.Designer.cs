@@ -157,7 +157,7 @@
             this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.HastadateTimePicker.Location = new System.Drawing.Point(373, 19);
             this.HastadateTimePicker.Name = "HastadateTimePicker";
-            this.HastadateTimePicker.Size = new System.Drawing.Size(120, 20);
+            this.HastadateTimePicker.Size = new System.Drawing.Size(92, 20);
             this.HastadateTimePicker.TabIndex = 2;
             // 
             // DesdedateTimePicker

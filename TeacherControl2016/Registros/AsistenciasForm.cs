@@ -121,7 +121,7 @@ namespace TeacherControl2016.Registros
             DataTable data = new DataTable();
             CursosDetalle cDetalle = new CursosDetalle();
 
-            data = cDetalle.ListadoNormal("Id,Grupo", "0=0", "Id");
+            data = cDetalle.ListadoNormal("Id,Grupo", "Curso = '"+CursoComboBox.Text+"'", "Id");
             GrupocomboBox.DataSource = data;
             GrupocomboBox.ValueMember = "Id";
             GrupocomboBox.DisplayMember = "Grupo";
@@ -143,7 +143,7 @@ namespace TeacherControl2016.Registros
 
             Estudiantes estudiante = new Estudiantes();
 
-            dato = estudiante.Listado("EstudianteId,Matricula", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
+            dato = estudiante.Listado("EstudianteId,Matricula", "Nombre = '"+EstudiantecomboBox.Text+"' and CursoId = '" + CursoComboBox.Text + "' and Grupo = '" + GrupocomboBox.Text + "'", "EstudianteId");
             MatriculacomboBox.DataSource = dato;
             MatriculacomboBox.ValueMember = "EstudianteId";
             MatriculacomboBox.DisplayMember = "Matricula";
@@ -157,7 +157,24 @@ namespace TeacherControl2016.Registros
                 BuscarButton.Focus();
             }
         }
+        private void CursoComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, GrupocomboBox);
+        }
 
+        private void GrupocomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, EstudiantecomboBox);
+        }
+
+        private void EstudiantecomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e, EstacomboBox);
+        }
+        private void EstacomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utility.Enter(e,Agregarbutton);
+        }
         private void CursoComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             CargarGrupo();
@@ -171,24 +188,20 @@ namespace TeacherControl2016.Registros
         {
             CargarMatricula();
         }
-        private void EstacomboBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13 && Agregarbutton.Enabled == true)
-            {
-                Agregarbutton.Focus();
-            }
-        }
+        
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            
-            int id = Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
+
+            int id = 0;
             try
             {
                 Utility.Validar(AsistenciaIdtextBox, AsistenciaerrorProvider, "Digite un Id a Buscar!");
                 if (!AsistenciaIdtextBox.Text.Equals(""))
                 {
+                    id= Utility.ConvierteEntero(AsistenciaIdtextBox.Text);
                     if (asistencia.Buscar(id))
                     {
+                        Limpiar();
                         ObtenerDatos();
                         ActivarBotones(true);
                         EstacomboBox.Focus();
@@ -330,6 +343,6 @@ namespace TeacherControl2016.Registros
             }
         }
 
-       
+      
     }
 }

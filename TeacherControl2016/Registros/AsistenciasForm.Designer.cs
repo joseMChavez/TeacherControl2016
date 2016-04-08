@@ -51,11 +51,11 @@
             this.CantidadEsttextBox = new System.Windows.Forms.TextBox();
             this.AsistenciaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.AsistenciadataGridView = new System.Windows.Forms.DataGridView();
-            this.MatriculacomboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatriculacomboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciaerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AsistenciadataGridView)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             this.GrupocomboBox.Size = new System.Drawing.Size(84, 21);
             this.GrupocomboBox.TabIndex = 24;
             this.GrupocomboBox.SelectedValueChanged += new System.EventHandler(this.GrupocomboBox_SelectedValueChanged);
+            this.GrupocomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GrupocomboBox_KeyPress);
             // 
             // Grupolabel
             // 
@@ -135,7 +136,7 @@
             this.GuardarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GuardarButton.Image = global::TeacherControl2016.Properties.Resources._1453541193_save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(227, 426);
+            this.GuardarButton.Location = new System.Drawing.Point(262, 426);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(78, 64);
             this.GuardarButton.TabIndex = 19;
@@ -155,7 +156,7 @@
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.EliminarButton.Image = global::TeacherControl2016.Properties.Resources._1452899178_trash;
-            this.EliminarButton.Location = new System.Drawing.Point(427, 428);
+            this.EliminarButton.Location = new System.Drawing.Point(507, 428);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(80, 60);
             this.EliminarButton.TabIndex = 18;
@@ -245,6 +246,7 @@
             this.CursoComboBox.Size = new System.Drawing.Size(168, 21);
             this.CursoComboBox.TabIndex = 23;
             this.CursoComboBox.SelectedValueChanged += new System.EventHandler(this.CursoComboBox_SelectedValueChanged);
+            this.CursoComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CursoComboBox_KeyPress);
             // 
             // Cursolabel
             // 
@@ -269,6 +271,7 @@
             this.EstudiantecomboBox.Size = new System.Drawing.Size(170, 21);
             this.EstudiantecomboBox.TabIndex = 28;
             this.EstudiantecomboBox.SelectedIndexChanged += new System.EventHandler(this.EstudiantecomboBox_SelectedIndexChanged);
+            this.EstudiantecomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EstudiantecomboBox_KeyPress);
             // 
             // Estudiantelabel
             // 
@@ -339,27 +342,6 @@
             this.AsistenciadataGridView.Size = new System.Drawing.Size(544, 177);
             this.AsistenciadataGridView.TabIndex = 39;
             // 
-            // MatriculacomboBox
-            // 
-            this.MatriculacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MatriculacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MatriculacomboBox.FormattingEnabled = true;
-            this.MatriculacomboBox.Location = new System.Drawing.Point(219, 180);
-            this.MatriculacomboBox.Name = "MatriculacomboBox";
-            this.MatriculacomboBox.Size = new System.Drawing.Size(132, 21);
-            this.MatriculacomboBox.TabIndex = 40;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(216, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Matricula";
-            // 
             // Estudiante
             // 
             this.Estudiante.HeaderText = "Estudiante";
@@ -378,6 +360,28 @@
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
+            // 
+            // MatriculacomboBox
+            // 
+            this.MatriculacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MatriculacomboBox.Enabled = false;
+            this.MatriculacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MatriculacomboBox.FormattingEnabled = true;
+            this.MatriculacomboBox.Location = new System.Drawing.Point(219, 180);
+            this.MatriculacomboBox.Name = "MatriculacomboBox";
+            this.MatriculacomboBox.Size = new System.Drawing.Size(132, 21);
+            this.MatriculacomboBox.TabIndex = 40;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(216, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Matricula";
             // 
             // AsistenciasForm
             // 

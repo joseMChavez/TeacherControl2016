@@ -88,6 +88,7 @@
             this.MateriacomboBox.Name = "MateriacomboBox";
             this.MateriacomboBox.Size = new System.Drawing.Size(186, 21);
             this.MateriacomboBox.TabIndex = 39;
+            this.MateriacomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MateriacomboBox_KeyPress);
             // 
             // Estudiantelabel
             // 
@@ -111,6 +112,7 @@
             this.EstudiantecomboBox.Name = "EstudiantecomboBox";
             this.EstudiantecomboBox.Size = new System.Drawing.Size(184, 21);
             this.EstudiantecomboBox.TabIndex = 37;
+            this.EstudiantecomboBox.SelectedIndexChanged += new System.EventHandler(this.EstudiantecomboBox_SelectedIndexChanged);
             this.EstudiantecomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EstudiantecomboBox_KeyPress);
             // 
             // Cursolabel
@@ -134,6 +136,7 @@
             this.CursoComboBox.Size = new System.Drawing.Size(184, 21);
             this.CursoComboBox.TabIndex = 35;
             this.CursoComboBox.TextChanged += new System.EventHandler(this.CursoComboBox_TextChanged);
+            this.CursoComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CursoComboBox_KeyPress);
             // 
             // CalificacionIdtextBox
             // 
@@ -220,15 +223,16 @@
             "dfd"});
             this.CCalificaionesComboBox.Location = new System.Drawing.Point(34, 271);
             this.CCalificaionesComboBox.Name = "CCalificaionesComboBox";
-            this.CCalificaionesComboBox.Size = new System.Drawing.Size(186, 21);
+            this.CCalificaionesComboBox.Size = new System.Drawing.Size(299, 21);
             this.CCalificaionesComboBox.TabIndex = 49;
+            this.CCalificaionesComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCalificaionesComboBox_KeyPress);
             // 
             // PuntostextBox
             // 
-            this.PuntostextBox.Location = new System.Drawing.Point(449, 272);
+            this.PuntostextBox.Location = new System.Drawing.Point(371, 271);
             this.PuntostextBox.MaxLength = 5;
             this.PuntostextBox.Name = "PuntostextBox";
-            this.PuntostextBox.Size = new System.Drawing.Size(91, 20);
+            this.PuntostextBox.Size = new System.Drawing.Size(152, 20);
             this.PuntostextBox.TabIndex = 52;
             this.PuntostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PuntostextBox_KeyPress);
             // 
@@ -238,7 +242,7 @@
             this.Puntoslabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.Puntoslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Puntoslabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Puntoslabel.Location = new System.Drawing.Point(446, 247);
+            this.Puntoslabel.Location = new System.Drawing.Point(368, 252);
             this.Puntoslabel.Name = "Puntoslabel";
             this.Puntoslabel.Size = new System.Drawing.Size(59, 16);
             this.Puntoslabel.TabIndex = 51;
@@ -413,6 +417,7 @@
             // MatriculacomboBox
             // 
             this.MatriculacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MatriculacomboBox.Enabled = false;
             this.MatriculacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MatriculacomboBox.FormattingEnabled = true;
             this.MatriculacomboBox.Location = new System.Drawing.Point(449, 150);

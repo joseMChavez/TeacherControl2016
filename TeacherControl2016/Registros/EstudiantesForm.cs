@@ -176,19 +176,13 @@ namespace TeacherControl2016.Registros
         private void MatriculatextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxNuemericos(e);
-            if (e.KeyChar == 13)
-            {
-                NombretextBox.Focus();
-            }
+            Utility.Enter(e, NombretextBox);
         }
 
         private void NombretextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxSoloTexto(e);
-            if (e.KeyChar == 13)
-            {
-                ApellidostextBox.Focus();
-            }
+            Utility.Enter(e,ApellidostextBox);
         }
 
         private void ApellidostextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -203,10 +197,7 @@ namespace TeacherControl2016.Registros
         }
         private void FechaDateTimePicker_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                TelefonoMaskedTextBox.Focus();
-            }
+            Utility.Enter(e, TelefonoMaskedTextBox);
         }
         //Esto me permite Calcular la Edad de Una Persona;
         private void FechaDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -224,28 +215,19 @@ namespace TeacherControl2016.Registros
 
         private void TelefonoMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                EmailtextBox.Focus();
-            }
+            Utility.Enter(e, EmailtextBox);
         }
 
         private void EmailtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxEspecial(e);
-            if (e.KeyChar == 13)
-            {
-                DirecciontextBox.Focus();
-            }
+            Utility.Enter(e, DirecciontextBox);
         }
 
         private void DirecciontextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar == 13)
-            {
-                CursocomboBox.Focus();
-            }
+            Utility.Enter(e, CursocomboBox);
         }
         private void CursocomboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -258,10 +240,7 @@ namespace TeacherControl2016.Registros
         private void GrupotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar==13)
-            {
-                GuardarButton.Focus();
-            }
+            Utility.Enter(e,GuardarButton);
         }
        
         /// 
