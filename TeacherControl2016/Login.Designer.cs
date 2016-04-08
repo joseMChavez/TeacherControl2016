@@ -78,6 +78,7 @@
             this.UsuarioNametextBox.Name = "UsuarioNametextBox";
             this.UsuarioNametextBox.Size = new System.Drawing.Size(144, 20);
             this.UsuarioNametextBox.TabIndex = 6;
+            this.UsuarioNametextBox.Focus();
             this.UsuarioNametextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsuarioNametextBox_KeyPress);
             // 
             // PasstextBox
@@ -87,6 +88,7 @@
             this.PasstextBox.Name = "PasstextBox";
             this.PasstextBox.Size = new System.Drawing.Size(144, 20);
             this.PasstextBox.TabIndex = 7;
+            
             this.PasstextBox.UseSystemPasswordChar = true;
             this.PasstextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasstextBox_KeyPress);
             // 

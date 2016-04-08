@@ -17,6 +17,12 @@ create table Curso(
 	 primary key (CursoId) 
 )
 go
+CREATE TABLE Grupos(
+  GrupoId int,
+  Descripcion varchar(10),
+  primary key(GrupoId)
+)
+go
 Create table CursosDetalle(
 	Id  int identity(1,1),
 	Grupo varchar(5),

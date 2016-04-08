@@ -57,6 +57,7 @@
     <Compile Include="CategoriaCalificacionesTests.cs" />
     <Compile Include="CursosTests.cs" />
     <Compile Include="EstudiantesTests.cs" />
+    <Compile Include="GruposTests.cs" />
     <Compile Include="MateriasTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuariosTests.cs" />

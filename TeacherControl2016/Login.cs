@@ -34,19 +34,13 @@ namespace TeacherControl2016
         private void UsuarioNametextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextboxAlfaNumerico(e);
-            if (e.KeyChar == 13)
-            {
-                PasstextBox.Focus();
-            }
+            Utility.Enter(e, PasstextBox);
         }
 
         private void PasstextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utility.TextBoxEspecial(e);
-            if (e.KeyChar == 13)
-            {
-                Aceptarbutton.Focus();
-            }
+            Utility.Enter(e, Aceptarbutton);
         }
         public void Limpiar()
         {
