@@ -52,17 +52,7 @@ namespace BLL.Tests
         public void EliminarTest()
         {
             Calificaciones calificacion = new Calificaciones();
-            CalificacionesDetalle calificacionD = new CalificacionesDetalle();
-
-            calificacion.Curso = "Prueba";
-            calificacion.CursoGrupo = "1";
-            calificacion.Estudiante = "Jose";
-            calificacion.Materia = "Math";
-            calificacion.Matricula = 9;
-
-            calificacionD.Descripcion = "Asistencia";
-            calificacionD.Puntuacion = 10;
-            calificacion.Insertar();
+            
             bool prueba = calificacion.Eliminar();
             Assert.IsTrue(prueba);
         }

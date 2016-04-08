@@ -56,16 +56,7 @@ namespace BLL.Tests
         public void EliminarTest()
         {
             Usuarios usuario = new Usuarios();
-            usuario.nombre = "Jose";
-            usuario.apellido = "Garcia";
-            usuario.telefono = "8094884848";
-            usuario.userName = "Josead";
-            usuario.email = "Joe@gmail.com";
-            usuario.direccion = "Cenovi";
-            usuario.pass = "1234";
-            usuario.passConfir = "1234";
-            usuario.TipoUsuario = "Administrador";
-            usuario.Insertar();
+      
             bool prueba = usuario.Eliminar();
 
             Assert.IsTrue(prueba);

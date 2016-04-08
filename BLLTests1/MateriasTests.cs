@@ -36,8 +36,7 @@ namespace BLL.Tests
         public void EliminarTest()
         {
             Materias materias = new Materias();
-            materias.MateriaId = 1;
-            materias.Descripcion = "Sociales";
+         
             bool prueba = materias.Eliminar();
             Assert.IsTrue(prueba); ;
         }

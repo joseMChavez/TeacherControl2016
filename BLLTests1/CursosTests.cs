@@ -38,8 +38,7 @@ namespace BLL.Tests
         public void EliminarTest()
         {
             Cursos curso = new Cursos();
-            curso.CursoId = 1;
-            curso.Descripcion = "Primero";
+         
             bool prueba = curso.Eliminar();
             Assert.IsTrue(prueba);
         }

@@ -39,8 +39,6 @@ namespace BLL.Tests
         {
             CategoriaCalificaciones cCalificaciones = new CategoriaCalificaciones();
 
-            cCalificaciones.Descripcion = "Participar";
-             cCalificaciones.Insertar();
             bool prueba = cCalificaciones.Eliminar();
             Assert.IsTrue(prueba);
         }

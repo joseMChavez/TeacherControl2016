@@ -60,8 +60,7 @@ namespace BLL.Tests
         public void EliminarTest()
         {
             Estudiantes estudiante = new Estudiantes();
-            estudiante.EstudianteId = 1;
-         
+      
             bool prueba= estudiante.Eliminar();
             Assert.IsTrue(prueba);
         }

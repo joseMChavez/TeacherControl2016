@@ -66,7 +66,7 @@ namespace BLL.Tests
             asistenciaD.EstudianteId = "Juan";
             asistenciaD.Matricula = 10;
             asistenciaD.Activo = "A";
-            asistencia.Insertar();
+           
             bool prueba = asistencia.Eliminar();
 
             Assert.IsTrue(prueba);
