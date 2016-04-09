@@ -21,7 +21,7 @@ namespace TeacherControl2016.Consultas
         {
             var blankContextMenu = new ContextMenu();
 
-            foreach (Control control in this.Controls)
+            foreach (Control control in Controls)
             {
                 control.ContextMenu = blankContextMenu;
             }

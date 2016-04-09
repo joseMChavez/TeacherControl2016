@@ -20,6 +20,7 @@ namespace TeacherControl2016.Registros
         {
             InitializeComponent();
             CargarComboBox();
+            CargarGrupo();
             DesactivarMenuContextual();
           
         }
@@ -70,7 +71,7 @@ namespace TeacherControl2016.Registros
             estudiante.Direccion = DirecciontextBox.Text;
             
             estudiante.Curso = CursocomboBox.Text;
-            estudiante.Grupo = GrupotextBox.Text;
+            estudiante.Grupo = GrupocomboBox.Text;
             
 
             
@@ -94,7 +95,7 @@ namespace TeacherControl2016.Registros
             EmailtextBox.Text = estudiante.Email;
             DirecciontextBox.Text = estudiante.Direccion;
             CursocomboBox.Text = estudiante.Curso;
-            GrupotextBox.Text = estudiante.Grupo;
+            GrupocomboBox.Text = estudiante.Grupo;
           
         }
 
@@ -112,18 +113,19 @@ namespace TeacherControl2016.Registros
             TelefonoMaskedTextBox.Mask = "###-###-####";
             EmailtextBox.Clear();
             DirecciontextBox.Clear();
-            if (!CursocomboBox.Text.Equals(""))
+            if (!CursocomboBox.Text.Equals("") && !GrupocomboBox.Text.Equals(""))
             {
                 CursocomboBox.SelectedIndex = 0;
+                GrupocomboBox.SelectedIndex = 0;
                 GuardarButton.Enabled = true;
             }
             else
             {
-                Utility.Mensajes(3, "Agregue Los Cursos en el registro de Cursos!");
+                Utility.Mensajes(3, "Agregue Los Cursos en el registro de Cursos!\n Si ya Tiene los Cursos Agregue los Grupos en el registro de Grupos!");
                 ActivarBotones(false);
 
             }
-            GrupotextBox.Clear();
+            
            
             EstudianteErrorProvider.Clear();
            
@@ -133,8 +135,18 @@ namespace TeacherControl2016.Registros
             GuardarButton.Enabled = btn;
             EliminarButton.Enabled = btn;
         }
-       
-    
+        private void CargarGrupo()
+        {
+
+            DataTable data = new DataTable();
+            Grupos grupo = new Grupos();
+
+            data = grupo.Listado("GrupoId,Descripcion","0=0","GrupoId");
+            GrupocomboBox.DataSource = data;
+            GrupocomboBox.ValueMember = "GrupoId";
+            GrupocomboBox.DisplayMember = "Descripcion";
+        }
+
         private bool ValidarTodo()
         {
             if (MatriculatextBox.Text.Equals("") && NombretextBox.Text.Equals("") && ApellidostextBox.Text.Equals("") && (MasculinoRadioButton.Checked || FemeninoradioButton.Checked) && FechaDateTimePicker.Checked && TelefonoMaskedTextBox.MaskCompleted && EmailtextBox.Text.Equals("") && DirecciontextBox.Text.Equals(""))
@@ -148,7 +160,7 @@ namespace TeacherControl2016.Registros
                 EstudianteErrorProvider.SetError(EmailtextBox, "Digite un Email!");
                 EstudianteErrorProvider.SetError(DirecciontextBox, "Digite una Direccion!");
                 EstudianteErrorProvider.SetError(CursocomboBox, "Seleccione un Curso!");
-                EstudianteErrorProvider.SetError(GrupotextBox, "Digite un Grupo!");
+               
                 NombretextBox.Focus();
 
                 return true;
@@ -234,19 +246,20 @@ namespace TeacherControl2016.Registros
             if (e.KeyChar == 13)
             {
                 CursocomboBox.SelectedIndex = 0;
-                GrupotextBox.Focus();
+                GrupocomboBox.SelectedIndex = 0;
             }
+            Utility.Enter(e, GrupocomboBox);
         }
-        private void GrupotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void GrupocomboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextboxAlfaNumerico(e);
-            Utility.Enter(e,GuardarButton);
+            Utility.Enter(e, GuardarButton);
         }
-       
+
+
         /// 
         /// Boton Buscar
         /// 
-       
+
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Estudiantes estudiante = new Estudiantes();
@@ -304,24 +317,24 @@ namespace TeacherControl2016.Registros
                     
                     if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                     {
-                        if (estudiante.BuscarMatricula(matricula,CursocomboBox.Text,GrupotextBox.Text)==false)
+                        if (estudiante.BuscarMatricula(matricula,CursocomboBox.Text, GrupocomboBox.Text)==false)
                         {
                             if (estudiante.Insertar())
                             {
-                                Utility.Mensajes(1, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "'\n Ah Sido Guardado Correctamete.");
+                                Utility.Mensajes(1, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupocomboBox.Text + "'\n Ah Sido Guardado Correctamete.");
                                 Limpiar();
                                 ActivarBotones(false);
                             }
                             else
                             {
-                                Utility.Mensajes(2, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "\n No se ah sido Guardado.");
+                                Utility.Mensajes(2, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupocomboBox.Text + "\n No se ah sido Guardado.");
                                 Limpiar();
                                 ActivarBotones(false);
                             }
                         }
                         else
                         {
-                            Utility.Mensajes(3,"Ya Existe un Estudiante con la Matricula'"+MatriculatextBox.Text+"' En el Curso'"+CursocomboBox.Text+" "+GrupotextBox.Text+"'\n Por Favor Intente Nuevamente!");
+                            Utility.Mensajes(3,"Ya Existe un Estudiante con la Matricula'"+MatriculatextBox.Text+"' En el Curso'"+CursocomboBox.Text+" " + GrupocomboBox.Text+"'\n Por Favor Intente Nuevamente!");
                             MatriculatextBox.Clear();
                             MatriculatextBox.Focus();
                         }
@@ -339,24 +352,24 @@ namespace TeacherControl2016.Registros
                 {
                     if (Utility.ComprobarFormatoEmail(EmailtextBox.Text))
                     {
-                        if (estudiante.BuscarMatricula(matricula,CursocomboBox.Text,GrupotextBox.Text)==false)
+                        if (estudiante.BuscarMatricula(matricula,CursocomboBox.Text, GrupocomboBox.Text)==false)
                         {
                             if (estudiante.Editar())
                             {
-                                Utility.Mensajes(1, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "\n Ah Sido Modificado Correctamete.");
+                                Utility.Mensajes(1, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupocomboBox.Text + "\n Ah Sido Modificado Correctamete.");
                                 Limpiar();
                                 ActivarBotones(false);
                             }
                             else
                             {
-                                Utility.Mensajes(2, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "\n No se ah sido Modificado.");
+                                Utility.Mensajes(2, "El Estudiante '" + NombretextBox.Text + "' con la Matricula '" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupocomboBox.Text + "\n No se ah sido Modificado.");
                                 Limpiar();
                                 ActivarBotones(false);
                             }
                         }
                         else
                         {
-                            Utility.Mensajes(3, "Ya Existe un Estudiante con la Matricula'" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupotextBox.Text + "'\n Por Favor Intente Nuevamente!");
+                            Utility.Mensajes(3, "Ya Existe un Estudiante con la Matricula'" + MatriculatextBox.Text + "' En el Curso'" + CursocomboBox.Text + " " + GrupocomboBox.Text + "'\n Por Favor Intente Nuevamente!");
                             MatriculatextBox.Clear();
                             MatriculatextBox.Focus();
                         }

@@ -218,5 +218,11 @@ namespace TeacherControl2016
             ReporteForm.EvaluacionesReporForm evaluacion = new ReporteForm.EvaluacionesReporForm();
             evaluacion.Show();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Registros.GruposForm grupo = new Registros.GruposForm();
+            grupo.Show();
+        }
     }
 }

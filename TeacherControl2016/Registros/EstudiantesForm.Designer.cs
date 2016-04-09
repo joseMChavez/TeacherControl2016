@@ -57,11 +57,11 @@
             this.EstudianteErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Edadlabel = new System.Windows.Forms.Label();
             this.EdadtextBox = new System.Windows.Forms.TextBox();
-            this.GrupotextBox = new System.Windows.Forms.TextBox();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
+            this.GrupocomboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.EstudianteErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -370,15 +370,6 @@
             this.EdadtextBox.Size = new System.Drawing.Size(46, 20);
             this.EdadtextBox.TabIndex = 47;
             // 
-            // GrupotextBox
-            // 
-            this.GrupotextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GrupotextBox.Location = new System.Drawing.Point(502, 217);
-            this.GrupotextBox.Name = "GrupotextBox";
-            this.GrupotextBox.Size = new System.Drawing.Size(84, 20);
-            this.GrupotextBox.TabIndex = 48;
-            this.GrupotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GrupotextBox_KeyPress);
-            // 
             // BuscarButton
             // 
             this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
@@ -459,13 +450,24 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
+            // GrupocomboBox
+            // 
+            this.GrupocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GrupocomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GrupocomboBox.FormattingEnabled = true;
+            this.GrupocomboBox.Location = new System.Drawing.Point(502, 216);
+            this.GrupocomboBox.Name = "GrupocomboBox";
+            this.GrupocomboBox.Size = new System.Drawing.Size(127, 21);
+            this.GrupocomboBox.TabIndex = 48;
+            this.GrupocomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GrupocomboBox_KeyPress);
+            // 
             // EstudiantesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 409);
-            this.Controls.Add(this.GrupotextBox);
+            this.Controls.Add(this.GrupocomboBox);
             this.Controls.Add(this.EdadtextBox);
             this.Controls.Add(this.Edadlabel);
             this.Controls.Add(this.Grupolabel);
@@ -540,7 +542,7 @@
         private System.Windows.Forms.ErrorProvider EstudianteErrorProvider;
         private System.Windows.Forms.TextBox EdadtextBox;
         private System.Windows.Forms.Label Edadlabel;
-        private System.Windows.Forms.TextBox GrupotextBox;
         public System.Windows.Forms.Button EliminarButton;
+        private System.Windows.Forms.ComboBox GrupocomboBox;
     }
 }
