@@ -68,7 +68,7 @@ namespace TeacherControl2016.Consultas
                 }
                 else if (FiltrocomboBox.SelectedIndex == 1)
                 {
-                    filtro = "AD.EstudianteId like '%" + BuscartextBox.Text + "%'";
+                    filtro = "AD.Estudiante like '%" + BuscartextBox.Text + "%'";
                 }
                 else
                 {

@@ -54,6 +54,7 @@ namespace TeacherControl2016.Registros
             estudiante.Matricula = matricula;
             estudiante.Nombre = NombretextBox.Text;
             estudiante.Apellidos = ApellidostextBox.Text;
+            estudiante.NombreCompleto = NombretextBox.Text + " " + ApellidostextBox.Text;
             if (MasculinoRadioButton.Checked)
             {
                 estudiante.Genero = "M";

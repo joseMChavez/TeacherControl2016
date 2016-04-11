@@ -18,7 +18,7 @@ create table Curso(
 )
 go
 CREATE TABLE Grupos(
-  GrupoId int,
+  GrupoId int identity(1,1),
   Descripcion varchar(10),
   primary key(GrupoId)
 )
@@ -64,12 +64,14 @@ create table Asistencias(
 	   CursoGrupo varchar(5),
 	   Fecha DateTime,
 	   CantidaEst int,
+	   
 	   primary key(AsistenciaId)
 ) 
 go
 Create table AsistenciaDetalle(
  Id int identity(1,1),
- EstudianteId varchar(30), 
+ Estudiante varchar(100), 
+ Matricula int,
  AsistenciaId int foreign key references Asistencias(AsistenciaId),
  Activo varchar(15),
  primary key(Id)

@@ -43,7 +43,7 @@ namespace TeacherControl2016.Registros
                 GrupocomboBox.SelectedIndex = 0;
                 EstudiantecomboBox.SelectedIndex = 0;
                 MateriacomboBox.SelectedIndex = 0;
-                
+                PuntostextBox.Clear();
                 TotaltextBox.Clear();
                 GuardarButton.Enabled = true;
                 Agregarbutton.Enabled = true;
@@ -124,16 +124,16 @@ namespace TeacherControl2016.Registros
             DataTable dato = new DataTable();
             Estudiantes estudiante = new Estudiantes();
            
-            dato = estudiante.Listado("EstudianteId,Nombre", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
+            dato = estudiante.Listado("EstudianteId,NombreCompleto", " CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
             EstudiantecomboBox.DataSource = dato;
             EstudiantecomboBox.ValueMember = "EstudianteId";
-            EstudiantecomboBox.DisplayMember = "Nombre";
+            EstudiantecomboBox.DisplayMember = "NombreCompleto";
         }
         private void CargarMatricula() {
             DataTable dato = new DataTable();
             Estudiantes estudiante = new Estudiantes();
 
-            dato = estudiante.Listado("EstudianteId,Matricula", "Nombre='"+EstudiantecomboBox.Text+"' and CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
+            dato = estudiante.Listado("EstudianteId,Matricula", "NombreCompleto='" + EstudiantecomboBox.Text+"' and CursoId='" + CursoComboBox.Text + "' and Grupo='" + GrupocomboBox.Text + "'", "EstudianteId");
             MatriculacomboBox.DataSource = dato;
             
             MatriculacomboBox.ValueMember = "EstudianteId";
@@ -268,9 +268,9 @@ namespace TeacherControl2016.Registros
 
             try
             {
-                Utility.Validar(PuntostextBox, CalificaioneserrorProvider, "Digite los Puntos para la Descripcion Designada.");
+                Utility.Validar(PuntostextBox, CalificaioneserrorProvider, "Digite los Puntos para la Categoria Designada.");
                 Utility.Validar(CCalificaionesComboBox, CalificaioneserrorProvider, "Registre un Descripcion en el Registro de Categorias de Calificaciones!");
-                if (!PuntostextBox.Text.Equals("") || !CCalificaionesComboBox.Text.Equals(""))
+                if (!PuntostextBox.Text.Equals("") && !CCalificaionesComboBox.Text.Equals(""))
                 {
                     
                     CalificacionesDataGridView.Rows.Add(CCalificaionesComboBox.Text, PuntostextBox.Text);
@@ -306,7 +306,7 @@ namespace TeacherControl2016.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Estudiantes estudiante = new Estudiantes();
-            
+
             try
             {
                 calificaciones.LimpiarLista();
@@ -353,14 +353,14 @@ namespace TeacherControl2016.Registros
 
                 }
 
-            }
+        }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Teacher Control");
 
             }
-        }
+}
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {

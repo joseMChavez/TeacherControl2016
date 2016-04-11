@@ -212,7 +212,7 @@
             this.Direccionlabel.Name = "Direccionlabel";
             this.Direccionlabel.Size = new System.Drawing.Size(78, 16);
             this.Direccionlabel.TabIndex = 17;
-            this.Direccionlabel.Text = "Direccion:";
+            this.Direccionlabel.Text = "Direcciòn:";
             // 
             // label1
             // 

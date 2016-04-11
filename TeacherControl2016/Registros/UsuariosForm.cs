@@ -226,8 +226,8 @@ namespace TeacherControl2016.Registros
                             {
                                 Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
 
-                                Limpiar();
-                                NombreTextBox.Focus();
+                                UserNametextBox.Clear();
+                                UserNametextBox.Focus();
                             }
                             else
                             {
@@ -235,7 +235,7 @@ namespace TeacherControl2016.Registros
                                 {
                                     if (usuario.Insertar())
                                     {
-                                        Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Guardado Correctamente!");
+                                        Utility.Mensajes(1, NombreTextBox.Text +" "+ ApellidotextBox.Text+" Con el Nombre de Usuario: " +UserNametextBox.Text+"A sido Guardado Correctamente!");
                                         Limpiar();
                                         ActivarBotones(false);
                                     }
@@ -276,8 +276,9 @@ namespace TeacherControl2016.Registros
                             if (usuario.BuscarNombre(UserNametextBox.Text))
                             {
                                 Utility.Mensajes(1, UserNametextBox.Text + "Es Un Usuario \n Intenete Nuevamene!");
-                                NombreTextBox.Focus();
-                            }
+                                UserNametextBox.Clear();
+                                UserNametextBox.Focus();
+                        }
                             else
                             {
 
@@ -285,7 +286,7 @@ namespace TeacherControl2016.Registros
                                 {
                                     if (usuario.Editar())
                                     {
-                                        Utility.Mensajes(1, "El Usuarios " + UserNametextBox.Text + " A sido Modificado Correctamente!");
+                                        Utility.Mensajes(1, NombreTextBox.Text +" "+ ApellidotextBox.Text+" Con el Nombre de Usuario: " +UserNametextBox.Text+" A sido Modificado Correctamente!");
                                         Limpiar();
                                         ActivarBotones(false);
                                     }
@@ -299,7 +300,9 @@ namespace TeacherControl2016.Registros
                                 else
                                 {
                                     Utility.Mensajes(3, "La Contraseñas No Coinsiden!");
-                                    PassTextBox.Focus();
+                                     PassTextBox.Clear();
+                                     ConfirPasstextBox.Clear();
+                                     PassTextBox.Focus();
                                 }
 
                             }

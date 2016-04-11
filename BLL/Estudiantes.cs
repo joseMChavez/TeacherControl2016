@@ -15,6 +15,7 @@ namespace BLL
         public int EstudianteId { get; set; }
         public int Matricula { get; set; }
         public string Nombre { get; set; }
+        public string NombreCompleto { get; set; }
         public string Apellidos { get; set; }
         public string Genero { get; set; }
         public string FechaNacimiento { get; set; }
@@ -34,6 +35,7 @@ namespace BLL
             this.Nombre = "";
             this.Apellidos = "";
             this.Genero = "";
+            this.NombreCompleto = "";
             this.FechaNacimiento = "";
             this.Edad = 0;
             this.Celular = "";
@@ -71,7 +73,7 @@ namespace BLL
             
             try
             {
-                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo) values({0},'{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}')", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo));
+                   retorno= conexion.Ejecutar(string.Format("insert into Estudiante(Matricula,Nombre,Apellido,NombreCompleto,Genero,FechaNacimiento,Edad,Celular,Email, Direccion,CursoId,Grupo) values({0},'{1}','{2}','{3}','{4}','{5}',{6},'{7}','{8}','{9}','{10}','{11}')", this.Matricula, this.Nombre, this.Apellidos, this.NombreCompleto,this.Genero, this.FechaNacimiento, this.Edad, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo));
 
                 if (retorno)
                 {
@@ -93,7 +95,7 @@ namespace BLL
             Cursos curso = new Cursos();
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}', Genero= '{3}' , FechaNacimiento='{4}',Edad= {5}, Celular='{6}',Email='{7}',Direccion='{8}', CursoId='{9}', Grupo='{10}' where EstudianteId= {11}", this.Matricula, this.Nombre, this.Apellidos, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo,this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiante set Matricula= {0}, Nombre= '{1}', Apellido='{2}',NombreCompleto='{3}', Genero= '{4}' , FechaNacimiento='{5}',Edad= {6}, Celular='{7}',Email='{8}',Direccion='{9}', CursoId='{10}', Grupo='{11}' where EstudianteId= {12}", this.Matricula, this.Nombre, this.Apellidos,this.NombreCompleto, this.Genero, this.FechaNacimiento,this.Edad, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo,this.EstudianteId));
 
                 if (retorno)
                 {

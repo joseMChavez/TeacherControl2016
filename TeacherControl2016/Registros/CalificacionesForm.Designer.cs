@@ -462,7 +462,7 @@
             this.MaximizeBox = false;
             this.Name = "CalificacionesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro de Calificaciones";
+            this.Text = "Registro de Evaluaci";
             this.Load += new System.EventHandler(this.CalificacionesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CalificacionesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalificaioneserrorProvider)).EndInit();

@@ -60,7 +60,7 @@ namespace BLL
             object identity;
             try
             {
-                identity= conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Matricula,Materia,Curso,Cursogrupo,TotalPuntos,Fecha) values('{0}',{1},'{2}','{3}','{4}',{5},'{6}') select @@Identity", this.Estudiante,this.Matricula ,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Matricula,Materia,Curso,Cursogrupo,TotalPuntos,Fecha) values('{0}',{1},'{2}','{3}','{4}',{5},'{6}') select @@Identity", this.Estudiante,this.Matricula ,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
                 retorno=Utility.ConvierteEntero(identity.ToString());
                 this.CalificacionId = retorno;
           
@@ -68,8 +68,8 @@ namespace BLL
                     {
                         conexion.Ejecutar(string.Format("Insert into CalificacionDetalle(CalificacionId,Descripcion,Puntuacion) Values({0},'{1}',{2})", retorno, detalle.Descripcion, detalle.Puntuacion));
                     }
-                
-            }
+
+        }
             catch (Exception ex)
             {
 

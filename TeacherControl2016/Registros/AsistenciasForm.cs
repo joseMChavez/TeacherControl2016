@@ -132,10 +132,10 @@ namespace TeacherControl2016.Registros
             
             Estudiantes estudiante = new Estudiantes();
            
-            dato = estudiante.Listado("EstudianteId,Nombre", " CursoId='"+CursoComboBox.Text+"' and Grupo='"+GrupocomboBox.Text+"'", "EstudianteId");
+            dato = estudiante.Listado("EstudianteId,NombreCompleto", " CursoId='"+CursoComboBox.Text+"' and Grupo='"+GrupocomboBox.Text+"'", "EstudianteId");
             EstudiantecomboBox.DataSource= dato;
             EstudiantecomboBox.ValueMember = "EstudianteId";
-            EstudiantecomboBox.DisplayMember = "Nombre";
+            EstudiantecomboBox.DisplayMember = "NombreCompleto";
         }
         private void CargarMatricula()
         {
@@ -143,7 +143,7 @@ namespace TeacherControl2016.Registros
 
             Estudiantes estudiante = new Estudiantes();
 
-            dato = estudiante.Listado("EstudianteId,Matricula", "Nombre = '"+EstudiantecomboBox.Text+"' and CursoId = '" + CursoComboBox.Text + "' and Grupo = '" + GrupocomboBox.Text + "'", "EstudianteId");
+            dato = estudiante.Listado("EstudianteId,Matricula", "NombreCompleto = '" + EstudiantecomboBox.Text+"' and CursoId = '" + CursoComboBox.Text + "' and Grupo = '" + GrupocomboBox.Text + "'", "EstudianteId");
             MatriculacomboBox.DataSource = dato;
             MatriculacomboBox.ValueMember = "EstudianteId";
             MatriculacomboBox.DisplayMember = "Matricula";
