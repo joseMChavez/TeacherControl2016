@@ -99,7 +99,7 @@ namespace TeacherControl2016.Registros
             CantidadEsttextBox.Text = asistencia.CantidadEst.ToString();
             foreach (AsistenciaDetalle item in asistencia.aDetalle)
             {
-                AsistenciadataGridView.Rows.Add(item.EstudianteId, item.Activo);
+                AsistenciadataGridView.Rows.Add(item.EstudianteId, item.Matricula,item.Activo);
             }
 
         }
